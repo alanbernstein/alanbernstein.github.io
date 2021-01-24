@@ -5,7 +5,7 @@
     <description>Recent content in Tags on The micro-optimist</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://alanbernstein.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -112,6 +112,32 @@ Project log for my organizer insert for Ortlieb Back Roller bike panniers.&lt;/p
 &lt;h2 id=&#34;headline-1&#34;&gt;
 Current status
 &lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+v1.2, in active use.&lt;/p&gt;
+&lt;p&gt;
+TODO:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;attach more nylon webbing, for attaching other accessories to the side of the insert&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;sew new version with flaps that cover the frame pockets&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;record a video of the quick-release action&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; /&gt;
+&lt;em&gt;Mounted to bag. Photographing this thing is tricky.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; /&gt;
+&lt;em&gt;Fidlock magnetic QR mount, female side, mounted to exterior of insert&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; /&gt;
+&lt;em&gt;Fidlock magnetic QR mount, male side, mounted to interior of Ortlieb bag&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
 &lt;h2 id=&#34;headline-2&#34;&gt;
@@ -120,14 +146,31 @@ Iterations
 &lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
 &lt;h3 id=&#34;headline-3&#34;&gt;
-v2: canvas, first version that &lt;em&gt;actually&lt;/em&gt; works (2020/05/09)
+v1.2: Add magnetic quick-release mount
 &lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+At this point, it works well enough that it has become part of my normal bike kit. Since I&amp;#39;m working from home until the apocalypse is over, I&amp;#39;m stopping here for now.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-3&#34;&gt;
 &lt;h3 id=&#34;headline-4&#34;&gt;
-v1: ripstop nylon, first minimally viable version (2020/02/25)
+v1.1: Ripstop nylon, retrofitted with the through-the-frame lock mount
 &lt;/h3&gt;
 &lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;One nice thing about sewing is that the stitching step is reversible. After learning from v2, I decided that I prefer the thinner nylon fabric, but the through-frame U-lock mount works much better than the surface-stitched version. So, not having any more fabric, and not having easy access to my laser cutter due to covid, I unstitched the first strap, and retrofitted the through-frame mount onto this bag.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-5&#34;&gt;
+v2: Canvas, first version that &lt;em&gt;actually&lt;/em&gt; works (2020/05/09)
+&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-6&#34;&gt;
+v1: Ripstop nylon, first minimally viable version (2020/02/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;Having a decent idea what the pattern should be, it was now feasible to laser cut it. I cut these out:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -141,17 +184,17 @@ v1: ripstop nylon, first minimally viable version (2020/02/25)
 I sewed the nylon pieces together, knowing that it would be easier to sew the other bits on first, but not knowing exactly where to put them. The fabric was thin enough that I could manipulate it enough to sew things on later. &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-5&#34;&gt;
+&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-7&#34;&gt;
 v0.2: random scrap fabric, pattern test (2020/01/25)
 &lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;
 After the cardboard prototype, I decided I was ready to take on the sewing project. I bought some off-the-shelf fabric that seemed appropriate, and then proceeded to think about how to make the thing for a few months. I spoke with some very helpful people at the Sew and Tell meetup, and finally accepted that I just need to try making it a few times. One of the suggestions was to make that first fabric prototype with cheap scrap fabric, so I tried that.&lt;/p&gt;
 &lt;p&gt;
 The design was based on the cardboard model, with two broad sides and a thin strip connecting them to give it some volume. I got one big design suggestion at the meetup that allowed me to make progress on this: each side should have a sealable pocket to contain the plastic insert. With that in mind, this first version allowed me to test cutting the pattern, and the sewing process. It turned out that this fabric was awful to work with (very stretchy and very ragged edges), but I definitely learned enough to gain the confidence to work on the next version, with the good fabric.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 I was proud of myself for documenting my learning process with the first bag, but it was not that helpful afterward. I changed the design, and I&amp;#39;ve already internalized the lessons I learned about sewing techniques. Probably most significantly, I abandoned the side strip idea. A laptop fits inside the bag without that added width, and I had a hard time keeping the three pieces of fabric properly aligned. I might want to use a similar approach for a different project later. &lt;/p&gt;
 &lt;p&gt;
@@ -178,36 +221,36 @@ Lessons learned:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-6&#34;&gt;
+&lt;div id=&#34;outline-container-headline-8&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-8&#34;&gt;
 v0.1: cardboard and zip ties, proof-of-concept (2019/02/25)
 &lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;My first attempt was a cardboard mockup, held together with zip ties. This worked well enough to prove the concept. It disintegrated after a month or so.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-7&#34;&gt;
+&lt;div id=&#34;outline-container-headline-9&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-9&#34;&gt;
 Sewing process
 &lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div id=&#34;outline-text-headline-9&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Latest prototype in action. The two main features driving the structural design are the laptop pocket and the U-lock strap.
 I&amp;#39;m a sewing beginner, and this is my first design, so I&amp;#39;m learning, making things up as I go, and I probably don&amp;#39;t know a lot of terms that I should. Despite that, I&amp;#39;m very satisfied with this second iteration. It&amp;#39;s truly usable, but I hope to refine it, so I&amp;#39;ll point out a few issues.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 It goes inside this popular Ortlieb pannier. I&amp;#39;m avoiding any permanent modifications to the waterproof exterior. Still figuring out mounting options, but that&amp;#39;s not a major concern, because normally the bag is full enough to keep the organizer in place.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 My three prototypes: &lt;/p&gt;
 &lt;ul&gt;
@@ -221,19 +264,19 @@ My three prototypes: &lt;/p&gt;
 &lt;p&gt;Yellow: random canvas (.6mm thick). Includes a &amp;#34;through-the-frame&amp;#34; removable nylon strap+buckle to hold the lock.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Sewing the lock strap on the exterior, using this fabric, is not sturdy. U-locks are heavy, so it sags significantly.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Aside from the main pocket, each side has a mini-pocket just for storing a rigid plastic sheet to maintain the structure. I deliberately tucked the flap INSIDE the pocket rather than go over it. It made sense in my head, but it&amp;#39;s clearly the wrong choice.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Trying to show detail of how the pockets are laid out.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Same idea for the yellow bag, but the flap closes over the pocket, and terminates on the outside of the bag rather than the inside. Much sturdier fabric, plus two velcro strips on the ends, instead of one in the middle, mean this bag holds its shape much more than the blue one.&lt;/p&gt;
 &lt;p&gt;
@@ -241,53 +284,53 @@ Also shows the nylon strap going through the outer layer of the bag (via a &amp;
 &lt;p&gt;
 This design allowed me to experiment with different insert combinations. There&amp;#39;s plenty of weight to trim here.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Outside of the faced opening.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Detail of pocket layout&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 detail of pocket flap seam from outside&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 detail of pocket flap seam from inside&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Detail of canvas inside-out.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Detail of nylon inside-out.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-8&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-8&#34;&gt;
+&lt;div id=&#34;outline-container-headline-10&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-10&#34;&gt;
 Making the shape template
 &lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div id=&#34;outline-text-headline-10&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;p&gt;
 Designing the fabric pattern was the first step. Since the Ortlieb bag includes a plastic insert to give it structure, using that exact shape seemed like the right way to go.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 I took some rough measurements of the irregular hexagon shape. I could have used these to get pretty close to the right shape. &lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 However, I have an unreasonable propensity for unnecessary accuracy. I removed the insert, photographed it against a grid, then transformed that photo into vector files for laser cutting. This is great for cutting the pattern from fabric in a repeatable way. Unfortunately I can&amp;#39;t use the laser for the plastic insert itself, so I cut that with a dremel. In the future I might try a bandsaw instead.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/pattern-illustration.png&#34; alt=&#34;/img/ortlieb-organizer/pattern-illustration.png&#34; title=&#34;/img/ortlieb-organizer/pattern-illustration.png&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/pattern-illustration.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/pattern-illustration.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/pattern-illustration.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 This is a color-coded illustration of the pattern files I used. &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&amp;lt;span style=&amp;#34;color:red&amp;#34;&amp;gt;Red&amp;lt;/style&amp;gt;: plastic insert&lt;/p&gt;
+&lt;p&gt;Red: plastic insert&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Black: mounting hole cutouts&lt;/p&gt;
@@ -315,7 +358,7 @@ The seam margin is .5&amp;#34; in this image, which is what I used for the orang
       <description>&lt;p&gt;
 I thought of a thing that I wanted, found that someone else had already done it, and sold it on Etsy, but then stopped. Using a photo of it, and some light hacking skills, I made another one for myself.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/true-false-ambigram.png&#34; alt=&#34;/img/ambigram/true-false-ambigram.png&#34; title=&#34;/img/ambigram/true-false-ambigram.png&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/true-false-ambigram.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/true-false-ambigram.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/true-false-ambigram.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 &lt;em&gt;&lt;a href=&#34;http://www.anopticalillusion.com/2012/12/truefalse-ambigram-by-john-langdon/&#34;&gt;Rotational trans-ambigram by John Langdon&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;
@@ -330,7 +373,7 @@ One day, I noticed one of those dishwasher clean/dirty magnets, and thought &amp
 &lt;p&gt;
 So that would have been a dead end, except the image was available in a halfway decent resolution. That means I should be able to hack it back into existence, so I set out to do just that.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/etsy-product-image.jpg&#34; alt=&#34;/img/ambigram/etsy-product-image.jpg&#34; title=&#34;/img/ambigram/etsy-product-image.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/etsy-product-image.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/etsy-product-image.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/etsy-product-image.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 &lt;em&gt;&lt;a href=&#34;https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet&#34;&gt;Original Etsy product image&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;
@@ -359,7 +402,7 @@ Generally speaking, extracting a high-quality representation of an object, from 
 &lt;p&gt;
 In the case of a known rectangle, there is a simple way to estimate the original perspective projection, invert it, and apply that inverse to the photo. This effectively maps whatever pattern is on the rectangle in the photo, to a new, properly rectangular region, like so:&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/transformed.jpg&#34; alt=&#34;/img/ambigram/transformed.jpg&#34; title=&#34;/img/ambigram/transformed.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/transformed.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/transformed.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/transformed.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 &lt;em&gt;Perspective projection inverted&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;
@@ -385,21 +428,89 @@ Generating a vector image
 &lt;p&gt;
 The &amp;#34;hard&amp;#34; part is done - I have something pretty close to what I want for the final product - that just leaves the grunt work. The end goal is to produce a clean, black and white image, and there are different ways to go about that. Experience tells me that in this case, vectorizing the image will give the best result. I&amp;#39;ve used a few tools for this task, including some free web services, potrace, and Corel Draw. Here, Illustrator did the best job:&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/vectorized.svg&#34; alt=&#34;/img/ambigram/vectorized.svg&#34; title=&#34;/img/ambigram/vectorized.svg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/vectorized.svg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/vectorized.svg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/vectorized.svg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 &lt;em&gt;Vectorized&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;
 This looks pretty good, at least around the letters. The finer details in the decorative border didn&amp;#39;t turn out so well, but that&amp;#39;s ok - I&amp;#39;m more into the minimal design with letters only. I removed all the border stuff, and did a little manual repair work on some of the letter edges.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/word-only-white-on-black.png&#34; alt=&#34;/img/ambigram/word-only-white-on-black.png&#34; title=&#34;/img/ambigram/word-only-white-on-black.png&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/word-only-white-on-black.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/word-only-white-on-black.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/word-only-white-on-black.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 &lt;em&gt;Final high-quality raster image&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;
 Perfect! All I had to do was get it printed on a magnet. I used &lt;a href=&#34;https://www.purebuttons.com/&#34;&gt;purebuttons&lt;/a&gt;, which was great for a low-volume order. The final product:&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/magnet-photo-both.jpg&#34; alt=&#34;/img/ambigram/magnet-photo-both.jpg&#34; title=&#34;/img/ambigram/magnet-photo-both.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/magnet-photo-both.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/magnet-photo-both.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/magnet-photo-both.jpg&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Really Squeeze the Value Out of Your Overpriced Razor Blades</title>
+      <link>http://alanbernstein.github.io/posts/shaving/</link>
+      <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/shaving/</guid>
+      <description>&lt;p&gt;I read somewhere that a strip of denim works pretty well for stropping razor blades, which supposedly extends their effective life. It seemed like a good experiment opportunity.&lt;/p&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;Shave each half of my face, on the same day, using a dull blade on one side, and a stropped blade on the other. Count the total number of blade strokes used for each half the face.&lt;/p&gt;
+&lt;p&gt;A better experiment might have been to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;use two blades, alternating each between left and right side of face&lt;/li&gt;
+&lt;li&gt;let blade 1 dull naturally, and strop blade 2 after each shave,&lt;/li&gt;
+&lt;li&gt;shave on a regular schedule, for consistent growth.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As it turned out, I didn&amp;rsquo;t have to go that far to see positive results.&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;I counted the strokes during nine shaves, and of these, six resulted in good measurements, that I remembered to write down.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;stropped&lt;/th&gt;
+&lt;th&gt;dull&lt;/th&gt;
+&lt;th&gt;ratio&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;46&lt;/td&gt;
+&lt;td&gt;67&lt;/td&gt;
+&lt;td&gt;.69&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;39&lt;/td&gt;
+&lt;td&gt;51&lt;/td&gt;
+&lt;td&gt;.76&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;.77&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;47&lt;/td&gt;
+&lt;td&gt;68&lt;/td&gt;
+&lt;td&gt;.69&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;34&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;.57&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td&gt;.80&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These shaving sessions were not highly controlled, with different levels of hair growth, blade age, shaving cream. Counting strokes is also not an ideal metric, just the best available one. As a result, the absolute numbers vary a bit, so I don&amp;rsquo;t think averaging them would be meaningful.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Regardless, the ratio of stropped-strokes/dull-strokes was always &amp;lt;1, and usually significantly so. I concluded that denim stropping is a meaningful way to improve the performance of a razor blade, and thus extending its useful life.&lt;/p&gt;
+&lt;h2 id=&#34;addendum&#34;&gt;Addendum&lt;/h2&gt;
+&lt;p&gt;I later realized that my girlfriend&amp;rsquo;s razor is superior due to the much larger area of integrated shave cream goo, so now I just steal her razors and don&amp;rsquo;t think about it.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
   </channel>
