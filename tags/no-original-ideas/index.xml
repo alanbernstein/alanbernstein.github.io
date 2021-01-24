@@ -11,6 +11,94 @@
     
     
     <item>
+      <title>Why Benford&#39;s Law is Obvious</title>
+      <link>http://alanbernstein.github.io/posts/benford/</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/benford/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Benford%27s_law&#34;target=&#34;_blank&#34;&gt;Benford&amp;rsquo;s Law&lt;/a&gt; states that in many naturally occurring collections of numbers, the leading digit is likely to be small. I love math factoids like this, and I remember how deeply unintuitive this seemed when I first learned it. Now, I find myself looking for a way to explain how intuitive it really is.&lt;/p&gt;
+&lt;h2 id=&#34;benfords-law&#34;&gt;Benford&amp;rsquo;s Law&lt;/h2&gt;
+&lt;p&gt;When you first hear of this, the thinking might go something like this: if you choose a number randomly, shouldn&amp;rsquo;t the first digit be uniformly distributed? Even if the original distribution isn&amp;rsquo;t uniform, as long as it covers a wide enough range, why would the &lt;em&gt;first digit&lt;/em&gt; have any bias?&lt;/p&gt;
+&lt;p&gt;Explanations abound, but I find that they often miss the crucial point (like this otherwise fantastic &lt;a href=&#34;https://youtu.be/etx0k1nLn78&#34;target=&#34;_blank&#34;&gt;video&lt;/a&gt; for example). Simply put, it is a direct consequence of the &lt;a href=&#34;https://en.wikipedia.org/wiki/Reciprocal_distribution&#34;target=&#34;_blank&#34;&gt;log-uniform distribution&lt;/a&gt;, which governs these &amp;ldquo;naturally occurring collections of numbers&amp;rdquo;, e.g. measurements, population counts, etc. If you can accept that these natural collections tend to be log-normal distributed, Benford&amp;rsquo;s Law is &amp;ldquo;obvious&amp;rdquo;, that is, an unavoidable consequence. Some simply explain this empirically, giving examples. But I think there is more to it.&lt;/p&gt;
+&lt;p&gt;Why do some collections of numbers have this tendency? I like to think of it like this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The logarithmic scale is &lt;em&gt;at least&lt;/em&gt; as natural a way to look at the world as the linear scale is.&lt;/li&gt;
+&lt;li&gt;In a given scale (linear, log, or otherwise), a uniform distribution is the &amp;ldquo;simplest&amp;rdquo; option. It&amp;rsquo;s sort of a default distribution, perhaps in part due to being the maximum entropy distribution for a bounded domain.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;rsquo;m aware that this is an academic viewpoint - I&amp;rsquo;m using &amp;ldquo;obvious&amp;rdquo; facetiously here. While the log-uniform distribution may be more &amp;ldquo;natural&amp;rdquo; in some sense, the linear-uniform distribution is certainly not unusual. Roll a die, draw a card, pick a ball from an urn - these are all basic processes, easily understood, and obviously uniform. While they may be more common in the built environment rather than in nature, they are still regular occurrences to a human child living in society, helping to reify the linear scale in her mind.&lt;/p&gt;
+&lt;p&gt;The linked video also presents a counterexample to Benford&amp;rsquo;s law, plus a counterpart law with its corresponding counterexample. Paraphrased:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Benford&amp;rsquo;s Law: most-significant digits are expected to be biased toward lower values with a logarithmic trend, &lt;em&gt;if&lt;/em&gt; the range of values spans multiple orders of magnitude.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Benford Counterexample (Biden votes) If the data spans just a single order of magnitude i.e. specifically [10^n, 10^(n+1)) so the number of digits is constant, then the first-digit distribution just reflects the data distribution itself. Benford&amp;rsquo;s law is not &lt;em&gt;violated&lt;/em&gt;, it is rather &lt;em&gt;not applicable&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last-digit test: least-significant digits are expected to be distributed uniformly, &lt;em&gt;if&lt;/em&gt; the range of values is wide enough, relative to the precision of the values.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last-digit counterexample (incumbent votes): If the data spans just a single, &lt;strong&gt;low&lt;/strong&gt;, order of magnitude*, e.g. [10, 100), then &amp;ldquo;the last two digits are just *the digits*&amp;rdquo;, so the last-digits distribution just reflects the data distribution itself. The last-digit test is not *violated*, it is rather *not applicable*.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There&amp;rsquo;s a pleasing sort of duality here, and illustrating each of these with the two political parties&#39; vote counts is pretty cute.&lt;/p&gt;
+&lt;h2 id=&#34;another-counterpart&#34;&gt;Another counterpart&lt;/h2&gt;
+&lt;p&gt;Although these are interesting lines of thought, they prompted another question, the real motivation for writing this: is there &lt;em&gt;another&lt;/em&gt; counterpart to Benford&amp;rsquo;s Law, which might be equally surprising to a culture that thinks in the logarithmic scale by default? Of course, human sensory perception is logarithmic, as is our natural perception of integers. But early education beats that out of us, and our culture generally encourages us to consider the linear scale as the default way of thinking about numbers - the Way Numbers Really Are.&lt;/p&gt;
+&lt;p&gt;If, instead, we were trained from a young age to think about the logarithmic scale as the default, then what sort of distribution would lead to a similarly surprising result, and what would that result be?&lt;/p&gt;
+&lt;p&gt;After ruminating on this topic over the years, and a concerted hour or two of trying to answer this question, I found a candidate. I&amp;rsquo;ll restate Benford&amp;rsquo;s again for comparison:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Benford&amp;rsquo;s Law: When accustomed to the linear scale, a log-uniform distribution results in a suprising bias in first-digits, logarithmically decreasing from 1 to 9.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And the linear counterpart:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Drofben&amp;rsquo;s Law: When accustomed to the logarithmic scale, a linear-uniform distribution results in a surprising bias in number-of-digits, exponentially increasing from 1 (to N).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;These charts illustrate both laws, as described above &amp;ndash; but I&amp;rsquo;ll elaborate.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/benford/figure1.png&#34;
+        alt=&#34;Figure 1: Log-uniform random data&#34;/&gt;
+&lt;em&gt;Figure 1: Log-uniform random data&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1a shows that log-uniform data follows a logarithmically-decreasing trend, &lt;em&gt;when viewed in the linear domain&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;1b shows that log-uniform data follows a constant trend, when viewed in the (arguably more appropriate) logarithmic domain.&lt;/li&gt;
+&lt;li&gt;1c shows Benford&amp;rsquo;s law directly, with bar heights corresponding to first-digit bias. Note that this shape closely resembles the shape of the distribution in 1a &amp;ndash; it isn&amp;rsquo;t identical, because 1c kind of &amp;ldquo;layers&amp;rdquo; the histograms from each level of magnitude in 1a, into a new form that examines only first digits instead of all values.&lt;/li&gt;
+&lt;li&gt;1d (aside from being kind of busy because I&amp;rsquo;m a bad graphic designer) shows where these &amp;ldquo;layers&amp;rdquo; come from. The black trace represents the determinstic values of the function first_digit(x) for all values of x in [1, 10000]. The green regions cover all numbers that start with 1, and they&amp;rsquo;re widest &amp;ndash; that cumulatve width corresponds to the height of the bar for digit 1 in figure 1c. Red regions correspond to numbers that start with 2, with a more moderate cumulative width. Purple corresponds to 5, with a much smaller width, and similarly for all other digits.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And here are the corresponding charts for Drofben&amp;rsquo;s law:&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/benford/figure2.png&#34;
+        alt=&#34;Figure 2: Linear-uniform random data&#34;/&gt;
+&lt;em&gt;Figure 2: Linear-uniform random data&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2a shows that linear-uniform data follows a constant trend, when viewed in the linear domain.&lt;/li&gt;
+&lt;li&gt;2b shows that linear-uniform data follows an exponentially-increasing trend, when viewed in the logarithmic domain.&lt;/li&gt;
+&lt;li&gt;2c shows Drofben&amp;rsquo;s law directly, with bar heights corresponding to number-of-digits bias. Note that this shape closely resembles the shape of the distribution in 2b.&lt;/li&gt;
+&lt;li&gt;2d shows the analogous &amp;ldquo;layers&amp;rdquo; of Drofben&amp;rsquo;s law &amp;ndash; these layers just represent magnitude. The gray region, representing numbers with five digits, takes up 90% of the total width. Pink, for four digits, takes 9%, and so on.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the second case, these layers just reflect the counts of integers in ranges: |[1, 10)| = 9, |[10, 100)| = 90, |[100, 1000)| = 900, etc &amp;ndash; this seems almost too obvious to mention. But, that&amp;rsquo;s what I was looking for &amp;ndash; a result that&amp;rsquo;s surprising to an alien, logarithmic culture &lt;em&gt;should&lt;/em&gt; be obvious to our linear minds.&lt;/p&gt;
+&lt;h2 id=&#34;the-digits-are-not-the-value&#34;&gt;The digits are not the value&lt;/h2&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/benford/treachery-of-digits-hex.png&#34;
+        alt=&#34;The treachery of digits: an homage to the treachery of images, where &amp;amp;ldquo;This is not a number&amp;amp;rdquo; refers to the hexadecimal representation of the floating-point value NaN, &amp;amp;ldquo;Not a Number&amp;amp;rdquo;&#34;/&gt;
+&lt;em&gt;The treachery of digits, with apologies to &lt;a href=&#34;https://en.wikipedia.org/wiki/The_Treachery_of_Images&#34;target=&#34;_blank&#34;&gt;Magritte&lt;/a&gt;&amp;hellip; and &lt;a href=&#34;https://en.wikipedia.org/wiki/NaN&#34;target=&#34;_blank&#34;&gt;IEEE&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;admonition warning&#34; style=&#39;border-left:4px solid #cd5f3c; padding-left:2em; font-size:16px; margin:2em 0&#39;&gt;
+    &lt;div class=&#34;title&#34;&gt;Warning&lt;/div&gt;
+    &lt;div class=&#34;content&#34;&gt;Philosophical rambling ahead&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;All of this might seem silly. Consider a linear-uniform distribution over [1, 100). Of course the range [10, 99] is 10x as likely as the range [1, 9] &amp;ndash; that&amp;rsquo;s just the relative size of the intervals. But it&amp;rsquo;s the &lt;em&gt;arithmetic size&lt;/em&gt;, the linear size. If you were conditioned to think first of the &lt;em&gt;geometric size&lt;/em&gt;, the logarithmic size, you would instinctively see these two intervals as having (nearly) the same size. You wouldn&amp;rsquo;t expect the linear-uniform distribution, and this behavior would indeed be surprising. Perhaps it&amp;rsquo;s hard to imagine this, because &lt;em&gt;the digits themselves&lt;/em&gt; make it obvious: for Benford&amp;rsquo;s Law, it is not obvious that 1234 is any more likely to occur than 5678. In contrast, you can&amp;rsquo;t help but notice that 5 has only one digit, while 5678 has four digits. However, considering non-integer values allows us to make a more illustrative comparison between 5.678 and 5678. Try to imagine perceiving numbers through their &lt;em&gt;magnitude&lt;/em&gt; instead of their &lt;em&gt;digits&lt;/em&gt;. Perhaps growing up using a slide rule is the best way to internalize the logarithmic scale. I missed that boat by a few years.&lt;/p&gt;
+&lt;p&gt;My point is, the digits are only a representation of the number&amp;rsquo;s value. Despite being a perfectly complete representation, the &lt;em&gt;digit string&lt;/em&gt; is not an innate property of the &lt;em&gt;value&lt;/em&gt;, but rather an artifact of the representation system. It&amp;rsquo;s like looking for information in the pixel boundaries of a photograph: anything you find might be explained by the sampling grid, and disappear under a different sampling. Any properties of the digit string of a number might be explained by the choice of base, and disappear under a different base.&lt;/p&gt;
+&lt;p&gt;Of course, the number of digits is a crude approximation of the magnitude (regardless of the choice of base), whereas the first digit is more reasonably described as a &amp;ldquo;random&amp;rdquo; artifact of the representation. I&amp;rsquo;ll concede that the number of digits is not &lt;em&gt;just&lt;/em&gt; an artifact, and therefore Drofben&amp;rsquo;s Law is more obvious &amp;ndash; &lt;em&gt;if&lt;/em&gt; you think about numbers primarily in terms of their non-fractional digits.&lt;/p&gt;
+&lt;div class=&#34;admonition note&#34; style=&#39;border-left:4px solid #3c5f8d; padding-left:2em; font-size:16px; margin:2em 0&#39;&gt;
+    &lt;div class=&#34;title&#34;&gt;Tangent&lt;/div&gt;
+    &lt;div class=&#34;content&#34;&gt;I&amp;rsquo;m a former mathlete, I love recreational math problems/puzzles. These sometimes concern properties of the base-10 representation of numbers (Project Euler often uses the &lt;a href=&#34;https://projecteuler.net/problem=20&#34;&gt;digit sum&lt;/a&gt;, etc., similarly, the Putnam exam usually includes a problem where the current year is used as an &lt;a href=&#34;https://kskedlaya.org/putnam-archive/2019.pdf&#34;&gt;upper limit&lt;/a&gt; or the like), and I&amp;rsquo;ve always thought of these as sort of &amp;ldquo;impure&amp;rdquo; problems which aren&amp;rsquo;t as deeply interesting. On the other hand, there is some deep math involved in &lt;a href=&#34;https://en.wikipedia.org/wiki/Goodstein%27s_theorem&#34;&gt;Goodstein sequences&lt;/a&gt;, based on fiddling around with hereditary base-N notation. Although, it comes specifically from &lt;em&gt;not&lt;/em&gt; constraining N.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;base-effects&#34;&gt;Base effects&lt;/h3&gt;
+&lt;p&gt;When working with numbers, we have to pick some representation system; base 10 is fine, but it might be interesting to think about how these artifacts change when using different systems. While Benford&amp;rsquo;s Law occurs regardless of the base, there is some interesting behavior at the extremes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;base 2: Benford&amp;rsquo;s Law doesn&amp;rsquo;t mean as much in this case &amp;ndash; all first bits are 1! The generalization still applies to first-N-bits, but this is still an interesting comparison. In contrast, number-of-bits is now a closer approximation to the magnitude of the number.&lt;/li&gt;
+&lt;li&gt;base infinity: each numeral is represented by a different symbol. Now, number-of-digits is always 1! Most of the questions become meaningless, because we&amp;rsquo;ve abandoned the concept of place-value digits, without abandoning the values. The concept of &amp;ldquo;first digit bias&amp;rdquo; isn&amp;rsquo;t even tautological as in the base-2 case. The distribution of digit occurrences still contains some information, however.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Aside from these extremes, there is the zero-padded representation of base-N. Now, regardless of the the value of N, first-digit is uniform, and number-of-digits is constant. As lazy humans, we don&amp;rsquo;t bother writing out all these leading zeros, but that&amp;rsquo;s how computers work! I suppose a child raised by computers would think all of the zero-pad-counterparts of these laws are perfectly obvious and devoid of value.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Ortlieb Organizer</title>
       <link>http://alanbernstein.github.io/posts/ortlieb-organizer/</link>
       <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
