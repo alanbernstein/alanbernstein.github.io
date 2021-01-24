@@ -1,0 +1,316 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>design on The micro-optimist</title>
+    <link>http://alanbernstein.github.io/tags/design/</link>
+    <description>Recent content in design on The micro-optimist</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="http://alanbernstein.github.io/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ortlieb Organizer</title>
+      <link>http://alanbernstein.github.io/posts/ortlieb-organizer/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/ortlieb-organizer/</guid>
+      <description>&lt;p&gt;
+Project log for my organizer insert for Ortlieb Back Roller bike panniers.&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Current status
+&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Iterations
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-3&#34;&gt;
+v2: canvas, first version that &lt;em&gt;actually&lt;/em&gt; works (2020/05/09)
+&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-4&#34;&gt;
+v1: ripstop nylon, first minimally viable version (2020/02/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;Having a decent idea what the pattern should be, it was now feasible to laser cut it. I cut these out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Nylon: 2x base, 2x tall, .5&amp;#34; seam margin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Canvas: 2x base, 2x tall, 1&amp;#34; seam margin&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I chose to start with an all-nylon bag. I realized later I might have used canvas for the outside and nylon for the inside. All-nylon was a good choice to start with though.
+I sewed the nylon pieces together, knowing that it would be easier to sew the other bits on first, but not knowing exactly where to put them. The fabric was thin enough that I could manipulate it enough to sew things on later. &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-5&#34;&gt;
+v0.2: random scrap fabric, pattern test (2020/01/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+After the cardboard prototype, I decided I was ready to take on the sewing project. I bought some off-the-shelf fabric that seemed appropriate, and then proceeded to think about how to make the thing for a few months. I spoke with some very helpful people at the Sew and Tell meetup, and finally accepted that I just need to try making it a few times. One of the suggestions was to make that first fabric prototype with cheap scrap fabric, so I tried that.&lt;/p&gt;
+&lt;p&gt;
+The design was based on the cardboard model, with two broad sides and a thin strip connecting them to give it some volume. I got one big design suggestion at the meetup that allowed me to make progress on this: each side should have a sealable pocket to contain the plastic insert. With that in mind, this first version allowed me to test cutting the pattern, and the sewing process. It turned out that this fabric was awful to work with (very stretchy and very ragged edges), but I definitely learned enough to gain the confidence to work on the next version, with the good fabric.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+I was proud of myself for documenting my learning process with the first bag, but it was not that helpful afterward. I changed the design, and I&amp;#39;ve already internalized the lessons I learned about sewing techniques. Probably most significantly, I abandoned the side strip idea. A laptop fits inside the bag without that added width, and I had a hard time keeping the three pieces of fabric properly aligned. I might want to use a similar approach for a different project later. &lt;/p&gt;
+&lt;p&gt;
+Lessons learned:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Began to understand how to think about designing the inside-out object.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When my mental model of the inside-out object fails, I can pin fabric together and turn it inside out to test.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When sewing around a corner, and you need to raise the foot to reposition the work piece, you can rotate it in &lt;strong&gt;either&lt;/strong&gt; direction - it doesn&amp;#39;t have to follow the direction of the seam.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If I try the thin strip idea again in the future, I will cut it maybe four inches longer than needed, THEN sew it, then trim excess. That will fix half of the alignment problem, but still need to be sure that the two side pieces are lined up properly. It might be easier to use several smaller thin strips, but that would also be uglier.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When cutting the pattern, following the curved corners isn&amp;#39;t important: cut a polygonal hull, sew whatever seam you want, then trim. The seam doesn&amp;#39;t even need to be curved, because the bag will take on an organic shape anyway.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The four main parts are attached with three seams, and I put the third one in the wrong place, so the first two were unnecessarily exposed. It occurred to me that I could have just used a single seam, but having multiple seemed like a good idea anyway.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-6&#34;&gt;
+v0.1: cardboard and zip ties, proof-of-concept (2019/02/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;My first attempt was a cardboard mockup, held together with zip ties. This worked well enough to prove the concept. It disintegrated after a month or so.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-7&#34;&gt;
+Sewing process
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Latest prototype in action. The two main features driving the structural design are the laptop pocket and the U-lock strap.
+I&amp;#39;m a sewing beginner, and this is my first design, so I&amp;#39;m learning, making things up as I go, and I probably don&amp;#39;t know a lot of terms that I should. Despite that, I&amp;#39;m very satisfied with this second iteration. It&amp;#39;s truly usable, but I hope to refine it, so I&amp;#39;ll point out a few issues.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+It goes inside this popular Ortlieb pannier. I&amp;#39;m avoiding any permanent modifications to the waterproof exterior. Still figuring out mounting options, but that&amp;#39;s not a major concern, because normally the bag is full enough to keep the organizer in place.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+My three prototypes: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Orange: random scrap fabric, to experiment with the basic pattern, not really usable &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Blue: random ripstop nylon (specs unknown, but it&amp;#39;s .1mm thick). Includes a sewn-on nylon strap to hold the lock.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Yellow: random canvas (.6mm thick). Includes a &amp;#34;through-the-frame&amp;#34; removable nylon strap+buckle to hold the lock.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Sewing the lock strap on the exterior, using this fabric, is not sturdy. U-locks are heavy, so it sags significantly.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Aside from the main pocket, each side has a mini-pocket just for storing a rigid plastic sheet to maintain the structure. I deliberately tucked the flap INSIDE the pocket rather than go over it. It made sense in my head, but it&amp;#39;s clearly the wrong choice.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Trying to show detail of how the pockets are laid out.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Same idea for the yellow bag, but the flap closes over the pocket, and terminates on the outside of the bag rather than the inside. Much sturdier fabric, plus two velcro strips on the ends, instead of one in the middle, mean this bag holds its shape much more than the blue one.&lt;/p&gt;
+&lt;p&gt;
+Also shows the nylon strap going through the outer layer of the bag (via a &amp;#34;faced opening&amp;#34; made from the ripstop, and through the plastic frame.&lt;/p&gt;
+&lt;p&gt;
+This design allowed me to experiment with different insert combinations. There&amp;#39;s plenty of weight to trim here.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Outside of the faced opening.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Detail of pocket layout&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+detail of pocket flap seam from outside&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+detail of pocket flap seam from inside&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Detail of canvas inside-out.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Detail of nylon inside-out.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-8&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-8&#34;&gt;
+Making the shape template
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+Designing the fabric pattern was the first step. Since the Ortlieb bag includes a plastic insert to give it structure, using that exact shape seemed like the right way to go.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+I took some rough measurements of the irregular hexagon shape. I could have used these to get pretty close to the right shape. &lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+However, I have an unreasonable propensity for unnecessary accuracy. I removed the insert, photographed it against a grid, then transformed that photo into vector files for laser cutting. This is great for cutting the pattern from fabric in a repeatable way. Unfortunately I can&amp;#39;t use the laser for the plastic insert itself, so I cut that with a dremel. In the future I might try a bandsaw instead.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/pattern-illustration.png&#34; alt=&#34;/img/ortlieb-organizer/pattern-illustration.png&#34; title=&#34;/img/ortlieb-organizer/pattern-illustration.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+This is a color-coded illustration of the pattern files I used. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;lt;span style=&amp;#34;color:red&amp;#34;&amp;gt;Red&amp;lt;/style&amp;gt;: plastic insert&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Black: mounting hole cutouts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Blue: &amp;#34;base&amp;#34; fabric pattern&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Green: &amp;#34;tall&amp;#34; fabric pattern, including the flap that covers the mini-pocket for the plastic insert. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I sewed these two fabric pieces together, repeated with another two, then sewed those two pairs together, then turned inside out. Adding velcro, slits, and hems was done at the appropriate steps.&lt;/p&gt;
+&lt;p&gt;
+The seam margin is .5&amp;#34; in this image, which is what I used for the orange and blue bags. The yellow one is 1&amp;#34;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Reviving a dead Etsy product</title>
+      <link>http://alanbernstein.github.io/posts/ambigram/</link>
+      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/ambigram/</guid>
+      <description>&lt;p&gt;
+I thought of a thing that I wanted, found that someone else had already done it, and sold it on Etsy, but then stopped. Using a photo of it, and some light hacking skills, I made another one for myself.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/true-false-ambigram.png&#34; alt=&#34;/img/ambigram/true-false-ambigram.png&#34; title=&#34;/img/ambigram/true-false-ambigram.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;&lt;a href=&#34;http://www.anopticalillusion.com/2012/12/truefalse-ambigram-by-john-langdon/&#34;&gt;Rotational trans-ambigram by John Langdon&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+I like words, optical illusions, and art. An &lt;a href=&#34;https://en.wikipedia.org/wiki/Ambigram&#34;&gt;ambigram&lt;/a&gt; is a clever combination of all three of these, so of course I like these too. There are a few different forms, and while they&amp;#39;re all neat, I am particularly fond of the type that incorporates two wholly different words, with a 180-degree rotation separating the two, like the true/false image above.&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+The idea
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+One day, I noticed one of those dishwasher clean/dirty magnets, and thought &amp;#34;Hey! that would be a perfect way to use an ambigram!&amp;#34; Then, realizing my limited artistic skill would prevent me from inventing it myself, I turned to the web. I found a handful of examples, and &lt;a href=&#34;https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet&#34;&gt;one that I really liked on Etsy&lt;/a&gt; - this one was actually designed to be used as a dishwasher magnet! Unfortunately, it not only unavailable, but it&amp;#39;s the lone product in a defunct shop, so I was not hopeful about contacting the &lt;a href=&#34;https://www.etsy.com/people/GilbertNick&#34;&gt;creator&lt;/a&gt;. Thanks for the design, Nick, if you ever see this!&lt;/p&gt;
+&lt;p&gt;
+So that would have been a dead end, except the image was available in a halfway decent resolution. That means I should be able to hack it back into existence, so I set out to do just that.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/etsy-product-image.jpg&#34; alt=&#34;/img/ambigram/etsy-product-image.jpg&#34; title=&#34;/img/ambigram/etsy-product-image.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;&lt;a href=&#34;https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet&#34;&gt;Original Etsy product image&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+570x443 pixels isn&amp;#39;t great, but for a simple, monochrome pattern with sharp lines, it might be good enough. So, there is this rectangular object, and I have a moderate-resolution photograph of it from an oblique angle. What do I need to do to reproduce the pattern at high resolution? It&amp;#39;s simple:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Undo the perspective projection&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trace the edges to generate a vector image&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clean up the messy edges&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Normally, I&amp;#39;m happy to dive into coding this stuff from scratch, just for the hell of it. In this case I was more interested in the destination than the journey, so I went for some proven solutions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Undoing the perspective projection
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+Generally speaking, extracting a high-quality representation of an object, from a photo in uncontrolled conditions, is a tricky problem. Photographing something means, among other things, applying a perspective projection to a 3D scene. That projection removes a lot of information from the scene to reduce it to an image - the exact shape, size, and location of the object - and that&amp;#39;s exactly what we want. If the object has any sort of complicated shape, it might be necessary to use some clever heuristics, or maybe multiple photos from different angles. On the other hand, a planar rectangle with known dimensions (4&amp;#34;x2.5&amp;#34; conveniently given in the product description), is just about the easiest thing to work with.&lt;/p&gt;
+&lt;p&gt;
+In the case of a known rectangle, there is a simple way to estimate the original perspective projection, invert it, and apply that inverse to the photo. This effectively maps whatever pattern is on the rectangle in the photo, to a new, properly rectangular region, like so:&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/transformed.jpg&#34; alt=&#34;/img/ambigram/transformed.jpg&#34; title=&#34;/img/ambigram/transformed.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Perspective projection inverted&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+As part of my perpetual &lt;a href=&#34;http://alanbernstein.github.io/tags/matlab-to-python&#34;&gt;Matlab-to-Python transition&lt;/a&gt;, I decided to ignore some &lt;a href=&#34;https://gist.github.com/alanbernstein/cbc319c75b74b99cf9b63da378bae6da&#34;&gt;old Matlab code&lt;/a&gt; I wrote to solve this problem, and &lt;a href=&#34;https://gist.github.com/alanbernstein/0ff61f3a3ae5e62278090a7ec9223826&#34;&gt;redo&lt;/a&gt; it in Python. As it turns out, with the OpenCV bindings available in Python, the solution is trivial. All I had to do was manually pick a handful of keypoints (the rectangle corners), and pass them to a single function to generate the required transformation. The output of that can then be applied directly to the image. In short, something like this:&lt;/p&gt;
+&lt;div class=&#34;src src-python&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;h, status &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;findHomography(pin, pout)
+im_dst &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;warpPerspective(im_src, h, dim)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+&amp;#34;&lt;a href=&#34;https://en.wikipedia.org/wiki/Homography_(computer_vision)&#34;&gt;Homography&lt;/a&gt;&amp;#34; is more or less another word for perspective projection. If I needed to do this for more than a few images, I would have wanted to automate the keypoint-picking step (I&amp;#39;ve used &lt;a href=&#34;https://en.wikipedia.org/wiki/Scale-invariant_feature_transform&#34;&gt;SIFT&lt;/a&gt; for that in the past, I wonder if that&amp;#39;s still in fashion?), but I&amp;#39;ll save that for a time when I need it.&lt;/p&gt;
+&lt;p&gt;
+Here is the full python code, because it&amp;#39;s easy enough to embed here:&lt;/p&gt;
+&lt;p&gt;
+&lt;script type=&#34;application/javascript&#34; src=&#34;https://gist.github.com/alanbernstein/0ff61f3a3ae5e62278090a7ec9223826.js&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-3&#34;&gt;
+Generating a vector image
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+The &amp;#34;hard&amp;#34; part is done - I have something pretty close to what I want for the final product - that just leaves the grunt work. The end goal is to produce a clean, black and white image, and there are different ways to go about that. Experience tells me that in this case, vectorizing the image will give the best result. I&amp;#39;ve used a few tools for this task, including some free web services, potrace, and Corel Draw. Here, Illustrator did the best job:&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/vectorized.svg&#34; alt=&#34;/img/ambigram/vectorized.svg&#34; title=&#34;/img/ambigram/vectorized.svg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Vectorized&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+This looks pretty good, at least around the letters. The finer details in the decorative border didn&amp;#39;t turn out so well, but that&amp;#39;s ok - I&amp;#39;m more into the minimal design with letters only. I removed all the border stuff, and did a little manual repair work on some of the letter edges.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/word-only-white-on-black.png&#34; alt=&#34;/img/ambigram/word-only-white-on-black.png&#34; title=&#34;/img/ambigram/word-only-white-on-black.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Final high-quality raster image&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+Perfect! All I had to do was get it printed on a magnet. I used &lt;a href=&#34;https://www.purebuttons.com/&#34;&gt;purebuttons&lt;/a&gt;, which was great for a low-volume order. The final product:&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ambigram/magnet-photo-both.jpg&#34; alt=&#34;/img/ambigram/magnet-photo-both.jpg&#34; title=&#34;/img/ambigram/magnet-photo-both.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

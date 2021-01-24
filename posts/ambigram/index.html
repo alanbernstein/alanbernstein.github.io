@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Reviving a dead Etsy product&nbsp;&ndash;&nbsp;The micro-optimist</title><link rel="stylesheet" href="/css/core.min.be90c2604d0624951b59c3774ae035006ab22401c90d4a390e87ea4324d5eca5655efd8d22e0330828cc23bfd58e369e.css" integrity="sha384-vpDCYE0GJJUbWcN3SuA1AGqyJAHJDUo5DofqQyTV7KVlXv2NIuAzCCjMI7/Vjjae"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Reviving a dead Etsy product" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">The micro-optimist</span></a></span>
+        <span class="header right-side"></span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Reviving a dead Etsy product</h1><p class="article date">2017-09-06</p></section><article class="article markdown-body"><p>
+I thought of a thing that I wanted, found that someone else had already done it, and sold it on Etsy, but then stopped. Using a photo of it, and some light hacking skills, I made another one for myself.</p>
+<p>
+<img src="/img/ambigram/true-false-ambigram.png" alt="/img/ambigram/true-false-ambigram.png" title="/img/ambigram/true-false-ambigram.png" /></p>
+<p>
+<em><a href="http://www.anopticalillusion.com/2012/12/truefalse-ambigram-by-john-langdon/">Rotational trans-ambigram by John Langdon</a></em></p>
+<p>
+I like words, optical illusions, and art. An <a href="https://en.wikipedia.org/wiki/Ambigram">ambigram</a> is a clever combination of all three of these, so of course I like these too. There are a few different forms, and while they&#39;re all neat, I am particularly fond of the type that incorporates two wholly different words, with a 180-degree rotation separating the two, like the true/false image above.</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+The idea
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+One day, I noticed one of those dishwasher clean/dirty magnets, and thought &#34;Hey! that would be a perfect way to use an ambigram!&#34; Then, realizing my limited artistic skill would prevent me from inventing it myself, I turned to the web. I found a handful of examples, and <a href="https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet">one that I really liked on Etsy</a> - this one was actually designed to be used as a dishwasher magnet! Unfortunately, it not only unavailable, but it&#39;s the lone product in a defunct shop, so I was not hopeful about contacting the <a href="https://www.etsy.com/people/GilbertNick">creator</a>. Thanks for the design, Nick, if you ever see this!</p>
+<p>
+So that would have been a dead end, except the image was available in a halfway decent resolution. That means I should be able to hack it back into existence, so I set out to do just that.</p>
+<p>
+<img src="/img/ambigram/etsy-product-image.jpg" alt="/img/ambigram/etsy-product-image.jpg" title="/img/ambigram/etsy-product-image.jpg" /></p>
+<p>
+<em><a href="https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet">Original Etsy product image</a></em></p>
+<p>
+570x443 pixels isn&#39;t great, but for a simple, monochrome pattern with sharp lines, it might be good enough. So, there is this rectangular object, and I have a moderate-resolution photograph of it from an oblique angle. What do I need to do to reproduce the pattern at high resolution? It&#39;s simple:</p>
+<ol>
+<li>
+<p>Undo the perspective projection</p>
+</li>
+<li>
+<p>Trace the edges to generate a vector image</p>
+</li>
+<li>
+<p>Clean up the messy edges</p>
+</li>
+</ol>
+<p>Normally, I&#39;m happy to dive into coding this stuff from scratch, just for the hell of it. In this case I was more interested in the destination than the journey, so I went for some proven solutions.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Undoing the perspective projection
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+Generally speaking, extracting a high-quality representation of an object, from a photo in uncontrolled conditions, is a tricky problem. Photographing something means, among other things, applying a perspective projection to a 3D scene. That projection removes a lot of information from the scene to reduce it to an image - the exact shape, size, and location of the object - and that&#39;s exactly what we want. If the object has any sort of complicated shape, it might be necessary to use some clever heuristics, or maybe multiple photos from different angles. On the other hand, a planar rectangle with known dimensions (4&#34;x2.5&#34; conveniently given in the product description), is just about the easiest thing to work with.</p>
+<p>
+In the case of a known rectangle, there is a simple way to estimate the original perspective projection, invert it, and apply that inverse to the photo. This effectively maps whatever pattern is on the rectangle in the photo, to a new, properly rectangular region, like so:</p>
+<p>
+<img src="/img/ambigram/transformed.jpg" alt="/img/ambigram/transformed.jpg" title="/img/ambigram/transformed.jpg" /></p>
+<p>
+<em>Perspective projection inverted</em></p>
+<p>
+As part of my perpetual <a href="/tags/matlab-to-python">Matlab-to-Python transition</a>, I decided to ignore some <a href="https://gist.github.com/alanbernstein/cbc319c75b74b99cf9b63da378bae6da">old Matlab code</a> I wrote to solve this problem, and <a href="https://gist.github.com/alanbernstein/0ff61f3a3ae5e62278090a7ec9223826">redo</a> it in Python. As it turns out, with the OpenCV bindings available in Python, the solution is trivial. All I had to do was manually pick a handful of keypoints (the rectangle corners), and pass them to a single function to generate the required transformation. The output of that can then be applied directly to the image. In short, something like this:</p>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">h, status <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>findHomography(pin, pout)
+im_dst <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>warpPerspective(im_src, h, dim)</code></pre></div>
+</div>
+<p>
+&#34;<a href="https://en.wikipedia.org/wiki/Homography_(computer_vision)">Homography</a>&#34; is more or less another word for perspective projection. If I needed to do this for more than a few images, I would have wanted to automate the keypoint-picking step (I&#39;ve used <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">SIFT</a> for that in the past, I wonder if that&#39;s still in fashion?), but I&#39;ll save that for a time when I need it.</p>
+<p>
+Here is the full python code, because it&#39;s easy enough to embed here:</p>
+<p>
+<script type="application/javascript" src="https://gist.github.com/alanbernstein/0ff61f3a3ae5e62278090a7ec9223826.js"></script>
+</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Generating a vector image
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>
+The &#34;hard&#34; part is done - I have something pretty close to what I want for the final product - that just leaves the grunt work. The end goal is to produce a clean, black and white image, and there are different ways to go about that. Experience tells me that in this case, vectorizing the image will give the best result. I&#39;ve used a few tools for this task, including some free web services, potrace, and Corel Draw. Here, Illustrator did the best job:</p>
+<p>
+<img src="/img/ambigram/vectorized.svg" alt="/img/ambigram/vectorized.svg" title="/img/ambigram/vectorized.svg" /></p>
+<p>
+<em>Vectorized</em></p>
+<p>
+This looks pretty good, at least around the letters. The finer details in the decorative border didn&#39;t turn out so well, but that&#39;s ok - I&#39;m more into the minimal design with letters only. I removed all the border stuff, and did a little manual repair work on some of the letter edges.</p>
+<p>
+<img src="/img/ambigram/word-only-white-on-black.png" alt="/img/ambigram/word-only-white-on-black.png" title="/img/ambigram/word-only-white-on-black.png" /></p>
+<p>
+<em>Final high-quality raster image</em></p>
+<p>
+Perfect! All I had to do was get it printed on a magnet. I used <a href="https://www.purebuttons.com/">purebuttons</a>, which was great for a low-volume order. The final product:</p>
+<p>
+<img src="/img/ambigram/magnet-photo-both.jpg" alt="/img/ambigram/magnet-photo-both.jpg" title="/img/ambigram/magnet-photo-both.jpg" /></p>
+</div>
+</div></article><section class="article labels"><a class="tag" href=/tags/project/>project</a><a class="tag" href=/tags/python/>python</a><a class="tag" href=/tags/opencv/>opencv</a><a class="tag" href=/tags/no-original-ideas/>no-original-ideas</a><a class="tag" href=/tags/matlab-to-python/>matlab-to-python</a><a class="tag" href=/tags/illustrator/>illustrator</a></section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/posts/ortlieb-organizer/"><span class="iconfont icon-article"></span>Ortlieb Organizer</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">The micro-optimist</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p></div></section></body>
+
+</html>
