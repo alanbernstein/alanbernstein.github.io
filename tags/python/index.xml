@@ -18,7 +18,7 @@
       <guid>http://alanbernstein.github.io/posts/benford/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Benford%27s_law&#34;target=&#34;_blank&#34;&gt;Benford&amp;rsquo;s Law&lt;/a&gt; states that in many naturally occurring collections of numbers, the leading digit is likely to be small. I love math factoids like this, and I remember how deeply unintuitive this seemed when I first learned it. Now, I find myself looking for a way to explain how intuitive it really is.&lt;/p&gt;
 &lt;h2 id=&#34;benfords-law&#34;&gt;Benford&amp;rsquo;s Law&lt;/h2&gt;
-&lt;p&gt;When you first hear of this, the thinking might go something like this: if you choose a number randomly, shouldn&amp;rsquo;t the first digit be uniformly distributed? Even if the original distribution isn&amp;rsquo;t uniform, as long as it covers a wide enough range, why would the &lt;em&gt;first digit&lt;/em&gt; have any bias?&lt;/p&gt;
+&lt;p&gt;When you first hear of it, the thinking might go something like this: if you choose a number randomly, shouldn&amp;rsquo;t the first digit be uniformly distributed? Even if the original distribution isn&amp;rsquo;t uniform, as long as it covers a wide enough range, why would the &lt;em&gt;first digit&lt;/em&gt; have any bias?&lt;/p&gt;
 &lt;p&gt;Explanations abound, but I find that they often miss the crucial point (like this otherwise fantastic &lt;a href=&#34;https://youtu.be/etx0k1nLn78&#34;target=&#34;_blank&#34;&gt;video&lt;/a&gt; for example). Simply put, it is a direct consequence of the &lt;a href=&#34;https://en.wikipedia.org/wiki/Reciprocal_distribution&#34;target=&#34;_blank&#34;&gt;log-uniform distribution&lt;/a&gt;, which governs these &amp;ldquo;naturally occurring collections of numbers&amp;rdquo;, e.g. measurements, population counts, etc. If you can accept that these natural collections tend to be log-normal distributed, Benford&amp;rsquo;s Law is &amp;ldquo;obvious&amp;rdquo;, that is, an unavoidable consequence. Some simply explain this empirically, giving examples. But I think there is more to it.&lt;/p&gt;
 &lt;p&gt;Why do some collections of numbers have this tendency? I like to think of it like this:&lt;/p&gt;
 &lt;ul&gt;
@@ -52,7 +52,7 @@
 &lt;p&gt;Drofben&amp;rsquo;s Law: When accustomed to the logarithmic scale, a linear-uniform distribution results in a surprising bias in number-of-digits, exponentially increasing from 1 (to N).&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;These charts illustrate both laws, as described above &amp;ndash; but I&amp;rsquo;ll elaborate.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/benford/figure1.png&#34;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/figure1.png&#34;
         alt=&#34;Figure 1: Log-uniform random data&#34;/&gt;
 &lt;em&gt;Figure 1: Log-uniform random data&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -62,7 +62,7 @@
 &lt;li&gt;1d (aside from being kind of busy because I&amp;rsquo;m a bad graphic designer) shows where these &amp;ldquo;layers&amp;rdquo; come from. The black trace represents the determinstic values of the function first_digit(x) for all values of x in [1, 10000]. The green regions cover all numbers that start with 1, and they&amp;rsquo;re widest &amp;ndash; that cumulatve width corresponds to the height of the bar for digit 1 in figure 1c. Red regions correspond to numbers that start with 2, with a more moderate cumulative width. Purple corresponds to 5, with a much smaller width, and similarly for all other digits.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And here are the corresponding charts for Drofben&amp;rsquo;s law:&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/benford/figure2.png&#34;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/figure2.png&#34;
         alt=&#34;Figure 2: Linear-uniform random data&#34;/&gt;
 &lt;em&gt;Figure 2: Linear-uniform random data&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -73,7 +73,7 @@
 &lt;/ul&gt;
 &lt;p&gt;In the second case, these layers just reflect the counts of integers in ranges: |[1, 10)| = 9, |[10, 100)| = 90, |[100, 1000)| = 900, etc &amp;ndash; this seems almost too obvious to mention. But, that&amp;rsquo;s what I was looking for &amp;ndash; a result that&amp;rsquo;s surprising to an alien, logarithmic culture &lt;em&gt;should&lt;/em&gt; be obvious to our linear minds.&lt;/p&gt;
 &lt;h2 id=&#34;the-digits-are-not-the-value&#34;&gt;The digits are not the value&lt;/h2&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/benford/treachery-of-digits-hex.png&#34;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/treachery-of-digits-hex.png&#34;
         alt=&#34;The treachery of digits: an homage to the treachery of images, where &amp;amp;ldquo;This is not a number&amp;amp;rdquo; refers to the hexadecimal representation of the floating-point value NaN, &amp;amp;ldquo;Not a Number&amp;amp;rdquo;&#34;/&gt;
 &lt;em&gt;The treachery of digits, with apologies to &lt;a href=&#34;https://en.wikipedia.org/wiki/The_Treachery_of_Images&#34;target=&#34;_blank&#34;&gt;Magritte&lt;/a&gt;&amp;hellip; and &lt;a href=&#34;https://en.wikipedia.org/wiki/NaN&#34;target=&#34;_blank&#34;&gt;IEEE&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;div class=&#34;admonition warning&#34; style=&#39;border-left:4px solid #cd5f3c; padding-left:2em; font-size:16px; margin:2em 0&#39;&gt;

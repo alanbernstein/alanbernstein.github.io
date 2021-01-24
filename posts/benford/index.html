@@ -7,7 +7,7 @@
         <span class="header right-side"></span></div></section><section id="content"><div class="article-container"><section class="article header">
     <h1 class="article title">Why Benford's Law is Obvious</h1><p class="article date">2020-11-28</p></section><article class="article markdown-body"><p><a href="https://en.wikipedia.org/wiki/Benford%27s_law"target="_blank">Benford&rsquo;s Law</a> states that in many naturally occurring collections of numbers, the leading digit is likely to be small. I love math factoids like this, and I remember how deeply unintuitive this seemed when I first learned it. Now, I find myself looking for a way to explain how intuitive it really is.</p>
 <h2 id="benfords-law">Benford&rsquo;s Law</h2>
-<p>When you first hear of this, the thinking might go something like this: if you choose a number randomly, shouldn&rsquo;t the first digit be uniformly distributed? Even if the original distribution isn&rsquo;t uniform, as long as it covers a wide enough range, why would the <em>first digit</em> have any bias?</p>
+<p>When you first hear of it, the thinking might go something like this: if you choose a number randomly, shouldn&rsquo;t the first digit be uniformly distributed? Even if the original distribution isn&rsquo;t uniform, as long as it covers a wide enough range, why would the <em>first digit</em> have any bias?</p>
 <p>Explanations abound, but I find that they often miss the crucial point (like this otherwise fantastic <a href="https://youtu.be/etx0k1nLn78"target="_blank">video</a> for example). Simply put, it is a direct consequence of the <a href="https://en.wikipedia.org/wiki/Reciprocal_distribution"target="_blank">log-uniform distribution</a>, which governs these &ldquo;naturally occurring collections of numbers&rdquo;, e.g. measurements, population counts, etc. If you can accept that these natural collections tend to be log-normal distributed, Benford&rsquo;s Law is &ldquo;obvious&rdquo;, that is, an unavoidable consequence. Some simply explain this empirically, giving examples. But I think there is more to it.</p>
 <p>Why do some collections of numbers have this tendency? I like to think of it like this:</p>
 <ul>
@@ -41,7 +41,7 @@
 <p>Drofben&rsquo;s Law: When accustomed to the logarithmic scale, a linear-uniform distribution results in a surprising bias in number-of-digits, exponentially increasing from 1 (to N).</p>
 </blockquote>
 <p>These charts illustrate both laws, as described above &ndash; but I&rsquo;ll elaborate.</p>
-<p><img  src="/benford/figure1.png"
+<p><img  src="/img/benford/figure1.png"
         alt="Figure 1: Log-uniform random data"/>
 <em>Figure 1: Log-uniform random data</em></p>
 <ul>
@@ -51,7 +51,7 @@
 <li>1d (aside from being kind of busy because I&rsquo;m a bad graphic designer) shows where these &ldquo;layers&rdquo; come from. The black trace represents the determinstic values of the function first_digit(x) for all values of x in [1, 10000]. The green regions cover all numbers that start with 1, and they&rsquo;re widest &ndash; that cumulatve width corresponds to the height of the bar for digit 1 in figure 1c. Red regions correspond to numbers that start with 2, with a more moderate cumulative width. Purple corresponds to 5, with a much smaller width, and similarly for all other digits.</li>
 </ul>
 <p>And here are the corresponding charts for Drofben&rsquo;s law:</p>
-<p><img  src="/benford/figure2.png"
+<p><img  src="/img/benford/figure2.png"
         alt="Figure 2: Linear-uniform random data"/>
 <em>Figure 2: Linear-uniform random data</em></p>
 <ul>
@@ -62,7 +62,7 @@
 </ul>
 <p>In the second case, these layers just reflect the counts of integers in ranges: |[1, 10)| = 9, |[10, 100)| = 90, |[100, 1000)| = 900, etc &ndash; this seems almost too obvious to mention. But, that&rsquo;s what I was looking for &ndash; a result that&rsquo;s surprising to an alien, logarithmic culture <em>should</em> be obvious to our linear minds.</p>
 <h2 id="the-digits-are-not-the-value">The digits are not the value</h2>
-<p><img  src="/benford/treachery-of-digits-hex.png"
+<p><img  src="/img/benford/treachery-of-digits-hex.png"
         alt="The treachery of digits: an homage to the treachery of images, where &amp;ldquo;This is not a number&amp;rdquo; refers to the hexadecimal representation of the floating-point value NaN, &amp;ldquo;Not a Number&amp;rdquo;"/>
 <em>The treachery of digits, with apologies to <a href="https://en.wikipedia.org/wiki/The_Treachery_of_Images"target="_blank">Magritte</a>&hellip; and <a href="https://en.wikipedia.org/wiki/NaN"target="_blank">IEEE</a></em></p>
 <div class="admonition warning" style='border-left:4px solid #cd5f3c; padding-left:2em; font-size:16px; margin:2em 0'>
