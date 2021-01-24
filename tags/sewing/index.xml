@@ -30,7 +30,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Benford&amp;rsquo;s Law: most-significant digits are expected to be biased toward lower values with a logarithmic trend, &lt;em&gt;if&lt;/em&gt; the range of values spans multiple orders of magnitude.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Benford Counterexample (Biden votes) If the data spans just a single order of magnitude i.e. specifically [10^n, 10^(n+1)) so the number of digits is constant, then the first-digit distribution just reflects the data distribution itself. Benford&amp;rsquo;s law is not &lt;em&gt;violated&lt;/em&gt;, it is rather &lt;em&gt;not applicable&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Benford Counterexample (Biden votes): If the data spans just a single order of magnitude i.e. specifically [10^n, 10^(n+1)) so the number of digits is constant, then the first-digit distribution just reflects the data distribution itself. Benford&amp;rsquo;s law is not &lt;em&gt;violated&lt;/em&gt;, it is rather &lt;em&gt;not applicable&lt;/em&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
@@ -55,6 +55,7 @@
 &lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/figure1.png&#34;
         alt=&#34;Figure 1: Log-uniform random data&#34;/&gt;
 &lt;em&gt;Figure 1: Log-uniform random data&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This is a set of three views of the same random data set, following a log-uniform distribution.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;1a shows that log-uniform data follows a logarithmically-decreasing trend, &lt;em&gt;when viewed in the linear domain&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;1b shows that log-uniform data follows a constant trend, when viewed in the (arguably more appropriate) logarithmic domain.&lt;/li&gt;
@@ -65,6 +66,7 @@
 &lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/figure2.png&#34;
         alt=&#34;Figure 2: Linear-uniform random data&#34;/&gt;
 &lt;em&gt;Figure 2: Linear-uniform random data&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This is a set of three views of another random data set, following a linear-uniform distribution.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;2a shows that linear-uniform data follows a constant trend, when viewed in the linear domain.&lt;/li&gt;
 &lt;li&gt;2b shows that linear-uniform data follows an exponentially-increasing trend, when viewed in the logarithmic domain.&lt;/li&gt;
