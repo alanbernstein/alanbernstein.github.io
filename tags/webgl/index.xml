@@ -1,0 +1,1522 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>webgl on The micro-optimist</title>
+    <link>http://alanbernstein.github.io/tags/webgl/</link>
+    <description>Recent content in webgl on The micro-optimist</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Jan 2018 00:00:00 -0600</lastBuildDate>
+    
+        <atom:link href="http://alanbernstein.github.io/tags/webgl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why Benford&#39;s Law is Obvious</title>
+      <link>http://alanbernstein.github.io/posts/benford/</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/benford/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Benford%27s_law&#34;target=&#34;_blank&#34;&gt;Benford&amp;rsquo;s Law&lt;/a&gt; states that in many naturally occurring collections of numbers, the leading digit is likely to be small. I love math factoids like this, and I remember how deeply unintuitive this seemed when I first learned it. Now, I find myself looking for a way to explain how intuitive it really is.&lt;/p&gt;
+&lt;h2 id=&#34;benfords-law&#34;&gt;Benford&amp;rsquo;s Law&lt;/h2&gt;
+&lt;p&gt;When you first hear of it, the thinking might go something like this: if you choose a number randomly, shouldn&amp;rsquo;t the first digit be uniformly distributed? Even if the original distribution isn&amp;rsquo;t uniform, as long as it covers a wide enough range, why would the &lt;em&gt;first digit&lt;/em&gt; have any bias?&lt;/p&gt;
+&lt;p&gt;Explanations abound, but I find that they often miss the crucial point (like this otherwise fantastic &lt;a href=&#34;https://youtu.be/etx0k1nLn78&#34;target=&#34;_blank&#34;&gt;video&lt;/a&gt; for example). Simply put, it is a direct consequence of the &lt;a href=&#34;https://en.wikipedia.org/wiki/Reciprocal_distribution&#34;target=&#34;_blank&#34;&gt;log-uniform distribution&lt;/a&gt;, which governs these &amp;ldquo;naturally occurring collections of numbers&amp;rdquo;, e.g. measurements, population counts, etc. If you can accept that these natural collections tend to be log-normal distributed, Benford&amp;rsquo;s Law is &amp;ldquo;obvious&amp;rdquo;, that is, an unavoidable consequence. Some simply explain this empirically, giving examples. But I think there is more to it.&lt;/p&gt;
+&lt;p&gt;Why do some collections of numbers have this tendency? I like to think of it like this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The logarithmic scale is &lt;em&gt;at least&lt;/em&gt; as natural a way to look at the world as the linear scale is.&lt;/li&gt;
+&lt;li&gt;In a given scale (linear, log, or otherwise), a uniform distribution is the &amp;ldquo;simplest&amp;rdquo; option. It&amp;rsquo;s sort of a default distribution, perhaps in part due to being the maximum entropy distribution for a bounded domain.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;rsquo;m aware that this is an academic viewpoint - I&amp;rsquo;m using &amp;ldquo;obvious&amp;rdquo; facetiously here. While the log-uniform distribution may be more &amp;ldquo;natural&amp;rdquo; in some sense, the linear-uniform distribution is certainly not unusual. Roll a die, draw a card, pick a ball from an urn - these are all basic processes, easily understood, and obviously uniform. While they may be more common in the built environment rather than in nature, they are still regular occurrences to a human child living in society, helping to reify the linear scale in her mind.&lt;/p&gt;
+&lt;p&gt;The linked video also presents a counterexample to Benford&amp;rsquo;s law, plus a counterpart law with its corresponding counterexample. Paraphrased:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Benford&amp;rsquo;s Law: most-significant digits are expected to be biased toward lower values with a logarithmic trend, &lt;em&gt;if&lt;/em&gt; the range of values spans multiple orders of magnitude.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Benford Counterexample (Biden votes): If the data spans just a single order of magnitude i.e. specifically [10^n, 10^(n+1)) so the number of digits is constant, then the first-digit distribution just reflects the data distribution itself. Benford&amp;rsquo;s law is not &lt;em&gt;violated&lt;/em&gt;, it is rather &lt;em&gt;not applicable&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last-digit test: least-significant digits are expected to be distributed uniformly, &lt;em&gt;if&lt;/em&gt; the range of values is wide enough, relative to the precision of the values.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last-digit counterexample (incumbent votes): If the data spans just a single, &lt;strong&gt;low&lt;/strong&gt;, order of magnitude*, e.g. [10, 100), then &amp;ldquo;the last two digits are just *the digits*&amp;rdquo;, so the last-digits distribution just reflects the data distribution itself. The last-digit test is not *violated*, it is rather *not applicable*.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There&amp;rsquo;s a pleasing sort of duality here, and illustrating each of these with the two political parties&#39; vote counts is pretty cute.&lt;/p&gt;
+&lt;h2 id=&#34;another-counterpart&#34;&gt;Another counterpart&lt;/h2&gt;
+&lt;p&gt;Although these are interesting lines of thought, they prompted another question, the real motivation for writing this: is there &lt;em&gt;another&lt;/em&gt; counterpart to Benford&amp;rsquo;s Law, which might be equally surprising to a culture that thinks in the logarithmic scale by default? Of course, human sensory perception is logarithmic, as is our natural perception of integers. But early education beats that out of us, and our culture generally encourages us to consider the linear scale as the default way of thinking about numbers - the Way Numbers Really Are.&lt;/p&gt;
+&lt;p&gt;If, instead, we were trained from a young age to think about the logarithmic scale as the default, then what sort of distribution would lead to a similarly surprising result, and what would that result be?&lt;/p&gt;
+&lt;p&gt;After ruminating on this topic over the years, and a concerted hour or two of trying to answer this question, I found a candidate. I&amp;rsquo;ll restate Benford&amp;rsquo;s again for comparison:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Benford&amp;rsquo;s Law: When accustomed to the linear scale, a log-uniform distribution results in a suprising bias in first-digits, logarithmically decreasing from 1 to 9.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And the linear counterpart:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Drofben&amp;rsquo;s Law: When accustomed to the logarithmic scale, a linear-uniform distribution results in a surprising bias in number-of-digits, exponentially increasing from 1 (to N).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;These charts illustrate both laws, as described above &amp;ndash; but I&amp;rsquo;ll elaborate.&lt;/p&gt;
+&lt;h3 id=&#34;graphical-explanation-benfords-law&#34;&gt;Graphical explanation, Benford&amp;rsquo;s Law&lt;/h3&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/figure1.png&#34;
+        alt=&#34;Figure 1: Log-uniform random data&#34;/&gt;
+&lt;em&gt;Figure 1: Log-uniform random data&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This is a set of three views of the same random data set, following a log-uniform distribution.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1a shows that log-uniform data follows a logarithmically-decreasing trend, &lt;em&gt;when viewed in the linear domain&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;1b shows that log-uniform data follows a constant trend, when viewed in the (arguably more appropriate) logarithmic domain.&lt;/li&gt;
+&lt;li&gt;1c shows Benford&amp;rsquo;s law directly, with bar heights corresponding to first-digit bias. Note that this shape closely resembles the shape of the distribution in 1a &amp;ndash; it isn&amp;rsquo;t identical, because 1c kind of &amp;ldquo;layers&amp;rdquo; the histograms from each level of magnitude in 1a, into a new form that examines only first digits instead of all values.&lt;/li&gt;
+&lt;li&gt;1d (aside from being kind of busy because I&amp;rsquo;m a bad graphic designer) shows where these &amp;ldquo;layers&amp;rdquo; come from. The black trace represents the determinstic values of the function first_digit(x) for all values of x in [1, 10000**. The green regions cover all numbers that start with 1, and they&amp;rsquo;re widest &amp;ndash; that cumulatve width corresponds to the height of the bar for digit 1 in figure 1c. Red regions correspond to numbers that start with 2, with a more moderate cumulative width. Purple corresponds to 5, with a much smaller width, and similarly for all other digits.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;This figure explains why Benford&amp;rsquo;s Law is &amp;ldquo;obvious&amp;rdquo;. It may be more clear to explain the logical progression of thought:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;This data follows a natural distribution &amp;ndash; log-uniform &amp;ndash; illustrated by the constant trend in the logarithmic domain (1b).&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;This necessitates a logarithmic-decreasing trend in the linear domain (1a).&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;This necessitates a logarithmic-decreasing trend in the first digits (1c, 1d).&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;graphical-explanation-drofbens-law&#34;&gt;Graphical explanation, Drofben&amp;rsquo;s Law&lt;/h3&gt;
+&lt;p&gt;And here are the corresponding charts for Drofben&amp;rsquo;s law:&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/figure2.png&#34;
+        alt=&#34;Figure 2: Linear-uniform random data&#34;/&gt;
+&lt;em&gt;Figure 2: Linear-uniform random data&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This is a set of three views of another random data set, following a linear-uniform distribution.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2a shows that linear-uniform data follows a constant trend, when viewed in the linear domain.&lt;/li&gt;
+&lt;li&gt;2b shows that linear-uniform data follows an exponentially-increasing trend, when viewed in the logarithmic domain.&lt;/li&gt;
+&lt;li&gt;2c shows Drofben&amp;rsquo;s law directly, with bar heights corresponding to number-of-digits bias. Note that this shape closely resembles the shape of the distribution in 2b.&lt;/li&gt;
+&lt;li&gt;2d shows the analogous &amp;ldquo;layers&amp;rdquo; of Drofben&amp;rsquo;s law &amp;ndash; these layers just represent magnitude. The gray region, representing numbers with five digits, takes up 90% of the total width. Pink, for four digits, takes 9%, and so on.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the second case, these layers just reflect the counts of integers in ranges: |[1, 10)| = 9, |[10, 100)| = 90, |[100, 1000)| = 900, etc &amp;ndash; this seems almost too obvious to mention. But, that&amp;rsquo;s what I was looking for &amp;ndash; a result that&amp;rsquo;s surprising to an alien, logarithmic culture &lt;em&gt;should&lt;/em&gt; be obvious to our linear minds.&lt;/p&gt;
+&lt;p&gt;(&lt;a href=&#34;https://gist.github.com/alanbernstein/39cc97fc582cbb2cd30df59c40853129&#34;target=&#34;_blank&#34;&gt;code for charts&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id=&#34;the-digits-are-not-the-value&#34;&gt;The digits are not the value&lt;/h2&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/treachery-of-digits-hex.png&#34;
+        alt=&#34;The treachery of digits: an homage to the treachery of images, where &amp;amp;ldquo;This is not a number&amp;amp;rdquo; refers to the hexadecimal representation of the floating-point value NaN, &amp;amp;ldquo;Not a Number&amp;amp;rdquo;&#34;/&gt;
+&lt;em&gt;The treachery of digits, with apologies to &lt;a href=&#34;https://en.wikipedia.org/wiki/The_Treachery_of_Images&#34;target=&#34;_blank&#34;&gt;Magritte&lt;/a&gt;&amp;hellip; and &lt;a href=&#34;https://en.wikipedia.org/wiki/NaN&#34;target=&#34;_blank&#34;&gt;IEEE&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;admonition warning&#34; style=&#39;border-left:4px solid #cd5f3c; padding-left:2em; font-size:16px; margin:2em 0&#39;&gt;
+    &lt;div class=&#34;title&#34;&gt;Warning&lt;/div&gt;
+    &lt;div class=&#34;content&#34;&gt;Philosophical rambling ahead&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;All of this might seem silly. Consider a linear-uniform distribution over [1, 100). Of course the range [10, 99] is 10x as likely as the range [1, 9] &amp;ndash; that&amp;rsquo;s just the relative size of the intervals. But it&amp;rsquo;s the &lt;em&gt;arithmetic size&lt;/em&gt;, the linear size. If you were conditioned to think first of the &lt;em&gt;geometric size&lt;/em&gt;, the logarithmic size, you would instinctively see these two intervals as having (nearly) the same size. You wouldn&amp;rsquo;t expect the linear-uniform distribution, and this behavior would indeed be surprising. Perhaps it&amp;rsquo;s hard to imagine this, because &lt;em&gt;the digits themselves&lt;/em&gt; make it obvious: for Benford&amp;rsquo;s Law, it is not obvious that 1234 is any more likely to occur than 5678. In contrast, you can&amp;rsquo;t help but notice that 5 has only one digit, while 5678 has four digits. However, considering non-integer values allows us to make a more illustrative comparison between 5.678 and 5678. Try to imagine perceiving numbers through their &lt;em&gt;magnitude&lt;/em&gt; instead of their &lt;em&gt;digits&lt;/em&gt;. Perhaps growing up using a slide rule is the best way to internalize the logarithmic scale. I missed that boat by a few years.&lt;/p&gt;
+&lt;p&gt;My point is, the digits are only a representation of the number&amp;rsquo;s value. Despite being a perfectly complete representation, the &lt;em&gt;digit string&lt;/em&gt; is not an innate property of the &lt;em&gt;value&lt;/em&gt;, but rather an artifact of the representation system. It&amp;rsquo;s like looking for information in the pixel boundaries of a photograph: anything you find might be explained by the sampling grid, and disappear under a different sampling. Any properties of the digit string of a number might be explained by the choice of base, and disappear under a different base.&lt;/p&gt;
+&lt;p&gt;Of course, the number of digits is a crude approximation of the magnitude (regardless of the choice of base), whereas the first digit is more reasonably described as a &amp;ldquo;random&amp;rdquo; artifact of the representation. I&amp;rsquo;ll concede that the number of digits is not &lt;em&gt;just&lt;/em&gt; an artifact, and therefore Drofben&amp;rsquo;s Law is more obvious &amp;ndash; &lt;em&gt;if&lt;/em&gt; you think about numbers primarily in terms of their non-fractional digits.&lt;/p&gt;
+&lt;div class=&#34;admonition note&#34; style=&#39;border-left:4px solid #3c5f8d; padding-left:2em; font-size:16px; margin:2em 0&#39;&gt;
+    &lt;div class=&#34;title&#34;&gt;Tangent&lt;/div&gt;
+    &lt;div class=&#34;content&#34;&gt;I&amp;rsquo;m a former mathlete, I love recreational math problems/puzzles. These sometimes concern properties of the base-10 representation of numbers (Project Euler often uses the &lt;a href=&#34;https://projecteuler.net/problem=20&#34;&gt;digit sum&lt;/a&gt;, etc., similarly, the Putnam exam usually includes a problem where the current year is used as an &lt;a href=&#34;https://kskedlaya.org/putnam-archive/2019.pdf&#34;&gt;upper limit&lt;/a&gt; or the like), and I&amp;rsquo;ve always thought of these as sort of &amp;ldquo;impure&amp;rdquo; problems which aren&amp;rsquo;t as deeply interesting. On the other hand, there is some deep math involved in &lt;a href=&#34;https://en.wikipedia.org/wiki/Goodstein%27s_theorem&#34;&gt;Goodstein sequences&lt;/a&gt;, based on fiddling around with hereditary base-N notation. Although, it comes specifically from &lt;em&gt;not&lt;/em&gt; constraining N.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;base-effects&#34;&gt;Base effects&lt;/h3&gt;
+&lt;p&gt;When working with numbers, we have to pick some representation system; base 10 is fine, but it might be interesting to think about how these artifacts change when using different systems. While Benford&amp;rsquo;s Law occurs regardless of the base, there is some interesting behavior at the extremes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;base 2: Benford&amp;rsquo;s Law doesn&amp;rsquo;t mean as much in this case &amp;ndash; all first bits are 1! The generalization still applies to first-N-bits, but this is still an interesting comparison. In contrast, number-of-bits is now a closer approximation to the magnitude of the number.&lt;/li&gt;
+&lt;li&gt;base infinity: each numeral is represented by a different symbol. Now, number-of-digits is always 1! Most of the questions become meaningless, because we&amp;rsquo;ve abandoned the concept of place-value digits, without abandoning the values. The concept of &amp;ldquo;first digit bias&amp;rdquo; isn&amp;rsquo;t even tautological as in the base-2 case. The distribution of digit occurrences still contains some information, however.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Aside from these extremes, there is the zero-padded representation of base-N. Now, regardless of the the value of N, first-digit is uniform, and number-of-digits is constant. As lazy humans, we don&amp;rsquo;t bother writing out all these leading zeros, but that&amp;rsquo;s how computers work! I suppose a child raised by computers would think all of the zero-pad-counterparts of these laws are perfectly obvious and devoid of value.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ortlieb Organizer</title>
+      <link>http://alanbernstein.github.io/posts/ortlieb-organizer/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/ortlieb-organizer/</guid>
+      <description>&lt;p&gt;
+Project log for my organizer insert for Ortlieb Back Roller bike panniers.&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Current status
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+v1.2, in active use.&lt;/p&gt;
+&lt;p&gt;
+TODO:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;attach more nylon webbing, for attaching other accessories to the side of the insert&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;sew new version with flaps that cover the frame pockets&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;record a video of the quick-release action&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; /&gt;
+&lt;em&gt;Mounted to bag. Photographing this thing is tricky.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; /&gt;
+&lt;em&gt;Fidlock magnetic QR mount, female side, mounted to exterior of insert&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; /&gt;
+&lt;em&gt;Fidlock magnetic QR mount, male side, mounted to interior of Ortlieb bag&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Iterations
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-3&#34;&gt;
+v1.2: Add magnetic quick-release mount
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+At this point, it works well enough that it has become part of my normal bike kit. Since I&amp;#39;m working from home until the apocalypse is over, I&amp;#39;m stopping here for now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-4&#34;&gt;
+v1.1: Ripstop nylon, retrofitted with the through-the-frame lock mount
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;One nice thing about sewing is that the stitching step is reversible. After learning from v2, I decided that I prefer the thinner nylon fabric, but the through-frame U-lock mount works much better than the surface-stitched version. So, not having any more fabric, and not having easy access to my laser cutter due to covid, I unstitched the first strap, and retrofitted the through-frame mount onto this bag.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-5&#34;&gt;
+v2: Canvas, first version that &lt;em&gt;actually&lt;/em&gt; works (2020/05/09)
+&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-6&#34;&gt;
+v1: Ripstop nylon, first minimally viable version (2020/02/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;Having a decent idea what the pattern should be, it was now feasible to laser cut it. I cut these out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Nylon: 2x base, 2x tall, .5&amp;#34; seam margin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Canvas: 2x base, 2x tall, 1&amp;#34; seam margin&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I chose to start with an all-nylon bag. I realized later I might have used canvas for the outside and nylon for the inside. All-nylon was a good choice to start with though.
+I sewed the nylon pieces together, knowing that it would be easier to sew the other bits on first, but not knowing exactly where to put them. The fabric was thin enough that I could manipulate it enough to sew things on later. &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-7&#34;&gt;
+v0.2: random scrap fabric, pattern test (2020/01/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+After the cardboard prototype, I decided I was ready to take on the sewing project. I bought some off-the-shelf fabric that seemed appropriate, and then proceeded to think about how to make the thing for a few months. I spoke with some very helpful people at the Sew and Tell meetup, and finally accepted that I just need to try making it a few times. One of the suggestions was to make that first fabric prototype with cheap scrap fabric, so I tried that.&lt;/p&gt;
+&lt;p&gt;
+The design was based on the cardboard model, with two broad sides and a thin strip connecting them to give it some volume. I got one big design suggestion at the meetup that allowed me to make progress on this: each side should have a sealable pocket to contain the plastic insert. With that in mind, this first version allowed me to test cutting the pattern, and the sewing process. It turned out that this fabric was awful to work with (very stretchy and very ragged edges), but I definitely learned enough to gain the confidence to work on the next version, with the good fabric.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+I was proud of myself for documenting my learning process with the first bag, but it was not that helpful afterward. I changed the design, and I&amp;#39;ve already internalized the lessons I learned about sewing techniques. Probably most significantly, I abandoned the side strip idea. A laptop fits inside the bag without that added width, and I had a hard time keeping the three pieces of fabric properly aligned. I might want to use a similar approach for a different project later. &lt;/p&gt;
+&lt;p&gt;
+Lessons learned:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Began to understand how to think about designing the inside-out object.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When my mental model of the inside-out object fails, I can pin fabric together and turn it inside out to test.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When sewing around a corner, and you need to raise the foot to reposition the work piece, you can rotate it in &lt;strong&gt;either&lt;/strong&gt; direction - it doesn&amp;#39;t have to follow the direction of the seam.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If I try the thin strip idea again in the future, I will cut it maybe four inches longer than needed, THEN sew it, then trim excess. That will fix half of the alignment problem, but still need to be sure that the two side pieces are lined up properly. It might be easier to use several smaller thin strips, but that would also be uglier.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When cutting the pattern, following the curved corners isn&amp;#39;t important: cut a polygonal hull, sew whatever seam you want, then trim. The seam doesn&amp;#39;t even need to be curved, because the bag will take on an organic shape anyway.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The four main parts are attached with three seams, and I put the third one in the wrong place, so the first two were unnecessarily exposed. It occurred to me that I could have just used a single seam, but having multiple seemed like a good idea anyway.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-8&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-8&#34;&gt;
+v0.1: cardboard and zip ties, proof-of-concept (2019/02/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;My first attempt was a cardboard mockup, held together with zip ties. This worked well enough to prove the concept. It disintegrated after a month or so.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-9&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-9&#34;&gt;
+Sewing process
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-9&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Latest prototype in action. The two main features driving the structural design are the laptop pocket and the U-lock strap.
+I&amp;#39;m a sewing beginner, and this is my first design, so I&amp;#39;m learning, making things up as I go, and I probably don&amp;#39;t know a lot of terms that I should. Despite that, I&amp;#39;m very satisfied with this second iteration. It&amp;#39;s truly usable, but I hope to refine it, so I&amp;#39;ll point out a few issues.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+It goes inside this popular Ortlieb pannier. I&amp;#39;m avoiding any permanent modifications to the waterproof exterior. Still figuring out mounting options, but that&amp;#39;s not a major concern, because normally the bag is full enough to keep the organizer in place.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+My three prototypes: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Orange: random scrap fabric, to experiment with the basic pattern, not really usable &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Blue: random ripstop nylon (specs unknown, but it&amp;#39;s .1mm thick). Includes a sewn-on nylon strap to hold the lock.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Yellow: random canvas (.6mm thick). Includes a &amp;#34;through-the-frame&amp;#34; removable nylon strap+buckle to hold the lock.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Sewing the lock strap on the exterior, using this fabric, is not sturdy. U-locks are heavy, so it sags significantly.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Aside from the main pocket, each side has a mini-pocket just for storing a rigid plastic sheet to maintain the structure. I deliberately tucked the flap INSIDE the pocket rather than go over it. It made sense in my head, but it&amp;#39;s clearly the wrong choice.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Trying to show detail of how the pockets are laid out.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Same idea for the yellow bag, but the flap closes over the pocket, and terminates on the outside of the bag rather than the inside. Much sturdier fabric, plus two velcro strips on the ends, instead of one in the middle, mean this bag holds its shape much more than the blue one.&lt;/p&gt;
+&lt;p&gt;
+Also shows the nylon strap going through the outer layer of the bag (via a &amp;#34;faced opening&amp;#34; made from the ripstop, and through the plastic frame.&lt;/p&gt;
+&lt;p&gt;
+This design allowed me to experiment with different insert combinations. There&amp;#39;s plenty of weight to trim here.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Outside of the faced opening.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Detail of pocket layout&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+detail of pocket flap seam from outside&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+detail of pocket flap seam from inside&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Detail of canvas inside-out.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Detail of nylon inside-out.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-10&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-10&#34;&gt;
+Making the shape template
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-10&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+Designing the fabric pattern was the first step. Since the Ortlieb bag includes a plastic insert to give it structure, using that exact shape seemed like the right way to go.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+I took some rough measurements of the irregular hexagon shape. I could have used these to get pretty close to the right shape. &lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+However, I have an unreasonable propensity for unnecessary accuracy. I removed the insert, photographed it against a grid, then transformed that photo into vector files for laser cutting. This is great for cutting the pattern from fabric in a repeatable way. Unfortunately I can&amp;#39;t use the laser for the plastic insert itself, so I cut that with a dremel. In the future I might try a bandsaw instead.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/pattern-illustration.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/pattern-illustration.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/pattern-illustration.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+This is a color-coded illustration of the pattern files I used. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Red: plastic insert&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Black: mounting hole cutouts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Blue: &amp;#34;base&amp;#34; fabric pattern&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Green: &amp;#34;tall&amp;#34; fabric pattern, including the flap that covers the mini-pocket for the plastic insert. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I sewed these two fabric pieces together, repeated with another two, then sewed those two pairs together, then turned inside out. Adding velcro, slits, and hems was done at the appropriate steps.&lt;/p&gt;
+&lt;p&gt;
+The seam margin is .5&amp;#34; in this image, which is what I used for the orange and blue bags. The yellow one is 1&amp;#34;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>A webgl shader experiment</title>
+      <link>http://alanbernstein.github.io/posts/shader-experiments/</link>
+      <pubDate>Thu, 11 Jan 2018 00:00:00 -0600</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/shader-experiments/</guid>
+      <description>&lt;p&gt;How to create real fast demo animations with webgl. [EPILEPSY WARNING]&lt;/p&gt;
+&lt;p&gt;Once in a while, I&amp;rsquo;ll see this &lt;a href=&#34;https://www.reddit.com/r/gifs/comments/7p4eo8/blink_fast/&#34;target=&#34;_blank&#34;&gt;gif posted to reddit&lt;/a&gt;, and I am briefly mesmerized as I try to understand what I&amp;rsquo;m looking at. It seems like some relatively simple sum of sinusoids, but the combination of parameters and coloring creates a really neat optical illusion effect. Last time it came up, I tracked down the source (&lt;a href=&#34;https://www.youtube.com/watch?v=0SWRcH9p4Uo&#34;target=&#34;_blank&#34;&gt;youtube&lt;/a&gt;, &lt;a href=&#34;https://txyyss.wordpress.com/2016/06/14/plane-wave/&#34;target=&#34;_blank&#34;&gt;chinese blog post&lt;/a&gt;) and &lt;a href=&#34;http://alanbernstein.net/wave-shader.html&#34;target=&#34;_blank&#34;&gt;recreated&lt;/a&gt; it for fun. Here&amp;rsquo;s a simplified embedded version:&lt;/p&gt;
+&lt;canvas id=&#34;shader-canvas&#34; width=640 height=480&gt;
+&lt;/canvas&gt;
+&lt;p&gt;&lt;span style=&#34;color:lime&#34;&gt;order:&lt;/span&gt; &lt;span id=&#34;label-order&#34; style=&#34;color:lime&#34;&gt;&lt;/span&gt;
+&lt;input type=&#34;range&#34; min=&#34;3.0&#34; max=&#34;10.0&#34; value=&#34;5.0&#34; id=&#34;slider-order&#34;&gt;&lt;/p&gt;
+&lt;script id=&#34;vertex-shader&#34; type=&#34;glsl&#34;&gt;
+attribute vec2 coord;
+void main() {
+    gl_Position = vec4(coord, 0, 1);
+}
+&lt;/script&gt;
+&lt;script id=&#34;fragment-shader&#34; type=&#34;glsl&#34;&gt;
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+
+#define W 640.0  // canvas dimensions TODO get as uniform
+#define H 480.0
+
+uniform float millisecs, order, width, scale, speed;
+
+float fmod(float x, float y) {
+    return (x - y * floor(x / y));
+}
+
+float wrap(float x) {
+    return abs(fmod(x+1.0,2.0)-1.0);
+}
+
+void main() {
+    float phase = speed * millisecs/1000.0;
+    float t;
+    float A = width/W;
+    float x = A*(gl_FragCoord.x - W/2.0);
+    float y = A*(gl_FragCoord.y - H/2.0);
+    float z = 0.0;
+    for(int n=0; n&lt;10; n++) {
+        t = float(n) * 3.14159 / order;
+        z += cos(x*cos(t) + y*sin(t) + phase);
+        if(n == int(order)) {
+            break;
+        }
+    }
+    z = wrap(scale * z / order);
+    gl_FragColor = vec4(z, z, z, 1);
+}
+&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://alanbernstein.github.io/js/wave-shader-embedded.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;With that blog post available, and a loose grasp of Mathematica syntax, it was easy enough to understand what&amp;rsquo;s going on. It&amp;rsquo;s a bit easier for me to grok in traditional notation:&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img/shader-experiments/planewave-math-white.png&#34;
+        alt=&#34;Equation&#34;/&gt;&lt;/p&gt;
+&lt;!-- didn&#39;t use latex because i don&#39;t want to figure out colors in hugo --&gt;
+&lt;p&gt;In short, the thing is just a heightfield (z) created by summing &lt;span style=&#34;color:lime&#34;&gt;N&lt;/span&gt; simple waves of equal magnitude, and distributed with rotational symmetry about the origin (the cos and sin terms are a rotation). &lt;span style=&#34;color:blue&#34;&gt;R&lt;/span&gt; is a spatial zoom factor, and &lt;span style=&#34;color:red&#34;&gt;V&lt;/span&gt; is animation speed. It&amp;rsquo;s the &lt;span style=&#34;color:purple&#34;&gt;S&lt;/span&gt; term in the &amp;ldquo;wrapping&amp;rdquo; step of computing the color (c) that really makes it interesting.&lt;/p&gt;
+&lt;p&gt;The most direct way to map heightfield values to color is to map min-&amp;gt;0, max-&amp;gt;255 (which is more or less what happens when S=1). You can think of this coloring method as using a colormap that&amp;rsquo;s a single gradient from black to white. If, instead, the color map &amp;ldquo;wraps around&amp;rdquo; a few times, so it goes black-white-black-white-black-white-&amp;hellip;, then we get a much more interesting result, where the weird banding leads to those intricate patterns.&lt;/p&gt;
+&lt;p&gt;An earlier iteration, in python/numpy:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;directional_wave&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;wrap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;abs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&#34;c1&#34;&gt;# generate one frame&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;xvec&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linspace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# approximate range used in the blog post&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;meshgrid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;xvec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xvec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;directional_wave&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)])&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wrap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I could render individual frames like this, but what I really wanted was a real-time animation with interactive control of some parameters. I don&amp;rsquo;t know of a great way to do that in Python, plus it&amp;rsquo;s almost certainly not fast enough to run at, say, 10+ frames per second. I figured I&amp;rsquo;d try it out in Javascript (easy to render animations) and Go (fast), and in Go I got as far as implementing the math, including a well-behaved mod function:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;mod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Mod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Mod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;wrap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Abs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;mod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getFrame&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;frame&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[][]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;nx&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+		&lt;span class=&#34;nx&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3.1415&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;N&lt;/span&gt;
+		&lt;span class=&#34;nx&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Cos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Sin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FW&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+		&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;W&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;FW&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+		&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;py&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;py&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;py&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+			&lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;H&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;py&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;FH&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+			&lt;span class=&#34;nx&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;float64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+			&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+				&lt;span class=&#34;nx&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Cos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+			&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+			&lt;span class=&#34;nx&#34;&gt;frame&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;py&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;uint8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;256&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;wrap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But then I decided that &lt;a href=&#34;https://github.com/go-gl&#34;target=&#34;_blank&#34;&gt;graphics support in Go&lt;/a&gt; would be a pain. In Javascript, I redid it all again using &lt;code&gt;fillRect&lt;/code&gt; for each pixel on a canvas, and found it to be too slow, as expected. Somewhere in the course of researching Javascript animation and performance profiling (it might have been &lt;a href=&#34;https://modernweb.com/frame-by-frame-animation-with-html-and-javascript/&#34;target=&#34;_blank&#34;&gt;this article&lt;/a&gt;), I hit upon the idea of using shaders. I completely ignored the idea at first, assuming it would be too complicated, or just wouldn&amp;rsquo;t work. When I found myself considering a trig lookup table in Javascript, I decided shaders were probably a better approach.&lt;/p&gt;
+&lt;p&gt;So I found some references, and a few minimal shader examples, and tinkered with them until I got something that looked pretty. The code that does the work looks like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;fmod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;floor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;wrap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;abs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fmod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;2.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;phase&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;speed&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;millisecs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1000.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;A&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gl_FragCoord&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;2.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gl_FragCoord&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;2.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3.14159&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;phase&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wrap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scale&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;gl_FragColor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vec4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here&amp;rsquo;s the &lt;a href=&#34;http://alanbernstein.net/wave-shader.html&#34;target=&#34;_blank&#34;&gt;rest of it&lt;/a&gt; (I wish I knew how to use CSS properly)&lt;/p&gt;
+&lt;p&gt;I had some problems along the way, not helped by a complete lack of shader error messages. At some point I realized that &lt;code&gt;&amp;lt;script type=&amp;quot;glsl&amp;quot;&amp;gt;&lt;/code&gt; produces error messages, while &lt;code&gt;&amp;lt;script type=&amp;quot;x-shader/fragment-shader&amp;quot;&amp;gt;&lt;/code&gt; doesn&amp;rsquo;t - though I&amp;rsquo;m still unsure of any other difference between these.&lt;/p&gt;
+&lt;p&gt;Other lessons learned:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Interactivity parameters can be implemented with &amp;ldquo;uniform&amp;rdquo; variables passed in from Javascript.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;0&lt;/code&gt; isn&amp;rsquo;t a float, &lt;code&gt;0.0&lt;/code&gt; is. Shader language is not C.&lt;/li&gt;
+&lt;li&gt;Standard C functions you might expect might not be available (&lt;code&gt;mod&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Unbounded loops aren&amp;rsquo;t allowed, but breaking out of a long for-loop is fine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I don&amp;rsquo;t know what I&amp;rsquo;m doing with WebGL - I just know enough to cobble together some stuff that more or less works. Now that I have some functioning boilerplate, I&amp;rsquo;ll probably ignore it as much as I can, and just create more pretty animations.&lt;/p&gt;
+&lt;p&gt;Some helpful references:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.mayflower.de/4584-Playing-around-with-pixel-shaders-in-WebGL.html&#34;&gt;https://blog.mayflower.de/4584-Playing-around-with-pixel-shaders-in-WebGL.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jameshfisher.com/2017/10/05/webgl-fragment-shader-animation.html&#34;&gt;https://jameshfisher.com/2017/10/05/webgl-fragment-shader-animation.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://webglfundamentals.org/webgl/lessons/webgl-animation.html&#34;&gt;https://webglfundamentals.org/webgl/lessons/webgl-animation.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/28290044/webgl-how-to-get-colour-in-fragment-shader-to-change-over-time&#34;&gt;https://stackoverflow.com/questions/28290044/webgl-how-to-get-colour-in-fragment-shader-to-change-over-time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://glslsandbox.com/e#44636.0&#34;&gt;http://glslsandbox.com/e#44636.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://glslsandbox.com/e#44667.1&#34;&gt;http://glslsandbox.com/e#44667.1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Plots in Hugo</title>
+      <link>http://alanbernstein.github.io/posts/plots-in-hugo/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/plots-in-hugo/</guid>
+      <description>&lt;p&gt;I want to put interactive plots in my posts, ideally from Python source, with minimal development overhead. How can I do that in Hugo?&lt;/p&gt;
+&lt;p&gt;It seems that the &amp;ldquo;right&amp;rdquo; solution for &amp;ldquo;putting dynamic plots on a webpage&amp;rdquo; would be to use D3.js. For &amp;ldquo;sharing dynamic plots created with Python&amp;rdquo; I should probably just use Jupyter notebooks. But I don&amp;rsquo;t want to do either of those things, dammit! I want to create plots in my Python workflow, and present them here, in the same place I put other web stuff, while retaining some amount of interactivity. Fortunately there are some slick options, but I&amp;rsquo;ll need to evaluate them.&lt;/p&gt;
+&lt;h2 id=&#34;bokeh&#34;&gt;Bokeh&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://bokeh.pydata.org/en/latest/docs/user_guide/embed.html&#34;target=&#34;_blank&#34;&gt;Bokeh embedding&lt;/a&gt; looks promising. And indeed, it works painlessly:&lt;/p&gt;
+&lt;div class=&#34;bk-root&#34;&gt;
+    &lt;div class=&#34;bk-plotdiv&#34; id=&#34;801d6204-c8f6-4fe9-9b10-8f2ae43ed9d1&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://alanbernstein.github.io/js/plots-in-hugo-bokeh.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;$$y = \frac{x^{2n+1}-x}{x^{2n}+1}$$&lt;/p&gt;
+&lt;p&gt;Similarly to getting &lt;a href=&#34;../latex-with-hugo&#34;&gt;equation support&lt;/a&gt; working, I just added a few includes to the page layout, toggled by a frontmatter variable &lt;code&gt;bokeh&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!-- Bokeh --&amp;gt;&lt;/span&gt;
+{{ if .Params.bokeh }}
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;Bokeh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;set_log_level&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;info&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Update 2021/01/24: this code now goes into layouts/partials/bokeh.html (custom), and it is called in layouts/partials/header.html (supplements the existing theme&amp;rsquo;s header)&lt;/p&gt;
+&lt;p&gt;Then added some raw html to the markdown:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;bk-root&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;bk-plotdiv&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;801d6204-c8f6-4fe9-9b10-8f2ae43ed9d1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/js/plots-in-hugo-bokeh.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The script and the div snippet are both generated by the &lt;code&gt;bokeh.embed.components&lt;/code&gt; function described in the above Bokeh link. Multiple plots work with no trouble, just place the div wherever it needs to be in the post.&lt;/p&gt;
+&lt;p&gt;Note that the &lt;code&gt;bk-plotdiv&lt;/code&gt; id must match what&amp;rsquo;s in the script, and it&amp;rsquo;s UUIDish, so every time you make some tweak to the source that generates the plot, you need to update both the html and the script.&lt;/p&gt;
+&lt;p&gt;The rest is just whatever Python nonsense you need to generate the plots, for example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;bokeh.plotting&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;figure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;output_file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;show&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;bokeh.palettes&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Category10&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;palette&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;bokehtools&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;embed_hugo&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# define some curves&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linspace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# create a new plot with a title and axis labels&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;figure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;meaningless curve example&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x_axis_label&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y_axis_label&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# add some line renderers&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;legend&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;curve &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%d&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;palette&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;embed_hugo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;plots-in-hugo-bokeh.js&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;embed_hugo&lt;/code&gt; is a small convenience function I wrote. It just creates the script file, and prints out some hints about how to manually include it. I might make this easier to use, with tighter integration with the hugo directory structure, but for now I think this is good enough.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;bokeh.embed&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;components&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;embed_hugo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;script_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;components&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;# strip tags for use as external script&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;script_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;write&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;lt;/script&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;copy to post body:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%s&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;lt;script type=&amp;#34;text/javascript&amp;#34; src=&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%s&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;script_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;copy script to static directory&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now I&amp;rsquo;ll just have to learn how to use Bokeh. The main drawback I see is that animation and interactivity (i.e. custom widgets) are not supported by this usage. This can be done with &amp;ldquo;Bokeh server&amp;rdquo;, but I&amp;rsquo;m not willing to figure out how to set that up here. Other options?&lt;/p&gt;
+&lt;h2 id=&#34;plotly&#34;&gt;Plotly&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve been using Plotly elsewhere recently, it&amp;rsquo;s a nice library. Unfortunately, it doesn&amp;rsquo;t look like it&amp;rsquo;s intended for html embdedding &lt;em&gt;without&lt;/em&gt; using the web service, but there are &lt;a href=&#34;https://stackoverflow.com/questions/36262748/python-save-plotly-plot-to-local-file-and-insert-into-html&#34;target=&#34;_blank&#34;&gt;ways&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div id=&#34;0706912e-e498-4019-80bf-f58ea17a3f54&#34; style=&#34;height: 100%; width: 100%;&#34; class=&#34;plotly-graph-div&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://alanbernstein.github.io/js/plots-in-hugo-plotly.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;The approach is essentially the same. I included one script in the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; of the theme:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;{{ if .Params.plotly }}
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://cdn.plot.ly/plotly-latest.min.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Update 2021/01/24: this code now goes into layouts/partials/bokeh.html (custom), and it is called in layouts/partials/header.html (supplements the existing theme&amp;rsquo;s header)&lt;/p&gt;
+&lt;p&gt;One div and one script in the post:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0706912e-e498-4019-80bf-f58ea17a3f54&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;height: 100%; width: 100%;&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;plotly-graph-div&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/js/plots-in-hugo-plotly.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And I wrote a similar &lt;code&gt;embed_hugo&lt;/code&gt; function for plotly:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;plotly.offline&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plot&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;default_plot_args&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;dict&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;include_plotlyjs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;output_type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;div&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;show_link&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;displayModeBar&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;embed_hugo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fig&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;script_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plot_args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plot_args&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;plot_args&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;default_plot_args&lt;/span&gt;
+
+    &lt;span class=&#34;n&#34;&gt;html&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fig&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plot_args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;# this contains a div and a script, need to separate them&lt;/span&gt;
+
+    &lt;span class=&#34;n&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;lt;/div&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# hack hack&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;script_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;write&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;lt;/script&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;copy to post body:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%s&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;lt;/div&amp;gt;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;lt;script type=&amp;#34;text/javascript&amp;#34; src=&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%s&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;script_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;copy script to static directory&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Update 2018/10/07: This works well with org-mode posts too! The div and script tags are identical, just add to the front matter with org syntax:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span class=&#34;cs&#34;&gt;#+PLOTLY&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;: true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Update 2021/01/24: No longer works in org-mode - not sure what&amp;rsquo;s different here, but raw html doesn&amp;rsquo;t get rendered&lt;/p&gt;
+&lt;p&gt;Also, almost a year later, my &lt;code&gt;embed_hugo&lt;/code&gt; function still works, score!&lt;/p&gt;
+&lt;h3 id=&#34;widgets&#34;&gt;Widgets&lt;/h3&gt;
+&lt;div id=&#34;b40a4256-3c82-4f01-8605-85a524e3d111&#34; style=&#34;height: 100%; width: 100%;&#34; class=&#34;plotly-graph-div&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://alanbernstein.github.io/js/plots-in-hugo-plotly-slider.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;No problem!&lt;/p&gt;
+&lt;h3 id=&#34;animation&#34;&gt;Animation&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s equally easy to &lt;em&gt;embed&lt;/em&gt; animated plots, but the support for creating animations with Plotly in Python is not great. I&amp;rsquo;ll probably avoid this for now.&lt;/p&gt;
+&lt;h3 id=&#34;shortcodes&#34;&gt;Shortcodes&lt;/h3&gt;
+&lt;p&gt;This was a good opportunity to start learning about &lt;a href=&#34;https://gohugo.io/templates/shortcode-templates/#single-named-example-image&#34;target=&#34;_blank&#34;&gt;Hugo shortcodes&lt;/a&gt;. The div and script tags used here aren&amp;rsquo;t too unwieldy, but a shortcode is&amp;hellip; shorter.&lt;/p&gt;
+&lt;div id=&#34;b40a4256-3c82-4f01-8605-85a524e3d112&#34; style=&#34;height: 100%; width: 100%;&#34; class=&#34;plotly-graph-div&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://alanbernstein.github.io/js/plots-in-hugo-plotly-slider-shortcode.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;!-- this is how you prevent hugo from evaluating a shortcode inside code fences --&gt;
+&lt;pre&gt;&lt;code class=&#34;language-hugo&#34; data-lang=&#34;hugo&#34;&gt;{{&amp;lt; plotly id=&amp;quot;b40a4256-3c82-4f01-8605-85a524e3d112&amp;quot; script=&amp;quot;/js/plots-in-hugo-plotly-slider-shortcode.js&amp;quot; &amp;gt;}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Template:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Get &amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;height: 100%; width: 100%;&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;plotly-graph-div&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Get &amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I&amp;rsquo;ll use a similar template for Bokeh, if I end up using it for anything.&lt;/p&gt;
+&lt;h2 id=&#34;mpld3&#34;&gt;mpld3&lt;/h2&gt;
+&lt;p&gt;D3 is the gold standard, and Matlab/Matplotlib plotting abstractions are second nature to me, but Matplotlib has become a pain to install in OSX. I may look into this at some point, but not now.&lt;/p&gt;
+&lt;h2 id=&#34;pygal&#34;&gt;pygal&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ll look into this one if none of the above work out&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;comparison&#34;&gt;Comparison&lt;/h2&gt;
+&lt;p&gt;Plan: expand this as new desirable features become apparent.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Feature&lt;/th&gt;
+&lt;th&gt;Bokeh&lt;/th&gt;
+&lt;th&gt;Plotly&lt;/th&gt;
+&lt;th&gt;mpld3&lt;/th&gt;
+&lt;th&gt;pygal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;easy to embed&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;animation&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;eh&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;widgets&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;depends on a service&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;TODO: table styles!&lt;/p&gt;
+&lt;p&gt;update 2018/10/08: tables styles updated to barebones compact! I was trying to wait to force myself to pick a new theme that I actually like, but now I just want usable tables for the Kilimanjaro posts, so screw it.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Setting up LaTeX in Hugo</title>
+      <link>http://alanbernstein.github.io/posts/latex-with-hugo/</link>
+      <pubDate>Thu, 26 Oct 2017 00:00:00 -0500</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/latex-with-hugo/</guid>
+      <description>&lt;p&gt;I want to put equations in my posts. How do you do that in Hugo? It&amp;rsquo;s easy as &lt;a href=&#34;https://en.wikipedia.org/wiki/Wallis_product&#34;target=&#34;_blank&#34;&gt;$$\prod_{n=1}^{\infty} \left(\frac{2n}{2n-1} \cdot \frac{2n}{2n+1}\right)$$&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Well, a link around an equation in the teaser text screws up the style in the post list page. But that&amp;rsquo;s a minor issue, and hopefully fixed by switching themes.&lt;/p&gt;
+&lt;!--TODO--&gt;
+&lt;p&gt;I started &lt;a href=&#34;https://gohugo.io/content-management/formats/&#34;target=&#34;_blank&#34;&gt;here&lt;/a&gt; and found a hint that using mmark source might be the easiest route. So I followed the link to &lt;a href=&#34;http://nosubstance.me/post/a-great-toolset-for-static-blogging/&#34;target=&#34;_blank&#34;&gt;this&lt;/a&gt; post which, after some helpful explanation, linked to the actual &lt;a href=&#34;https://github.com/oblitum/hugo-theme-slim/commit/2726427d5899720447d90177824ab26996bb0750&#34;target=&#34;_blank&#34;&gt;changeset&lt;/a&gt; used to add &lt;a href=&#34;https://khan.github.io/KaTeX/&#34;target=&#34;_blank&#34;&gt;KaTeX&lt;/a&gt; support.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m still figuring out what to do about my theme, so I just modified one file in my test theme (layouts/_default/baseof.html) to try this out. I added four lines - the js and css and includes in &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;, and the js function call just before the end of &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;. Then I created this post in &lt;code&gt;mmark&lt;/code&gt; format with a few math blocks, and everything just worked. Update 2017/11/02: updated from Katex v0.6.0 to v0.9.0-alpha1, for &lt;code&gt;\operatorname&lt;/code&gt; support.&lt;/p&gt;
+&lt;p&gt;Inline math works: $$F_M(N, N_R) = {N-1 \choose N_R-1}{M-N+1 \choose N_R}$$, and so does display math:&lt;/p&gt;
+&lt;p&gt;$$F_M(N, N_R) = {N-1 \choose N_R-1}{M-N+1 \choose N_R}$$&lt;/p&gt;
+&lt;p&gt;Now I have the bare minimum necessary to start converting old mediawiki posts. I picked a smallish one with a decent amount of math in it: The &lt;a href=&#34;../bell-curve&#34;&gt;bell curve integral&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Great! But I&amp;rsquo;d love for this to work in org-mode&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;update-20200124&#34;&gt;Update 2020/01/24&lt;/h2&gt;
+&lt;p&gt;Notepadium has built-in support that works great for .org files, for latex block mode, not so much for inline mode.&lt;/p&gt;
+&lt;p&gt;The only confusion is that the notepadium example page says to &amp;ldquo;include the partial in your templates like so&amp;rdquo;, which assumes some familiarity with Hugo. I haven&amp;rsquo;t used templates at all, so it wasn&amp;rsquo;t clear where to put this. After some experimentation, seems like it works to call the math.html partial from layouts/partials/header.html (supplements the existing theme&amp;rsquo;s header).&lt;/p&gt;
+&lt;p&gt;Some links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;config for math support described at &lt;a href=&#34;https://themes.gohugo.io/hugo-notepadium/&#34;&gt;https://themes.gohugo.io/hugo-notepadium/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;example markdown syntax at &lt;a href=&#34;https://github.com/cntrump/hugo-notepadium/blob/master/exampleSite/content/post/math-typesetting.md&#34;&gt;https://github.com/cntrump/hugo-notepadium/blob/master/exampleSite/content/post/math-typesetting.md&lt;/a&gt; (live at &lt;a href=&#34;https://themes.gohugo.io//theme/hugo-notepadium/post/math-typesetting/&#34;&gt;https://themes.gohugo.io//theme/hugo-notepadium/post/math-typesetting/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672&#34;&gt;https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cntrump/hugo-notepadium/issues/68&#34;&gt;https://github.com/cntrump/hugo-notepadium/issues/68&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using Hugo and org-mode for a blog</title>
+      <link>http://alanbernstein.github.io/posts/blog-setup/</link>
+      <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/blog-setup/</guid>
+      <description>&lt;p&gt;
+I just set up this blog with Hugo. This is the story of why and how.&lt;/p&gt;
+&lt;p&gt;
+This is also a boring test post for the new system.&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Why
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+I&amp;#39;ve been writing bloggy stuff for years, but never had a great way to share it. For a while I was pretty excited about using my own instance of Mediawiki. I wrote hundreds of pages of rambling nonsense, intricately linked, categorized and tagged, and put it online. I set up a bunch of custom templates, code syntax highlighting, and LaTeX support, among other things - Mediawiki has a great selection of extensions. I even had a grand plan for building an auto-updating mind map from page categories.&lt;/p&gt;
+&lt;p&gt;
+Back then, my main goal was to capture ideas electronically, and that system worked well. Even the editing interface was nice, with a source/WYSIWYG toggle, formatting and syntax help, and a customized toolbar for snippets and templates. But it was a web interface, which eventually started to feel cumbersome (slow feedback cycle). Plus, the years of maintaining a php app on a cheap shared server were starting to take their toll. I don&amp;#39;t remember if it was the stylesheet breaking, or my general loss of patience with the app, but for some reason, I eventually stopped updating it.&lt;/p&gt;
+&lt;p&gt;
+Ever since, I&amp;#39;ve wanted to get that content back up in a more digestible form, backed by a more robust system. I&amp;#39;ll probably backdate it to create the illusion of continuity. I&amp;#39;ve also written plenty of new stuff, which is sitting in piles of text files waiting for a home.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+How
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+The secondary goal was to make sure the capturing was done in some variety of &lt;a href=&#34;http://www.linfo.org/plain_text.html&#34;&gt;plaintext&lt;/a&gt;. In Mediawiki, it was wikitext, stored in MySQL, which was… at least plaintext in spirit. I had no trouble exporting all the page contents to text files; handling the markup is another story. There are lots of good reasons for wanting plaintext, but eventually I discovered the best one: &lt;a href=&#34;http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html&#34;&gt;org-mode&lt;/a&gt;. I made plans to translate all the wikitext pages to org, and write or use some sort of static site generator, to mirror a public html blog directly from a local org folder. I did make a few steps in that direction (&lt;a href=&#34;https://github.com/alanbernstein/post&#34;&gt;see also&lt;/a&gt;), but never put any effort into a unified solution.&lt;/p&gt;
+&lt;p&gt;
+Later, I encountered &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, the trendy new static site generator, and it seemed like the obvious answer. The only thing left to do was automate the conversion of org files to html or markdown. Unfortunately, my enthusiasm for tinkering with emacs/org/elisp tapered off quickly. I&amp;#39;m happy with emacs as an IDE for code and structured notes, but the idea of using it as a component in generating blog pages was a big turn off.&lt;/p&gt;
+&lt;p&gt;
+I started keeping track of &lt;a href=&#34;https://pandoc.org/&#34;&gt;some&lt;/a&gt; &lt;a href=&#34;http://www.holgerschurig.de/tags/hugo/&#34;&gt;possible&lt;/a&gt; &lt;a href=&#34;https://github.com/fniessen/org-html-themes&#34;&gt;solutions&lt;/a&gt; - or components of them at least - lots of other nerds are interested in using org for blogs. When I saw an announcement for &lt;a href=&#34;https://ox-hugo.netlify.com/&#34;&gt;ox-hugo&lt;/a&gt;, I decided it was time to figure this thing out. In the process of setting up a deployment process that would handle the org-html export with ox-hugo, I found &lt;a href=&#34;https://discourse.gohugo.io/t/org-mode-content-support-merged-into-hugo-master/5530&#34;&gt;this&lt;/a&gt; announcement: as of February 2017, Hugo supports org-mode directly!&lt;/p&gt;
+&lt;p&gt;
+This makes the workflow ideal:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Use org-mode, in emacs, to write post content in files in a local directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run a single command to generate updated web content and push to my site.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This post is the proof that it works! Because I am a devopeler extraordinaire, the command is (effectively):&lt;/p&gt;
+&lt;div class=&#34;src src-sh&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hugo &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; rsync -rz --update public/* &lt;span class=&#34;nv&#34;&gt;$WEBSITE&lt;/span&gt;/blog/.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+Of course there is more work to do. I won&amp;#39;t be satisfied without syntax highlighting and LaTeX support, but there is lower-hanging fruit I&amp;#39;ll tackle first. Finding a theme is probably a good place to start.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-3&#34;&gt;
+Updates
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-4&#34;&gt;
+2017/10/05: Syntax highlighting
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;Mostly working! It&amp;#39;s basically just a couple lines in the config:&lt;/p&gt;
+&lt;div class=&#34;src src-sh&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nv&#34;&gt;pygmentsCodeFences&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;PygmentsStyle&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;monokai&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+Although I also had to figure out the proper syntax for the org-mode parser (&lt;code&gt;#+BEGIN_SRC sh&lt;/code&gt; for blocks, &lt;code&gt;~tildes~&lt;/code&gt; for inline), and my test theme removes the line breaks from preformatted elements for some reason (fixed by hacking one style into layouts/_default/baseof.html). &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-5&#34;&gt;
+2017/10/26: Equation rendering
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;Works with KaTeX in `mmark` files! Some details &lt;a href=&#34;../latex-with-hugo&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-6&#34;&gt;
+2017/10/31: Bokeh plots work!
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;../plots-in-hugo&#34;&gt;An example&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-7&#34;&gt;
+2021/01/24: Reboot
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;I have abandoned my ad-hoc deployment system in favor of using github pages. Hugo project restarted from scratch, with a better theme ([notepadium](&lt;a href=&#34;https://themes.gohugo.io/hugo-notepadium/))&#34;&gt;https://themes.gohugo.io/hugo-notepadium/))&lt;/a&gt; and title. Hopefully I can reuse some of the customizations mentioned above. Blog repo is now at &lt;a href=&#34;https://github.com/alanbernstein/blog.&#34;&gt;https://github.com/alanbernstein/blog.&lt;/a&gt; Not having it in a git repo in the first place was really dumb, but it&amp;#39;s because the blog is photo-heavy, and I didn&amp;#39;t want to put hundreds of MB of photos in the repo. I&amp;#39;m currently just linking to photos hosted on my personal website, but I&amp;#39;d like to figure out a better solution (&lt;a href=&#34;https://github.com/alanbernstein/blog/issues/3).&#34;&gt;https://github.com/alanbernstein/blog/issues/3).&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+Math typesetting: previous solution depended on the mmark format, and hugo has deprecated support for this. Forunately, the notepadium theme has built-in support for math typesetting via Katex. It does &amp;#34;block mode&amp;#34; or &amp;#34;display mode&amp;#34; with no trouble, and &amp;#34;inline mode&amp;#34; isn&amp;#39;t quite working (renders normal size inside a `&amp;lt;p&amp;gt;` element, instead of a smaller size as expected). Seems to be discussed here: &lt;a href=&#34;https://github.com/cntrump/hugo-notepadium/issues/68,&#34;&gt;https://github.com/cntrump/hugo-notepadium/issues/68,&lt;/a&gt; with corresponding fix &lt;a href=&#34;https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672,&#34;&gt;https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672,&lt;/a&gt; but not sure if this is helpful. Oh well, Good enough for now… &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Reviving a dead Etsy product</title>
+      <link>http://alanbernstein.github.io/posts/ambigram/</link>
+      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/ambigram/</guid>
+      <description>&lt;p&gt;
+I thought of a thing that I wanted, found that someone else had already done it, and sold it on Etsy, but then stopped. Using a photo of it, and some light hacking skills, I made another one for myself.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/true-false-ambigram.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/true-false-ambigram.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/true-false-ambigram.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;&lt;a href=&#34;http://www.anopticalillusion.com/2012/12/truefalse-ambigram-by-john-langdon/&#34;&gt;Rotational trans-ambigram by John Langdon&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+I like words, optical illusions, and art. An &lt;a href=&#34;https://en.wikipedia.org/wiki/Ambigram&#34;&gt;ambigram&lt;/a&gt; is a clever combination of all three of these, so of course I like these too. There are a few different forms, and while they&amp;#39;re all neat, I am particularly fond of the type that incorporates two wholly different words, with a 180-degree rotation separating the two, like the true/false image above.&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+The idea
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+One day, I noticed one of those dishwasher clean/dirty magnets, and thought &amp;#34;Hey! that would be a perfect way to use an ambigram!&amp;#34; Then, realizing my limited artistic skill would prevent me from inventing it myself, I turned to the web. I found a handful of examples, and &lt;a href=&#34;https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet&#34;&gt;one that I really liked on Etsy&lt;/a&gt; - this one was actually designed to be used as a dishwasher magnet! Unfortunately, it not only unavailable, but it&amp;#39;s the lone product in a defunct shop, so I was not hopeful about contacting the &lt;a href=&#34;https://www.etsy.com/people/GilbertNick&#34;&gt;creator&lt;/a&gt;. Thanks for the design, Nick, if you ever see this!&lt;/p&gt;
+&lt;p&gt;
+So that would have been a dead end, except the image was available in a halfway decent resolution. That means I should be able to hack it back into existence, so I set out to do just that.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/etsy-product-image.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/etsy-product-image.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/etsy-product-image.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;&lt;a href=&#34;https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet&#34;&gt;Original Etsy product image&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+570x443 pixels isn&amp;#39;t great, but for a simple, monochrome pattern with sharp lines, it might be good enough. So, there is this rectangular object, and I have a moderate-resolution photograph of it from an oblique angle. What do I need to do to reproduce the pattern at high resolution? It&amp;#39;s simple:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Undo the perspective projection&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trace the edges to generate a vector image&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clean up the messy edges&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Normally, I&amp;#39;m happy to dive into coding this stuff from scratch, just for the hell of it. In this case I was more interested in the destination than the journey, so I went for some proven solutions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Undoing the perspective projection
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+Generally speaking, extracting a high-quality representation of an object, from a photo in uncontrolled conditions, is a tricky problem. Photographing something means, among other things, applying a perspective projection to a 3D scene. That projection removes a lot of information from the scene to reduce it to an image - the exact shape, size, and location of the object - and that&amp;#39;s exactly what we want. If the object has any sort of complicated shape, it might be necessary to use some clever heuristics, or maybe multiple photos from different angles. On the other hand, a planar rectangle with known dimensions (4&amp;#34;x2.5&amp;#34; conveniently given in the product description), is just about the easiest thing to work with.&lt;/p&gt;
+&lt;p&gt;
+In the case of a known rectangle, there is a simple way to estimate the original perspective projection, invert it, and apply that inverse to the photo. This effectively maps whatever pattern is on the rectangle in the photo, to a new, properly rectangular region, like so:&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/transformed.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/transformed.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/transformed.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Perspective projection inverted&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+As part of my perpetual &lt;a href=&#34;http://alanbernstein.github.io/tags/matlab-to-python&#34;&gt;Matlab-to-Python transition&lt;/a&gt;, I decided to ignore some &lt;a href=&#34;https://gist.github.com/alanbernstein/cbc319c75b74b99cf9b63da378bae6da&#34;&gt;old Matlab code&lt;/a&gt; I wrote to solve this problem, and &lt;a href=&#34;https://gist.github.com/alanbernstein/0ff61f3a3ae5e62278090a7ec9223826&#34;&gt;redo&lt;/a&gt; it in Python. As it turns out, with the OpenCV bindings available in Python, the solution is trivial. All I had to do was manually pick a handful of keypoints (the rectangle corners), and pass them to a single function to generate the required transformation. The output of that can then be applied directly to the image. In short, something like this:&lt;/p&gt;
+&lt;div class=&#34;src src-python&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;findHomography&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;im_dst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;warpPerspective&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;im_src&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+&amp;#34;&lt;a href=&#34;https://en.wikipedia.org/wiki/Homography_(computer_vision)&#34;&gt;Homography&lt;/a&gt;&amp;#34; is more or less another word for perspective projection. If I needed to do this for more than a few images, I would have wanted to automate the keypoint-picking step (I&amp;#39;ve used &lt;a href=&#34;https://en.wikipedia.org/wiki/Scale-invariant_feature_transform&#34;&gt;SIFT&lt;/a&gt; for that in the past, I wonder if that&amp;#39;s still in fashion?), but I&amp;#39;ll save that for a time when I need it.&lt;/p&gt;
+&lt;p&gt;
+Here is the full python code, because it&amp;#39;s easy enough to embed here:&lt;/p&gt;
+&lt;p&gt;
+&lt;script type=&#34;application/javascript&#34; src=&#34;https://gist.github.com/alanbernstein/0ff61f3a3ae5e62278090a7ec9223826.js&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-3&#34;&gt;
+Generating a vector image
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+The &amp;#34;hard&amp;#34; part is done - I have something pretty close to what I want for the final product - that just leaves the grunt work. The end goal is to produce a clean, black and white image, and there are different ways to go about that. Experience tells me that in this case, vectorizing the image will give the best result. I&amp;#39;ve used a few tools for this task, including some free web services, potrace, and Corel Draw. Here, Illustrator did the best job:&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/vectorized.svg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/vectorized.svg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/vectorized.svg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Vectorized&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+This looks pretty good, at least around the letters. The finer details in the decorative border didn&amp;#39;t turn out so well, but that&amp;#39;s ok - I&amp;#39;m more into the minimal design with letters only. I removed all the border stuff, and did a little manual repair work on some of the letter edges.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/word-only-white-on-black.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/word-only-white-on-black.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/word-only-white-on-black.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Final high-quality raster image&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+Perfect! All I had to do was get it printed on a magnet. I used &lt;a href=&#34;https://www.purebuttons.com/&#34;&gt;purebuttons&lt;/a&gt;, which was great for a low-volume order. The final product:&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/magnet-photo-both.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/magnet-photo-both.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/magnet-photo-both.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Really Squeeze the Value Out of Your Overpriced Razor Blades</title>
+      <link>http://alanbernstein.github.io/posts/shaving/</link>
+      <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/shaving/</guid>
+      <description>&lt;p&gt;I read somewhere that a strip of denim works pretty well for stropping razor blades, which supposedly extends their effective life. It seemed like a good experiment opportunity.&lt;/p&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;Shave each half of my face, on the same day, using a dull blade on one side, and a stropped blade on the other. Count the total number of blade strokes used for each half the face.&lt;/p&gt;
+&lt;p&gt;A better experiment might have been to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;use two blades, alternating each between left and right side of face&lt;/li&gt;
+&lt;li&gt;let blade 1 dull naturally, and strop blade 2 after each shave,&lt;/li&gt;
+&lt;li&gt;shave on a regular schedule, for consistent growth.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As it turned out, I didn&amp;rsquo;t have to go that far to see positive results.&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;I counted the strokes during nine shaves, and of these, six resulted in good measurements, that I remembered to write down.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;stropped&lt;/th&gt;
+&lt;th&gt;dull&lt;/th&gt;
+&lt;th&gt;ratio&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;46&lt;/td&gt;
+&lt;td&gt;67&lt;/td&gt;
+&lt;td&gt;.69&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;39&lt;/td&gt;
+&lt;td&gt;51&lt;/td&gt;
+&lt;td&gt;.76&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;.77&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;47&lt;/td&gt;
+&lt;td&gt;68&lt;/td&gt;
+&lt;td&gt;.69&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;34&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;.57&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td&gt;.80&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These shaving sessions were not highly controlled, with different levels of hair growth, blade age, shaving cream. Counting strokes is also not an ideal metric, just the best available one. As a result, the absolute numbers vary a bit, so I don&amp;rsquo;t think averaging them would be meaningful.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Regardless, the ratio of stropped-strokes/dull-strokes was always &amp;lt;1, and usually significantly so. I concluded that denim stropping is a meaningful way to improve the performance of a razor blade, and thus extending its useful life.&lt;/p&gt;
+&lt;h2 id=&#34;addendum&#34;&gt;Addendum&lt;/h2&gt;
+&lt;p&gt;I later realized that my girlfriend&amp;rsquo;s razor is superior due to the much larger area of integrated shave cream goo, so now I just steal her razors and don&amp;rsquo;t think about it.&lt;/p&gt;
+&lt;!--
+shaving experiment:
+2014/04/19?: previous shave?, day of date with lisa
+2014/04/29(?): 9 stroke groups, dull, left vs 5 stroke groups, stropped on denim, right; not including goatee-area
+2014/05/14: 67 strokes, right, dull vs 46 strokes stropped on denim, left; not including goatee area, vibration on
+2014/05/19: growth too short to get useful measurements, just recording for next time
+2014/06/01: 51 dull left, 39 stropped on denim, right
+2014/06/15?: ?left, ?right, no stropping
+2014/06/27: left: 35, right: 27, no stropping
+2014/07/11: left: 68, right: 47, no stropping
+2014/08/12: left: 34, stropped, right: 60, unstropped (one months growth, 3 shaves worth of wear on blade) (conclusive)
+2018/05/12: left: 25, stropped really old, right: 20, stropped kinda old (2 weeks growth)
+--&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tough Mudder</title>
+      <link>http://alanbernstein.github.io/posts/tough-mudder/</link>
+      <pubDate>Sat, 06 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/tough-mudder/</guid>
+      <description>&lt;p&gt;
+Sometimes I do these silly obstacle course races. One of them resulted in one of my nicknames, &amp;#34;No-challenge Bernstein&amp;#34;.&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Tough mudder #2
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;2013/04/21, Longhorn River Ranch outside Austin, with Clark, Robert, Wesley.&lt;/p&gt;
+&lt;p&gt;
+I have no photos of the course, because it&amp;#39;s not worth carrying anything during these runs. &lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2013.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2013.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2013.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Finish line&lt;/em&gt;&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-2&#34;&gt;
+Overall
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;A shorter course, warmer weather, no sprained fingers, and experience made the race much easier. Only one aid station had bananas, so I got kind of hungry - but we brought energy goo candy, which helped. Completion time of 3 hours (assume 10.25 miles: 3.4 mph, or 17.5 minute mile) was marginally better than previous time of 4 hours (assume 12 miles: 3 mph or 20 minute mile). I tried to learn some lessons last time, how well did I do in remembering those?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Wear more pads: well, the kneepads were irritating, so I took them off. Still had two elbow pads, and though there were slightly fewer belly crawl obstacles, I&amp;#39;m still glad I had both elbows covered.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wear synthetic underwear and socks: ran out of time for this, I think the small volume of cotton undergarments is pretty insignificant, and moreso in warmer weather.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I was able to run as much as I was willing to - I was probably the slowest team member, so any issues stemming from that were irrelevant for me.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Didn&amp;#39;t bring gloves, no big deal&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Didn&amp;#39;t bring goggles or something to wipe mud away from eyes, no big deal&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This course was notably less muddy than the October one - the dirty ballerina was dry, and the mud mile was much shorter.&lt;/p&gt;
+&lt;p&gt;
+My calves started cramping up after about 6-7 miles, turned out Clark and Wesley had cramps around the same time, so we slowed to a walk for a bit. That didn&amp;#39;t happen in October for some reason, surprised it happened this time. Only the once though.&lt;/p&gt;
+&lt;p&gt;
+This time it was warm enough to shower after, plus they gave us clif bars at the end - I was pretty surprised when they didnt give us something small to eat at the end in October.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-3&#34;&gt;
+Obstacles
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2013.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2013.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2013.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Our course map&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+Minor obstacles:&lt;/p&gt;
+&lt;p&gt;
+A couple of times we had to wade through a creek, but mostly, the course went up and down a pretty tall hill in the middle of the area. 2-3 times, going up it was nearly a climb (ie, 100+ feet vertical, probably ~50% grade, had to use hands to pull self up with rocks and roots), with slower descent. That was a more satisfying minor obstacle. I think they may have made the course shorter because of the elevation profile, but I&amp;#39;m better at climbing than running, so it seemed easier to me. No impossible mud pit, which was, last time, the only thing that I actually NEEDED help with.&lt;/p&gt;
+&lt;p&gt;
+Named obstacles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Kiss of Mud (Crawl under barbed wire)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Same as last time, except easier with both elbow pads.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Walk the Plank (Jump off a 15&amp;#39; platform)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Same as last time, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Glory Blades (Climb over an inclined wall)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Similar to berlin walls, but slanted maybe 20 degrees off vertical (toward us). only ~9ft tall, so easy to reach the top by jumping. No harder than a pullup.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Fire Walker (Run and jump over fire)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Fun, no danger, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Arctic Enema (Plunge into icy water)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Same as last time, just dont hesitate, &lt;strong&gt;no challenge&lt;/strong&gt; .&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Boa Constrictor (Crawl through plastic piping)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Slightly higher water level at the bottom than last time; still never had to have my face submerged, so still… &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Funky Monkey (Monkey bar crossing)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Similar to last time, but earlier in the race, I had full use of my fingers, and I think the bars were maybe smaller in diameter. Last time, I barely started it before falling. This time, I made it all the way. Going down was much easier, as expected - helped by bicycle leg motion. Going up, I thought I would fall the whole time, because I was only grasping the bars with the tips of my fingers. They were small enough that I guess that was still able to work. I was the only one on my team to do it, and I think one of only 2-3 to do it while I was around there. Proudest accomplishment this time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Cage Crawl (Crawl through water under chain link fence)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Fun, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Mud Mile (Run over mud trenches and hills)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Much shorter than last time, climbed every hill on my own, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Balls To The Wall (Rope climb up and over wall)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Maybe the most difficult obstacle - ropes were covered in mud and VERY slippery - this was one of the few places where I didnt really feel safe - could have easily slipped and slammed my knee into a corner, or just fallen onto my back or something.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Log Jammin (Navigating under and over logs)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Same as last time, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Hold Your Wood (1/4 mile log carry)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This was silly, we tried a &amp;#34;team log&amp;#34;, but it was really only wide enough for 3 people at most, and the people on the ends did most of the work anyway. I felt bad for not having to exert myself.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Electric Eel (Slide over water getting shocked)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Same as last time, got shocked a few times.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Island Hoppin (Jump across floating platforms)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;8-10 4x4ft plywood boxes, anchored to the bottom of a river. They sink within 1-2 seconds when you put your weight on them (just like disappearing platforms in a videogame), so the only real option is to quickly run across all of them. We watched a bunch of people try and fail before we started, and all four of us made it pretty easily. Glad I was able to do it on the first try, not as hard as I expected.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Berlin Walls (Wooden 9&amp;#39; walls) (these were actually 12&amp;#39;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Two walls to climb, first time I did it alone, but with the diagonal brace. Second time I did it alone, but without. It&amp;#39;s not strictly a 12&amp;#39; climb, there is a foothold about 2ft off the ground. My approach is to get a running jump off the foothold, get both hands on the top, and pull myself over. I couldn&amp;#39;t do this one alone in October, due to cold/sprained fingers. This was my second proudest accomplishment this time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Dirty Ballerina (Leap over mud mounds)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Very similar to last time, except the pits were empty instead of mud-filled. Jumping was much safer than last time, so we all jumped across all six or so of the 4ft wide x 4ft deep pits. Pretty fun.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Underwater Tunnels (Cross pond bobbing under barrels)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Same as last time, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Kiss Of Mud #2 (Crawl under barbed wire)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Same as last time, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Trench Warfare (Belly down crawl through earthen tunnels)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Darker and tighter than last time, banged my knee, had to actually squeeze through the exit. Slightly more difficult, but still not really challenging.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Wounded Warrior Carry (Buddy carry a friend)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nothing special… I was impressed with Robert running with Clark on his back.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Everest (Greased up 1/4 pipe)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I overdid the sprint for this one, this time. By the time my velocity reached zero, my feet were literally already at the top. Not that that was a bad thing, but I didn&amp;#39;t plan for or expect that to happen. Clearly, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Electroshock Therapy (Run through electrified wires)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This was the only obstacle where I actually had to take a few seconds to psych myself up for it. We considered running with linked arms, but decided against it in the end. I fell about 75% of the way through, and unlike last time, I just got myself up and kept going. Only one bad shock, I think. I felt residual spasms for a few minutes, weird.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-4&#34;&gt;
+Tough mudder #1
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;2012/10/06, Cross Creek Ranch outside Austin, with Eric.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2012.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2012.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2012.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Finish line&lt;/em&gt;&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-5&#34;&gt;
+Overall
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;It was fun, but my teammate couldn&amp;#39;t jog most of it, so we walked, finished in 4 hours (slow), and had no trouble with most of the obstacles, because we weren&amp;#39;t worn down from running. I know that&amp;#39;s supposed to be part of the challenge, but it was really the obstacles that appealed to me, more than the running aspect. Seems like your completion time is 95% based on your running speed, not your obstacle completion time, which is what I&amp;#39;m best at. If there were an event that were more focused on obstacles, with the whole course full of smaller obstacles, and a bunch of major obstacles scattered throughout, and a total distance of 3-5 miles, I think that would be more fun. There were 2 &amp;#34;minor&amp;#34; obstacles in this event, one wading through some water, and one getting out of a 15ft deep mud pit. the mud pit would have been almost impossible without help, but it was always full of people helping each other out.&lt;/p&gt;
+&lt;p&gt;
+It was pretty cold, around 50F the whole time, and I would have been fine in that temperature, except I wasnt running/jogging most of the time because my teammate couldnt handle it. I was shivering for probably the whole last mile. There was a cold shower at the end, definitely didn&amp;#39;t even consider doing that, but they were giving out foil blankets at the finish line, so no big deal.&lt;/p&gt;
+&lt;p&gt;
+There were spectators all over the place, especially the electric obstacles and the funky monkey. I thought it would have made more sense if they put all the obstacles in the center, and then have the running take place in loops that branch out from the center. Then people could just stay in one place and watch everything.&lt;/p&gt;
+&lt;p&gt;
+Water/portapotty stations every 2 miles. Every other one had a pile of bananas you could grab.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-6&#34;&gt;
+Preparation/Gear
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;I sprained 2 fingers 5 days before the event, ring and pinky on my right (dominant) hand. Wore a splint on the ring finger, didn&amp;#39;t expect it to last the whole race, but it did. It was only a real problem for two obstacles, the two real hand grip ones (&amp;#34;just the tip&amp;#34; and &amp;#34;funky monkey&amp;#34;). Might have been possible for me to do berlin walls #2 (12ft) alone without it, but hard to say.&lt;/p&gt;
+&lt;p&gt;
+Ate a slightly larger than normal breakfast. Brought a pocketful of sugar gel packets, glad I had them, but the bananas at the water stations were more than enough. Definitely didn&amp;#39;t need any water in 50 degrees, but if it had been 80, I dunno.&lt;/p&gt;
+&lt;p&gt;
+wore:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;tight synthetic shirt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gym shorts, cotton briefs (cotton = bad)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cotton socks, old tennis shoes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;splint secured with athletic tape&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mountain biking gloves. one elbow pad on my right elbow&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;not sure if the gloves helped with grip at all, but they probably protected my hands some&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;elbow pad was specifically so I could fall onto the elbow instead of the injured finger, but it ended up being really helpful for the 6 belly-crawl obstacles&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;if I do it again, and I don&amp;#39;t wear some goofy costume, I&amp;#39;ll wear:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;tight synthetic shirt, another shirt underneath with long sleeves if its cold&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tight synthetic shorts, tight synthetic underpants (if any)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;synthetic (or wool) socks, shoes with better grip&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;goggles, or something to allow me to wipe mud out of my eyes - maybe a couple of hankerchiefs, in ziplock bags, in a back-pocket&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gloves, 2 elbow pads, 2 knee pads&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-7&#34;&gt;
+Obstacles 
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;The website says that some obstacles have pools of ice water underneath (punishment if you fail), but we only had ice water at the arctic enema obstacle - nowhere else.&lt;/p&gt;
+&lt;p&gt;
+This course didn&amp;#39;t have some of the more fun-looking obstacles - firewalker, greased lightning, gauntlet, ball shrinker, twinkle toes, glacier.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-8&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-8&#34;&gt;
+Our obstacles
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2012.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2012.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2012.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;Our course map&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+If you ever hear someone call me &amp;#34;no-challenge&amp;#34; Bernstein, it&amp;#39;s because of this post.&lt;/p&gt;
+&lt;p&gt;
+22 major obstacles, in order:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Kiss of Mud #1 (crawl 20ft under barbed wire on mud/dirt. Possibly on a slope (ours was not))&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Not difficult at all, the wires were 12-18 inches above the ground, I maybe touched a wire once. Some people rolled sideways, some people dont know how to belly crawl. Having an elbow pad helped here. Pretty hard on the knees, so I just used my feet - doing plank exercises for the last 6 months probably helped me be able to do that.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Arctic Enema (jump into freezing, muddy water, swim underneath one wall barrier while completely submerged. total distance ~20ft)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Not that bad, as long as you do it quickly - some people were just standing in it, freaking out.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Dirty Ballerina (jump across five 4ft wide, 4ft deep mud pits)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Late sunday, they were so deteriorated that the edges werent mud, but just rigid, slippery dirt - jumping ACROSS would have been a bad idea, so we just jumped in and climbed out (5x). Got mud in my eyes here, &amp;#34;walk the plank&amp;#34; took care of that.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Cliff Hanger (run up a 20ft high muddy slope)
+&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Walk the Plank (15ft jump into freezing water)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Not actually freezing, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Berlin Walls #1 (climb over two 9ft walls)
+&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Log Jammin (Climb over/under some logs with barbed wire on them)
+&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trench Warfare (belly crawl through some covered, dark trenches)
+&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;King of the Mountain (climb up 3 levels of 5ft tall haybales)
+&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spider’s Web (climb over some 12ft vertical cargo nets, secured only at the top)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some people hold down the bottom while others climb over the top. Pretty sure I could have done it alone anyway.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Kiss of Mud #2 (same as #1)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Boa Constrictor (crawl through an 18in wide plastic tube, about 15ft, sloping down, into a pool of freezing water, then up another one another 15ft. some tubes require being fully submerged, others dont. mine did)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This was the only one I was really worried about, until I saw it. The pictures online showed tubes that were full of water the whole length, these weren&amp;#39;t like that at all. Not actually freezing, &lt;strong&gt;no challenge&lt;/strong&gt;. Might have gotten mud in my eyes here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Electric Eel (belly crawl through a pool of freezing mud with live wires dangling down. barbed wire ceiling at about 3ft, wires hang down to about 8-12 inches above the ground. crawl 15-20 feet, probably 40-50 wires near you in that distance)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Not actually freezing. The shocks are pretty jarring, and the pool conducts, so even if you avoid them you still get shocked when other people make contact. I just crawled through it as fast as possible, I think I made contact once, but got shocked ~5 times. Worst part is at the end when you have to get over a 1ft high wall, I just launched myself over it all at once.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Just the Tip (go 15 feet along a wall, gripping onto the short edges of slippery 2x4s (foot level and hand level), or fall into freezing pool below)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Couldn&amp;#39;t grip the 2x4s with the splint on my finger, not sure if I would have made it even without.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Dark Lightning (like electric eel, but longer, totally in the dark except for a flash of light every 30-60 seconds, and hoses spraying you in the face)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;People kept staying still waiting for the light to come on, so I waited behind them for a while, then got annoyed and just crawled through it as fast and low as possible. I didnt get shocked, but I have no idea how many wires there were, so I dont know if I was lucky or what.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Mud Mile (run through a bunch of pits of mud, varying viscosity, with uneven bottoms so you fall if youre not careful)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Not really challenging, but I got mud splashed in my eyes, and theres no way to get it out until the next water obstacle or water station.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Underwater Tunnels (swim underneath some barrels in frigid water)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Not actually freezing, only had to swim ~30 feet before reaching ground again, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Hold Your Wood (carry a log around a loop of trail)
+&lt;strong&gt;No challenge&lt;/strong&gt;. Felt pretty silly doing this, because you just pick up a log from a pile, carry it in a circle, and put it back in the pile for the next person. It would have been more rewarding if you actually needed to use the log to complete the next obstacle somehow.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Funky Monkey (monkey bars, upward slope for 15ft, downward slope for 15ft, bars rotate in place, and are slippery with mud. fall = swim through non-freezing water)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Got to the third bar before I had to give up. I felt like I could have gotten further without the splint, but not sure. I didn&amp;#39;t see anybody complete this one.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Berlin Walls #2 (climb over 2 12ft walls)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Most people got a grip on the top with the help of TWO people boosting them from below. I think I might have been able to do it alone, by wall jumping, using a 2x4 screwed on about 3ft above the ground. BUT, I was pretty cold/tired at this point, so maybe not.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Everest (run up a 20ft high quarterpipe)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A lot of people got pulled up at the end by people sitting at the top. I just made it up on my own. Not very challenging.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Electroshock (run 40ft through hundreds of live wires, uneven ground with pools of water)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Definitely the worst obstacle, right before the finish line. I got about 70% through it, then fell down, not sure if I tripped or just lost control of my legs, then I think somebody pulled me up and I made it through the rest of the way. Most of the wires hit my legs, I had trouble walking for a few minutes after.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-9&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-9&#34;&gt;
+Other adventure races
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-9&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;ROC, spartan sprint, CASA run, adventure scavenger hunt&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dirichlet Integral</title>
+      <link>http://alanbernstein.github.io/posts/dirichlet-integral/</link>
+      <pubDate>Wed, 17 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/dirichlet-integral/</guid>
+      <description>&lt;p&gt;
+The &lt;a href=&#34;https://en.wikipedia.org/wiki/Dirichlet_integral&#34;&gt;Dirichlet integral&lt;/a&gt; can be evaluated with a neat trick. This post is nothing special, just a record of my own process of understanding how it works.&lt;/p&gt;
+&lt;p&gt;
+This is the integral:&lt;/p&gt;
+&lt;p&gt;
+$$\int_0^\infty \frac{\sin x}{x}dx = \frac{\pi}{2}$$&lt;/p&gt;
+&lt;p&gt;
+This is easy to illustrate with a Fourier transform and Parseval&amp;#39;s theorem: $$\frac{\sin x}{x} = \operatorname{sinc} x \xleftrightarrow{\mathscr{F}} \operatorname{rect} x$$, the easiest thing to integrate. More interestingly, it can also be done with &lt;a href=&#34;../differentiation-under-integral&#34;&gt;differentiation under the integral sign&lt;/a&gt; (see also &amp;#34;Liebnitz integral rule&amp;#34;, &amp;#34;integration by parametric derivative&amp;#34;, &amp;#34;order of integration&amp;#34;), by multiplying by an appropriate &amp;#34;auxiliary function&amp;#34; (a term I made up).&lt;/p&gt;
+&lt;p&gt;
+Define &lt;/p&gt;
+&lt;p&gt;
+$$I(t) = \int_0^\infty e^{-tx}\frac{\sin x}{x}dx$$&lt;/p&gt;
+&lt;p&gt;
+This is part one of the trick - define a problem that is more involved than the original problem, but includes it as a special case: $$I(t)$$ is equal to the Dirichlet integral for $$t=0$$. I like it because the new problem has a sort of higher dimensionality, but is also easier to solve.&lt;/p&gt;
+&lt;p&gt;
+Anyway, differentiate $$I(t)$$ with respect to the auxiliary variable: &lt;/p&gt;
+&lt;p&gt;
+$$\frac{dI}{dt} = \frac{d}{dt} \int_0^\infty \left( e^{-tx}\frac{\sin x}{x} \right) dx$$&lt;/p&gt;
+&lt;p&gt;
+$$\frac{dI}{dt} = \int_0^\infty \frac{d}{dt}\left( e^{-tx}\frac{\sin x}{x} \right) dx$$&lt;/p&gt;
+&lt;p&gt;
+$$\frac{dI}{dt} = \int_0^\infty -x \left( e^{-tx}\frac{\sin x}{x} \right) dx$$&lt;/p&gt;
+&lt;p&gt;
+$$\frac{dI}{dt} = -\int_0^\infty e^{-tx}\sin x dx$$&lt;/p&gt;
+&lt;p&gt;
+And this is the second part: by adding the exponential term, then differentiating under the integral, we get rid of the pesky denominator term. &lt;/p&gt;
+&lt;p&gt;
+This can be evaluated with repeated integration by parts, or complex exponentials:&lt;/p&gt;
+&lt;p&gt;
+$$\frac{dI}{dt} = -\frac{1}{t^2+1} $$&lt;/p&gt;
+&lt;p&gt;
+And this is a well-known antiderivative:&lt;/p&gt;
+&lt;p&gt;
+$$I(t) = -\int\frac{1}{t^2+1}dt = -\tan^{-1}(t) + c$$&lt;/p&gt;
+&lt;p&gt;
+To determine $$c$$, note that $$I(\infty)=0$$ (since the exponential decays infinitely fast).&lt;/p&gt;
+&lt;p&gt;
+$$I(\infty) = 0 = -\tan^{-1}(\infty) + c$$&lt;/p&gt;
+&lt;p&gt;
+$$c = \tan^{-1}(\infty)$$&lt;/p&gt;
+&lt;p&gt;
+$$c = \pi/2$$&lt;/p&gt;
+&lt;p&gt;
+And finally,&lt;/p&gt;
+&lt;p&gt;
+$$I(0) = -\tan^{-1}(0) + \pi/2$$&lt;/p&gt;
+&lt;p&gt;
+$$I(0) = \pi/2 \blacksquare$$&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-1&#34;&gt;
+Sinc powers
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+When the sinc term is raised to a power, can we use the same method? You still get the $$1/x^k$$ cancellation, what comes after that?&lt;/p&gt;
+&lt;p&gt;
+$$I_n(t) = \int_0^\infty e^{-tx}\left(\frac{\sin x}{x}\right)^ndx$$&lt;/p&gt;
+&lt;p&gt;
+$$\frac{d^n}{dt} I_n(t) = \int_0^\infty \frac{d^n}{dt} e^{-tx}\left(\frac{\sin x}{x}\right)^ndx$$&lt;/p&gt;
+&lt;p&gt;
+$$\frac{d^n}{dt} I_n(t) = (-1)^n \int_0^\infty e^{-tx} (\sin x)^ndx$$&lt;/p&gt;
+&lt;p&gt;
+…&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-2&#34;&gt;
+See also
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;../bell-curve&#34;&gt;Bell curve integral&lt;/a&gt;, another integration trick&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.math.purdue.edu/pow/spring2005/pdf/problem10.pdf&#34;&gt;http://www.math.purdue.edu/pow/spring2005/pdf/problem10.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.math.purdue.edu/pow/spring2005/pdf/solution10.pdf&#34;&gt;http://www.math.purdue.edu/pow/spring2005/pdf/solution10.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

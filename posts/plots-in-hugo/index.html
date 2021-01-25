@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Plots in Hugo&nbsp;&ndash;&nbsp;The micro-optimist</title><link rel="stylesheet" href="/css/core.min.be90c2604d0624951b59c3774ae035006ab22401c90d4a390e87ea4324d5eca5655efd8d22e0330828cc23bfd58e369e.css" integrity="sha384-vpDCYE0GJJUbWcN3SuA1AGqyJAHJDUo5DofqQyTV7KVlXv2NIuAzCCjMI7/Vjjae"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Plots in Hugo" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>
+<script type="text/javascript">
+ Bokeh.set_log_level("info");
+</script>
+
+
+
+
+
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+<body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">The micro-optimist</span></a></span>
+        <span class="header right-side"></span></div><div class="site slogan"><span class="title">Overthinking the small things</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Plots in Hugo</h1><p class="article date">2017-11-01</p></section><article class="article markdown-body"><p>I want to put interactive plots in my posts, ideally from Python source, with minimal development overhead. How can I do that in Hugo?</p>
+<p>It seems that the &ldquo;right&rdquo; solution for &ldquo;putting dynamic plots on a webpage&rdquo; would be to use D3.js. For &ldquo;sharing dynamic plots created with Python&rdquo; I should probably just use Jupyter notebooks. But I don&rsquo;t want to do either of those things, dammit! I want to create plots in my Python workflow, and present them here, in the same place I put other web stuff, while retaining some amount of interactivity. Fortunately there are some slick options, but I&rsquo;ll need to evaluate them.</p>
+<h2 id="bokeh">Bokeh</h2>
+<p><a href="https://bokeh.pydata.org/en/latest/docs/user_guide/embed.html"target="_blank">Bokeh embedding</a> looks promising. And indeed, it works painlessly:</p>
+<div class="bk-root">
+    <div class="bk-plotdiv" id="801d6204-c8f6-4fe9-9b10-8f2ae43ed9d1"></div>
+</div>
+<script type="text/javascript" src="/js/plots-in-hugo-bokeh.js"></script>
+<p>$$y = \frac{x^{2n+1}-x}{x^{2n}+1}$$</p>
+<p>Similarly to getting <a href="../latex-with-hugo">equation support</a> working, I just added a few includes to the page layout, toggled by a frontmatter variable <code>bokeh</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- Bokeh --&gt;</span>
+{{ if .Params.bokeh }}
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+  <span class="nx">Bokeh</span><span class="p">.</span><span class="nx">set_log_level</span><span class="p">(</span><span class="s2">&#34;info&#34;</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+{{ end }}
+</code></pre></div><p>Update 2021/01/24: this code now goes into layouts/partials/bokeh.html (custom), and it is called in layouts/partials/header.html (supplements the existing theme&rsquo;s header)</p>
+<p>Then added some raw html to the markdown:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;bk-root&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;bk-plotdiv&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;801d6204-c8f6-4fe9-9b10-8f2ae43ed9d1&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/plots-in-hugo-bokeh.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div><p>The script and the div snippet are both generated by the <code>bokeh.embed.components</code> function described in the above Bokeh link. Multiple plots work with no trouble, just place the div wherever it needs to be in the post.</p>
+<p>Note that the <code>bk-plotdiv</code> id must match what&rsquo;s in the script, and it&rsquo;s UUIDish, so every time you make some tweak to the source that generates the plot, you need to update both the html and the script.</p>
+<p>The rest is just whatever Python nonsense you need to generate the plots, for example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bokeh.palettes</span> <span class="kn">import</span> <span class="n">Category10</span> <span class="k">as</span> <span class="n">palette</span>
+<span class="kn">from</span> <span class="nn">bokehtools</span> <span class="kn">import</span> <span class="n">embed_hugo</span>
+
+<span class="c1"># define some curves</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1"># create a new plot with a title and axis labels</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;meaningless curve example&#34;</span><span class="p">,</span> <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="c1"># add some line renderers</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="s1">&#39;curve </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">n</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">n</span><span class="p">])</span>
+
+<span class="n">embed_hugo</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s1">&#39;plots-in-hugo-bokeh.js&#39;</span><span class="p">)</span>
+</code></pre></div><p><code>embed_hugo</code> is a small convenience function I wrote. It just creates the script file, and prints out some hints about how to manually include it. I might make this easier to use, with tighter integration with the hugo directory structure, but for now I think this is good enough.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bokeh.embed</span> <span class="kn">import</span> <span class="n">components</span>
+
+<span class="k">def</span> <span class="nf">embed_hugo</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">script_name</span><span class="p">):</span>
+    <span class="n">script</span><span class="p">,</span> <span class="n">div</span> <span class="o">=</span> <span class="n">components</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+
+    <span class="c1"># strip tags for use as external script</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">script_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">script</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;script type=&#34;text/javascript&#34;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;/script&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;copy to post body:&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">div</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;&lt;script type=&#34;text/javascript&#34; src=&#34;</span><span class="si">%s</span><span class="s1">&#34;&gt;&lt;/script&gt;&#39;</span> <span class="o">%</span> <span class="n">script_name</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;copy script to static directory&#39;</span><span class="p">)</span>    
+</code></pre></div><p>Now I&rsquo;ll just have to learn how to use Bokeh. The main drawback I see is that animation and interactivity (i.e. custom widgets) are not supported by this usage. This can be done with &ldquo;Bokeh server&rdquo;, but I&rsquo;m not willing to figure out how to set that up here. Other options?</p>
+<h2 id="plotly">Plotly</h2>
+<p>I&rsquo;ve been using Plotly elsewhere recently, it&rsquo;s a nice library. Unfortunately, it doesn&rsquo;t look like it&rsquo;s intended for html embdedding <em>without</em> using the web service, but there are <a href="https://stackoverflow.com/questions/36262748/python-save-plotly-plot-to-local-file-and-insert-into-html"target="_blank">ways</a>.</p>
+<p>Example:</p>
+<div id="0706912e-e498-4019-80bf-f58ea17a3f54" style="height: 100%; width: 100%;" class="plotly-graph-div"></div>
+<script type="text/javascript" src="/js/plots-in-hugo-plotly.js"></script>
+<p>The approach is essentially the same. I included one script in the <code>&lt;head&gt;</code> of the theme:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">{{ if .Params.plotly }}
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.plot.ly/plotly-latest.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+{{ end }}
+</code></pre></div><p>Update 2021/01/24: this code now goes into layouts/partials/bokeh.html (custom), and it is called in layouts/partials/header.html (supplements the existing theme&rsquo;s header)</p>
+<p>One div and one script in the post:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;0706912e-e498-4019-80bf-f58ea17a3f54&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;height: 100%; width: 100%;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;plotly-graph-div&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/plots-in-hugo-plotly.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div><p>And I wrote a similar <code>embed_hugo</code> function for plotly:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">plotly.offline</span> <span class="kn">import</span> <span class="n">plot</span>
+
+<span class="n">default_plot_args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">include_plotlyjs</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;div&#39;</span><span class="p">,</span>
+    <span class="n">show_link</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;displayModeBar&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">embed_hugo</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">script_name</span><span class="p">,</span> <span class="n">plot_args</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">plot_args</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">plot_args</span> <span class="o">=</span> <span class="n">default_plot_args</span>
+
+    <span class="n">html</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_args</span><span class="p">)</span>
+    <span class="c1"># this contains a div and a script, need to separate them</span>
+
+    <span class="n">div</span><span class="p">,</span> <span class="n">script</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">)</span>  <span class="c1"># hack hack</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">script_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">script</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;script type=&#34;text/javascript&#34;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;/script&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;copy to post body:&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&lt;/div&gt;&#39;</span> <span class="o">%</span> <span class="n">div</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;&lt;script type=&#34;text/javascript&#34; src=&#34;</span><span class="si">%s</span><span class="s1">&#34;&gt;&lt;/script&gt;&#39;</span> <span class="o">%</span> <span class="n">script_name</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;copy script to static directory&#39;</span><span class="p">)</span>
+</code></pre></div><p>Update 2018/10/07: This works well with org-mode posts too! The div and script tags are identical, just add to the front matter with org syntax:</p>
+<div class="highlight"><pre class="chroma"><code class="language-org" data-lang="org"><span class="cs">#+PLOTLY</span><span class="c">: true</span>
+</code></pre></div><p>Update 2021/01/24: No longer works in org-mode - not sure what&rsquo;s different here, but raw html doesn&rsquo;t get rendered</p>
+<p>Also, almost a year later, my <code>embed_hugo</code> function still works, score!</p>
+<h3 id="widgets">Widgets</h3>
+<div id="b40a4256-3c82-4f01-8605-85a524e3d111" style="height: 100%; width: 100%;" class="plotly-graph-div"></div>
+<script type="text/javascript" src="/js/plots-in-hugo-plotly-slider.js"></script>
+<p>No problem!</p>
+<h3 id="animation">Animation</h3>
+<p>It&rsquo;s equally easy to <em>embed</em> animated plots, but the support for creating animations with Plotly in Python is not great. I&rsquo;ll probably avoid this for now.</p>
+<h3 id="shortcodes">Shortcodes</h3>
+<p>This was a good opportunity to start learning about <a href="https://gohugo.io/templates/shortcode-templates/#single-named-example-image"target="_blank">Hugo shortcodes</a>. The div and script tags used here aren&rsquo;t too unwieldy, but a shortcode is&hellip; shorter.</p>
+<div id="b40a4256-3c82-4f01-8605-85a524e3d112" style="height: 100%; width: 100%;" class="plotly-graph-div"></div>
+<script type="text/javascript" src="/js/plots-in-hugo-plotly-slider-shortcode.js"></script>
+
+<p>Usage:</p>
+<!-- this is how you prevent hugo from evaluating a shortcode inside code fences -->
+<pre><code class="language-hugo" data-lang="hugo">{{&lt; plotly id=&quot;b40a4256-3c82-4f01-8605-85a524e3d112&quot; script=&quot;/js/plots-in-hugo-plotly-slider-shortcode.js&quot; &gt;}}
+</code></pre><p>Template:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;{{ .Get &#34;</span><span class="na">id</span><span class="err">&#34;</span> <span class="err">}}&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;height: 100%; width: 100%;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;plotly-graph-div&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ .Get &#34;</span><span class="na">script</span><span class="err">&#34;</span> <span class="err">}}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div><p>I&rsquo;ll use a similar template for Bokeh, if I end up using it for anything.</p>
+<h2 id="mpld3">mpld3</h2>
+<p>D3 is the gold standard, and Matlab/Matplotlib plotting abstractions are second nature to me, but Matplotlib has become a pain to install in OSX. I may look into this at some point, but not now.</p>
+<h2 id="pygal">pygal</h2>
+<p>I&rsquo;ll look into this one if none of the above work out&hellip;</p>
+<h2 id="comparison">Comparison</h2>
+<p>Plan: expand this as new desirable features become apparent.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Bokeh</th>
+<th>Plotly</th>
+<th>mpld3</th>
+<th>pygal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>easy to embed</td>
+<td>yes</td>
+<td>yes</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>animation</td>
+<td>no</td>
+<td>eh</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>widgets</td>
+<td>no</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>depends on a service</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>TODO: table styles!</p>
+<p>update 2018/10/08: tables styles updated to barebones compact! I was trying to wait to force myself to pick a new theme that I actually like, but now I just want usable tables for the Kilimanjaro posts, so screw it.</p></article><section class="article labels"><a class="tag" href=/tags/hugo/>hugo</a><a class="tag" href=/tags/web/>web</a></section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/posts/shader-experiments/"><span class="iconfont icon-article"></span>A webgl shader experiment</a></p><p><a class="link" href="/posts/latex-with-hugo/"><span class="iconfont icon-article"></span>Setting up LaTeX in Hugo</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">The micro-optimist</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p></div></section><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</body>
+
+</html>

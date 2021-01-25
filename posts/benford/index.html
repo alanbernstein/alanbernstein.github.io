@@ -2,9 +2,25 @@
 <html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark"><title>Why Benford&#39;s Law is Obvious&nbsp;&ndash;&nbsp;The micro-optimist</title><link rel="stylesheet" href="/css/core.min.be90c2604d0624951b59c3774ae035006ab22401c90d4a390e87ea4324d5eca5655efd8d22e0330828cc23bfd58e369e.css" integrity="sha384-vpDCYE0GJJUbWcN3SuA1AGqyJAHJDUo5DofqQyTV7KVlXv2NIuAzCCjMI7/Vjjae"><meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Why Benford&#39;s Law is Obvious" /><body><section id="header">
+<meta name="twitter:title" content="Why Benford&#39;s Law is Obvious" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+
+
+
+
+<body><section id="header">
     <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">The micro-optimist</span></a></span>
-        <span class="header right-side"></span></div></section><section id="content"><div class="article-container"><section class="article header">
+        <span class="header right-side"></span></div><div class="site slogan"><span class="title">Overthinking the small things</span></div></section><section id="content"><div class="article-container"><section class="article header">
     <h1 class="article title">Why Benford's Law is Obvious</h1><p class="article date">2020-11-28</p></section><article class="article markdown-body"><p><a href="https://en.wikipedia.org/wiki/Benford%27s_law"target="_blank">Benford&rsquo;s Law</a> states that in many naturally occurring collections of numbers, the leading digit is likely to be small. I love math factoids like this, and I remember how deeply unintuitive this seemed when I first learned it. Now, I find myself looking for a way to explain how intuitive it really is.</p>
 <h2 id="benfords-law">Benford&rsquo;s Law</h2>
 <p>When you first hear of it, the thinking might go something like this: if you choose a number randomly, shouldn&rsquo;t the first digit be uniformly distributed? Even if the original distribution isn&rsquo;t uniform, as long as it covers a wide enough range, why would the <em>first digit</em> have any bias?</p>
@@ -41,6 +57,7 @@
 <p>Drofben&rsquo;s Law: When accustomed to the logarithmic scale, a linear-uniform distribution results in a surprising bias in number-of-digits, exponentially increasing from 1 (to N).</p>
 </blockquote>
 <p>These charts illustrate both laws, as described above &ndash; but I&rsquo;ll elaborate.</p>
+<h3 id="graphical-explanation-benfords-law">Graphical explanation, Benford&rsquo;s Law</h3>
 <p><img  src="/img/benford/figure1.png"
         alt="Figure 1: Log-uniform random data"/>
 <em>Figure 1: Log-uniform random data</em></p>
@@ -49,8 +66,15 @@
 <li>1a shows that log-uniform data follows a logarithmically-decreasing trend, <em>when viewed in the linear domain</em>.</li>
 <li>1b shows that log-uniform data follows a constant trend, when viewed in the (arguably more appropriate) logarithmic domain.</li>
 <li>1c shows Benford&rsquo;s law directly, with bar heights corresponding to first-digit bias. Note that this shape closely resembles the shape of the distribution in 1a &ndash; it isn&rsquo;t identical, because 1c kind of &ldquo;layers&rdquo; the histograms from each level of magnitude in 1a, into a new form that examines only first digits instead of all values.</li>
-<li>1d (aside from being kind of busy because I&rsquo;m a bad graphic designer) shows where these &ldquo;layers&rdquo; come from. The black trace represents the determinstic values of the function first_digit(x) for all values of x in [1, 10000]. The green regions cover all numbers that start with 1, and they&rsquo;re widest &ndash; that cumulatve width corresponds to the height of the bar for digit 1 in figure 1c. Red regions correspond to numbers that start with 2, with a more moderate cumulative width. Purple corresponds to 5, with a much smaller width, and similarly for all other digits.</li>
+<li>1d (aside from being kind of busy because I&rsquo;m a bad graphic designer) shows where these &ldquo;layers&rdquo; come from. The black trace represents the determinstic values of the function first_digit(x) for all values of x in [1, 10000**. The green regions cover all numbers that start with 1, and they&rsquo;re widest &ndash; that cumulatve width corresponds to the height of the bar for digit 1 in figure 1c. Red regions correspond to numbers that start with 2, with a more moderate cumulative width. Purple corresponds to 5, with a much smaller width, and similarly for all other digits.</li>
 </ul>
+<p><strong>This figure explains why Benford&rsquo;s Law is &ldquo;obvious&rdquo;. It may be more clear to explain the logical progression of thought:</strong></p>
+<ol>
+<li><strong>This data follows a natural distribution &ndash; log-uniform &ndash; illustrated by the constant trend in the logarithmic domain (1b).</strong></li>
+<li><strong>This necessitates a logarithmic-decreasing trend in the linear domain (1a).</strong></li>
+<li><strong>This necessitates a logarithmic-decreasing trend in the first digits (1c, 1d).</strong></li>
+</ol>
+<h3 id="graphical-explanation-drofbens-law">Graphical explanation, Drofben&rsquo;s Law</h3>
 <p>And here are the corresponding charts for Drofben&rsquo;s law:</p>
 <p><img  src="/img/benford/figure2.png"
         alt="Figure 2: Linear-uniform random data"/>
@@ -63,6 +87,7 @@
 <li>2d shows the analogous &ldquo;layers&rdquo; of Drofben&rsquo;s law &ndash; these layers just represent magnitude. The gray region, representing numbers with five digits, takes up 90% of the total width. Pink, for four digits, takes 9%, and so on.</li>
 </ul>
 <p>In the second case, these layers just reflect the counts of integers in ranges: |[1, 10)| = 9, |[10, 100)| = 90, |[100, 1000)| = 900, etc &ndash; this seems almost too obvious to mention. But, that&rsquo;s what I was looking for &ndash; a result that&rsquo;s surprising to an alien, logarithmic culture <em>should</em> be obvious to our linear minds.</p>
+<p>(<a href="https://gist.github.com/alanbernstein/39cc97fc582cbb2cd30df59c40853129"target="_blank">code for charts</a>)</p>
 <h2 id="the-digits-are-not-the-value">The digits are not the value</h2>
 <p><img  src="/img/benford/treachery-of-digits-hex.png"
         alt="The treachery of digits: an homage to the treachery of images, where &amp;ldquo;This is not a number&amp;rdquo; refers to the hexadecimal representation of the floating-point value NaN, &amp;ldquo;Not a Number&amp;rdquo;"/>
@@ -92,6 +117,10 @@
     <p class="copyright">The micro-optimist</p>
     <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
         target="_blank">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
-        target="_blank">Notepadium</a></p></div></section></body>
+        target="_blank">Notepadium</a></p></div></section><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</body>
 
 </html>

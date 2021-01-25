@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>A webgl shader experiment&nbsp;&ndash;&nbsp;The micro-optimist</title><link rel="stylesheet" href="/css/core.min.be90c2604d0624951b59c3774ae035006ab22401c90d4a390e87ea4324d5eca5655efd8d22e0330828cc23bfd58e369e.css" integrity="sha384-vpDCYE0GJJUbWcN3SuA1AGqyJAHJDUo5DofqQyTV7KVlXv2NIuAzCCjMI7/Vjjae"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="A webgl shader experiment" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+
+
+
+
+<body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">The micro-optimist</span></a></span>
+        <span class="header right-side"></span></div><div class="site slogan"><span class="title">Overthinking the small things</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">A webgl shader experiment</h1><p class="article date">2018-01-11</p></section><article class="article markdown-body"><p>How to create real fast demo animations with webgl. [EPILEPSY WARNING]</p>
+<p>Once in a while, I&rsquo;ll see this <a href="https://www.reddit.com/r/gifs/comments/7p4eo8/blink_fast/"target="_blank">gif posted to reddit</a>, and I am briefly mesmerized as I try to understand what I&rsquo;m looking at. It seems like some relatively simple sum of sinusoids, but the combination of parameters and coloring creates a really neat optical illusion effect. Last time it came up, I tracked down the source (<a href="https://www.youtube.com/watch?v=0SWRcH9p4Uo"target="_blank">youtube</a>, <a href="https://txyyss.wordpress.com/2016/06/14/plane-wave/"target="_blank">chinese blog post</a>) and <a href="http://alanbernstein.net/wave-shader.html"target="_blank">recreated</a> it for fun. Here&rsquo;s a simplified embedded version:</p>
+<canvas id="shader-canvas" width=640 height=480>
+</canvas>
+<p><span style="color:lime">order:</span> <span id="label-order" style="color:lime"></span>
+<input type="range" min="3.0" max="10.0" value="5.0" id="slider-order"></p>
+<script id="vertex-shader" type="glsl">
+attribute vec2 coord;
+void main() {
+    gl_Position = vec4(coord, 0, 1);
+}
+</script>
+<script id="fragment-shader" type="glsl">
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+
+#define W 640.0  // canvas dimensions TODO get as uniform
+#define H 480.0
+
+uniform float millisecs, order, width, scale, speed;
+
+float fmod(float x, float y) {
+    return (x - y * floor(x / y));
+}
+
+float wrap(float x) {
+    return abs(fmod(x+1.0,2.0)-1.0);
+}
+
+void main() {
+    float phase = speed * millisecs/1000.0;
+    float t;
+    float A = width/W;
+    float x = A*(gl_FragCoord.x - W/2.0);
+    float y = A*(gl_FragCoord.y - H/2.0);
+    float z = 0.0;
+    for(int n=0; n<10; n++) {
+        t = float(n) * 3.14159 / order;
+        z += cos(x*cos(t) + y*sin(t) + phase);
+        if(n == int(order)) {
+            break;
+        }
+    }
+    z = wrap(scale * z / order);
+    gl_FragColor = vec4(z, z, z, 1);
+}
+</script>
+<script type="text/javascript" src="/js/wave-shader-embedded.js"></script>
+<p>With that blog post available, and a loose grasp of Mathematica syntax, it was easy enough to understand what&rsquo;s going on. It&rsquo;s a bit easier for me to grok in traditional notation:</p>
+<p><img  src="https://alanbernstein.net/blog-static/img/shader-experiments/planewave-math-white.png"
+        alt="Equation"/></p>
+<!-- didn't use latex because i don't want to figure out colors in hugo -->
+<p>In short, the thing is just a heightfield (z) created by summing <span style="color:lime">N</span> simple waves of equal magnitude, and distributed with rotational symmetry about the origin (the cos and sin terms are a rotation). <span style="color:blue">R</span> is a spatial zoom factor, and <span style="color:red">V</span> is animation speed. It&rsquo;s the <span style="color:purple">S</span> term in the &ldquo;wrapping&rdquo; step of computing the color (c) that really makes it interesting.</p>
+<p>The most direct way to map heightfield values to color is to map min-&gt;0, max-&gt;255 (which is more or less what happens when S=1). You can think of this coloring method as using a colormap that&rsquo;s a single gradient from black to white. If, instead, the color map &ldquo;wraps around&rdquo; a few times, so it goes black-white-black-white-black-white-&hellip;, then we get a much more interesting result, where the weird banding leads to those intricate patterns.</p>
+<p>An earlier iteration, in python/numpy:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">directional_wave</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">z</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="c1"># generate one frame</span>
+<span class="n">xvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">25</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># approximate range used in the blog post</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xvec</span><span class="p">,</span> <span class="n">xvec</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">directional_wave</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)])</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">wrap</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</code></pre></div><p>I could render individual frames like this, but what I really wanted was a real-time animation with interactive control of some parameters. I don&rsquo;t know of a great way to do that in Python, plus it&rsquo;s almost certainly not fast enough to run at, say, 10+ frames per second. I figured I&rsquo;d try it out in Javascript (easy to render animations) and Go (fast), and in Go I got as far as implementing the math, including a well-behaved mod function:</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">mod</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">float64</span><span class="p">)</span> <span class="kt">float64</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Mod</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nf">Mod</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span><span class="o">+</span><span class="nx">y</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">wrap</span><span class="p">(</span><span class="nx">x</span> <span class="kt">float64</span><span class="p">)</span> <span class="kt">float64</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="nf">mod</span><span class="p">(</span><span class="nx">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">getFrame</span><span class="p">(</span><span class="nx">frame</span> <span class="p">[][]</span><span class="kt">uint8</span><span class="p">,</span> <span class="nx">p</span> <span class="kt">float64</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">c</span><span class="p">,</span> <span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">float64</span><span class="p">,</span> <span class="nx">N</span><span class="p">),</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">float64</span><span class="p">,</span> <span class="nx">N</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">n</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">n</span> <span class="p">&lt;</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">t</span> <span class="o">:=</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.1415</span> <span class="o">/</span> <span class="nx">N</span>
+		<span class="nx">c</span><span class="p">[</span><span class="nx">n</span><span class="p">],</span> <span class="nx">s</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="p">=</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Cos</span><span class="p">(</span><span class="nx">t</span><span class="p">),</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Sin</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">for</span> <span class="nx">px</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">px</span> <span class="p">&lt;</span> <span class="nx">FW</span><span class="p">;</span> <span class="nx">px</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">x</span> <span class="o">:=</span> <span class="nx">W</span> <span class="o">*</span> <span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">px</span><span class="p">)</span><span class="o">/</span><span class="nx">FW</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
+		<span class="k">for</span> <span class="nx">py</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">py</span> <span class="p">&lt;</span> <span class="nx">FH</span><span class="p">;</span> <span class="nx">py</span><span class="o">++</span> <span class="p">{</span>
+			<span class="nx">y</span> <span class="o">:=</span> <span class="nx">H</span> <span class="o">*</span> <span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">py</span><span class="p">)</span><span class="o">/</span><span class="nx">FH</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
+			<span class="nx">z</span> <span class="o">:=</span> <span class="nb">float64</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+			<span class="k">for</span> <span class="nx">n</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">n</span> <span class="p">&lt;</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span> <span class="p">{</span>
+				<span class="nx">z</span> <span class="o">+=</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Cos</span><span class="p">(</span><span class="nx">x</span><span class="o">*</span><span class="nx">c</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">-</span> <span class="nx">y</span><span class="o">*</span><span class="nx">s</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">+</span> <span class="nx">p</span><span class="p">)</span>
+			<span class="p">}</span>
+			<span class="nx">frame</span><span class="p">[</span><span class="nx">py</span><span class="p">][</span><span class="nx">px</span><span class="p">]</span> <span class="p">=</span> <span class="nb">uint8</span><span class="p">(</span><span class="mi">256</span> <span class="o">*</span> <span class="nf">wrap</span><span class="p">(</span><span class="nx">z</span><span class="p">))</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>But then I decided that <a href="https://github.com/go-gl"target="_blank">graphics support in Go</a> would be a pain. In Javascript, I redid it all again using <code>fillRect</code> for each pixel on a canvas, and found it to be too slow, as expected. Somewhere in the course of researching Javascript animation and performance profiling (it might have been <a href="https://modernweb.com/frame-by-frame-animation-with-html-and-javascript/"target="_blank">this article</a>), I hit upon the idea of using shaders. I completely ignored the idea at first, assuming it would be too complicated, or just wouldn&rsquo;t work. When I found myself considering a trig lookup table in Javascript, I decided shaders were probably a better approach.</p>
+<p>So I found some references, and a few minimal shader examples, and tinkered with them until I got something that looked pretty. The code that does the work looks like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">float</span> <span class="nf">fmod</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="o">*</span> <span class="n">floor</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">float</span> <span class="nf">wrap</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">abs</span><span class="p">(</span><span class="n">fmod</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">)</span><span class="o">-</span><span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">*</span> <span class="n">millisecs</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">t</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">A</span> <span class="o">=</span> <span class="n">width</span><span class="o">/</span><span class="n">W</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="p">(</span><span class="n">gl_FragCoord</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">W</span><span class="o">/</span><span class="mf">2.0</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="p">(</span><span class="n">gl_FragCoord</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">H</span><span class="o">/</span><span class="mf">2.0</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="kt">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.14159</span> <span class="o">/</span> <span class="n">order</span><span class="p">;</span>
+        <span class="n">z</span> <span class="o">+=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">phase</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="kt">int</span><span class="p">(</span><span class="n">order</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">wrap</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">z</span> <span class="o">/</span> <span class="n">order</span><span class="p">);</span>
+    <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="n">vec4</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>Here&rsquo;s the <a href="http://alanbernstein.net/wave-shader.html"target="_blank">rest of it</a> (I wish I knew how to use CSS properly)</p>
+<p>I had some problems along the way, not helped by a complete lack of shader error messages. At some point I realized that <code>&lt;script type=&quot;glsl&quot;&gt;</code> produces error messages, while <code>&lt;script type=&quot;x-shader/fragment-shader&quot;&gt;</code> doesn&rsquo;t - though I&rsquo;m still unsure of any other difference between these.</p>
+<p>Other lessons learned:</p>
+<ul>
+<li>Interactivity parameters can be implemented with &ldquo;uniform&rdquo; variables passed in from Javascript.</li>
+<li><code>0</code> isn&rsquo;t a float, <code>0.0</code> is. Shader language is not C.</li>
+<li>Standard C functions you might expect might not be available (<code>mod</code>).</li>
+<li>Unbounded loops aren&rsquo;t allowed, but breaking out of a long for-loop is fine.</li>
+</ul>
+<p>I don&rsquo;t know what I&rsquo;m doing with WebGL - I just know enough to cobble together some stuff that more or less works. Now that I have some functioning boilerplate, I&rsquo;ll probably ignore it as much as I can, and just create more pretty animations.</p>
+<p>Some helpful references:</p>
+<ul>
+<li><a href="https://blog.mayflower.de/4584-Playing-around-with-pixel-shaders-in-WebGL.html">https://blog.mayflower.de/4584-Playing-around-with-pixel-shaders-in-WebGL.html</a></li>
+<li><a href="https://jameshfisher.com/2017/10/05/webgl-fragment-shader-animation.html">https://jameshfisher.com/2017/10/05/webgl-fragment-shader-animation.html</a></li>
+<li><a href="https://webglfundamentals.org/webgl/lessons/webgl-animation.html">https://webglfundamentals.org/webgl/lessons/webgl-animation.html</a></li>
+<li><a href="https://stackoverflow.com/questions/28290044/webgl-how-to-get-colour-in-fragment-shader-to-change-over-time">https://stackoverflow.com/questions/28290044/webgl-how-to-get-colour-in-fragment-shader-to-change-over-time</a></li>
+<li><a href="http://glslsandbox.com/e#44636.0">http://glslsandbox.com/e#44636.0</a></li>
+<li><a href="http://glslsandbox.com/e#44667.1">http://glslsandbox.com/e#44667.1</a></li>
+</ul></article><section class="article labels"><a class="tag" href=/tags/math/>math</a><a class="tag" href=/tags/web/>web</a><a class="tag" href=/tags/javascript/>javascript</a><a class="tag" href=/tags/graphics/>graphics</a><a class="tag" href=/tags/webgl/>webgl</a><a class="tag" href=/tags/latex/>latex</a></section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/posts/ortlieb-organizer/"><span class="iconfont icon-article"></span>Ortlieb Organizer</a></p><p><a class="link" href="/posts/plots-in-hugo/"><span class="iconfont icon-article"></span>Plots in Hugo</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">The micro-optimist</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p></div></section><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</body>
+
+</html>
