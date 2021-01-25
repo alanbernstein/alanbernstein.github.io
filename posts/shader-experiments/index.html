@@ -75,7 +75,15 @@ void main() {
 <p>With that blog post available, and a loose grasp of Mathematica syntax, it was easy enough to understand what&rsquo;s going on. It&rsquo;s a bit easier for me to grok in traditional notation:</p>
 <p><img  src="https://alanbernstein.net/blog-static/img/shader-experiments/planewave-math-white.png"
         alt="Equation"/></p>
-<!-- didn't use latex because i don't want to figure out colors in hugo -->
+<!-- 
+
+can't figure out how to use colors in katex+hugo
+
+$$ \htmlStyle{color: lime;}{x} $$
+$$c = \abs{\mod\(\frac{Sz}{N}+1, 2\)-1}$$
+$$c = \mod\left(\frac{\htmlStyle{color:purple;}{S}z}{N}+1,2\right)$$
+
+-->
 <p>In short, the thing is just a heightfield (z) created by summing <span style="color:lime">N</span> simple waves of equal magnitude, and distributed with rotational symmetry about the origin (the cos and sin terms are a rotation). <span style="color:blue">R</span> is a spatial zoom factor, and <span style="color:red">V</span> is animation speed. It&rsquo;s the <span style="color:purple">S</span> term in the &ldquo;wrapping&rdquo; step of computing the color (c) that really makes it interesting.</p>
 <p>The most direct way to map heightfield values to color is to map min-&gt;0, max-&gt;255 (which is more or less what happens when S=1). You can think of this coloring method as using a colormap that&rsquo;s a single gradient from black to white. If, instead, the color map &ldquo;wraps around&rdquo; a few times, so it goes black-white-black-white-black-white-&hellip;, then we get a much more interesting result, where the weird banding leads to those intricate patterns.</p>
 <p>An earlier iteration, in python/numpy:</p>

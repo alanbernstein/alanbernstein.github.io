@@ -29,13 +29,13 @@
 &lt;blockquote&gt;
 &lt;p&gt;Benford&amp;rsquo;s Law: most-significant digits are expected to be biased toward lower values with a logarithmic trend, &lt;em&gt;if&lt;/em&gt; the range of values spans multiple orders of magnitude.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Benford Counterexample (Biden votes): If the data spans just a single order of magnitude i.e. specifically [10^n, 10^(n+1)) so the number of digits is constant, then the first-digit distribution just reflects the data distribution itself. Benford&amp;rsquo;s law is not &lt;em&gt;violated&lt;/em&gt;, it is rather &lt;em&gt;not applicable&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Benford Counterexample (Biden votes): If the data spans just a single order of magnitude (specifically [10^n, 10^(n+1)) so the number of digits is constant, then the first-digit distribution just reflects the data distribution itself. Benford&amp;rsquo;s law is not &lt;em&gt;violated&lt;/em&gt;, it is rather &lt;em&gt;not applicable&lt;/em&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Last-digit test: least-significant digits are expected to be distributed uniformly, &lt;em&gt;if&lt;/em&gt; the range of values is wide enough, relative to the precision of the values.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Last-digit counterexample (incumbent votes): If the data spans just a single, &lt;strong&gt;low&lt;/strong&gt;, order of magnitude*, e.g. [10, 100), then &amp;ldquo;the last two digits are just *the digits*&amp;rdquo;, so the last-digits distribution just reflects the data distribution itself. The last-digit test is not *violated*, it is rather *not applicable*.&lt;/p&gt;
+&lt;p&gt;Last-digit counterexample (incumbent votes): If the data spans just a single, &lt;strong&gt;low&lt;/strong&gt;, order of magnitude, e.g. [10, 100), then the last two digits are just &lt;em&gt;the digits&lt;/em&gt;, so the last-digits distribution just reflects the data distribution itself. The last-digit test is not &lt;em&gt;violated&lt;/em&gt;, it is rather &lt;em&gt;not applicable&lt;/em&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;There&amp;rsquo;s a pleasing sort of duality here, and illustrating each of these with the two political parties&#39; vote counts is pretty cute.&lt;/p&gt;
@@ -60,7 +60,7 @@
 &lt;li&gt;1a shows that log-uniform data follows a logarithmically-decreasing trend, &lt;em&gt;when viewed in the linear domain&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;1b shows that log-uniform data follows a constant trend, when viewed in the (arguably more appropriate) logarithmic domain.&lt;/li&gt;
 &lt;li&gt;1c shows Benford&amp;rsquo;s law directly, with bar heights corresponding to first-digit bias. Note that this shape closely resembles the shape of the distribution in 1a &amp;ndash; it isn&amp;rsquo;t identical, because 1c kind of &amp;ldquo;layers&amp;rdquo; the histograms from each level of magnitude in 1a, into a new form that examines only first digits instead of all values.&lt;/li&gt;
-&lt;li&gt;1d (aside from being kind of busy because I&amp;rsquo;m a bad graphic designer) shows where these &amp;ldquo;layers&amp;rdquo; come from. The black trace represents the determinstic values of the function first_digit(x) for all values of x in [1, 10000**. The green regions cover all numbers that start with 1, and they&amp;rsquo;re widest &amp;ndash; that cumulatve width corresponds to the height of the bar for digit 1 in figure 1c. Red regions correspond to numbers that start with 2, with a more moderate cumulative width. Purple corresponds to 5, with a much smaller width, and similarly for all other digits.&lt;/li&gt;
+&lt;li&gt;1d (aside from being kind of busy because I&amp;rsquo;m a bad graphic designer) shows where these &amp;ldquo;layers&amp;rdquo; come from. The black trace represents the determinstic values of the function first_digit(x) for all values of x in [1, 10000]. The green regions cover all numbers that start with 1, and they&amp;rsquo;re widest &amp;ndash; that cumulatve width corresponds to the height of the bar for digit 1 in figure 1c. Red regions correspond to numbers that start with 2, with a more moderate cumulative width. Purple corresponds to 5, with a much smaller width, and similarly for all other digits.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;This figure explains why Benford&amp;rsquo;s Law is &amp;ldquo;obvious&amp;rdquo;. It may be more clear to explain the logical progression of thought:&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -84,7 +84,7 @@
 &lt;p&gt;(&lt;a href=&#34;https://gist.github.com/alanbernstein/39cc97fc582cbb2cd30df59c40853129&#34;target=&#34;_blank&#34;&gt;code for charts&lt;/a&gt;)&lt;/p&gt;
 &lt;h2 id=&#34;the-digits-are-not-the-value&#34;&gt;The digits are not the value&lt;/h2&gt;
 &lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/treachery-of-digits-hex.png&#34;
-        alt=&#34;The treachery of digits: an homage to the treachery of images, where &amp;amp;ldquo;This is not a number&amp;amp;rdquo; refers to the hexadecimal representation of the floating-point value NaN, &amp;amp;ldquo;Not a Number&amp;amp;rdquo;&#34;/&gt;
+        alt=&#34;The treachery of digits: an homage to Magritte&amp;amp;rsquo;s The Treachery of Images, with &amp;amp;ldquo;This is not a number&amp;amp;rdquo; as a caption for the hexadecimal representation of the floating-point value NaN, &amp;amp;ldquo;Not a Number&amp;amp;rdquo;&#34;/&gt;
 &lt;em&gt;The treachery of digits, with apologies to &lt;a href=&#34;https://en.wikipedia.org/wiki/The_Treachery_of_Images&#34;target=&#34;_blank&#34;&gt;Magritte&lt;/a&gt;&amp;hellip; and &lt;a href=&#34;https://en.wikipedia.org/wiki/NaN&#34;target=&#34;_blank&#34;&gt;IEEE&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;div class=&#34;admonition warning&#34; style=&#39;border-left:4px solid #cd5f3c; padding-left:2em; font-size:16px; margin:2em 0&#39;&gt;
     &lt;div class=&#34;title&#34;&gt;Warning&lt;/div&gt;
@@ -417,7 +417,15 @@ void main() {
 &lt;p&gt;With that blog post available, and a loose grasp of Mathematica syntax, it was easy enough to understand what&amp;rsquo;s going on. It&amp;rsquo;s a bit easier for me to grok in traditional notation:&lt;/p&gt;
 &lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img/shader-experiments/planewave-math-white.png&#34;
         alt=&#34;Equation&#34;/&gt;&lt;/p&gt;
-&lt;!-- didn&#39;t use latex because i don&#39;t want to figure out colors in hugo --&gt;
+&lt;!-- 
+
+can&#39;t figure out how to use colors in katex+hugo
+
+$$ \htmlStyle{color: lime;}{x} $$
+$$c = \abs{\mod\(\frac{Sz}{N}+1, 2\)-1}$$
+$$c = \mod\left(\frac{\htmlStyle{color:purple;}{S}z}{N}+1,2\right)$$
+
+--&gt;
 &lt;p&gt;In short, the thing is just a heightfield (z) created by summing &lt;span style=&#34;color:lime&#34;&gt;N&lt;/span&gt; simple waves of equal magnitude, and distributed with rotational symmetry about the origin (the cos and sin terms are a rotation). &lt;span style=&#34;color:blue&#34;&gt;R&lt;/span&gt; is a spatial zoom factor, and &lt;span style=&#34;color:red&#34;&gt;V&lt;/span&gt; is animation speed. It&amp;rsquo;s the &lt;span style=&#34;color:purple&#34;&gt;S&lt;/span&gt; term in the &amp;ldquo;wrapping&amp;rdquo; step of computing the color (c) that really makes it interesting.&lt;/p&gt;
 &lt;p&gt;The most direct way to map heightfield values to color is to map min-&amp;gt;0, max-&amp;gt;255 (which is more or less what happens when S=1). You can think of this coloring method as using a colormap that&amp;rsquo;s a single gradient from black to white. If, instead, the color map &amp;ldquo;wraps around&amp;rdquo; a few times, so it goes black-white-black-white-black-white-&amp;hellip;, then we get a much more interesting result, where the weird banding leads to those intricate patterns.&lt;/p&gt;
 &lt;p&gt;An earlier iteration, in python/numpy:&lt;/p&gt;
