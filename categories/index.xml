@@ -10,12 +10,445 @@
     
     
     <item>
+      <title>Upgrading my bike accessories</title>
+      <link>http://alanbernstein.github.io/posts/bike-microoptimization/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 -0600</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/bike-microoptimization/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve always been fond of physical modular systems, but lately I&amp;rsquo;ve become a little obsessed with putting together custom systems.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.thingiverse.com/thing:4091748&#34;&gt;https://www.thingiverse.com/thing:4091748&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5258.JPG&#34;
+        alt=&#34;Overview&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;&#34;
+        alt=&#34;laptop sleeve insert&#34;/&gt; - link to blog post&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5252.JPG&#34;
+        alt=&#34;Fidlock helmet latch&#34;/&gt;
+&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5???.JPG&#34;
+        alt=&#34;Fidlock helmet latch attached&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5254.JPG&#34;
+        alt=&#34;Fidlock v-buckle v1&#34;/&gt;
+&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5272.JPG&#34;
+        alt=&#34;Fidlock v-buckle v2 construction&#34;/&gt;
+&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5276.JPG&#34;
+        alt=&#34;Fidlock v-buckle v2&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5260.JPG&#34;
+        alt=&#34;Side-mounted mini pack&#34;/&gt;
+&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5268.JPG&#34;
+        alt=&#34;Side-mount closeup&#34;/&gt;
+&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5263.JPG&#34;
+        alt=&#34;Side-mount male&#34;/&gt;
+&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5266.JPG&#34;
+        alt=&#34;Side-mount female&#34;/&gt; - magnetic QR key&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5261.JPG&#34;
+        alt=&#34;Ortlieb QR seatbag&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5270.JPG&#34;
+        alt=&#34;QR rack mount&#34;/&gt;
+metalwork pics
+&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5???.JPG&#34;
+        alt=&#34;AR dog basket&#34;/&gt;
+&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5269.JPG&#34;
+        alt=&#34;U-lock rack mount&#34;/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lies, Damned Lies, and Exponentials</title>
+      <link>http://alanbernstein.github.io/posts/exponential-crusade/</link>
+      <pubDate>Mon, 01 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/exponential-crusade/</guid>
+      <description>&lt;p&gt;An exponentially increasing blog post.&lt;/p&gt;
+&lt;p&gt;It bugs me when people misuse the term &amp;ldquo;exponentially bigger&amp;rdquo;, often just comparing two numbers. To describe the growth of something as exponential, more than two numbers &lt;em&gt;must&lt;/em&gt; be taken into account (unless you have evidence that the underlying process is itself exponential, which is generally not the case in random charts and quotes found on the internet). Exponential growth is a &lt;em&gt;trend&lt;/em&gt;, a constant multiplicative factor over the independent variable.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m sure this point has been made a million times by other nerds. I noticed a related point recently&lt;/p&gt;
+&lt;h2 id=&#34;example-1-appropriately-emphasizing-a-true-outlier&#34;&gt;Example 1: Appropriately emphasizing a true outlier&lt;/h2&gt;
+&lt;p&gt;A coworker shared &lt;a href=&#34;https://pbs.twimg.com/media/EUm-p1AXkAwHpVs?format=jpg&amp;amp;name=medium&#34;target=&#34;_blank&#34;&gt;this tweet&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/log-scale/tweet-1-chart.png&#34;
+        alt=&#34;Figure 1: Chart of unemployment spike&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;Then noted&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;maybe they should have used a log chart&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;My response:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;The linear scale shows the real human impact &amp;ndash; a growth twice the size is twice the number of real people infected.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;as a mathy person i scoffed at this, but i guess they have a point&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As a technical person, it&amp;rsquo;s easy for me to forget that a log-scale plot might be more difficult to interpret than a linear-scale plot. Particularly with a bar chart, where the filled rectangles make up shapes, which are often interpreted in charts based on their relative area. Showing relative size in an immediately-interpretable way can have its value.&lt;/p&gt;
+&lt;p&gt;The trend here isn&amp;rsquo;t exponential. It&amp;rsquo;s a true spike, so presenting it in a way that emphasizes that makes sense.&lt;/p&gt;
+&lt;h2 id=&#34;example-2-inappropriately-hiding-small-details&#34;&gt;Example 2: Inappropriately hiding small details&lt;/h2&gt;
+&lt;p&gt;Another time, &lt;a href=&#34;https://twitter.com/chsrbrts/status/1320012627947540480&#34;target=&#34;_blank&#34;&gt;this tweet&lt;/a&gt; was shared:&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/log-scale/tweet-2-chart.png&#34;
+        alt=&#34;Figure 2: Chart of NLP parameter growth&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;This slide puts into context how big of a step forward GPT-3 is in the field of natural language processing.&amp;rdquo;&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;So, I responded:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;my pet peeve: failure to use log scale when appropriate&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then made a log-scale chart and shared it:&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/log-scale/nlp-chart-log.png&#34;
+        alt=&#34;Figure 3: Chart of NLP parameter growth, log scale&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;So someone responded:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;that kind of defeats the purpose of the chart which is to show the massive difference. I think it has more impact the other way, though the log scale certainly gives more visual information about the differences between all the others&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sure, the purpose of the tweet is to point out the difference, which is essentially just saying 175B vs 17B. The chart itself is pointless because you can&amp;rsquo;t get any information from the bars, you have to read the numbers instead. Without a log scale, it&amp;rsquo;s just a very poorly formatted table&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But what I should have said was this:&lt;/p&gt;
+&lt;p&gt;The tweet tries to make a claim with a linear-scale chart of a trend that is fundamentally exponential.&lt;/p&gt;
+&lt;p&gt;If you look at the record-breaking y-values, excluding the latest one, and extrapolate vs time, the expected y-value is something like 70B, vs actual 175B. This is 2.5X jump over the expected value. Previous high-outliers were something like 8B when 5B was expected, a 1.6X jump. 175B is a LOT of parameters, and a 2.5X jump over the expected value is big, AND it&amp;rsquo;s the biggest jump. But it&amp;rsquo;s not a MIND-BLOWING jump that justifies a chart that totally obscures this historical development by hiding all of the details behind a linear scale.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Fundamentally exponential&amp;rdquo; seems reasonable, like many things in the computing world. But is it true? Yes:&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/log-scale/nlp-chart-log-time.png&#34;
+        alt=&#34;Figure 4: Chart of NLP parameter growth, log scale vs time&#34;/&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tanzania 1: prep (md)</title>
+      <link>http://alanbernstein.github.io/posts/tanzania-md-1/</link>
+      <pubDate>Mon, 01 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/tanzania-md-1/</guid>
+      <description>&lt;p&gt;I climbed a mountain with &lt;a href=&#34;http://andrearobertson.com/&#34;target=&#34;_blank&#34;&gt;Andrea&lt;/a&gt; and Donna. It took a lot of work.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This is a very long blog post, split into five parts. Check out the [[https://alanbernstein.net/trips/kili][slide show]] first. Then, if you aren&amp;rsquo;t sure how far you&amp;rsquo;ll get, read parts 3 and 4, then 2, then maybe 1. Part 5 is mostly for me.&lt;/p&gt;
+&lt;p&gt;1: prep - [[/posts/tanzania-2][2: hike]] - [[/posts/tanzania-3][3: summit]] - [[/posts/tanzania-4][4: safari]] - [[/posts//tanzania-5][5: post-mortem]] - [[https://alanbernstein.net/trips/kili][slide show (upcoming)]]&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img/tanzania/IMG_7422-270.jpg&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;/Done!/&lt;/p&gt;
+&lt;p&gt;Some time in early 2018, Andrea asked me if I wanted to climb [[https://en.wikipedia.org/wiki/Mount_Kilimanjaro][Mount Kilimanjaro]]. I hadn&amp;rsquo;t known this was something you could do without significant experience and equipment. It sounded scary and expensive, but after mulling it over for a while, the answer was obvious. I paid my deposit for the seven-day full moon Machame route hike with [[https://www.kandooadventures.com/climb-kilimanjaro/][Kandoo]] in March, and spent the next six months researching, training, and shopping.&lt;/p&gt;
+&lt;p&gt;Why did I do it? If you need to ask, I&amp;rsquo;ll never be able to answer.&lt;/p&gt;
+&lt;p&gt;Summiting one of the highest mountains on the planet was a few levels beyond any previous adventures of mine. After booking the trip, I started looking at recommended gear lists, training regimens, and general travel advice for Africa. My todo list to prepare for the trip was huge, but it was easy to get started. Early on, the important thing was to start training as soon as possible. My legs needed practice, everything else could wait a while.&lt;/p&gt;
+&lt;p&gt;For most people doing the Kilimanjaro climb, altitude sickness, or AMS, is the biggest risk, and it&amp;rsquo;s hard to predict how that will affect you. That means being basically fit is the best thing you can do to prepare, physically. As a bike commuter, my aerobic fitness is fine, so there wasn&amp;rsquo;t much more I could do to prepare. Instead, the most important thing was to get ready to be on my feet for many hours, for days on end.&lt;/p&gt;
+&lt;p&gt;I suppose I&amp;rsquo;d call myself a moderately experienced outdoorsperson. I&amp;rsquo;ve spent plenty of time car camping, and I&amp;rsquo;m always up for a strenuous day hike to climb some modest peak. I had no backpacking experience, but I did do a seven-day self-supported bike touring trip with Kevin a few years ago. Kili is an extended backcountry camping trek full of strenuous, high-altitude hikes, and I was comfortable with each aspect of that on its own, except for the altitude.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m writing all of these posts after the trip, so it will include a handful of retrospective thoughts. [[../tanzania-5][Part 5]] is fully focused on that.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Training
+I had been in Austin almost ten years, and somehow just recently learned about [[http://friendsofriverplacetrail.com/][River Place Nature Trail]], the only place to hike near Austin with any appreciable elevation gain. It&amp;rsquo;s about six miles long, with 800 feet of elevation gain, mostly on well-maintained trail stairs. It&amp;rsquo;s a bit of a drive, so not usually too busy, but the narrow trail feels full regardless of how many people are there. This place became our weekend hangout for months, replacing all other outdoor activities. I dragged Lisa and Gizmo along a few times. They were NOT into it. They had more fun at [[https://tpwd.texas.gov/state-parks/enchanted-rock][Enchanted Rock]], which is maybe prettier, but much shorter (length and height), much further away, and harder to get into.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;ba2f6233-b4c2-4987-9bc5-9ba38253cb42&#34; style=&#34;height: 100%; width: 100%;&#34; class=&#34;plotly-graph-div&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;../tanzania/tx-tracks.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;/Austin is proud of its hills, but that&amp;rsquo;s all we got/&lt;/p&gt;
+&lt;p&gt;The River Place hikes were great for consistent training. I tried two other things, briefly. I ran three miles on the Hike and Bike trail downtown. By the second time, I was able to finish the run without stopping or walking. I think I could have kept at it and improved, but I didn&amp;rsquo;t enjoy it, and I already get plenty of aerobic exercise on my bike, so I gave it up. I also acquired an altitude training mask, and used it twice before deciding it was useless. After my first Colorado trip, I realized how bad those things are at simulating altitude effects.&lt;/p&gt;
+&lt;div id=&#34;21fdd4c7-9e3e-48bf-8fff-1ae47a3c80f0&#34; style=&#34;height: 100%; width: 100%;&#34; class=&#34;plotly-graph-div&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;../tanzania/co-tracks.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;/More challenging, but there was just too much air to breathe/&lt;/p&gt;
+&lt;p&gt;I knew hiking that same trail over and over again wasn&amp;rsquo;t enough, so I hoped to make a few short trips to climb some more respectable mountains. There are plenty of options in the US, but I&amp;rsquo;m somehow drawn to Colorado, and I ended up taking two trips there over the summer. I summited Pikes Peak (14114 ft) with Andrea and Donna in July, and Mount Bierstadt (14065 ft) with Cody in August, after a work trip to Denver. Although I&amp;rsquo;ve done serious climbing hikes in the past, these were my first real experience with AMS. Sleeping at about 6000-7000 feet, with just a few days of acclimatisation, I started to feel the effects around 12000 feet. Mostly, mild headache and shortness of breath. The big problem was my inability to pace myself - I would keep exerting myself at normal levels, when my body couldn&amp;rsquo;t handle it. I would stop for ten seconds, then push hard for another 30. I knew this was silly, but I also figured it wouldn&amp;rsquo;t be a problem on Kilimanjaro, since the guides would be setting the pace, instead of me. This turned out to be correct, more or less.&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img/tanzania/IMG_6070-pikes.JPG]]&lt;/p&gt;
+&lt;p&gt;/Andrea and Donna on the way to Pikes Peak/&lt;/p&gt;
+&lt;p&gt;The second Colorado trip, I was car camping for three days. This was just weeks before the Kilimanjaro trip, so I had most of my gear already. I brought my day pack, and most of the stuff I planned to carry in it, but not much else - somehow, I missed this opportunity to try out all the rest of my new gear. Anyway, I learned one big thing: the day pack I had been using was fine for a couple hours, but after wearing it all day, it was very uncomfortable.&lt;/p&gt;
+&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_6451-colorado-camping.JPG]]&lt;/p&gt;
+&lt;p&gt;/Colorado car camping con Cody/&lt;/p&gt;
+&lt;p&gt;To summarize:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Find a good place for short hikes near home, and go there a lot.&lt;/li&gt;
+&lt;li&gt;Summit at least one 14er before the trip.&lt;/li&gt;
+&lt;li&gt;Do a shakedown camp/hike with as much of the gear you plan to bring as possible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Gear&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On Mount Bierstadt, I met a couple of helpful people. One had done the Kilimanjaro hike several years ago, and gave me two recommendations: get knee-length gaiters, and bring a big daypack. The other guy noticed that I looked like I was stumbling down the path, and decided to keep me company in case the AMS got the better of me. I like to think I was just being lazy and using gravity to assist me in descending faster. In retrospect, I realize it&amp;rsquo;s probably not a good idea to trust your own judgment in that sort of situation. Anyway, that guy recommended [[https://www.wildernessx.com/][Wilderness Exchange]] in Denver, so I stopped there on my way to the airport, and replaced my cheap craigslist daypack (a $45 like-new Osprey Mira 26) with a $100 lightly-used Osprey Mutant 38. Incidentally, that&amp;rsquo;s my new favorite store. The consignment and manufacturer sample sections make it almost a cross between REI and Goodwill.&lt;/p&gt;
+&lt;p&gt;Anyway, back to the beginning. I read through a handful of gear recommendation lists, and found at least one person&amp;rsquo;s actual packing list, and I compiled all of those into a series of lists for myself: definitely buy, maybe buy, already have. The basics are critical: good everyday hiking clothes, packable cold-weather gear, duffel bag and day pack, boots. About three years ago, I learned about the magic of Merino wool. I started buying Merino stuff for biking - 2X Icebreaker t-shirts and 5 pairs of ultralight Smartwool socks - most of which I brought to Kilimanjaro. Living in Texas, I don&amp;rsquo;t have much use for cold-weather clothes, so this was an excuse to acquire some. The majority of new apparel I bought totaled about $300.&lt;/p&gt;
+&lt;p&gt;About three months before the trip, the sole of one of my hiking boots started coming loose. I was annoyed at the time, but I&amp;rsquo;m so glad it didn&amp;rsquo;t happen any later - plenty of time to find new boots and wear them in. I briefly debated trying to use the dying boots on the trip, which would have been an awful idea. I saw 5-10 lost soles over the course of the hike, and if that had happened to me, it would have been worse than anything else that did. So, I donated my seven-year-old boots to [[https://www.facebook.com/ProjectShoehorn/?rc=p][Project Shoehorn]], and got some new mid-range waterproof Oboz boots. I considered getting higher-end Vasque or Salomon boots. Even though I expect to use them plenty, I didn&amp;rsquo;t see the point. Maybe next time.&lt;/p&gt;
+&lt;p&gt;A waterproof duffelbag is suggested, so I got both the Patagonia 60L and 90L, hoping to make the smaller one work. I ended up using the 90L and returning the 60L, but with what I know now, I&amp;rsquo;m sure I could have managed with the 60L (with my 38L daypack stuffed full for the flights).&lt;/p&gt;
+&lt;p&gt;Generally speaking, I try to avoid buying new things when possible, preferring hand-me-downs, Craigslist, Goodwill, etc. This kind of trip necessitates some specific items, that fit well, so I mostly gave up on being able to do that. Shortly before the trip, REI announced their new online used gear store, so I was happy to give that a chance. I looked through every available item, and found two things perfect for the trip - a cold-weather sleeping bag, and a decent-sized, waterproof mountaineering day pack. I ordered them, and they just never showed up! This was pretty annoying, and I&amp;rsquo;m pretty unlikely to use that shop again in the future. Oh well. I already had a three-season sleeping bag, which wasn&amp;rsquo;t warm enough, so I got a liner, which doesn&amp;rsquo;t do much. I ended up renting one of Kandoo&amp;rsquo;s sleeping bags, a Mountain Hardwear Lamina -30. This thing was huge and super warm, some nights I didn&amp;rsquo;t even zip it up.&lt;/p&gt;
+&lt;p&gt;We used Kandoo&amp;rsquo;s [[https://smile.amazon.com/Mountain-Hardwear-Trango-Tent-Orange/dp/B00IG9JOW2][Mountain Hardwear Trango 3]] tents. These were pretty nice. I&amp;rsquo;m glad we didn&amp;rsquo;t have to set them up and take them down ourselves.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s all the new stuff I bought:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;amount&lt;/th&gt;
+&lt;th&gt;item&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;82.27&lt;/td&gt;
+&lt;td&gt;smartwool pants base layer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;15.36&lt;/td&gt;
+&lt;td&gt;darn tough hiking socks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8.99&lt;/td&gt;
+&lt;td&gt;microfiber towel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;189.44&lt;/td&gt;
+&lt;td&gt;oboz hiking boots&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9.90&lt;/td&gt;
+&lt;td&gt;uniqlo heattech undershirt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;14.90&lt;/td&gt;
+&lt;td&gt;uniqlo rain pants&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;29.90&lt;/td&gt;
+&lt;td&gt;uniqlo down jacket&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;45.00&lt;/td&gt;
+&lt;td&gt;osprey mira day pack&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;21.60&lt;/td&gt;
+&lt;td&gt;REI stuff sacks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;75.72&lt;/td&gt;
+&lt;td&gt;peak design capture clip&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;19.22&lt;/td&gt;
+&lt;td&gt;cheap wool socks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;21.53&lt;/td&gt;
+&lt;td&gt;patagonia shirt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;107.65&lt;/td&gt;
+&lt;td&gt;osprey mutant 38 pack&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5.67&lt;/td&gt;
+&lt;td&gt;heavy thread (repair kit)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;19.99&lt;/td&gt;
+&lt;td&gt;trekking poles&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;22.99&lt;/td&gt;
+&lt;td&gt;down hood&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;161.29&lt;/td&gt;
+&lt;td&gt;patagonia duffel 90L&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6.50&lt;/td&gt;
+&lt;td&gt;rite in the rain notebook&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;48.71&lt;/td&gt;
+&lt;td&gt;smartwool boxers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;250.00&lt;/td&gt;
+&lt;td&gt;70-300 lens&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10.88&lt;/td&gt;
+&lt;td&gt;bandanas&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11.19&lt;/td&gt;
+&lt;td&gt;inflatable pillow&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;24.19&lt;/td&gt;
+&lt;td&gt;black diamond headlamp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;37.99&lt;/td&gt;
+&lt;td&gt;gorillapod&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;12.93&lt;/td&gt;
+&lt;td&gt;1.5L nalgene&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;31.39&lt;/td&gt;
+&lt;td&gt;buff&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9.11&lt;/td&gt;
+&lt;td&gt;bottle sling&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;29.99&lt;/td&gt;
+&lt;td&gt;anker 10Ah battery&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;45.47&lt;/td&gt;
+&lt;td&gt;osprey hydration pack&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;75.72&lt;/td&gt;
+&lt;td&gt;burton mittens&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;1445.49&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;total&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;I bought a lot of it just before the trip, after deliberating on whether I needed it, and exhausting other options besides purchasing new. Most of this is self-explanatory: clothes, bags, shoes, mittens, poles, head lamp. The camera gear makes sense if you&amp;rsquo;re a photographer. That stuff makes up almost $1300 of the total, leaving just a few odds and ends. Most of that is also obvious, the only exception is the nalgene and the bottle sling - highly recommended for summit night because bladder hoses can freeze. The idea is to put the nalgene in the sling upside down, so the water freezes from the bottom. I used the nalgene bottle plenty, and I&amp;rsquo;m glad I brought it, but I didn&amp;rsquo;t use it at all on summit night. I also bought and returned over $600 worth of stuff that didn&amp;rsquo;t make the cut.&lt;/p&gt;
+&lt;p&gt;I also borrowed an inflatable sit pad, plus a bunch of stuff sacks and carabiners, from Patsy.&lt;/p&gt;
+&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_6580-packing-categorized.JPG]]&lt;/p&gt;
+&lt;p&gt;/All my stuff, minus my ebook reader. Analysis in [[../tanzania-5][part 5]]/&lt;/p&gt;
+&lt;p&gt;** Photography&lt;/p&gt;
+&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/2018-10-03-07.02.55-packing-camera.jpg]]&lt;/p&gt;
+&lt;p&gt;/Photography gear/&lt;/p&gt;
+&lt;p&gt;Half of it I already had - the T6i, Tamron 10-24 f/3.5-4.5, Canon 50 f/1.8, and miscellaneous accessories - and I also got a few new toys. First, a [[https://www.peakdesign.com/products/capture][capture clip]], at the recommendation of a friend. Kind of pricey, but I&amp;rsquo;m glad I got it. Second, my first telephoto lens, a Canon 70-300 IS. If a safari isn&amp;rsquo;t a good enough excuse to get a telephoto, then what is? It&amp;rsquo;s a low/midrange lens, nothing fancy, but I still got some great shots with it. Finally, a Gorillapod, which I figured I would only use for night photos. I was right, and it was totally worth it. Without it, I wouldn&amp;rsquo;t have gotten this:&lt;/p&gt;
+&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_7178-ghost.JPG]]&lt;/p&gt;
+&lt;p&gt;/I&amp;rsquo;m a ghost/&lt;/p&gt;
+&lt;p&gt;I also bought a set of knockoff batteries, to ensure my camera would last until summit night. I was hesitant to use those, for fear of hurting my camera&amp;rsquo;s precious feelings, but my Canon battery lasted the entire hike anyway. Plus, both my mind and my fingers were unusable at that point, so I gave up on photos at the summit.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Packing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We put some thought into how we would pack for the different phases of the trip. Donna packed a small bag of clothes for each hike day, which I thought was overkill, and unlikely to work for me. Instead, I focused on what to put in each of my main bags for the flight, and for the hike. The safari was an afterthought, since I didn&amp;rsquo;t know anything about it anyway.&lt;/p&gt;
+&lt;p&gt;I actually used five distinct bags over the course of the trip: duffel, daypack, passport pouch, light drawstring bag, and a folding reusable shopping bag (to leave stuff behind at the hotel while hiking).&lt;/p&gt;
+&lt;p&gt;The passport pouch held my passport, yellow card, wallet, giant wad of 10000 shilling notes (basically $5 bills, which is what the ATMs dispense, I guess), and a small knife, flashlight, and pencil, and spare SD cards for my camera. I kept this around my shoulder or in my daypack most of the time, but definitely didn&amp;rsquo;t have it on my person all the time during the hike, like I should have.&lt;/p&gt;
+&lt;p&gt;For the flights, the recommendation is to carry the hiking essentials in your carry-on, so I packed my most expensive, hard-to-replace clothes and gear in my daypack (plus camera and lenses), and stuffed everything else in my duffel. I used the drawstring bag for minimal flight essentials (headphones, sleep mask, book, snacks, jacket), which worked well.&lt;/p&gt;
+&lt;p&gt;For the hike, my daypack would carry water, rain gear, one warmth layer if I wasn&amp;rsquo;t wearing it, trekking poles, snacks and toiletries, first aid kit and repair kit, and my camera and lenses. Most everything else stayed in the duffel, including all the other camera stuff. I wore hiking pants with some big pockets, which usually ended up full of snacks, toiletries, and lenses, lightening the weight in my daypack a bit.&lt;/p&gt;
+&lt;p&gt;I unintentionally ended up with a nice rainbow assortment of stuff sacks of various sizes. This was super convenient for organization, especially when trying to find something buried deep in a dark bag. Need underwear or socks? Find the yellow bag, pull it out, get what you need, toss it back in. I&amp;rsquo;ll continue using that system in the future.&lt;/p&gt;
+&lt;!-- TODO: packing party pic --&gt;
+&lt;ul&gt;
+&lt;li&gt;Miscellaneous&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My previous experience with bike touring made me worry about my knees. I often make smoothies for breakfast, and I use whey protein powder. A few months before the trip, I switched to collagen, in the hopes that it would strengthen my joints. I don&amp;rsquo;t know if there&amp;rsquo;s any science to suggest this would work, and I had no experimental control to evaluate the difference. That said, my knees (and other joints) had absolutely no trouble on the trip.&lt;/p&gt;
+&lt;p&gt;Some people recommend a level of mental preparation that I felt was unnecessary. One suggestion is a mantra. I didn&amp;rsquo;t have one, but if I had, it would have been &amp;ldquo;time is an illusion&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;** Documents, etc
+I brought the obvious stuff: passport, flight info, insurance info, driver&amp;rsquo;s license, credit card, debit card. Also, a few pages of info from Kandoo, and prescription info sheets. Other than that, and a small notebook, I tried to minimize paper. Instead I loaded a bunch of info onto my phone. Manuals, all the documents from Kandoo and my insurance, maps of the mountain, a handful of wikipedia page PDFs (like [[https://en.wikipedia.org/wiki/Mount_Kilimanjaro][this one]], which I read in full, one sleepless night), GPS tracks from my own hikes, and from others&#39; Kili experiences.&lt;/p&gt;
+&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/2018-10-07-09.06.10-notebook.jpg]]&lt;/p&gt;
+&lt;p&gt;/Warning: water-proof notebooks are NOT banana-proof/&lt;/p&gt;
+&lt;p&gt;Mostly, I tried to condense all important information into a few pages of this little waterproof notebook that I got for the trip. Emergency contacts, flight info, travel reference info, notes on meds and AMS, and info about the various climates of the hike. After that, I dedicated one page to each day of the trip, with major itinerary points, todo items, [[https://www.mountain-forecast.com/peaks/Mount-Kilimanjaro/forecasts/5963][weather forecasts]], and a summary of the hike, including a rough elevation profile. Of course it was also nice to keep it accessible for taking notes. Overkill maybe; I didn&amp;rsquo;t need any of this aside from the basic trip details and emergency info, but I&amp;rsquo;m glad I had it. I just like knowing what&amp;rsquo;s going on.&lt;/p&gt;
+&lt;p&gt;I planned to bring enough American cash to cover all expenses, plus one credit card for emergencies. Andrea changed my mind (&amp;ldquo;cash isn&amp;rsquo;t protected from fraud&amp;rdquo;), and Donna brought cash, and I think Donna did it right. Stopping at an ATM was a hassle and a risk, and they dispensed 10000 shilling notes, which are worth about $5. You want to carry cash on your body, so it should be as value-dense as possible.&lt;/p&gt;
+&lt;p&gt;Some person or website recommended getting your visa early; I was under the impression this step was required. It saved a few minutes on arrival, but it cost another $30 for shipping, and it required sending my passport in the mail, which was disconcerting. I won&amp;rsquo;t bother in the future unless it&amp;rsquo;s strictly required.&lt;/p&gt;
+&lt;p&gt;** Consumables&lt;/p&gt;
+&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/2018-09-15-10.46.49-packing-snacks.jpg]]&lt;/p&gt;
+&lt;p&gt;/Unsuspecting prey/&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m a hungry kind of guy, so when the packing lists included &amp;ldquo;Personal snacks&amp;rdquo;, but my contact at Kandoo said it wasn&amp;rsquo;t necessary, I erred on the side of caution. I packed about 30 snack bars, maybe 5000 calories worth, plus a pound of almonds, some candied ginger, and some jelly bellys. It felt like overkill, but I brought it all anyway. Also, a fresh, full-sized bottle of the best hot sauce, chipotle tabasco.&lt;/p&gt;
+&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/2018-09-28-06.50.45-tabasco.jpg]]&lt;/p&gt;
+&lt;p&gt;/O ye, of little faith/&lt;/p&gt;
+&lt;p&gt;For toiletries, I just brought the usual, plus extra sunscreen and bug spray, two rolls of toilet paper, three packs of wet wipes, and three ounces of hand sanitizer. I&amp;rsquo;ve almost never used wet wipes or hand sanitizer before, but I figured this was a good time to start.&lt;/p&gt;
+&lt;p&gt;Finally, a first aid kit and a repair kit. I left out some gauze and medical tape, and instead brought an ace bandage and two cold compresses.&lt;/p&gt;
+&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_6584-packing-med.JPG]]&lt;/p&gt;
+&lt;p&gt;/Mostly self-explanatory/&lt;/p&gt;
+&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_6586-packing-repair.JPG]]&lt;/p&gt;
+&lt;p&gt;/Clips, straps, strips, snaps/&lt;/p&gt;
+&lt;p&gt;We had guides who could probably have solved any real problems we had on the hike, so maybe not necessary. I carry stuff like this around on a normal day, so I wasn&amp;rsquo;t going to Africa without it.&lt;/p&gt;
+&lt;p&gt;** Medical
+I got most of the recommended immunizations, yellow fever, hepatitis B, tetanus, and typhoid, with no trouble. Rabies is recommended as well, but when I asked my travel nurse about it in an email, she didn&amp;rsquo;t even respond, so I didn&amp;rsquo;t worry about it.&lt;/p&gt;
+&lt;p&gt;With less than two weeks left before the trip, I spotted a loose pet dog wandering around outside my house, and I went out to try to help him get home. He bit me, making the tiniest puncture wound, that almost certainly carried no risk. Since he escaped and was not found by animal control, when I went to a doctor they had no choice but to start me on full post-exposure rabies immunization. If you&amp;rsquo;re unfamiliar, that means four immediate shots of immunoglobulin, spread out on the same side of my body as the bite, plus four more of the vaccine, on the other side of my body. Those vaccine shots are supposed to be given on days 0, 3, 7 and 14 after the bite, but on day 14, I would be gone. A few days of mild panic ensued, during which I failed to find any consistent information on how to adjust the schedule. The doctor giving the shots had no idea, I called other doctors and the manufacturer, checked CDC and WHO recommendations, and then gave up on finding an answer. Some internet person told me I should cancel the trip, but I decided to accept the risk of getting rabies from a pet husky in Texas, rather than forfeit thousands of dollars for the trip.&lt;/p&gt;
+&lt;p&gt;I got three prescriptions. Diamox for AMS, and atovaquone for malaria. With atovaquone, you start taking it two days before entering a risk area, and then continue for seven days after leaving. My travel nurse said only the safari portion of the trip counted as risk days, and I would be fine for the day and a half before the hike, as long as I stayed indoors at night. Although I may not have been at any real risk of contracting malaria, I definitely dealt with mosquitoes in my hotel room before the hike. After that happened, I decided to ask for enough to cover a full trip, if I ever need it in the future. On the other hand, Tommy, the traveling doctor from my group, says he never takes malaria prophylaxis. The last one was ciprofloxacin, an antibiotic for severe traveller&amp;rsquo;s diarrhea. The side effects of this stuff include &amp;ldquo;tendon rupture&amp;rdquo;, usually the Achilles tendon. Probably almost no chance it would happen to me, but I was pretty sure I&amp;rsquo;d rather suffer diarrhea than risk that anyway.&lt;/p&gt;
+&lt;p&gt;Finally, a handful of over-the-counter meds: Immodium AD, which I didn&amp;rsquo;t use, but shared with others. Pepto Bismol, which I started eating like candy after my stomach had one rough day. Ibuprofen, which I was afraid to take, for fear of masking important pain signals. I did take a couple after the summit.&lt;/p&gt;
+&lt;p&gt;** Playlist
+Many people prepare a summit playlist, &amp;ldquo;Ain&amp;rsquo;t no mountain high enough&amp;rdquo;, etc. I needed only &lt;a href=&#34;https://www.youtube.com/watch?v=FTQbiNvZqaY&#34;&gt;one song&lt;/a&gt;. A few other good tracks came to me during the hike though, so I&amp;rsquo;ll record for posterity:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=mzDVaKRApcg&#34;&gt;Higher and higher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=4yk7M7aneCA&#34;&gt;Green typewriters 10&lt;/a&gt;, a sleepy track from my favorite band, because of one line: &amp;ldquo;When you&amp;rsquo;re ready to come back down, I&amp;rsquo;ll be waiting&amp;rdquo;. Probably about drugs, but really, being that far up a mountain is its own high, so not inappropriate.&lt;/li&gt;
+&lt;li&gt;Anything from The Lion King. I hadn&amp;rsquo;t realized how appropriate this would have been, as the movie is arguably &amp;ldquo;set&amp;rdquo; in Tanzania or maybe Kenya, Kili makes a brief appearance, and &amp;ldquo;Hakuna Matata&amp;rdquo; is actually a common Swahili phrase. At least, it is in the tourist experience.&lt;/li&gt;
+&lt;li&gt;Head, shoulders knees and toes. Yes the kids song. To remind you of everything that hurts. AMS headache, heavy pack on your shoulders, knees do all the climbing, toes compressed in your boots and blistering.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Expenses
+The climb itself cost $2695. Depending on how you count it, the trip cost me about $8000 total. That includes /everything/ - the three-day safari plus lodging, flights, BOTH Colorado trips, and all the gear I bought and will continue using (including $300+ of photography stuff).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Obviously, things like gear and flights will vary quite a bit from person to person. Here&amp;rsquo;s my breakdown:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;amount&lt;/th&gt;
+&lt;th&gt;thing&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2695.00&lt;/td&gt;
+&lt;td&gt;climb&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1445.49&lt;/td&gt;
+&lt;td&gt;gear&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1156.51&lt;/td&gt;
+&lt;td&gt;africa flights&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;954.00&lt;/td&gt;
+&lt;td&gt;safari&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;792.85&lt;/td&gt;
+&lt;td&gt;pikes peak trip&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;500.00&lt;/td&gt;
+&lt;td&gt;incidentals (tips, drinks, food, souvenirs)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;105.00&lt;/td&gt;
+&lt;td&gt;vaccinations&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;135.81&lt;/td&gt;
+&lt;td&gt;visa application (30.81 shipping)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;100&lt;/td&gt;
+&lt;td&gt;denver trip (work covered flights, cheap camping)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;78.61&lt;/td&gt;
+&lt;td&gt;travel insurance&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;50.00&lt;/td&gt;
+&lt;td&gt;sleeping bag rental&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;20.00&lt;/td&gt;
+&lt;td&gt;prescriptions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;120.00&lt;/td&gt;
+&lt;td&gt;misc consumables&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;8153.27&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;total&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;#+TBLFM: @&amp;gt;$1=vsum(@I..@II)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;If that seems like a lot&amp;hellip; it is. Even without the cost of the Colorado trips and the gear, this was the most expensive thing I&amp;rsquo;ve ever done, aside from those big life milestones. I think it cost more than my wedding.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Why Benford&#39;s Law is Obvious</title>
       <link>http://alanbernstein.github.io/posts/benford/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>http://alanbernstein.github.io/posts/benford/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Benford%27s_law&#34;target=&#34;_blank&#34;&gt;Benford&amp;rsquo;s Law&lt;/a&gt; states that in many naturally occurring collections of numbers, the leading digit is likely to be small. I love math factoids like this, and I remember how deeply unintuitive this seemed when I first learned it. Now, I find myself looking for a way to explain how intuitive it really is.&lt;/p&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;Ok, Benford&amp;rsquo;s law isn&amp;rsquo;t obvious. But what would the world look like if it were?&lt;/p&gt;
+&lt;p&gt;Benford&amp;rsquo;s law follows unavoidably from a certain type of probability distribution (uniform in the logarithmic domain), which happens to be common in real-world data. I can draw some charts that &amp;ndash; to me &amp;ndash; make this perfectly clear. Somehow, that doesn&amp;rsquo;t make it any less surprising to learn. Go figure.&lt;/p&gt;
+&lt;p&gt;I contend that the surprise comes from a lack of familiarity with the log-uniform distribution. What if we, as a society, internalized that distribution &lt;em&gt;instead&lt;/em&gt; of the &amp;ldquo;usual&amp;rdquo; linear-uniform one? In this post, I explain what the counterpart of Benford&amp;rsquo;s law would be in that case. It turns out, it&amp;rsquo;s almost too obvious to mention. Which is the point.&lt;/p&gt;
 &lt;h2 id=&#34;benfords-law&#34;&gt;Benford&amp;rsquo;s Law&lt;/h2&gt;
 &lt;p&gt;When you first hear of it, the thinking might go something like this: if you choose a number randomly, shouldn&amp;rsquo;t the first digit be uniformly distributed? Even if the original distribution isn&amp;rsquo;t uniform, as long as it covers a wide enough range, why would the &lt;em&gt;first digit&lt;/em&gt; have any bias?&lt;/p&gt;
 &lt;p&gt;Explanations abound, but I find that they often miss the crucial point (like this otherwise fantastic &lt;a href=&#34;https://youtu.be/etx0k1nLn78&#34;target=&#34;_blank&#34;&gt;video&lt;/a&gt; for example). Simply put, it is a direct consequence of the &lt;a href=&#34;https://en.wikipedia.org/wiki/Reciprocal_distribution&#34;target=&#34;_blank&#34;&gt;log-uniform distribution&lt;/a&gt;, which governs these &amp;ldquo;naturally occurring collections of numbers&amp;rdquo;, e.g. measurements, population counts, etc. If you can accept that these natural collections tend to be log-normal distributed, Benford&amp;rsquo;s Law is &amp;ldquo;obvious&amp;rdquo;, that is, an unavoidable consequence. Some simply explain this empirically, giving examples. But I think there is more to it.&lt;/p&gt;
@@ -355,6 +788,306 @@ This is a color-coded illustration of the pattern files I used. &lt;/p&gt;
 The seam margin is .5&amp;#34; in this image, which is what I used for the orange and blue bags. The yellow one is 1&amp;#34;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ortlieb Organizer</title>
+      <link>http://alanbernstein.github.io/posts/ortlieb2/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/ortlieb2/</guid>
+      <description>&lt;p&gt;
+Project log for my organizer insert for Ortlieb Back Roller bike panniers.&lt;/p&gt;
+&lt;p&gt;
+I commute by bike, including a fair amount of shopping and errands, and I&amp;#39;m kind of obsessed with organization. I use some popular Ortlieb panniers, and I like to think I&amp;#39;ve committed to them as a &amp;#34;platform&amp;#34; for bike storage, long-term. I chose them because they&amp;#39;re spacious, rugged and waterproof, but they&amp;#39;re not made for organization. When fully loaded, I sometimes find myself dumping out all the contents to find something. &lt;/p&gt;
+&lt;p&gt;
+So, I thought an organizer insert, designed specifically for this bag, and specifically for the items I want to pull out of my bag most frequently, would make a good long-term project. What would that entail, exactly? &lt;/p&gt;
+&lt;p&gt;
+At a minimum:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A laptop pocket, closest to the &amp;#34;bike-ward&amp;#34; side of the interior, just because it&amp;#39;s broad and flat&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A place to hang my heavy U-lock&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Some kind of structural element to maintain a flat shape, and support the weight of the lock&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Micro-optimizing? Sure, but I just like making things.&lt;/p&gt;
+&lt;p&gt;
+Some other nice-to-have features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A quick-release mount to attach to the interior of the Ortlieb bag&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Other, smaller, pockets or mounting points for other things, maybe wallet, keys, other bike gear&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And, looking to the future, maybe other bags that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Compartmentalize and fill out the interior space of the Ortlieb bag&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fold small and flat for storage in case I need the full volume of the bag&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Attach to each other in some clever way.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Overdesigning is fun; making a solid bag with places for the laptop and lock is my main goal right now.&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Current status
+&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Iterations
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-3&#34;&gt;
+v2: canvas, first version that &lt;em&gt;actually&lt;/em&gt; works (2020/05/09)
+&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-4&#34;&gt;
+v1: ripstop nylon, first minimally viable version (2020/02/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;Having a decent idea what the pattern should be, it was now feasible to laser cut it. I cut these out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Nylon: 2x base, 2x tall, .5&amp;#34; seam margin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Canvas: 2x base, 2x tall, 1&amp;#34; seam margin&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I chose to start with an all-nylon bag. I realized later I might have used canvas for the outside and nylon for the inside. All-nylon was a good choice to start with though.&lt;/p&gt;
+&lt;p&gt;
+I sewed the nylon pieces together, knowing that it would be easier to sew the other bits on first, but not knowing exactly where to put them. The fabric was thin enough that I could manipulate it enough to sew things on later. &lt;/p&gt;
+&lt;p&gt;
+So here&amp;#39;s what I did:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Sew base A to tall A to make pocket A&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sew base B to tall B to make pocket B&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sew pocket A to pocket B&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Insert plastic pieces into pockets&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pin velcro to both sides of each pocket (to ensure tight fit)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Remove inserts and sew on velcro&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Find locations to attach lock strip, pin webbing in place&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sew on lock strip&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Whereas ideally I would have done step three last.&lt;/p&gt;
+&lt;p&gt;
+So everything generally works, but the lock is so heavy, it drags the fabric down too much, and it also puts a lot of stress on the webbing-fabric attachment (A single box x stitch). The strip needs more support, and fortunately the plastic insert can do exactly that.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-5&#34;&gt;
+v0.2: random scrap fabric, pattern test (2020/01/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+After the cardboard prototype, I decided I was ready to take on the sewing project. I bought some off-the-shelf fabric that seemed appropriate, and then proceeded to think about how to make the thing for a few months. I spoke with some very helpful people at the Sew and Tell meetup, and finally accepted that I just need to try making it a few times. One of the suggestions was to make that first fabric prototype with cheap scrap fabric, so I tried that.&lt;/p&gt;
+&lt;p&gt;
+The design was based on the cardboard model, with two broad sides and a thin strip connecting them to give it some volume. I got one big design suggestion at the meetup that allowed me to make progress on this: each side should have a sealable pocket to contain the plastic insert. With that in mind, this first version allowed me to test cutting the pattern, and the sewing process. It turned out that this fabric was awful to work with (very stretchy and very ragged edges), but I definitely learned enough to gain the confidence to work on the next version, with the good fabric.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+I was proud of myself for documenting my learning process with the first bag, but it was not that helpful afterward. I changed the design, and I&amp;#39;ve already internalized the lessons I learned about sewing techniques. Probably most significantly, I abandoned the side strip idea. A laptop fits inside the bag without that added width, and I had a hard time keeping the three pieces of fabric properly aligned. I might want to use a similar approach for a different project later. &lt;/p&gt;
+&lt;p&gt;
+Lessons learned:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Began to understand how to think about designing the inside-out object.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When my mental model of the inside-out object fails, I can pin fabric together and turn it inside out to test.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When sewing around a corner, and you need to raise the foot to reposition the work piece, you can rotate it in &lt;strong&gt;either&lt;/strong&gt; direction - it doesn&amp;#39;t have to follow the direction of the seam.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If I try the thin strip idea again in the future, I will cut it maybe four inches longer than needed, THEN sew it, then trim excess. That will fix half of the alignment problem, but still need to be sure that the two side pieces are lined up properly. It might be easier to use several smaller thin strips, but that would also be uglier.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When cutting the pattern, following the curved corners isn&amp;#39;t important: cut a polygonal hull, sew whatever seam you want, then trim. The seam doesn&amp;#39;t even need to be curved, because the bag will take on an organic shape anyway.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The four main parts are attached with three seams, and I put the third one in the wrong place, so the first two were unnecessarily exposed. It occurred to me that I could have just used a single seam, but having multiple seemed like a good idea anyway.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-6&#34;&gt;
+v0.1: cardboard and zip ties, proof-of-concept (2019/02/25)
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;My first attempt was a cardboard mockup, held together with zip ties. This worked well enough to prove the concept. It disintegrated after a month or so.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-7&#34;&gt;
+Sewing process
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Latest prototype in action. The two main features driving the structural design are the laptop pocket and the U-lock strap.
+I&amp;#39;m a sewing beginner, and this is my first design, so I&amp;#39;m learning, making things up as I go, and I probably don&amp;#39;t know a lot of terms that I should. Despite that, I&amp;#39;m very satisfied with this second iteration. It&amp;#39;s truly usable, but I hope to refine it, so I&amp;#39;ll point out a few issues.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+It goes inside this popular Ortlieb pannier. I&amp;#39;m avoiding any permanent modifications to the waterproof exterior. Still figuring out mounting options, but that&amp;#39;s not a major concern, because normally the bag is full enough to keep the organizer in place.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+My three prototypes: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Orange: random scrap fabric, to experiment with the basic pattern, not really usable &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Blue: random ripstop nylon (specs unknown, but it&amp;#39;s .1mm thick). Includes a sewn-on nylon strap to hold the lock.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Yellow: random canvas (.6mm thick). Includes a &amp;#34;through-the-frame&amp;#34; removable nylon strap+buckle to hold the lock.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Sewing the lock strap on the exterior, using this fabric, is not sturdy. U-locks are heavy, so it sags significantly.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Aside from the main pocket, each side has a mini-pocket just for storing a rigid plastic sheet to maintain the structure. I deliberately tucked the flap INSIDE the pocket rather than go over it. It made sense in my head, but it&amp;#39;s clearly the wrong choice.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Trying to show detail of how the pockets are laid out.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Same idea for the yellow bag, but the flap closes over the pocket, and terminates on the outside of the bag rather than the inside. Much sturdier fabric, plus two velcro strips on the ends, instead of one in the middle, mean this bag holds its shape much more than the blue one.&lt;/p&gt;
+&lt;p&gt;
+Also shows the nylon strap going through the outer layer of the bag (via a &amp;#34;faced opening&amp;#34; made from the ripstop, and through the plastic frame.&lt;/p&gt;
+&lt;p&gt;
+This design allowed me to experiment with different insert combinations. There&amp;#39;s plenty of weight to trim here.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Outside of the faced opening.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Detail of pocket layout&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+detail of pocket flap seam from outside&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+detail of pocket flap seam from inside&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Detail of canvas inside-out.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+Detail of nylon inside-out.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-8&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-8&#34;&gt;
+Making the shape template
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+Designing the fabric pattern was the first step. Since the Ortlieb bag includes a plastic insert to give it structure, using that exact shape seemed like the right way to go.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+I took some rough measurements of the irregular hexagon shape. I could have used these to get pretty close to the right shape. &lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; alt=&#34;/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; title=&#34;/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+However, I have an unreasonable propensity for unnecessary accuracy. I removed the insert, photographed it against a grid, then transformed that photo into vector files for laser cutting. This is great for cutting the pattern from fabric in a repeatable way. Unfortunately I can&amp;#39;t use the laser for the plastic insert itself, so I cut that with a dremel. In the future I might try a bandsaw instead.&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/pattern-illustration.png&#34; alt=&#34;/img/ortlieb-organizer/pattern-illustration.png&#34; title=&#34;/img/ortlieb-organizer/pattern-illustration.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+This is a color-coded illustration of the pattern files I used. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;lt;span style=&amp;#34;color:red&amp;#34;&amp;gt;Red&amp;lt;/style&amp;gt;: plastic insert&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Black: mounting hole cutouts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Blue: &amp;#34;base&amp;#34; fabric pattern&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Green: &amp;#34;tall&amp;#34; fabric pattern, including the flap that covers the mini-pocket for the plastic insert. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I sewed these two fabric pieces together, repeated with another two, then sewed those two pairs together, then turned inside out. Adding velcro, slits, and hems was done at the appropriate steps.&lt;/p&gt;
+&lt;p&gt;
+The seam margin is .5&amp;#34; in this image, which is what I used for the orange and blue bags. The yellow one is 1&amp;#34;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hanging cables</title>
+      <link>http://alanbernstein.github.io/posts/cables/</link>
+      <pubDate>Tue, 27 Nov 2018 00:00:00 -0600</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/cables/</guid>
+      <description>&lt;p&gt;A hanging cable takes the shape of a catenary, a suspension bridge cable is a parabola. What&amp;rsquo;s the connection between these?&lt;/p&gt;
+&lt;p&gt;Inline math works: $$F_M(N, N_R) = {N-1 \choose N_R-1}{M-N+1 \choose N_R}$$, and so does display math:&lt;/p&gt;
+&lt;p&gt;$$F_M(N, N_R) = {N-1 \choose N_R-1}{M-N+1 \choose N_R}$$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://whistleralley.com/hanging/hanging.htm&#34;&gt;http://whistleralley.com/hanging/hanging.htm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;*cable weight negligible (weight is proportional to horizontal distance): cable forms parabola
+*cable weight significant (weight is proportional to arc length): cable forms catenary
+*flexible, weight significant (weight is proportional to arc length): parabola again?&lt;/p&gt;
+&lt;p&gt;i remember a derivation where one simple change in an integrand (for the weight distribution - constant per horizontal distance vs constant per arc length) makes the difference between parabola and catenary. this looks sort of like it:&lt;/p&gt;
+&lt;p&gt;$$y&#39; = \frac \mu T x$$ - parabola
+$$y&#39; = \frac \mu T {\int_0^x \sqrt{y&#39;^2+1}dt$$ - catenary&lt;/p&gt;
+&lt;p&gt;*&lt;tex&gt;y&#39; = \frac \mu T {\smashmargin2{\int\nolimits_{\tiny 0}}^{x}} \sqrt{y&#39;^{\tiny 2}+1}dt&lt;/tex&gt; - catenary&lt;/p&gt;
+&lt;p&gt;this is probably the integral i remember which requires recognizing as being equivalent to the form of the arclength integral for cosh() - derivative being equal to arclength. equivalently, second derivative = one plus square of first derivative&lt;/p&gt;
+&lt;p&gt;μ is linear density (?) and T is magnitude of tension at minimum point of curve (?) - but how to get to these diffeqs?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -722,807 +1455,6 @@ $$c = \mod\left(\frac{\htmlStyle{color:purple;}{S}z}{N}+1,2\right)$$
 &lt;li&gt;&lt;a href=&#34;https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672&#34;&gt;https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/cntrump/hugo-notepadium/issues/68&#34;&gt;https://github.com/cntrump/hugo-notepadium/issues/68&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Using Hugo and org-mode for a blog</title>
-      <link>http://alanbernstein.github.io/posts/blog-setup/</link>
-      <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://alanbernstein.github.io/posts/blog-setup/</guid>
-      <description>&lt;p&gt;
-I just set up this blog with Hugo. This is the story of why and how.&lt;/p&gt;
-&lt;p&gt;
-This is also a boring test post for the new system.&lt;/p&gt;
-&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-1&#34;&gt;
-Why
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;
-I&amp;#39;ve been writing bloggy stuff for years, but never had a great way to share it. For a while I was pretty excited about using my own instance of Mediawiki. I wrote hundreds of pages of rambling nonsense, intricately linked, categorized and tagged, and put it online. I set up a bunch of custom templates, code syntax highlighting, and LaTeX support, among other things - Mediawiki has a great selection of extensions. I even had a grand plan for building an auto-updating mind map from page categories.&lt;/p&gt;
-&lt;p&gt;
-Back then, my main goal was to capture ideas electronically, and that system worked well. Even the editing interface was nice, with a source/WYSIWYG toggle, formatting and syntax help, and a customized toolbar for snippets and templates. But it was a web interface, which eventually started to feel cumbersome (slow feedback cycle). Plus, the years of maintaining a php app on a cheap shared server were starting to take their toll. I don&amp;#39;t remember if it was the stylesheet breaking, or my general loss of patience with the app, but for some reason, I eventually stopped updating it.&lt;/p&gt;
-&lt;p&gt;
-Ever since, I&amp;#39;ve wanted to get that content back up in a more digestible form, backed by a more robust system. I&amp;#39;ll probably backdate it to create the illusion of continuity. I&amp;#39;ve also written plenty of new stuff, which is sitting in piles of text files waiting for a home.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-2&#34;&gt;
-How
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;
-The secondary goal was to make sure the capturing was done in some variety of &lt;a href=&#34;http://www.linfo.org/plain_text.html&#34;&gt;plaintext&lt;/a&gt;. In Mediawiki, it was wikitext, stored in MySQL, which was… at least plaintext in spirit. I had no trouble exporting all the page contents to text files; handling the markup is another story. There are lots of good reasons for wanting plaintext, but eventually I discovered the best one: &lt;a href=&#34;http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html&#34;&gt;org-mode&lt;/a&gt;. I made plans to translate all the wikitext pages to org, and write or use some sort of static site generator, to mirror a public html blog directly from a local org folder. I did make a few steps in that direction (&lt;a href=&#34;https://github.com/alanbernstein/post&#34;&gt;see also&lt;/a&gt;), but never put any effort into a unified solution.&lt;/p&gt;
-&lt;p&gt;
-Later, I encountered &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, the trendy new static site generator, and it seemed like the obvious answer. The only thing left to do was automate the conversion of org files to html or markdown. Unfortunately, my enthusiasm for tinkering with emacs/org/elisp tapered off quickly. I&amp;#39;m happy with emacs as an IDE for code and structured notes, but the idea of using it as a component in generating blog pages was a big turn off.&lt;/p&gt;
-&lt;p&gt;
-I started keeping track of &lt;a href=&#34;https://pandoc.org/&#34;&gt;some&lt;/a&gt; &lt;a href=&#34;http://www.holgerschurig.de/tags/hugo/&#34;&gt;possible&lt;/a&gt; &lt;a href=&#34;https://github.com/fniessen/org-html-themes&#34;&gt;solutions&lt;/a&gt; - or components of them at least - lots of other nerds are interested in using org for blogs. When I saw an announcement for &lt;a href=&#34;https://ox-hugo.netlify.com/&#34;&gt;ox-hugo&lt;/a&gt;, I decided it was time to figure this thing out. In the process of setting up a deployment process that would handle the org-html export with ox-hugo, I found &lt;a href=&#34;https://discourse.gohugo.io/t/org-mode-content-support-merged-into-hugo-master/5530&#34;&gt;this&lt;/a&gt; announcement: as of February 2017, Hugo supports org-mode directly!&lt;/p&gt;
-&lt;p&gt;
-This makes the workflow ideal:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Use org-mode, in emacs, to write post content in files in a local directory.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Run a single command to generate updated web content and push to my site.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;This post is the proof that it works! Because I am a devopeler extraordinaire, the command is (effectively):&lt;/p&gt;
-&lt;div class=&#34;src src-sh&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;hugo &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; rsync -rz --update public/* &lt;span class=&#34;nv&#34;&gt;$WEBSITE&lt;/span&gt;/blog/.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
-Of course there is more work to do. I won&amp;#39;t be satisfied without syntax highlighting and LaTeX support, but there is lower-hanging fruit I&amp;#39;ll tackle first. Finding a theme is probably a good place to start.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-3&#34;&gt;
-Updates
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-4&#34;&gt;
-2017/10/05: Syntax highlighting
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;Mostly working! It&amp;#39;s basically just a couple lines in the config:&lt;/p&gt;
-&lt;div class=&#34;src src-sh&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nv&#34;&gt;pygmentsCodeFences&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;PygmentsStyle&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;monokai&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
-Although I also had to figure out the proper syntax for the org-mode parser (&lt;code&gt;#+BEGIN_SRC sh&lt;/code&gt; for blocks, &lt;code&gt;~tildes~&lt;/code&gt; for inline), and my test theme removes the line breaks from preformatted elements for some reason (fixed by hacking one style into layouts/_default/baseof.html). &lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-5&#34;&gt;
-2017/10/26: Equation rendering
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;Works with KaTeX in `mmark` files! Some details &lt;a href=&#34;../latex-with-hugo&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-6&#34;&gt;
-2017/10/31: Bokeh plots work!
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;../plots-in-hugo&#34;&gt;An example&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-7&#34;&gt;
-2021/01/24: Reboot
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;I have abandoned my ad-hoc deployment system in favor of using github pages. Hugo project restarted from scratch, with a better theme ([notepadium](&lt;a href=&#34;https://themes.gohugo.io/hugo-notepadium/))&#34;&gt;https://themes.gohugo.io/hugo-notepadium/))&lt;/a&gt; and title. Hopefully I can reuse some of the customizations mentioned above. Blog repo is now at &lt;a href=&#34;https://github.com/alanbernstein/blog.&#34;&gt;https://github.com/alanbernstein/blog.&lt;/a&gt; Not having it in a git repo in the first place was really dumb, but it&amp;#39;s because the blog is photo-heavy, and I didn&amp;#39;t want to put hundreds of MB of photos in the repo. I&amp;#39;m currently just linking to photos hosted on my personal website, but I&amp;#39;d like to figure out a better solution (&lt;a href=&#34;https://github.com/alanbernstein/blog/issues/3).&#34;&gt;https://github.com/alanbernstein/blog/issues/3).&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;
-Math typesetting: previous solution depended on the mmark format, and hugo has deprecated support for this. Forunately, the notepadium theme has built-in support for math typesetting via Katex. It does &amp;#34;block mode&amp;#34; or &amp;#34;display mode&amp;#34; with no trouble, and &amp;#34;inline mode&amp;#34; isn&amp;#39;t quite working (renders normal size inside a `&amp;lt;p&amp;gt;` element, instead of a smaller size as expected). Seems to be discussed here: &lt;a href=&#34;https://github.com/cntrump/hugo-notepadium/issues/68,&#34;&gt;https://github.com/cntrump/hugo-notepadium/issues/68,&lt;/a&gt; with corresponding fix &lt;a href=&#34;https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672,&#34;&gt;https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672,&lt;/a&gt; but not sure if this is helpful. Oh well, Good enough for now… &lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Reviving a dead Etsy product</title>
-      <link>http://alanbernstein.github.io/posts/ambigram/</link>
-      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://alanbernstein.github.io/posts/ambigram/</guid>
-      <description>&lt;p&gt;
-I thought of a thing that I wanted, found that someone else had already done it, and sold it on Etsy, but then stopped. Using a photo of it, and some light hacking skills, I made another one for myself.&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/true-false-ambigram.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/true-false-ambigram.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/true-false-ambigram.png&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;&lt;a href=&#34;http://www.anopticalillusion.com/2012/12/truefalse-ambigram-by-john-langdon/&#34;&gt;Rotational trans-ambigram by John Langdon&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;
-I like words, optical illusions, and art. An &lt;a href=&#34;https://en.wikipedia.org/wiki/Ambigram&#34;&gt;ambigram&lt;/a&gt; is a clever combination of all three of these, so of course I like these too. There are a few different forms, and while they&amp;#39;re all neat, I am particularly fond of the type that incorporates two wholly different words, with a 180-degree rotation separating the two, like the true/false image above.&lt;/p&gt;
-&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-1&#34;&gt;
-The idea
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;
-One day, I noticed one of those dishwasher clean/dirty magnets, and thought &amp;#34;Hey! that would be a perfect way to use an ambigram!&amp;#34; Then, realizing my limited artistic skill would prevent me from inventing it myself, I turned to the web. I found a handful of examples, and &lt;a href=&#34;https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet&#34;&gt;one that I really liked on Etsy&lt;/a&gt; - this one was actually designed to be used as a dishwasher magnet! Unfortunately, it not only unavailable, but it&amp;#39;s the lone product in a defunct shop, so I was not hopeful about contacting the &lt;a href=&#34;https://www.etsy.com/people/GilbertNick&#34;&gt;creator&lt;/a&gt;. Thanks for the design, Nick, if you ever see this!&lt;/p&gt;
-&lt;p&gt;
-So that would have been a dead end, except the image was available in a halfway decent resolution. That means I should be able to hack it back into existence, so I set out to do just that.&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/etsy-product-image.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/etsy-product-image.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/etsy-product-image.jpg&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;&lt;a href=&#34;https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet&#34;&gt;Original Etsy product image&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;
-570x443 pixels isn&amp;#39;t great, but for a simple, monochrome pattern with sharp lines, it might be good enough. So, there is this rectangular object, and I have a moderate-resolution photograph of it from an oblique angle. What do I need to do to reproduce the pattern at high resolution? It&amp;#39;s simple:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Undo the perspective projection&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Trace the edges to generate a vector image&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Clean up the messy edges&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Normally, I&amp;#39;m happy to dive into coding this stuff from scratch, just for the hell of it. In this case I was more interested in the destination than the journey, so I went for some proven solutions.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-2&#34;&gt;
-Undoing the perspective projection
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;
-Generally speaking, extracting a high-quality representation of an object, from a photo in uncontrolled conditions, is a tricky problem. Photographing something means, among other things, applying a perspective projection to a 3D scene. That projection removes a lot of information from the scene to reduce it to an image - the exact shape, size, and location of the object - and that&amp;#39;s exactly what we want. If the object has any sort of complicated shape, it might be necessary to use some clever heuristics, or maybe multiple photos from different angles. On the other hand, a planar rectangle with known dimensions (4&amp;#34;x2.5&amp;#34; conveniently given in the product description), is just about the easiest thing to work with.&lt;/p&gt;
-&lt;p&gt;
-In the case of a known rectangle, there is a simple way to estimate the original perspective projection, invert it, and apply that inverse to the photo. This effectively maps whatever pattern is on the rectangle in the photo, to a new, properly rectangular region, like so:&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/transformed.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/transformed.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/transformed.jpg&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;Perspective projection inverted&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;
-As part of my perpetual &lt;a href=&#34;http://alanbernstein.github.io/tags/matlab-to-python&#34;&gt;Matlab-to-Python transition&lt;/a&gt;, I decided to ignore some &lt;a href=&#34;https://gist.github.com/alanbernstein/cbc319c75b74b99cf9b63da378bae6da&#34;&gt;old Matlab code&lt;/a&gt; I wrote to solve this problem, and &lt;a href=&#34;https://gist.github.com/alanbernstein/0ff61f3a3ae5e62278090a7ec9223826&#34;&gt;redo&lt;/a&gt; it in Python. As it turns out, with the OpenCV bindings available in Python, the solution is trivial. All I had to do was manually pick a handful of keypoints (the rectangle corners), and pass them to a single function to generate the required transformation. The output of that can then be applied directly to the image. In short, something like this:&lt;/p&gt;
-&lt;div class=&#34;src src-python&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;findHomography&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;im_dst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;warpPerspective&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;im_src&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
-&amp;#34;&lt;a href=&#34;https://en.wikipedia.org/wiki/Homography_(computer_vision)&#34;&gt;Homography&lt;/a&gt;&amp;#34; is more or less another word for perspective projection. If I needed to do this for more than a few images, I would have wanted to automate the keypoint-picking step (I&amp;#39;ve used &lt;a href=&#34;https://en.wikipedia.org/wiki/Scale-invariant_feature_transform&#34;&gt;SIFT&lt;/a&gt; for that in the past, I wonder if that&amp;#39;s still in fashion?), but I&amp;#39;ll save that for a time when I need it.&lt;/p&gt;
-&lt;p&gt;
-Here is the full python code, because it&amp;#39;s easy enough to embed here:&lt;/p&gt;
-&lt;p&gt;
-&lt;script type=&#34;application/javascript&#34; src=&#34;https://gist.github.com/alanbernstein/0ff61f3a3ae5e62278090a7ec9223826.js&#34;&gt;&lt;/script&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-3&#34;&gt;
-Generating a vector image
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;
-The &amp;#34;hard&amp;#34; part is done - I have something pretty close to what I want for the final product - that just leaves the grunt work. The end goal is to produce a clean, black and white image, and there are different ways to go about that. Experience tells me that in this case, vectorizing the image will give the best result. I&amp;#39;ve used a few tools for this task, including some free web services, potrace, and Corel Draw. Here, Illustrator did the best job:&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/vectorized.svg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/vectorized.svg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/vectorized.svg&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;Vectorized&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;
-This looks pretty good, at least around the letters. The finer details in the decorative border didn&amp;#39;t turn out so well, but that&amp;#39;s ok - I&amp;#39;m more into the minimal design with letters only. I removed all the border stuff, and did a little manual repair work on some of the letter edges.&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/word-only-white-on-black.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/word-only-white-on-black.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/word-only-white-on-black.png&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;Final high-quality raster image&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;
-Perfect! All I had to do was get it printed on a magnet. I used &lt;a href=&#34;https://www.purebuttons.com/&#34;&gt;purebuttons&lt;/a&gt;, which was great for a low-volume order. The final product:&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ambigram/magnet-photo-both.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ambigram/magnet-photo-both.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ambigram/magnet-photo-both.jpg&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Really Squeeze the Value Out of Your Overpriced Razor Blades</title>
-      <link>http://alanbernstein.github.io/posts/shaving/</link>
-      <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://alanbernstein.github.io/posts/shaving/</guid>
-      <description>&lt;p&gt;I read somewhere that a strip of denim works pretty well for stropping razor blades, which supposedly extends their effective life. It seemed like a good experiment opportunity.&lt;/p&gt;
-&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
-&lt;p&gt;Shave each half of my face, on the same day, using a dull blade on one side, and a stropped blade on the other. Count the total number of blade strokes used for each half the face.&lt;/p&gt;
-&lt;p&gt;A better experiment might have been to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;use two blades, alternating each between left and right side of face&lt;/li&gt;
-&lt;li&gt;let blade 1 dull naturally, and strop blade 2 after each shave,&lt;/li&gt;
-&lt;li&gt;shave on a regular schedule, for consistent growth.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;As it turned out, I didn&amp;rsquo;t have to go that far to see positive results.&lt;/p&gt;
-&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
-&lt;p&gt;I counted the strokes during nine shaves, and of these, six resulted in good measurements, that I remembered to write down.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;stropped&lt;/th&gt;
-&lt;th&gt;dull&lt;/th&gt;
-&lt;th&gt;ratio&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;46&lt;/td&gt;
-&lt;td&gt;67&lt;/td&gt;
-&lt;td&gt;.69&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;39&lt;/td&gt;
-&lt;td&gt;51&lt;/td&gt;
-&lt;td&gt;.76&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;27&lt;/td&gt;
-&lt;td&gt;35&lt;/td&gt;
-&lt;td&gt;.77&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;47&lt;/td&gt;
-&lt;td&gt;68&lt;/td&gt;
-&lt;td&gt;.69&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;34&lt;/td&gt;
-&lt;td&gt;60&lt;/td&gt;
-&lt;td&gt;.57&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;20&lt;/td&gt;
-&lt;td&gt;25&lt;/td&gt;
-&lt;td&gt;.80&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;These shaving sessions were not highly controlled, with different levels of hair growth, blade age, shaving cream. Counting strokes is also not an ideal metric, just the best available one. As a result, the absolute numbers vary a bit, so I don&amp;rsquo;t think averaging them would be meaningful.&lt;/p&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Regardless, the ratio of stropped-strokes/dull-strokes was always &amp;lt;1, and usually significantly so. I concluded that denim stropping is a meaningful way to improve the performance of a razor blade, and thus extending its useful life.&lt;/p&gt;
-&lt;h2 id=&#34;addendum&#34;&gt;Addendum&lt;/h2&gt;
-&lt;p&gt;I later realized that my girlfriend&amp;rsquo;s razor is superior due to the much larger area of integrated shave cream goo, so now I just steal her razors and don&amp;rsquo;t think about it.&lt;/p&gt;
-&lt;!--
-shaving experiment:
-2014/04/19?: previous shave?, day of date with lisa
-2014/04/29(?): 9 stroke groups, dull, left vs 5 stroke groups, stropped on denim, right; not including goatee-area
-2014/05/14: 67 strokes, right, dull vs 46 strokes stropped on denim, left; not including goatee area, vibration on
-2014/05/19: growth too short to get useful measurements, just recording for next time
-2014/06/01: 51 dull left, 39 stropped on denim, right
-2014/06/15?: ?left, ?right, no stropping
-2014/06/27: left: 35, right: 27, no stropping
-2014/07/11: left: 68, right: 47, no stropping
-2014/08/12: left: 34, stropped, right: 60, unstropped (one months growth, 3 shaves worth of wear on blade) (conclusive)
-2018/05/12: left: 25, stropped really old, right: 20, stropped kinda old (2 weeks growth)
---&gt;</description>
-    </item>
-    
-    <item>
-      <title>Tough Mudder</title>
-      <link>http://alanbernstein.github.io/posts/tough-mudder/</link>
-      <pubDate>Sat, 06 Oct 2012 00:00:00 +0000</pubDate>
-      
-      <guid>http://alanbernstein.github.io/posts/tough-mudder/</guid>
-      <description>&lt;p&gt;
-Sometimes I do these silly obstacle course races. One of them resulted in one of my nicknames, &amp;#34;No-challenge Bernstein&amp;#34;.&lt;/p&gt;
-&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-1&#34;&gt;
-Tough mudder #2
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;2013/04/21, Longhorn River Ranch outside Austin, with Clark, Robert, Wesley.&lt;/p&gt;
-&lt;p&gt;
-I have no photos of the course, because it&amp;#39;s not worth carrying anything during these runs. &lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2013.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2013.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2013.jpg&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;Finish line&lt;/em&gt;&lt;/p&gt;
-&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-2&#34;&gt;
-Overall
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;A shorter course, warmer weather, no sprained fingers, and experience made the race much easier. Only one aid station had bananas, so I got kind of hungry - but we brought energy goo candy, which helped. Completion time of 3 hours (assume 10.25 miles: 3.4 mph, or 17.5 minute mile) was marginally better than previous time of 4 hours (assume 12 miles: 3 mph or 20 minute mile). I tried to learn some lessons last time, how well did I do in remembering those?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Wear more pads: well, the kneepads were irritating, so I took them off. Still had two elbow pads, and though there were slightly fewer belly crawl obstacles, I&amp;#39;m still glad I had both elbows covered.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Wear synthetic underwear and socks: ran out of time for this, I think the small volume of cotton undergarments is pretty insignificant, and moreso in warmer weather.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;I was able to run as much as I was willing to - I was probably the slowest team member, so any issues stemming from that were irrelevant for me.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Didn&amp;#39;t bring gloves, no big deal&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Didn&amp;#39;t bring goggles or something to wipe mud away from eyes, no big deal&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This course was notably less muddy than the October one - the dirty ballerina was dry, and the mud mile was much shorter.&lt;/p&gt;
-&lt;p&gt;
-My calves started cramping up after about 6-7 miles, turned out Clark and Wesley had cramps around the same time, so we slowed to a walk for a bit. That didn&amp;#39;t happen in October for some reason, surprised it happened this time. Only the once though.&lt;/p&gt;
-&lt;p&gt;
-This time it was warm enough to shower after, plus they gave us clif bars at the end - I was pretty surprised when they didnt give us something small to eat at the end in October.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-3&#34;&gt;
-Obstacles
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2013.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2013.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2013.png&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;Our course map&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;
-Minor obstacles:&lt;/p&gt;
-&lt;p&gt;
-A couple of times we had to wade through a creek, but mostly, the course went up and down a pretty tall hill in the middle of the area. 2-3 times, going up it was nearly a climb (ie, 100+ feet vertical, probably ~50% grade, had to use hands to pull self up with rocks and roots), with slower descent. That was a more satisfying minor obstacle. I think they may have made the course shorter because of the elevation profile, but I&amp;#39;m better at climbing than running, so it seemed easier to me. No impossible mud pit, which was, last time, the only thing that I actually NEEDED help with.&lt;/p&gt;
-&lt;p&gt;
-Named obstacles:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Kiss of Mud (Crawl under barbed wire)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Same as last time, except easier with both elbow pads.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Walk the Plank (Jump off a 15&amp;#39; platform)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Same as last time, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Glory Blades (Climb over an inclined wall)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Similar to berlin walls, but slanted maybe 20 degrees off vertical (toward us). only ~9ft tall, so easy to reach the top by jumping. No harder than a pullup.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Fire Walker (Run and jump over fire)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Fun, no danger, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Arctic Enema (Plunge into icy water)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Same as last time, just dont hesitate, &lt;strong&gt;no challenge&lt;/strong&gt; .&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Boa Constrictor (Crawl through plastic piping)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Slightly higher water level at the bottom than last time; still never had to have my face submerged, so still… &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Funky Monkey (Monkey bar crossing)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Similar to last time, but earlier in the race, I had full use of my fingers, and I think the bars were maybe smaller in diameter. Last time, I barely started it before falling. This time, I made it all the way. Going down was much easier, as expected - helped by bicycle leg motion. Going up, I thought I would fall the whole time, because I was only grasping the bars with the tips of my fingers. They were small enough that I guess that was still able to work. I was the only one on my team to do it, and I think one of only 2-3 to do it while I was around there. Proudest accomplishment this time.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Cage Crawl (Crawl through water under chain link fence)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Fun, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Mud Mile (Run over mud trenches and hills)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Much shorter than last time, climbed every hill on my own, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Balls To The Wall (Rope climb up and over wall)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Maybe the most difficult obstacle - ropes were covered in mud and VERY slippery - this was one of the few places where I didnt really feel safe - could have easily slipped and slammed my knee into a corner, or just fallen onto my back or something.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Log Jammin (Navigating under and over logs)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Same as last time, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Hold Your Wood (1/4 mile log carry)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This was silly, we tried a &amp;#34;team log&amp;#34;, but it was really only wide enough for 3 people at most, and the people on the ends did most of the work anyway. I felt bad for not having to exert myself.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Electric Eel (Slide over water getting shocked)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Same as last time, got shocked a few times.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Island Hoppin (Jump across floating platforms)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;8-10 4x4ft plywood boxes, anchored to the bottom of a river. They sink within 1-2 seconds when you put your weight on them (just like disappearing platforms in a videogame), so the only real option is to quickly run across all of them. We watched a bunch of people try and fail before we started, and all four of us made it pretty easily. Glad I was able to do it on the first try, not as hard as I expected.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Berlin Walls (Wooden 9&amp;#39; walls) (these were actually 12&amp;#39;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Two walls to climb, first time I did it alone, but with the diagonal brace. Second time I did it alone, but without. It&amp;#39;s not strictly a 12&amp;#39; climb, there is a foothold about 2ft off the ground. My approach is to get a running jump off the foothold, get both hands on the top, and pull myself over. I couldn&amp;#39;t do this one alone in October, due to cold/sprained fingers. This was my second proudest accomplishment this time.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Dirty Ballerina (Leap over mud mounds)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Very similar to last time, except the pits were empty instead of mud-filled. Jumping was much safer than last time, so we all jumped across all six or so of the 4ft wide x 4ft deep pits. Pretty fun.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Underwater Tunnels (Cross pond bobbing under barrels)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Same as last time, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Kiss Of Mud #2 (Crawl under barbed wire)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Same as last time, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Trench Warfare (Belly down crawl through earthen tunnels)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Darker and tighter than last time, banged my knee, had to actually squeeze through the exit. Slightly more difficult, but still not really challenging.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Wounded Warrior Carry (Buddy carry a friend)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Nothing special… I was impressed with Robert running with Clark on his back.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Everest (Greased up 1/4 pipe)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I overdid the sprint for this one, this time. By the time my velocity reached zero, my feet were literally already at the top. Not that that was a bad thing, but I didn&amp;#39;t plan for or expect that to happen. Clearly, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Electroshock Therapy (Run through electrified wires)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This was the only obstacle where I actually had to take a few seconds to psych myself up for it. We considered running with linked arms, but decided against it in the end. I fell about 75% of the way through, and unlike last time, I just got myself up and kept going. Only one bad shock, I think. I felt residual spasms for a few minutes, weird.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-4&#34;&gt;
-Tough mudder #1
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;2012/10/06, Cross Creek Ranch outside Austin, with Eric.&lt;/p&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2012.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2012.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/ToughMudder2012.jpg&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;Finish line&lt;/em&gt;&lt;/p&gt;
-&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-5&#34;&gt;
-Overall
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;It was fun, but my teammate couldn&amp;#39;t jog most of it, so we walked, finished in 4 hours (slow), and had no trouble with most of the obstacles, because we weren&amp;#39;t worn down from running. I know that&amp;#39;s supposed to be part of the challenge, but it was really the obstacles that appealed to me, more than the running aspect. Seems like your completion time is 95% based on your running speed, not your obstacle completion time, which is what I&amp;#39;m best at. If there were an event that were more focused on obstacles, with the whole course full of smaller obstacles, and a bunch of major obstacles scattered throughout, and a total distance of 3-5 miles, I think that would be more fun. There were 2 &amp;#34;minor&amp;#34; obstacles in this event, one wading through some water, and one getting out of a 15ft deep mud pit. the mud pit would have been almost impossible without help, but it was always full of people helping each other out.&lt;/p&gt;
-&lt;p&gt;
-It was pretty cold, around 50F the whole time, and I would have been fine in that temperature, except I wasnt running/jogging most of the time because my teammate couldnt handle it. I was shivering for probably the whole last mile. There was a cold shower at the end, definitely didn&amp;#39;t even consider doing that, but they were giving out foil blankets at the finish line, so no big deal.&lt;/p&gt;
-&lt;p&gt;
-There were spectators all over the place, especially the electric obstacles and the funky monkey. I thought it would have made more sense if they put all the obstacles in the center, and then have the running take place in loops that branch out from the center. Then people could just stay in one place and watch everything.&lt;/p&gt;
-&lt;p&gt;
-Water/portapotty stations every 2 miles. Every other one had a pile of bananas you could grab.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-6&#34;&gt;
-Preparation/Gear
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;I sprained 2 fingers 5 days before the event, ring and pinky on my right (dominant) hand. Wore a splint on the ring finger, didn&amp;#39;t expect it to last the whole race, but it did. It was only a real problem for two obstacles, the two real hand grip ones (&amp;#34;just the tip&amp;#34; and &amp;#34;funky monkey&amp;#34;). Might have been possible for me to do berlin walls #2 (12ft) alone without it, but hard to say.&lt;/p&gt;
-&lt;p&gt;
-Ate a slightly larger than normal breakfast. Brought a pocketful of sugar gel packets, glad I had them, but the bananas at the water stations were more than enough. Definitely didn&amp;#39;t need any water in 50 degrees, but if it had been 80, I dunno.&lt;/p&gt;
-&lt;p&gt;
-wore:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;tight synthetic shirt&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;gym shorts, cotton briefs (cotton = bad)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;cotton socks, old tennis shoes&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;splint secured with athletic tape&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;mountain biking gloves. one elbow pad on my right elbow&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;not sure if the gloves helped with grip at all, but they probably protected my hands some&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;elbow pad was specifically so I could fall onto the elbow instead of the injured finger, but it ended up being really helpful for the 6 belly-crawl obstacles&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;if I do it again, and I don&amp;#39;t wear some goofy costume, I&amp;#39;ll wear:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;tight synthetic shirt, another shirt underneath with long sleeves if its cold&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;tight synthetic shorts, tight synthetic underpants (if any)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;synthetic (or wool) socks, shoes with better grip&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;goggles, or something to allow me to wipe mud out of my eyes - maybe a couple of hankerchiefs, in ziplock bags, in a back-pocket&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;gloves, 2 elbow pads, 2 knee pads&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-7&#34;&gt;
-Obstacles 
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;The website says that some obstacles have pools of ice water underneath (punishment if you fail), but we only had ice water at the arctic enema obstacle - nowhere else.&lt;/p&gt;
-&lt;p&gt;
-This course didn&amp;#39;t have some of the more fun-looking obstacles - firewalker, greased lightning, gauntlet, ball shrinker, twinkle toes, glacier.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-8&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-8&#34;&gt;
-Our obstacles
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2012.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2012.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/tough-mudder/tough-mudder-map-austin-2012.png&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;Our course map&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;
-If you ever hear someone call me &amp;#34;no-challenge&amp;#34; Bernstein, it&amp;#39;s because of this post.&lt;/p&gt;
-&lt;p&gt;
-22 major obstacles, in order:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Kiss of Mud #1 (crawl 20ft under barbed wire on mud/dirt. Possibly on a slope (ours was not))&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Not difficult at all, the wires were 12-18 inches above the ground, I maybe touched a wire once. Some people rolled sideways, some people dont know how to belly crawl. Having an elbow pad helped here. Pretty hard on the knees, so I just used my feet - doing plank exercises for the last 6 months probably helped me be able to do that.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Arctic Enema (jump into freezing, muddy water, swim underneath one wall barrier while completely submerged. total distance ~20ft)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Not that bad, as long as you do it quickly - some people were just standing in it, freaking out.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Dirty Ballerina (jump across five 4ft wide, 4ft deep mud pits)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Late sunday, they were so deteriorated that the edges werent mud, but just rigid, slippery dirt - jumping ACROSS would have been a bad idea, so we just jumped in and climbed out (5x). Got mud in my eyes here, &amp;#34;walk the plank&amp;#34; took care of that.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Cliff Hanger (run up a 20ft high muddy slope)
-&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Walk the Plank (15ft jump into freezing water)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Not actually freezing, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Berlin Walls #1 (climb over two 9ft walls)
-&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Log Jammin (Climb over/under some logs with barbed wire on them)
-&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Trench Warfare (belly crawl through some covered, dark trenches)
-&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;King of the Mountain (climb up 3 levels of 5ft tall haybales)
-&lt;strong&gt;No challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Spider’s Web (climb over some 12ft vertical cargo nets, secured only at the top)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Some people hold down the bottom while others climb over the top. Pretty sure I could have done it alone anyway.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Kiss of Mud #2 (same as #1)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Boa Constrictor (crawl through an 18in wide plastic tube, about 15ft, sloping down, into a pool of freezing water, then up another one another 15ft. some tubes require being fully submerged, others dont. mine did)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This was the only one I was really worried about, until I saw it. The pictures online showed tubes that were full of water the whole length, these weren&amp;#39;t like that at all. Not actually freezing, &lt;strong&gt;no challenge&lt;/strong&gt;. Might have gotten mud in my eyes here.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Electric Eel (belly crawl through a pool of freezing mud with live wires dangling down. barbed wire ceiling at about 3ft, wires hang down to about 8-12 inches above the ground. crawl 15-20 feet, probably 40-50 wires near you in that distance)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Not actually freezing. The shocks are pretty jarring, and the pool conducts, so even if you avoid them you still get shocked when other people make contact. I just crawled through it as fast as possible, I think I made contact once, but got shocked ~5 times. Worst part is at the end when you have to get over a 1ft high wall, I just launched myself over it all at once.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Just the Tip (go 15 feet along a wall, gripping onto the short edges of slippery 2x4s (foot level and hand level), or fall into freezing pool below)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Couldn&amp;#39;t grip the 2x4s with the splint on my finger, not sure if I would have made it even without.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Dark Lightning (like electric eel, but longer, totally in the dark except for a flash of light every 30-60 seconds, and hoses spraying you in the face)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;People kept staying still waiting for the light to come on, so I waited behind them for a while, then got annoyed and just crawled through it as fast and low as possible. I didnt get shocked, but I have no idea how many wires there were, so I dont know if I was lucky or what.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Mud Mile (run through a bunch of pits of mud, varying viscosity, with uneven bottoms so you fall if youre not careful)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Not really challenging, but I got mud splashed in my eyes, and theres no way to get it out until the next water obstacle or water station.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Underwater Tunnels (swim underneath some barrels in frigid water)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Not actually freezing, only had to swim ~30 feet before reaching ground again, &lt;strong&gt;no challenge&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Hold Your Wood (carry a log around a loop of trail)
-&lt;strong&gt;No challenge&lt;/strong&gt;. Felt pretty silly doing this, because you just pick up a log from a pile, carry it in a circle, and put it back in the pile for the next person. It would have been more rewarding if you actually needed to use the log to complete the next obstacle somehow.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Funky Monkey (monkey bars, upward slope for 15ft, downward slope for 15ft, bars rotate in place, and are slippery with mud. fall = swim through non-freezing water)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Got to the third bar before I had to give up. I felt like I could have gotten further without the splint, but not sure. I didn&amp;#39;t see anybody complete this one.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Berlin Walls #2 (climb over 2 12ft walls)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Most people got a grip on the top with the help of TWO people boosting them from below. I think I might have been able to do it alone, by wall jumping, using a 2x4 screwed on about 3ft above the ground. BUT, I was pretty cold/tired at this point, so maybe not.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Everest (run up a 20ft high quarterpipe)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;A lot of people got pulled up at the end by people sitting at the top. I just made it up on my own. Not very challenging.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Electroshock (run 40ft through hundreds of live wires, uneven ground with pools of water)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Definitely the worst obstacle, right before the finish line. I got about 70% through it, then fell down, not sure if I tripped or just lost control of my legs, then I think somebody pulled me up and I made it through the rest of the way. Most of the wires hit my legs, I had trouble walking for a few minutes after.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-9&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-9&#34;&gt;
-Other adventure races
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-9&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;ROC, spartan sprint, CASA run, adventure scavenger hunt&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Dirichlet Integral</title>
-      <link>http://alanbernstein.github.io/posts/dirichlet-integral/</link>
-      <pubDate>Wed, 17 Mar 2010 00:00:00 +0000</pubDate>
-      
-      <guid>http://alanbernstein.github.io/posts/dirichlet-integral/</guid>
-      <description>&lt;p&gt;
-The &lt;a href=&#34;https://en.wikipedia.org/wiki/Dirichlet_integral&#34;&gt;Dirichlet integral&lt;/a&gt; can be evaluated with a neat trick. This post is nothing special, just a record of my own process of understanding how it works.&lt;/p&gt;
-&lt;p&gt;
-This is the integral:&lt;/p&gt;
-&lt;p&gt;
-$$\int_0^\infty \frac{\sin x}{x}dx = \frac{\pi}{2}$$&lt;/p&gt;
-&lt;p&gt;
-This is easy to illustrate with a Fourier transform and Parseval&amp;#39;s theorem: $$\frac{\sin x}{x} = \operatorname{sinc} x \xleftrightarrow{\mathscr{F}} \operatorname{rect} x$$, the easiest thing to integrate. More interestingly, it can also be done with &lt;a href=&#34;../differentiation-under-integral&#34;&gt;differentiation under the integral sign&lt;/a&gt; (see also &amp;#34;Liebnitz integral rule&amp;#34;, &amp;#34;integration by parametric derivative&amp;#34;, &amp;#34;order of integration&amp;#34;), by multiplying by an appropriate &amp;#34;auxiliary function&amp;#34; (a term I made up).&lt;/p&gt;
-&lt;p&gt;
-Define &lt;/p&gt;
-&lt;p&gt;
-$$I(t) = \int_0^\infty e^{-tx}\frac{\sin x}{x}dx$$&lt;/p&gt;
-&lt;p&gt;
-This is part one of the trick - define a problem that is more involved than the original problem, but includes it as a special case: $$I(t)$$ is equal to the Dirichlet integral for $$t=0$$. I like it because the new problem has a sort of higher dimensionality, but is also easier to solve.&lt;/p&gt;
-&lt;p&gt;
-Anyway, differentiate $$I(t)$$ with respect to the auxiliary variable: &lt;/p&gt;
-&lt;p&gt;
-$$\frac{dI}{dt} = \frac{d}{dt} \int_0^\infty \left( e^{-tx}\frac{\sin x}{x} \right) dx$$&lt;/p&gt;
-&lt;p&gt;
-$$\frac{dI}{dt} = \int_0^\infty \frac{d}{dt}\left( e^{-tx}\frac{\sin x}{x} \right) dx$$&lt;/p&gt;
-&lt;p&gt;
-$$\frac{dI}{dt} = \int_0^\infty -x \left( e^{-tx}\frac{\sin x}{x} \right) dx$$&lt;/p&gt;
-&lt;p&gt;
-$$\frac{dI}{dt} = -\int_0^\infty e^{-tx}\sin x dx$$&lt;/p&gt;
-&lt;p&gt;
-And this is the second part: by adding the exponential term, then differentiating under the integral, we get rid of the pesky denominator term. &lt;/p&gt;
-&lt;p&gt;
-This can be evaluated with repeated integration by parts, or complex exponentials:&lt;/p&gt;
-&lt;p&gt;
-$$\frac{dI}{dt} = -\frac{1}{t^2+1} $$&lt;/p&gt;
-&lt;p&gt;
-And this is a well-known antiderivative:&lt;/p&gt;
-&lt;p&gt;
-$$I(t) = -\int\frac{1}{t^2+1}dt = -\tan^{-1}(t) + c$$&lt;/p&gt;
-&lt;p&gt;
-To determine $$c$$, note that $$I(\infty)=0$$ (since the exponential decays infinitely fast).&lt;/p&gt;
-&lt;p&gt;
-$$I(\infty) = 0 = -\tan^{-1}(\infty) + c$$&lt;/p&gt;
-&lt;p&gt;
-$$c = \tan^{-1}(\infty)$$&lt;/p&gt;
-&lt;p&gt;
-$$c = \pi/2$$&lt;/p&gt;
-&lt;p&gt;
-And finally,&lt;/p&gt;
-&lt;p&gt;
-$$I(0) = -\tan^{-1}(0) + \pi/2$$&lt;/p&gt;
-&lt;p&gt;
-$$I(0) = \pi/2 \blacksquare$$&lt;/p&gt;
-&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-1&#34;&gt;
-Sinc powers
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;p&gt;
-When the sinc term is raised to a power, can we use the same method? You still get the $$1/x^k$$ cancellation, what comes after that?&lt;/p&gt;
-&lt;p&gt;
-$$I_n(t) = \int_0^\infty e^{-tx}\left(\frac{\sin x}{x}\right)^ndx$$&lt;/p&gt;
-&lt;p&gt;
-$$\frac{d^n}{dt} I_n(t) = \int_0^\infty \frac{d^n}{dt} e^{-tx}\left(\frac{\sin x}{x}\right)^ndx$$&lt;/p&gt;
-&lt;p&gt;
-$$\frac{d^n}{dt} I_n(t) = (-1)^n \int_0^\infty e^{-tx} (\sin x)^ndx$$&lt;/p&gt;
-&lt;p&gt;
-…&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-3&#34;&gt;
-&lt;h3 id=&#34;headline-2&#34;&gt;
-See also
-&lt;/h3&gt;
-&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-3&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;../bell-curve&#34;&gt;Bell curve integral&lt;/a&gt;, another integration trick&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.math.purdue.edu/pow/spring2005/pdf/problem10.pdf&#34;&gt;http://www.math.purdue.edu/pow/spring2005/pdf/problem10.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.math.purdue.edu/pow/spring2005/pdf/solution10.pdf&#34;&gt;http://www.math.purdue.edu/pow/spring2005/pdf/solution10.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
     </item>
     
   </channel>

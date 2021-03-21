@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Using Python and openCV to revive a dead Etsy product&nbsp;&ndash;&nbsp;The micro-optimist</title><link rel="stylesheet" href="/css/core.min.be90c2604d0624951b59c3774ae035006ab22401c90d4a390e87ea4324d5eca5655efd8d22e0330828cc23bfd58e369e.css" integrity="sha384-vpDCYE0GJJUbWcN3SuA1AGqyJAHJDUo5DofqQyTV7KVlXv2NIuAzCCjMI7/Vjjae"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Using Python and openCV to revive a dead Etsy product" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+
+
+
+
+<body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">The micro-optimist</span></a></span>
+        <span class="header right-side"></span></div><div class="site slogan"><span class="title">Overthinking the small things</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Using Python and openCV to revive a dead Etsy product</h1><p class="article date">2017-09-30</p></section><article class="article markdown-body"><p>
+[ambigram pic]</p>
+<p>
+Here are some things I like: words, optical illusions, art. An [ambigram] is a clever combination of all three of these, so of course I like these too. There are a few different forms, and while they&#39;re all neat, I am particularly fond of the type that incorporates two wholly different words, with a 180-degree rotation separating the two:</p>
+<p>
+[rotational trans-ambigram]<a href="http://www.anopticalillusion.com/2012/12/truefalse-ambigram-by-john-langdon/">http://www.anopticalillusion.com/2012/12/truefalse-ambigram-by-john-langdon/</a> </p>
+<p>
+One day, I noticed one of those dishwasher clean/dirty magnets, and thought &#34;Hey! that would be a perfect way to use an ambigram!&#34; Then, realizing my limited artistic skill would prevent me from inventing it myself, I turned to the web. I found a handful of examples, and [one that I really liked on Etsy][<a href="https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet]">https://www.etsy.com/listing/175915541/clean-dirty-ambigram-dishwasher-magnet]</a> - this one was actually designed to be used as a dishwasher magnet (tag: no original ideas)! Unfortunately, the product was listed as unavailable, and with no other products in the shop, I was not hopeful about contacting the creator, [<a href="https://www.etsy.com/people/GilbertNick].">https://www.etsy.com/people/GilbertNick].</a></p>
+<p>
+Well, that would be a dead end, except the [image][<a href="https://img0.etsystatic.com/056/0/7692170/il_680x540.730706678_iz3v.jpg]">https://img0.etsystatic.com/056/0/7692170/il_680x540.730706678_iz3v.jpg]</a> was available in a halfway decent resolution. That means I should be able to hack it back into existence, so I set out to do just that.</p>
+<p>
+570x443 pixels isn&#39;t great, but for a simple, monochrome image with sharp lines, it might just work. </p>
+<p>
+Given a moderate-resolution photograph of a rectangular object at an oblique angle, extract the design on the rectangle, and reproduce it at higher quality.</p>
+<p>
+How?</p>
+<ol>
+<li>
+<p>Undo the perspective projection (homography transform)</p>
+</li>
+<li>
+<p>Generate an SVG image (vectorize)</p>
+</li>
+<li>
+<p>Clean up the messy edges (manual work)</p>
+</li>
+</ol>
+<p>Normally, I&#39;m happy to dive into coding this stuff from scratch, but in this case I was more interested in the destination than the journey, so I went for some proven solutions.</p>
+<ol>
+<li>
+<p>Undoing the perspective projection</p>
+</li>
+</ol>
+<p>As part of my perpetual [matlab-to-python] transition, I decided to ignore some old matlab code I wrote to solve this problem, and redo it in Python. Turns out, with the openCV bindings available in Python, it&#39;s a trivial problem. All I had to do was manually pick a handful of keypoints, and pass to a single function to generate the required transformation. </p>
+<p>
+h, status = cv2.findHomography(pin, pout)
+im_dst = cv2.warpPerspective(im_src, h, dim)</p>
+<p>
+If I needed to do this for more than a few images, I would have wanted to automate the keypoint-picking step (do people still use <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform?),">https://en.wikipedia.org/wiki/Scale-invariant_feature_transform?),</a> but I&#39;ll save that for a time when I need it.</p>
+<p>
+[result]</p>
+<ol>
+<li>
+<p>Generating an SVG image</p>
+</li>
+</ol>
+</article>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/posts/blog-setup/"><span class="iconfont icon-article"></span>Using Hugo and org-mode for a blog</a></p><p><a class="link" href="/posts/ambigram/"><span class="iconfont icon-article"></span>Reviving a dead Etsy product</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">The micro-optimist</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p></div></section><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</body>
+
+</html>

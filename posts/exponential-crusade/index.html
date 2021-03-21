@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.80.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Lies, Damned Lies, and Exponentials&nbsp;&ndash;&nbsp;The micro-optimist</title><link rel="stylesheet" href="/css/core.min.be90c2604d0624951b59c3774ae035006ab22401c90d4a390e87ea4324d5eca5655efd8d22e0330828cc23bfd58e369e.css" integrity="sha384-vpDCYE0GJJUbWcN3SuA1AGqyJAHJDUo5DofqQyTV7KVlXv2NIuAzCCjMI7/Vjjae"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Lies, Damned Lies, and Exponentials" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+
+
+
+
+<body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">The micro-optimist</span></a></span>
+        <span class="header right-side"></span></div><div class="site slogan"><span class="title">Overthinking the small things</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Lies, Damned Lies, and Exponentials</h1><p class="article date">2021-02-01</p></section><article class="article markdown-body"><p>An exponentially increasing blog post.</p>
+<p>It bugs me when people misuse the term &ldquo;exponentially bigger&rdquo;, often just comparing two numbers. To describe the growth of something as exponential, more than two numbers <em>must</em> be taken into account (unless you have evidence that the underlying process is itself exponential, which is generally not the case in random charts and quotes found on the internet). Exponential growth is a <em>trend</em>, a constant multiplicative factor over the independent variable.</p>
+<p>I&rsquo;m sure this point has been made a million times by other nerds. I noticed a related point recently</p>
+<h2 id="example-1-appropriately-emphasizing-a-true-outlier">Example 1: Appropriately emphasizing a true outlier</h2>
+<p>A coworker shared <a href="https://pbs.twimg.com/media/EUm-p1AXkAwHpVs?format=jpg&amp;name=medium"target="_blank">this tweet</a>:</p>
+<p><img  src="/img/log-scale/tweet-1-chart.png"
+        alt="Figure 1: Chart of unemployment spike"/></p>
+<p>Then noted</p>
+<blockquote>
+<p>maybe they should have used a log chart</p>
+</blockquote>
+<p>My response:</p>
+<blockquote>
+<blockquote>
+<p>&ldquo;The linear scale shows the real human impact &ndash; a growth twice the size is twice the number of real people infected.”</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>as a mathy person i scoffed at this, but i guess they have a point</p>
+</blockquote>
+<p>As a technical person, it&rsquo;s easy for me to forget that a log-scale plot might be more difficult to interpret than a linear-scale plot. Particularly with a bar chart, where the filled rectangles make up shapes, which are often interpreted in charts based on their relative area. Showing relative size in an immediately-interpretable way can have its value.</p>
+<p>The trend here isn&rsquo;t exponential. It&rsquo;s a true spike, so presenting it in a way that emphasizes that makes sense.</p>
+<h2 id="example-2-inappropriately-hiding-small-details">Example 2: Inappropriately hiding small details</h2>
+<p>Another time, <a href="https://twitter.com/chsrbrts/status/1320012627947540480"target="_blank">this tweet</a> was shared:</p>
+<p><img  src="/img/log-scale/tweet-2-chart.png"
+        alt="Figure 2: Chart of NLP parameter growth"/></p>
+<p>&ldquo;This slide puts into context how big of a step forward GPT-3 is in the field of natural language processing.&rdquo;&rdquo;</p>
+<p>So, I responded:</p>
+<blockquote>
+<p>my pet peeve: failure to use log scale when appropriate</p>
+</blockquote>
+<p>Then made a log-scale chart and shared it:</p>
+<p><img  src="/img/log-scale/nlp-chart-log.png"
+        alt="Figure 3: Chart of NLP parameter growth, log scale"/></p>
+<p>So someone responded:</p>
+<blockquote>
+<p>that kind of defeats the purpose of the chart which is to show the massive difference. I think it has more impact the other way, though the log scale certainly gives more visual information about the differences between all the others</p>
+</blockquote>
+<blockquote>
+<p>Sure, the purpose of the tweet is to point out the difference, which is essentially just saying 175B vs 17B. The chart itself is pointless because you can&rsquo;t get any information from the bars, you have to read the numbers instead. Without a log scale, it&rsquo;s just a very poorly formatted table</p>
+</blockquote>
+<p>But what I should have said was this:</p>
+<p>The tweet tries to make a claim with a linear-scale chart of a trend that is fundamentally exponential.</p>
+<p>If you look at the record-breaking y-values, excluding the latest one, and extrapolate vs time, the expected y-value is something like 70B, vs actual 175B. This is 2.5X jump over the expected value. Previous high-outliers were something like 8B when 5B was expected, a 1.6X jump. 175B is a LOT of parameters, and a 2.5X jump over the expected value is big, AND it&rsquo;s the biggest jump. But it&rsquo;s not a MIND-BLOWING jump that justifies a chart that totally obscures this historical development by hiding all of the details behind a linear scale.</p>
+<p>&ldquo;Fundamentally exponential&rdquo; seems reasonable, like many things in the computing world. But is it true? Yes:</p>
+<p><img  src="/img/log-scale/nlp-chart-log-time.png"
+        alt="Figure 4: Chart of NLP parameter growth, log scale vs time"/></p></article><section class="article labels"><a class="tag" href=/tags/math/>math</a><a class="tag" href=/tags/visualization/>visualization</a></section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/posts/bike-microoptimization/"><span class="iconfont icon-article"></span>Upgrading my bike accessories</a></p><p><a class="link" href="/posts/tanzania-md-1/"><span class="iconfont icon-article"></span>Tanzania 1: prep (md)</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">The micro-optimist</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p></div></section><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</body>
+
+</html>
