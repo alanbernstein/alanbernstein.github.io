@@ -15,40 +15,79 @@
       <pubDate>Tue, 02 Mar 2021 00:00:00 -0600</pubDate>
       
       <guid>http://alanbernstein.github.io/posts/bike-microoptimization/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve always been fond of physical modular systems, but lately I&amp;rsquo;ve become a little obsessed with putting together custom systems.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.thingiverse.com/thing:4091748&#34;&gt;https://www.thingiverse.com/thing:4091748&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5258.JPG&#34;
+      <description>&lt;p&gt;I&amp;rsquo;ve always been fond of physical modular systems, but lately I&amp;rsquo;ve become a little obsessed with customizing my stuff with modular attachments. My bike has seen the most of this, both in terms of the number of projects, and the amount of effort put into them.&lt;/p&gt;
+&lt;h2 id=&#34;the-organizer&#34;&gt;The organizer&lt;/h2&gt;
+&lt;p&gt;Much of this is built around Ortlieb bike accessory products, which I have committed to as a sort of &amp;ldquo;platform&amp;rdquo; for durable, hackable bike accessories. I like Ortlieb&amp;rsquo;s roll-top, rain-proof panniers, but the lack of built-in organization is frustrating. I started with a custom internal organizer sleeve, which includes a laptop pocket, and some webbing for organizing other smaller items, especially my bike lock. This was a major project, which required learning how to sew and design fabric patterns, among other things. A project log is &lt;a href=&#34;ortlieb-organizer&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As I write this, nearly a year after completing the v2 organizer, I notice that Ortlieb now has a &lt;a href=&#34;https://ortliebusa.com/product/commuter-insert-for-panniers/&#34;target=&#34;_blank&#34;&gt;commuter insert&lt;/a&gt; product. If this had existed 18 months ago, I likely would not have bothered making my insert, but I prefer my design for several reasons.&lt;/p&gt;
+&lt;p&gt;The organizer sleeve, as well as several other components, are made possible with Fidlock magneto-mechanical quick-release devices. These are kind of the ultimate quick-release solution; the magnets bring the two halves together with very little manual alignment needed, closing a latch, which provides a sturdy mechanical connection. They can then be separated with an action that is unlikely to happen on accident - pulling in a specific direction, pressing a button, etc.&lt;/p&gt;
+&lt;h2 id=&#34;the-dog-basket&#34;&gt;The dog basket&lt;/h2&gt;
+&lt;p&gt;After concluding that my dog Gizmo hated riding in a doggy backpack, I started putting him in a basket on my rear rack, which he loves. At first, I attached a milk crate to my rack with zip ties. This worked fine while in use, but it prevented me from attaching the Ortlieb panniers, so I would have to remove it after every use. Obviously what I needed was a quick-release mount. Trolling Craigslist for &amp;ldquo;ortlieb&amp;rdquo;, I eventually found &lt;a href=&#34;https://ortliebusa.com/product/adapter-for-travel-bikerbike-box23shuttleoffice-bag2-with-lock-e174/&#34;target=&#34;_blank&#34;&gt;this&lt;/a&gt; device, which attaches to the top of any rack, and provides a QR mechanism for mounting a trunk bag or a basket. The &lt;a href=&#34;https://ortliebusa.com/product/adapter-for-rear-basket/&#34;target=&#34;_blank&#34;&gt;other half&lt;/a&gt; is available separately for $10, so I got a couple of those for experimenting.&lt;/p&gt;
+&lt;p&gt;(aside) Ortlieb has an even better rack-top QR system called &lt;a href=&#34;https://www.ortlieb.com/usa_en/service/technical/rack-lock&#34;target=&#34;_blank&#34;&gt;rack lock&lt;/a&gt;. Unfortunately, the mechanism does not seem to be available stand-alone. I&amp;rsquo;m not willing to buy a $150 bag just for the mechanism, especially when I actually want several of them.&lt;/p&gt;
+&lt;p&gt;Unfortunately, the metal tubing that comes with this thing is not well-thought-out. The idea is that it provides a horizontal bar for your pannier to clip onto, since the QR base is covering the rack. Great, except the new bar is two or three inches lower than the rack, which just doesn&amp;rsquo;t work, because it puts the panniers too low on the bike. I had a self-defeating QR system; the base had to be installed and uninstalled each time. It&amp;rsquo;s also a very frustrating install process (unsupported discrete nuts instead of integrated female threads), so this had to be solved.&lt;/p&gt;
+&lt;p&gt;I got aluminum tubing and a bender, and made a rounded square to replace the crazy-shaped tubing. Now, everything works well enough. There is still one problem: the tubing goes out a little too far, which makes it difficult to attach the bottom latch of my panniers. But, generally, it works. Also, since I don&amp;rsquo;t normally ride with the dog basket attached, I can use the QR base to attach other things. I&amp;rsquo;d like a small trunk bag, maybe just big enough to hold a lock, some snacks, and an insulated water bottle. I haven&amp;rsquo;t figured out how to do that yet, but I have created an &lt;a href=&#34;TODO&#34;&gt;attachment for a U-lock&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As for the dog basket, the milk crate still works great. I improved it by added some padding to the bottom and the rim, plus a liner made out of a blanket. I designed an origami pattern that converts a square blanket into a box with a padded bottom and four sides. The idea is that, in the crate, the blanket can serve as the bottom padding, the liner, and the retainer ties for the rim padding, while out of the crate it can serve as a picnic blanket. It turns out that folding an origami pattern in a blanket is kind of a hassle, so I&amp;rsquo;d like to sew some color-coded velcro guides onto the blanket.&lt;/p&gt;
+&lt;p&gt;[TODO gizmo pic]&lt;/p&gt;
+&lt;h2 id=&#34;other-upgrades&#34;&gt;Other upgrades&lt;/h2&gt;
+&lt;p&gt;The above two projects were relatively major, requiring significant design, specialty parts, fabrication, and iteration. After using them for a few months, I realized that I have been failing to apply my hobby of micro-optimization to my bike. With a box of leftover Fidlock clasps, I started noticing more small improvements.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fidlock squeeze buckle for helmet (for one-handed closing while riding)&lt;/li&gt;
+&lt;li&gt;Fidlock v-buckle for pannier (for one-handed closing while riding)&lt;/li&gt;
+&lt;li&gt;External organizer with Fidlock button-latch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Even more upgrades:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mylar strip replacement for flimsy fabric that holds top pannier buckle (prevents falling in an annoying space between the pannier and the rack) &lt;a href=&#34;https://www.thingiverse.com/thing:4091748&#34;target=&#34;_blank&#34;&gt;Someone else&amp;rsquo;s solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Waterproof QR seat bag to replace my old, disintegrating, non-water-proof bag&lt;/li&gt;
+&lt;li&gt;Rear light attached to helmet in a fully modular, replaceable way (TODO photo)&lt;/li&gt;
+&lt;li&gt;Permanently-mounted, minimal, DIY rear fender (TODO photo)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.rei.com/product/718391/sks-beavertail-fenders&#34;target=&#34;_blank&#34;&gt;Removable front fender&lt;/a&gt;. I was planning to design and build my own until I found this, which took a surprising amount of searching. There are many variations on the removable bike fender, but this is the only one I know of that provides full protection, and has a sturdy mount.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5258.25&#34;
         alt=&#34;Overview&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img  src=&#34;&#34;
         alt=&#34;laptop sleeve insert&#34;/&gt; - link to blog post&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5252.JPG&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5252.25&#34;
         alt=&#34;Fidlock helmet latch&#34;/&gt;
-&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5???.JPG&#34;
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5???.25&#34;
         alt=&#34;Fidlock helmet latch attached&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5254.JPG&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5254.25&#34;
         alt=&#34;Fidlock v-buckle v1&#34;/&gt;
-&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5272.JPG&#34;
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5272.25&#34;
         alt=&#34;Fidlock v-buckle v2 construction&#34;/&gt;
-&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5276.JPG&#34;
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5276.25&#34;
         alt=&#34;Fidlock v-buckle v2&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5260.JPG&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5260.25&#34;
         alt=&#34;Side-mounted mini pack&#34;/&gt;
-&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5268.JPG&#34;
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5268.25&#34;
         alt=&#34;Side-mount closeup&#34;/&gt;
-&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5263.JPG&#34;
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5263.25&#34;
         alt=&#34;Side-mount male&#34;/&gt;
-&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5266.JPG&#34;
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5266.25&#34;
         alt=&#34;Side-mount female&#34;/&gt; - magnetic QR key&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5261.JPG&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5261.25&#34;
         alt=&#34;Ortlieb QR seatbag&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5270.JPG&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5270.25&#34;
         alt=&#34;QR rack mount&#34;/&gt;
 metalwork pics
-&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5???.JPG&#34;
-        alt=&#34;AR dog basket&#34;/&gt;
-&lt;img  src=&#34;http://alanbernstein.github.io/img/bike-microoptimization/IMG_5269.JPG&#34;
-        alt=&#34;U-lock rack mount&#34;/&gt;&lt;/p&gt;
-</description>
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5???.25&#34;
+        alt=&#34;AR dog basket&#34;/&gt;&lt;/p&gt;
+&lt;!-- replace with the new aluminum one
+![U-lock rack mount](https://alanbernstein.net/blog-static/img
+/bike-microoptimization/IMG_5269.25)
+--&gt;</description>
     </item>
     
     <item>
@@ -62,18 +101,18 @@ metalwork pics
 &lt;p&gt;I&amp;rsquo;m sure this point has been made a million times by other nerds. I noticed a related point recently&lt;/p&gt;
 &lt;h2 id=&#34;example-1-appropriately-emphasizing-a-true-outlier&#34;&gt;Example 1: Appropriately emphasizing a true outlier&lt;/h2&gt;
 &lt;p&gt;A coworker shared &lt;a href=&#34;https://pbs.twimg.com/media/EUm-p1AXkAwHpVs?format=jpg&amp;amp;name=medium&#34;target=&#34;_blank&#34;&gt;this tweet&lt;/a&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/log-scale/tweet-1-chart.png&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/exponential-crusade/tweet-1-chart&#34;
         alt=&#34;Figure 1: Chart of unemployment spike&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Then noted&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;maybe they should have used a log chart&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;My response:&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;p&gt;Noting the excuse from the article:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;The linear scale shows the real human impact &amp;ndash; a growth twice the size is twice the number of real people infected.”&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;I responded&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;as a mathy person i scoffed at this, but i guess they have a point&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -81,7 +120,8 @@ metalwork pics
 &lt;p&gt;The trend here isn&amp;rsquo;t exponential. It&amp;rsquo;s a true spike, so presenting it in a way that emphasizes that makes sense.&lt;/p&gt;
 &lt;h2 id=&#34;example-2-inappropriately-hiding-small-details&#34;&gt;Example 2: Inappropriately hiding small details&lt;/h2&gt;
 &lt;p&gt;Another time, &lt;a href=&#34;https://twitter.com/chsrbrts/status/1320012627947540480&#34;target=&#34;_blank&#34;&gt;this tweet&lt;/a&gt; was shared:&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/log-scale/tweet-2-chart.png&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/exponential-crusade/tweet-2-chart&#34;
         alt=&#34;Figure 2: Chart of NLP parameter growth&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;This slide puts into context how big of a step forward GPT-3 is in the field of natural language processing.&amp;rdquo;&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;So, I responded:&lt;/p&gt;
@@ -89,20 +129,23 @@ metalwork pics
 &lt;p&gt;my pet peeve: failure to use log scale when appropriate&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Then made a log-scale chart and shared it:&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/log-scale/nlp-chart-log.png&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/exponential-crusade/nlp-chart-log&#34;
         alt=&#34;Figure 3: Chart of NLP parameter growth, log scale&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;So someone responded:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;that kind of defeats the purpose of the chart which is to show the massive difference. I think it has more impact the other way, though the log scale certainly gives more visual information about the differences between all the others&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;Which, of course, is the same argument I just explained above. I said:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Sure, the purpose of the tweet is to point out the difference, which is essentially just saying 175B vs 17B. The chart itself is pointless because you can&amp;rsquo;t get any information from the bars, you have to read the numbers instead. Without a log scale, it&amp;rsquo;s just a very poorly formatted table&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;But what I should have said was this:&lt;/p&gt;
 &lt;p&gt;The tweet tries to make a claim with a linear-scale chart of a trend that is fundamentally exponential.&lt;/p&gt;
-&lt;p&gt;If you look at the record-breaking y-values, excluding the latest one, and extrapolate vs time, the expected y-value is something like 70B, vs actual 175B. This is 2.5X jump over the expected value. Previous high-outliers were something like 8B when 5B was expected, a 1.6X jump. 175B is a LOT of parameters, and a 2.5X jump over the expected value is big, AND it&amp;rsquo;s the biggest jump. But it&amp;rsquo;s not a MIND-BLOWING jump that justifies a chart that totally obscures this historical development by hiding all of the details behind a linear scale.&lt;/p&gt;
+&lt;p&gt;If you look at the record-breaking y-values, excluding the latest one, and extrapolate vs time, the expected y-value is something like 70B, vs actual 175B. This is 2.5X jump over the expected value. Previous high-outliers were something like 8B when 5B was expected, a 1.6X jump. 175B is a LOT of parameters, and a 2.5x jump over the expected value is big, AND it&amp;rsquo;s the biggest jump. But it&amp;rsquo;s not a MIND-BLOWING jump that justifies a chart that totally obscures this historical development by hiding all of the details behind a linear scale.&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;Fundamentally exponential&amp;rdquo; seems reasonable, like many things in the computing world. But is it true? Yes:&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/log-scale/nlp-chart-log-time.png&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/exponential-crusade/nlp-chart-log-time.png&#34;
         alt=&#34;Figure 4: Chart of NLP parameter growth, log scale vs time&#34;/&gt;&lt;/p&gt;</description>
     </item>
     
@@ -117,7 +160,8 @@ metalwork pics
 &lt;p&gt;This is a very long blog post, split into five parts. Check out the [[https://alanbernstein.net/trips/kili][slide show]] first. Then, if you aren&amp;rsquo;t sure how far you&amp;rsquo;ll get, read parts 3 and 4, then 2, then maybe 1. Part 5 is mostly for me.&lt;/p&gt;
 &lt;p&gt;1: prep - [[/posts/tanzania-2][2: hike]] - [[/posts/tanzania-3][3: summit]] - [[/posts/tanzania-4][4: safari]] - [[/posts//tanzania-5][5: post-mortem]] - [[https://alanbernstein.net/trips/kili][slide show (upcoming)]]&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img/tanzania/IMG_7422-270.jpg&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/tanzania/IMG_7422-270.jpg&#34;
         alt/&gt;&lt;/p&gt;
 &lt;p&gt;/Done!/&lt;/p&gt;
 &lt;p&gt;Some time in early 2018, Andrea asked me if I wanted to climb [[https://en.wikipedia.org/wiki/Mount_Kilimanjaro][Mount Kilimanjaro]]. I hadn&amp;rsquo;t known this was something you could do without significant experience and equipment. It sounded scary and expensive, but after mulling it over for a while, the answer was obvious. I paid my deposit for the seven-day full moon Machame route hike with [[https://www.kandooadventures.com/climb-kilimanjaro/][Kandoo]] in March, and spent the next six months researching, training, and shopping.&lt;/p&gt;
@@ -138,10 +182,12 @@ I had been in Austin almost ten years, and somehow just recently learned about [
 &lt;script type=&#34;text/javascript&#34; src=&#34;../tanzania/co-tracks.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;/More challenging, but there was just too much air to breathe/&lt;/p&gt;
 &lt;p&gt;I knew hiking that same trail over and over again wasn&amp;rsquo;t enough, so I hoped to make a few short trips to climb some more respectable mountains. There are plenty of options in the US, but I&amp;rsquo;m somehow drawn to Colorado, and I ended up taking two trips there over the summer. I summited Pikes Peak (14114 ft) with Andrea and Donna in July, and Mount Bierstadt (14065 ft) with Cody in August, after a work trip to Denver. Although I&amp;rsquo;ve done serious climbing hikes in the past, these were my first real experience with AMS. Sleeping at about 6000-7000 feet, with just a few days of acclimatisation, I started to feel the effects around 12000 feet. Mostly, mild headache and shortness of breath. The big problem was my inability to pace myself - I would keep exerting myself at normal levels, when my body couldn&amp;rsquo;t handle it. I would stop for ten seconds, then push hard for another 30. I knew this was silly, but I also figured it wouldn&amp;rsquo;t be a problem on Kilimanjaro, since the guides would be setting the pace, instead of me. This turned out to be correct, more or less.&lt;/p&gt;
-&lt;p&gt;[[https://alanbernstein.net/blog-static/img/tanzania/IMG_6070-pikes.JPG]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/IMG_6070-pikes.JPG]]&lt;/p&gt;
 &lt;p&gt;/Andrea and Donna on the way to Pikes Peak/&lt;/p&gt;
 &lt;p&gt;The second Colorado trip, I was car camping for three days. This was just weeks before the Kilimanjaro trip, so I had most of my gear already. I brought my day pack, and most of the stuff I planned to carry in it, but not much else - somehow, I missed this opportunity to try out all the rest of my new gear. Anyway, I learned one big thing: the day pack I had been using was fine for a couple hours, but after wearing it all day, it was very uncomfortable.&lt;/p&gt;
-&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_6451-colorado-camping.JPG]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/IMG_6451-colorado-camping.JPG]]&lt;/p&gt;
 &lt;p&gt;/Colorado car camping con Cody/&lt;/p&gt;
 &lt;p&gt;To summarize:&lt;/p&gt;
 &lt;ul&gt;
@@ -299,13 +345,16 @@ I had been in Austin almost ten years, and somehow just recently learned about [
 &lt;/table&gt;
 &lt;p&gt;I bought a lot of it just before the trip, after deliberating on whether I needed it, and exhausting other options besides purchasing new. Most of this is self-explanatory: clothes, bags, shoes, mittens, poles, head lamp. The camera gear makes sense if you&amp;rsquo;re a photographer. That stuff makes up almost $1300 of the total, leaving just a few odds and ends. Most of that is also obvious, the only exception is the nalgene and the bottle sling - highly recommended for summit night because bladder hoses can freeze. The idea is to put the nalgene in the sling upside down, so the water freezes from the bottom. I used the nalgene bottle plenty, and I&amp;rsquo;m glad I brought it, but I didn&amp;rsquo;t use it at all on summit night. I also bought and returned over $600 worth of stuff that didn&amp;rsquo;t make the cut.&lt;/p&gt;
 &lt;p&gt;I also borrowed an inflatable sit pad, plus a bunch of stuff sacks and carabiners, from Patsy.&lt;/p&gt;
-&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_6580-packing-categorized.JPG]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/IMG_6580-packing-categorized.JPG]]&lt;/p&gt;
 &lt;p&gt;/All my stuff, minus my ebook reader. Analysis in [[../tanzania-5][part 5]]/&lt;/p&gt;
 &lt;p&gt;** Photography&lt;/p&gt;
-&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/2018-10-03-07.02.55-packing-camera.jpg]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/2018-10-03-07.02.55-packing-camera.jpg]]&lt;/p&gt;
 &lt;p&gt;/Photography gear/&lt;/p&gt;
 &lt;p&gt;Half of it I already had - the T6i, Tamron 10-24 f/3.5-4.5, Canon 50 f/1.8, and miscellaneous accessories - and I also got a few new toys. First, a [[https://www.peakdesign.com/products/capture][capture clip]], at the recommendation of a friend. Kind of pricey, but I&amp;rsquo;m glad I got it. Second, my first telephoto lens, a Canon 70-300 IS. If a safari isn&amp;rsquo;t a good enough excuse to get a telephoto, then what is? It&amp;rsquo;s a low/midrange lens, nothing fancy, but I still got some great shots with it. Finally, a Gorillapod, which I figured I would only use for night photos. I was right, and it was totally worth it. Without it, I wouldn&amp;rsquo;t have gotten this:&lt;/p&gt;
-&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_7178-ghost.JPG]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/IMG_7178-ghost.JPG]]&lt;/p&gt;
 &lt;p&gt;/I&amp;rsquo;m a ghost/&lt;/p&gt;
 &lt;p&gt;I also bought a set of knockoff batteries, to ensure my camera would last until summit night. I was hesitant to use those, for fear of hurting my camera&amp;rsquo;s precious feelings, but my Canon battery lasted the entire hike anyway. Plus, both my mind and my fingers were unusable at that point, so I gave up on photos at the summit.&lt;/p&gt;
 &lt;ul&gt;
@@ -325,22 +374,27 @@ I had been in Austin almost ten years, and somehow just recently learned about [
 &lt;p&gt;Some people recommend a level of mental preparation that I felt was unnecessary. One suggestion is a mantra. I didn&amp;rsquo;t have one, but if I had, it would have been &amp;ldquo;time is an illusion&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;** Documents, etc
 I brought the obvious stuff: passport, flight info, insurance info, driver&amp;rsquo;s license, credit card, debit card. Also, a few pages of info from Kandoo, and prescription info sheets. Other than that, and a small notebook, I tried to minimize paper. Instead I loaded a bunch of info onto my phone. Manuals, all the documents from Kandoo and my insurance, maps of the mountain, a handful of wikipedia page PDFs (like [[https://en.wikipedia.org/wiki/Mount_Kilimanjaro][this one]], which I read in full, one sleepless night), GPS tracks from my own hikes, and from others&#39; Kili experiences.&lt;/p&gt;
-&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/2018-10-07-09.06.10-notebook.jpg]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/2018-10-07-09.06.10-notebook.jpg]]&lt;/p&gt;
 &lt;p&gt;/Warning: water-proof notebooks are NOT banana-proof/&lt;/p&gt;
 &lt;p&gt;Mostly, I tried to condense all important information into a few pages of this little waterproof notebook that I got for the trip. Emergency contacts, flight info, travel reference info, notes on meds and AMS, and info about the various climates of the hike. After that, I dedicated one page to each day of the trip, with major itinerary points, todo items, [[https://www.mountain-forecast.com/peaks/Mount-Kilimanjaro/forecasts/5963][weather forecasts]], and a summary of the hike, including a rough elevation profile. Of course it was also nice to keep it accessible for taking notes. Overkill maybe; I didn&amp;rsquo;t need any of this aside from the basic trip details and emergency info, but I&amp;rsquo;m glad I had it. I just like knowing what&amp;rsquo;s going on.&lt;/p&gt;
 &lt;p&gt;I planned to bring enough American cash to cover all expenses, plus one credit card for emergencies. Andrea changed my mind (&amp;ldquo;cash isn&amp;rsquo;t protected from fraud&amp;rdquo;), and Donna brought cash, and I think Donna did it right. Stopping at an ATM was a hassle and a risk, and they dispensed 10000 shilling notes, which are worth about $5. You want to carry cash on your body, so it should be as value-dense as possible.&lt;/p&gt;
 &lt;p&gt;Some person or website recommended getting your visa early; I was under the impression this step was required. It saved a few minutes on arrival, but it cost another $30 for shipping, and it required sending my passport in the mail, which was disconcerting. I won&amp;rsquo;t bother in the future unless it&amp;rsquo;s strictly required.&lt;/p&gt;
 &lt;p&gt;** Consumables&lt;/p&gt;
-&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/2018-09-15-10.46.49-packing-snacks.jpg]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/2018-09-15-10.46.49-packing-snacks.jpg]]&lt;/p&gt;
 &lt;p&gt;/Unsuspecting prey/&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m a hungry kind of guy, so when the packing lists included &amp;ldquo;Personal snacks&amp;rdquo;, but my contact at Kandoo said it wasn&amp;rsquo;t necessary, I erred on the side of caution. I packed about 30 snack bars, maybe 5000 calories worth, plus a pound of almonds, some candied ginger, and some jelly bellys. It felt like overkill, but I brought it all anyway. Also, a fresh, full-sized bottle of the best hot sauce, chipotle tabasco.&lt;/p&gt;
-&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/2018-09-28-06.50.45-tabasco.jpg]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/2018-09-28-06.50.45-tabasco.jpg]]&lt;/p&gt;
 &lt;p&gt;/O ye, of little faith/&lt;/p&gt;
 &lt;p&gt;For toiletries, I just brought the usual, plus extra sunscreen and bug spray, two rolls of toilet paper, three packs of wet wipes, and three ounces of hand sanitizer. I&amp;rsquo;ve almost never used wet wipes or hand sanitizer before, but I figured this was a good time to start.&lt;/p&gt;
 &lt;p&gt;Finally, a first aid kit and a repair kit. I left out some gauze and medical tape, and instead brought an ace bandage and two cold compresses.&lt;/p&gt;
-&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_6584-packing-med.JPG]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/IMG_6584-packing-med.JPG]]&lt;/p&gt;
 &lt;p&gt;/Mostly self-explanatory/&lt;/p&gt;
-&lt;p&gt;[[http://alanbernstein.net/blog-static/img/tanzania/IMG_6586-packing-repair.JPG]]&lt;/p&gt;
+&lt;p&gt;[[https://alanbernstein.net/blog-static/img
+/tanzania/IMG_6586-packing-repair.JPG]]&lt;/p&gt;
 &lt;p&gt;/Clips, straps, strips, snaps/&lt;/p&gt;
 &lt;p&gt;We had guides who could probably have solved any real problems we had on the hike, so maybe not necessary. I carry stuff like this around on a normal day, so I wasn&amp;rsquo;t going to Africa without it.&lt;/p&gt;
 &lt;p&gt;** Medical
@@ -485,7 +539,8 @@ The climb itself cost $2695. Depending on how you count it, the trip cost me abo
 &lt;/blockquote&gt;
 &lt;p&gt;These charts illustrate both laws, as described above &amp;ndash; but I&amp;rsquo;ll elaborate.&lt;/p&gt;
 &lt;h3 id=&#34;graphical-explanation-benfords-law&#34;&gt;Graphical explanation, Benford&amp;rsquo;s Law&lt;/h3&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/figure1.png&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/benford/figure1.png&#34;
         alt=&#34;Figure 1: Log-uniform random data&#34;/&gt;
 &lt;em&gt;Figure 1: Log-uniform random data&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This is a set of three views of the same random data set, following a log-uniform distribution.&lt;/p&gt;
@@ -503,7 +558,8 @@ The climb itself cost $2695. Depending on how you count it, the trip cost me abo
 &lt;/ol&gt;
 &lt;h3 id=&#34;graphical-explanation-drofbens-law&#34;&gt;Graphical explanation, Drofben&amp;rsquo;s Law&lt;/h3&gt;
 &lt;p&gt;And here are the corresponding charts for Drofben&amp;rsquo;s law:&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/figure2.png&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/benford/figure2.png&#34;
         alt=&#34;Figure 2: Linear-uniform random data&#34;/&gt;
 &lt;em&gt;Figure 2: Linear-uniform random data&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This is a set of three views of another random data set, following a linear-uniform distribution.&lt;/p&gt;
@@ -516,7 +572,8 @@ The climb itself cost $2695. Depending on how you count it, the trip cost me abo
 &lt;p&gt;In the second case, these layers just reflect the counts of integers in ranges: |[1, 10)| = 9, |[10, 100)| = 90, |[100, 1000)| = 900, etc &amp;ndash; this seems almost too obvious to mention. But, that&amp;rsquo;s what I was looking for &amp;ndash; a result that&amp;rsquo;s surprising to an alien, logarithmic culture &lt;em&gt;should&lt;/em&gt; be obvious to our linear minds.&lt;/p&gt;
 &lt;p&gt;(&lt;a href=&#34;https://gist.github.com/alanbernstein/39cc97fc582cbb2cd30df59c40853129&#34;target=&#34;_blank&#34;&gt;code for charts&lt;/a&gt;)&lt;/p&gt;
 &lt;h2 id=&#34;the-digits-are-not-the-value&#34;&gt;The digits are not the value&lt;/h2&gt;
-&lt;p&gt;&lt;img  src=&#34;http://alanbernstein.github.io/img/benford/treachery-of-digits-hex.png&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/benford/treachery-of-digits-hex.png&#34;
         alt=&#34;The treachery of digits: an homage to Magritte&amp;amp;rsquo;s The Treachery of Images, with &amp;amp;ldquo;This is not a number&amp;amp;rdquo; as a caption for the hexadecimal representation of the floating-point value NaN, &amp;amp;ldquo;Not a Number&amp;amp;rdquo;&#34;/&gt;
 &lt;em&gt;The treachery of digits, with apologies to &lt;a href=&#34;https://en.wikipedia.org/wiki/The_Treachery_of_Images&#34;target=&#34;_blank&#34;&gt;Magritte&lt;/a&gt;&amp;hellip; and &lt;a href=&#34;https://en.wikipedia.org/wiki/NaN&#34;target=&#34;_blank&#34;&gt;IEEE&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;div class=&#34;admonition warning&#34; style=&#39;border-left:4px solid #cd5f3c; padding-left:2em; font-size:16px; margin:2em 0&#39;&gt;
@@ -555,6 +612,8 @@ Current status
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;p&gt;
+https://ortliebusa.com/product/commuter-insert-for-panniers/&lt;/p&gt;
+&lt;p&gt;
 v1.2, in active use.&lt;/p&gt;
 &lt;p&gt;
 TODO:&lt;/p&gt;
@@ -570,13 +629,22 @@ TODO:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; /&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/PXL_20210124_174351054.jpg&#34; /&gt;
 &lt;em&gt;Mounted to bag. Photographing this thing is tricky.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; /&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/PXL_20210124_174448037.jpg&#34; /&gt;
 &lt;em&gt;Fidlock magnetic QR mount, female side, mounted to exterior of insert&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; /&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/PXL_20210124_174506005.jpg&#34; /&gt;
 &lt;em&gt;Fidlock magnetic QR mount, male side, mounted to interior of Ortlieb bag&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -635,7 +703,10 @@ After the cardboard prototype, I decided I was ready to take on the sewing proje
 &lt;p&gt;
 The design was based on the cardboard model, with two broad sides and a thin strip connecting them to give it some volume. I got one big design suggestion at the meetup that allowed me to make progress on this: each side should have a sealable pocket to contain the plastic insert. With that in mind, this first version allowed me to test cutting the pattern, and the sewing process. It turned out that this fabric was awful to work with (very stretchy and very ragged edges), but I definitely learned enough to gain the confidence to work on the next version, with the good fabric.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-01-25 21.38.14.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 I was proud of myself for documenting my learning process with the first bag, but it was not that helpful afterward. I changed the design, and I&amp;#39;ve already internalized the lessons I learned about sewing techniques. Probably most significantly, I abandoned the side strip idea. A laptop fits inside the bag without that added width, and I had a hard time keeping the three pieces of fabric properly aligned. I might want to use a similar approach for a different project later. &lt;/p&gt;
 &lt;p&gt;
@@ -669,9 +740,15 @@ v0.1: cardboard and zip ties, proof-of-concept (2019/02/25)
 &lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;My first attempt was a cardboard mockup, held together with zip ties. This worked well enough to prove the concept. It disintegrated after a month or so.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_20190224_215759905.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_20190224_225931398.jpg&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -682,16 +759,25 @@ Sewing process
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-9&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.06.12.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Latest prototype in action. The two main features driving the structural design are the laptop pocket and the U-lock strap.
 I&amp;#39;m a sewing beginner, and this is my first design, so I&amp;#39;m learning, making things up as I go, and I probably don&amp;#39;t know a lot of terms that I should. Despite that, I&amp;#39;m very satisfied with this second iteration. It&amp;#39;s truly usable, but I hope to refine it, so I&amp;#39;ll point out a few issues.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.05.29.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 It goes inside this popular Ortlieb pannier. I&amp;#39;m avoiding any permanent modifications to the waterproof exterior. Still figuring out mounting options, but that&amp;#39;s not a major concern, because normally the bag is full enough to keep the organizer in place.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 18.57.34.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 My three prototypes: &lt;/p&gt;
 &lt;ul&gt;
@@ -705,19 +791,31 @@ My three prototypes: &lt;/p&gt;
 &lt;p&gt;Yellow: random canvas (.6mm thick). Includes a &amp;#34;through-the-frame&amp;#34; removable nylon strap+buckle to hold the lock.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Sewing the lock strap on the exterior, using this fabric, is not sturdy. U-locks are heavy, so it sags significantly.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.00.24.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Aside from the main pocket, each side has a mini-pocket just for storing a rigid plastic sheet to maintain the structure. I deliberately tucked the flap INSIDE the pocket rather than go over it. It made sense in my head, but it&amp;#39;s clearly the wrong choice.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.01.09.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Trying to show detail of how the pockets are laid out.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.01.55.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Same idea for the yellow bag, but the flap closes over the pocket, and terminates on the outside of the bag rather than the inside. Much sturdier fabric, plus two velcro strips on the ends, instead of one in the middle, mean this bag holds its shape much more than the blue one.&lt;/p&gt;
 &lt;p&gt;
@@ -725,27 +823,45 @@ Also shows the nylon strap going through the outer layer of the bag (via a &amp;
 &lt;p&gt;
 This design allowed me to experiment with different insert combinations. There&amp;#39;s plenty of weight to trim here.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.01.59.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Outside of the faced opening.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 19.02.11.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Detail of pocket layout&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 21.01.29.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 detail of pocket flap seam from outside&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-09 21.03.11.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 detail of pocket flap seam from inside&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-11 01.58.58.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Detail of canvas inside-out.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/2020-05-11 02.00.11.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 Detail of nylon inside-out.&lt;/p&gt;
 &lt;/div&gt;
@@ -758,15 +874,24 @@ Making the shape template
 &lt;p&gt;
 Designing the fabric pattern was the first step. Since the Ortlieb bag includes a plastic insert to give it structure, using that exact shape seemed like the right way to go.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_20190311_141939281.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 I took some rough measurements of the irregular hexagon shape. I could have used these to get pretty close to the right shape. &lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/IMG_2626-ortlieb-template.25.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 However, I have an unreasonable propensity for unnecessary accuracy. I removed the insert, photographed it against a grid, then transformed that photo into vector files for laser cutting. This is great for cutting the pattern from fabric in a repeatable way. Unfortunately I can&amp;#39;t use the laser for the plastic insert itself, so I cut that with a dremel. In the future I might try a bandsaw instead.&lt;/p&gt;
 &lt;p&gt;
-&lt;img src=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/pattern-illustration.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/pattern-illustration.png&#34; title=&#34;https://alanbernstein.net/blog-static/img/ortlieb-organizer/pattern-illustration.png&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/pattern-illustration.png&#34; alt=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/pattern-illustration.png&#34; title=&#34;https://alanbernstein.net/blog-static/img
+/ortlieb-organizer/pattern-illustration.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
 This is a color-coded illustration of the pattern files I used. &lt;/p&gt;
 &lt;ul&gt;
@@ -1148,7 +1273,8 @@ void main() {
 &lt;/script&gt;
 &lt;script type=&#34;text/javascript&#34; src=&#34;http://alanbernstein.github.io/js/wave-shader-embedded.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;With that blog post available, and a loose grasp of Mathematica syntax, it was easy enough to understand what&amp;rsquo;s going on. It&amp;rsquo;s a bit easier for me to grok in traditional notation:&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img/shader-experiments/planewave-math-white.png&#34;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/shader-experiments/planewave-math-white.png&#34;
         alt=&#34;Equation&#34;/&gt;&lt;/p&gt;
 &lt;!-- 
 
