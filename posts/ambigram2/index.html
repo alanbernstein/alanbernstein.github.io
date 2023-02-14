@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.83.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.110.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark"><title>Using Python and openCV to revive a dead Etsy product&nbsp;&ndash;&nbsp;Micro-optimist</title><link rel="stylesheet" href="/css/core.min.7a03d61edb074de3c34996f465e8116c619b66f7f70bc4ba27affcb6a6f27482f8aa0ef4251e0db5fceb5d1272f91213.css" integrity="sha384-egPWHtsHTePDSZb0ZegRbGGbZvf3C8S6J6/8tqbydIL4qg70JR4NtfzrXRJy&#43;RIT"><meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Using Python and openCV to revive a dead Etsy product" />
@@ -38,21 +38,13 @@ Given a moderate-resolution photograph of a rectangular object at an oblique ang
 <p>
 How?</p>
 <ol>
-<li>
-<p>Undo the perspective projection (homography transform)</p>
-</li>
-<li>
-<p>Generate an SVG image (vectorize)</p>
-</li>
-<li>
-<p>Clean up the messy edges (manual work)</p>
-</li>
+<li>Undo the perspective projection (homography transform)</li>
+<li>Generate an SVG image (vectorize)</li>
+<li>Clean up the messy edges (manual work)</li>
 </ol>
 <p>Normally, I&#39;m happy to dive into coding this stuff from scratch, but in this case I was more interested in the destination than the journey, so I went for some proven solutions.</p>
 <ol>
-<li>
-<p>Undoing the perspective projection</p>
-</li>
+<li>Undoing the perspective projection</li>
 </ol>
 <p>As part of my perpetual [matlab-to-python] transition, I decided to ignore some old matlab code I wrote to solve this problem, and redo it in Python. Turns out, with the openCV bindings available in Python, it&#39;s a trivial problem. All I had to do was manually pick a handful of keypoints, and pass to a single function to generate the required transformation. </p>
 <p>
@@ -63,9 +55,7 @@ If I needed to do this for more than a few images, I would have wanted to automa
 <p>
 [result]</p>
 <ol>
-<li>
-<p>Generating an SVG image</p>
-</li>
+<li>Generating an SVG image</li>
 </ol>
 </article>
 </div>

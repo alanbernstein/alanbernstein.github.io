@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.83.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.110.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark"><title>Reviving a dead Etsy product&nbsp;&ndash;&nbsp;Micro-optimist</title><link rel="stylesheet" href="/css/core.min.7a03d61edb074de3c34996f465e8116c619b66f7f70bc4ba27affcb6a6f27482f8aa0ef4251e0db5fceb5d1272f91213.css" integrity="sha384-egPWHtsHTePDSZb0ZegRbGGbZvf3C8S6J6/8tqbydIL4qg70JR4NtfzrXRJy&#43;RIT"><meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Reviving a dead Etsy product" />
@@ -51,15 +51,9 @@ So that would have been a dead end, except the image was available in a halfway 
 <p>
 570x443 pixels isn&#39;t great, but for a simple, monochrome pattern with sharp lines, it might be good enough. So, there is this rectangular object, and I have a moderate-resolution photograph of it from an oblique angle. What do I need to do to reproduce the pattern at high resolution? It&#39;s simple:</p>
 <ol>
-<li>
-<p>Undo the perspective projection</p>
-</li>
-<li>
-<p>Trace the edges to generate a vector image</p>
-</li>
-<li>
-<p>Clean up the messy edges</p>
-</li>
+<li>Undo the perspective projection</li>
+<li>Trace the edges to generate a vector image</li>
+<li>Clean up the messy edges</li>
 </ol>
 <p>Normally, I&#39;m happy to dive into coding this stuff from scratch, just for the hell of it. In this case I was more interested in the destination than the journey, so I went for some proven solutions.</p>
 </div>
@@ -83,8 +77,8 @@ In the case of a known rectangle, there is a simple way to estimate the original
 <p>
 As part of my perpetual <a href="/tags/matlab-to-python">Matlab-to-Python transition</a>, I decided to ignore some <a href="https://gist.github.com/alanbernstein/cbc319c75b74b99cf9b63da378bae6da">old Matlab code</a> I wrote to solve this problem, and <a href="https://gist.github.com/alanbernstein/0ff61f3a3ae5e62278090a7ec9223826">redo</a> it in Python. As it turns out, with the OpenCV bindings available in Python, the solution is trivial. All I had to do was manually pick a handful of keypoints (the rectangle corners), and pass them to a single function to generate the required transformation. The output of that can then be applied directly to the image. In short, something like this:</p>
 <div class="src src-python">
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">h</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findHomography</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">pout</span><span class="p">)</span>
-<span class="n">im_dst</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">warpPerspective</span><span class="p">(</span><span class="n">im_src</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">h</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findHomography</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">pout</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">im_dst</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">warpPerspective</span><span class="p">(</span><span class="n">im_src</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span></span></span></code></pre></div>
 </div>
 <p>
 &#34;<a href="https://en.wikipedia.org/wiki/Homography_(computer_vision)">Homography</a>&#34; is more or less another word for perspective projection. If I needed to do this for more than a few images, I would have wanted to automate the keypoint-picking step (I&#39;ve used <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">SIFT</a> for that in the past, I wonder if that&#39;s still in fashion?), but I&#39;ll save that for a time when I need it.</p>

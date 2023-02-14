@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.83.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.110.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark"><title>Using Hugo and org-mode for a blog&nbsp;&ndash;&nbsp;Micro-optimist</title><link rel="stylesheet" href="/css/core.min.7a03d61edb074de3c34996f465e8116c619b66f7f70bc4ba27affcb6a6f27482f8aa0ef4251e0db5fceb5d1272f91213.css" integrity="sha384-egPWHtsHTePDSZb0ZegRbGGbZvf3C8S6J6/8tqbydIL4qg70JR4NtfzrXRJy&#43;RIT"><meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Using Hugo and org-mode for a blog" />
@@ -52,16 +52,12 @@ I started keeping track of <a href="https://pandoc.org/">some</a> <a href="http:
 <p>
 This makes the workflow ideal:</p>
 <ol>
-<li>
-<p>Use org-mode, in emacs, to write post content in files in a local directory.</p>
-</li>
-<li>
-<p>Run a single command to generate updated web content and push to my site.</p>
-</li>
+<li>Use org-mode, in emacs, to write post content in files in a local directory.</li>
+<li>Run a single command to generate updated web content and push to my site.</li>
 </ol>
 <p>This post is the proof that it works! Because I am a devopeler extraordinaire, the command is (effectively):</p>
 <div class="src src-sh">
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">hugo <span class="o">&amp;&amp;</span> rsync -rz --update public/* <span class="nv">$WEBSITE</span>/blog/.</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hugo <span class="o">&amp;&amp;</span> rsync -rz --update public/* <span class="nv">$WEBSITE</span>/blog/.</span></span></code></pre></div>
 </div>
 <p>
 Of course there is more work to do. I won&#39;t be satisfied without syntax highlighting and LaTeX support, but there is lower-hanging fruit I&#39;ll tackle first. Finding a theme is probably a good place to start.</p>
@@ -79,8 +75,8 @@ Updates
 <div id="outline-text-headline-4" class="outline-text-3">
 <p>Mostly working! It&#39;s basically just a couple lines in the config:</p>
 <div class="src src-sh">
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">pygmentsCodeFences</span> <span class="o">=</span> <span class="nb">true</span>
-<span class="nv">PygmentsStyle</span> <span class="o">=</span> <span class="s2">&#34;monokai&#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">pygmentsCodeFences</span> <span class="o">=</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PygmentsStyle</span> <span class="o">=</span> <span class="s2">&#34;monokai&#34;</span></span></span></code></pre></div>
 </div>
 <p>
 Although I also had to figure out the proper syntax for the org-mode parser (<code>#+BEGIN_SRC sh</code> for blocks, <code>~tildes~</code> for inline), and my test theme removes the line breaks from preformatted elements for some reason (fixed by hacking one style into layouts/_default/baseof.html). </p>
@@ -107,7 +103,7 @@ Although I also had to figure out the proper syntax for the org-mode parser (<co
 2021/01/24: Reboot
 </h3>
 <div id="outline-text-headline-7" class="outline-text-3">
-<p>I have abandoned my ad-hoc deployment system in favor of using github pages. Hugo project restarted from scratch, with a better theme ([notepadium](<a href="https://themes.gohugo.io/hugo-notepadium/))">https://themes.gohugo.io/hugo-notepadium/))</a> and title. Hopefully I can reuse some of the customizations mentioned above. Blog repo is now at <a href="https://github.com/alanbernstein/blog.">https://github.com/alanbernstein/blog.</a> Not having it in a git repo in the first place was really dumb, but it&#39;s because the blog is photo-heavy, and I didn&#39;t want to put hundreds of MB of photos in the repo. I&#39;m currently just linking to photos hosted on my personal website, but I&#39;d like to figure out a better solution (<a href="https://github.com/alanbernstein/blog/issues/3).">https://github.com/alanbernstein/blog/issues/3).</a></p>
+<p>I have abandoned my ad-hoc deployment system in favor of using github pages. Hugo project restarted from scratch, with a better theme ([notepadium]([<a href="https://themes.gohugo.io/hugo-notepadium/]))">https://themes.gohugo.io/hugo-notepadium/]))</a> and title. Hopefully I can reuse some of the customizations mentioned above. Blog repo is now at <a href="https://github.com/alanbernstein/blog.">https://github.com/alanbernstein/blog.</a> Not having it in a git repo in the first place was really dumb, but it&#39;s because the blog is photo-heavy, and I didn&#39;t want to put hundreds of MB of photos in the repo. I&#39;m currently just linking to photos hosted on my personal website, but I&#39;d like to figure out a better solution (<a href="https://github.com/alanbernstein/blog/issues/3).">https://github.com/alanbernstein/blog/issues/3).</a></p>
 <p>
 Math typesetting: previous solution depended on the mmark format, and hugo has deprecated support for this. Forunately, the notepadium theme has built-in support for math typesetting via Katex. It does &#34;block mode&#34; or &#34;display mode&#34; with no trouble, and &#34;inline mode&#34; isn&#39;t quite working (renders normal size inside a `&lt;p&gt;` element, instead of a smaller size as expected). Seems to be discussed here: <a href="https://github.com/cntrump/hugo-notepadium/issues/68,">https://github.com/cntrump/hugo-notepadium/issues/68,</a> with corresponding fix <a href="https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672,">https://github.com/cntrump/hugo-notepadium/commit/2452327e2b9b28f208389424d1f27abe12ec1672,</a> but not sure if this is helpful. Oh well, Good enough for now… </p>
 </div>

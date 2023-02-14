@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.83.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.110.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark"><title>Hanging cables&nbsp;&ndash;&nbsp;Micro-optimist</title><link rel="stylesheet" href="/css/core.min.7a03d61edb074de3c34996f465e8116c619b66f7f70bc4ba27affcb6a6f27482f8aa0ef4251e0db5fceb5d1272f91213.css" integrity="sha384-egPWHtsHTePDSZb0ZegRbGGbZvf3C8S6J6/8tqbydIL4qg70JR4NtfzrXRJy&#43;RIT"><meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Hanging cables" />
@@ -24,14 +24,14 @@
     <h1 class="article title">Hanging cables</h1><p class="article date">2018-11-27</p></section><article class="article markdown-body"><p>A hanging cable takes the shape of a catenary, a suspension bridge cable is a parabola. What&rsquo;s the connection between these?</p>
 <p>Inline math works: $$F_M(N, N_R) = {N-1 \choose N_R-1}{M-N+1 \choose N_R}$$, and so does display math:</p>
 <p>$$F_M(N, N_R) = {N-1 \choose N_R-1}{M-N+1 \choose N_R}$$</p>
-<p><a href="http://whistleralley.com/hanging/hanging.htm">http://whistleralley.com/hanging/hanging.htm</a></p>
+<p><a href="http://whistleralley.com/hanging/hanging.htm"target="_blank">http://whistleralley.com/hanging/hanging.htm</a></p>
 <p>*cable weight negligible (weight is proportional to horizontal distance): cable forms parabola
 *cable weight significant (weight is proportional to arc length): cable forms catenary
 *flexible, weight significant (weight is proportional to arc length): parabola again?</p>
 <p>i remember a derivation where one simple change in an integrand (for the weight distribution - constant per horizontal distance vs constant per arc length) makes the difference between parabola and catenary. this looks sort of like it:</p>
-<p>$$y' = \frac \mu T x$$ - parabola
-$$y' = \frac \mu T {\int_0^x \sqrt{y'^2+1}dt$$ - catenary</p>
-<p>*<tex>y' = \frac \mu T {\smashmargin2{\int\nolimits_{\tiny 0}}^{x}} \sqrt{y'^{\tiny 2}+1}dt</tex> - catenary</p>
+<p>$$y&rsquo; = \frac \mu T x$$ - parabola
+$$y&rsquo; = \frac \mu T {\int_0^x \sqrt{y&rsquo;^2+1}dt$$ - catenary</p>
+<p>*<tex>y&rsquo; = \frac \mu T {\smashmargin2{\int\nolimits_{\tiny 0}}^{x}} \sqrt{y&rsquo;^{\tiny 2}+1}dt</tex> - catenary</p>
 <p>this is probably the integral i remember which requires recognizing as being equivalent to the form of the arclength integral for cosh() - derivative being equal to arclength. equivalently, second derivative = one plus square of first derivative</p>
 <p>μ is linear density (?) and T is magnitude of tension at minimum point of curve (?) - but how to get to these diffeqs?</p></article><section class="article labels"><a class="tag" href=/tags/latex/>latex</a><a class="tag" href=/tags/math/>math</a><a class="tag" href=/tags/derivation/>derivation</a></section>
 </div>

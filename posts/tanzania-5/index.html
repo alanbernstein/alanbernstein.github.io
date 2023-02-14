@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.83.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.110.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark"><title>Tanzania 5: Post-mortem&nbsp;&ndash;&nbsp;Micro-optimist</title><link rel="stylesheet" href="/css/core.min.7a03d61edb074de3c34996f465e8116c619b66f7f70bc4ba27affcb6a6f27482f8aa0ef4251e0db5fceb5d1272f91213.css" integrity="sha384-egPWHtsHTePDSZb0ZegRbGGbZvf3C8S6J6/8tqbydIL4qg70JR4NtfzrXRJy&#43;RIT"><meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Tanzania 5: Post-mortem" />
@@ -1051,28 +1051,28 @@
 <p>I also maxed out the terrain exaggeration factor, so the geology of the crater was more visible. Apparently you can get a bit more fancy with the tour trajectory by using a &ldquo;3d space navigator&rdquo;, but I&rsquo;m not quite sure how that works.</p>
 <p>For images, I haven&rsquo;t bothered with any photography-level editing, I mostly just made a few montages with imagemagick. Nothing fancy, just ~convert~ and ~montage~ .</p>
 <p>I also discovered an annoying rotation problem in hugo and/or golang, which I think is due to what I&rsquo;d call a <a href="https://github.com/gohugoio/hugo/issues/1014#issuecomment-353418635"target="_blank">bug</a>, and had to hack together a solution. The issue is that hugo can&rsquo;t read jpeg exif data, so it doesn&rsquo;t know how to rotate images based on that. This was only an issue for my vertical DSLR photos, not my phone. I assume the high-performance DSLR image processor chips are designed to write out the image in only one way, whereas my garbage phone camera can be as slow as it wants. Funny how the higher quality hardware is partly responsible for the problem. Rotating the image didn&rsquo;t solve it, nor did changing the exif data. The first thing I found that worked was to just remove all exif data, <em>then</em> rotate the contents. Here&rsquo;s my bash script to do it:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span><span class="c1"># usage:</span>
-<span class="c1">#   fix-rotation original.JPG 270</span>
-<span class="c1"># output:</span>
-<span class="c1">#   original-270.JPG</span>
-
-<span class="nv">FILE</span><span class="o">=</span><span class="nv">$1</span>
-<span class="nv">ANGLE</span><span class="o">=</span><span class="nv">$2</span>  <span class="c1"># 0, 90, 180, 270. 270 is standard vertical DSLR position</span>
-
-<span class="nv">BASE</span><span class="o">=</span><span class="si">${</span><span class="nv">FILE</span><span class="p">%.JPG</span><span class="si">}</span>
-
-<span class="c1"># remove all exif info</span>
-<span class="nv">TMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$BASE</span><span class="s2">-stripped.JPG&#34;</span>
-cp <span class="s2">&#34;</span><span class="nv">$FILE</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$TMP</span><span class="s2">&#34;</span>
-exiftool -all<span class="o">=</span> <span class="s2">&#34;</span><span class="nv">$TMP</span><span class="s2">&#34;</span>
-
-<span class="nb">echo</span> <span class="s2">&#34;convert \&#34;</span><span class="nv">$TMP</span><span class="s2">\&#34; -rotate </span><span class="nv">$ANGLE</span><span class="s2"> \&#34;</span><span class="nv">$BASE</span><span class="s2">-</span><span class="nv">$ANGLE</span><span class="s2">.JPG\&#34;&#34;</span>
-
-convert <span class="s2">&#34;</span><span class="nv">$TMP</span><span class="s2">&#34;</span> -rotate <span class="nv">$ANGLE</span> <span class="s2">&#34;</span><span class="nv">$BASE</span><span class="s2">-</span><span class="nv">$ANGLE</span><span class="s2">.JPG&#34;</span>
-
-rm <span class="s2">&#34;</span><span class="nv">$TMP</span><span class="s2">&#34;</span>
-</code></pre></div></article><section class="article labels"><a class="tag" href=/tags/travel/>travel</a><a class="tag" href=/tags/hiking/>hiking</a><a class="tag" href=/tags/photography/>photography</a><a class="tag" href=/tags/journal/>journal</a><a class="tag" href=/tags/trip/>trip</a><a class="tag" href=/tags/backpacking/>backpacking</a></section>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># usage:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   fix-rotation original.JPG 270</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># output:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   original-270.JPG</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">FILE</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ANGLE</span><span class="o">=</span><span class="nv">$2</span>  <span class="c1"># 0, 90, 180, 270. 270 is standard vertical DSLR position</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">BASE</span><span class="o">=</span><span class="si">${</span><span class="nv">FILE</span><span class="p">%.JPG</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># remove all exif info</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$BASE</span><span class="s2">-stripped.JPG&#34;</span>
+</span></span><span class="line"><span class="cl">cp <span class="s2">&#34;</span><span class="nv">$FILE</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$TMP</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">exiftool -all<span class="o">=</span> <span class="s2">&#34;</span><span class="nv">$TMP</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;convert \&#34;</span><span class="nv">$TMP</span><span class="s2">\&#34; -rotate </span><span class="nv">$ANGLE</span><span class="s2"> \&#34;</span><span class="nv">$BASE</span><span class="s2">-</span><span class="nv">$ANGLE</span><span class="s2">.JPG\&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">convert <span class="s2">&#34;</span><span class="nv">$TMP</span><span class="s2">&#34;</span> -rotate <span class="nv">$ANGLE</span> <span class="s2">&#34;</span><span class="nv">$BASE</span><span class="s2">-</span><span class="nv">$ANGLE</span><span class="s2">.JPG&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">rm <span class="s2">&#34;</span><span class="nv">$TMP</span><span class="s2">&#34;</span>
+</span></span></code></pre></div></article><section class="article labels"><a class="tag" href=/tags/travel/>travel</a><a class="tag" href=/tags/hiking/>hiking</a><a class="tag" href=/tags/photography/>photography</a><a class="tag" href=/tags/journal/>journal</a><a class="tag" href=/tags/trip/>trip</a><a class="tag" href=/tags/backpacking/>backpacking</a></section>
 </div>
 <div class="article bottom"><section class="article navigation"><p><a class="link" href="/posts/tanzania-4/"><span class="iconfont icon-article"></span>Tanzania 4: Safari</a></p><p><a class="link" href="/posts/cables/"><span class="iconfont icon-article"></span>Hanging cables</a></p></section></div></section><section id="footer"><div class="footer-wrap">
     <p class="copyright">Micro-optimist</p>

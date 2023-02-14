@@ -5,10 +5,136 @@
     <description>Recent content in Tags on Micro-optimist</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Feb 2023 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://alanbernstein.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ruler and compass construction of a heart</title>
+      <link>http://alanbernstein.github.io/posts/heart-geometry/</link>
+      <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://alanbernstein.github.io/posts/heart-geometry/</guid>
+      <description>&lt;p&gt;My take on the parametric heart shape concept.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;There are many ways to use math to define a &lt;a href=&#34;https://mathworld.wolfram.com/HeartCurve.html&#34;target=&#34;_blank&#34;&gt;heart curve&lt;/a&gt;. The second one on that page, a sextic algebraic equation, $$(x^2+y^2-1)^3 + x^2y^3 = 0$$, strikes me as one of the most elegant, but it&amp;rsquo;s not very&amp;hellip; adjustable.&lt;/p&gt;
+&lt;p&gt;Rather than using a single polar/parametric/algebraic equation to define a curve, I imagined a different approach: a heart shape composed only of two circular arcs and two straight line segments. I designed something like this years ago. It sort of worked, but the parameterization was awkward, in terms of both interpretability, and anchoring points for comparisons.&lt;/p&gt;
+&lt;p&gt;(The single parameter: angular length of one of the circular lobes, constrained to [180°, 225°]. The circles were centered symmetrically on the x-axis, and everything else was defined with respect to those circle centers)&lt;/p&gt;
+&lt;p&gt;I wanted to revisit this concept. I like it because it is one obvious way to generalize the &amp;ldquo;simplest&amp;rdquo; heart shape that can be constructed from geometric primitives, a square and two semicircles.&lt;/p&gt;
+&lt;h2 id=&#34;new-idea-parameterize-the-two-acute-vertex-angles&#34;&gt;New idea: parameterize the two acute vertex angles&lt;/h2&gt;
+&lt;p&gt;I considered how to represent, and construct, a two-circle-two-line heart shape for a while. What are the input parameters? Where is the shape relative to the origin? What are the base points, which I can use to define other geometric objects?&lt;/p&gt;
+&lt;p&gt;I thought about this in UX terms: what are the most useful, descriptive parameters to describe such a shape? In retrospect, the answer seems obvious, at least for the constraints that I&amp;rsquo;ve imposed. The answer: specify the acute, interior angle at the bottom vertex (alpha), and the acute, exterior angle at the top vertex (beta). Since the two vertices are the salient points on the curve, for simplicity, just put the bottom one at (0, 0), and the top one at (0, 1).&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-notebook-23.jpg&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;Next, I had to take those input parameters, and transform them into some intermediate variables that I could use to draw the arcs and line segments. For geometry problems like this, I tend to define geometric objects in algebraic terms (but not geometric algebraic! though that is on my todo list). Then, I&amp;rsquo;ll find analytic solutions for key parameters, like circle centers or line endpoints. So this is what my first few attempts looked like.&lt;/p&gt;
+&lt;p&gt;Long story short, those ideas led to overly-complicated formulas. I could have brute forced my way through them, but that felt wrong. I considered using a &lt;a href=&#34;https://en.wikipedia.org/wiki/Digital_differential_analyzer_%28graphics_algorithm%29&#34;target=&#34;_blank&#34;&gt;DDA algorithm&lt;/a&gt;, but that seemed worse. Instead, I tried a couple of geometric construction approaches.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-notebook-1.jpg&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;These also seemed overly complicated, with too many variables and sub-figures. So, I took a nap. I woke up with one of my favorite feelings in life, the realization that a simple solution had appeared in my mind while I slept.&lt;/p&gt;
+&lt;h2 id=&#34;construction&#34;&gt;Construction&lt;/h2&gt;
+&lt;p&gt;Pick angles $$\red\alpha, \color{blue}\beta$$ for the bottom vertex and top vertex.&lt;/p&gt;
+&lt;p&gt;Compute $$\red a = 90\degree - \red\alpha/2$$, where &lt;span style=&#34;color:red&#34;&gt;a&lt;/span&gt; is the angular direction from the bottom vertex to the lower end of the right circular lobe.&lt;/p&gt;
+&lt;p&gt;Similarly, $${\color{blue}b} = 90\degree - {\color{blue}\beta}/2$$ is the angular direction from the top vertex to the upper end of the right circular lobe.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-stage-0.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;Extend the lines &lt;span style=&#34;color:red&#34;&gt;L1&lt;/span&gt;, &lt;span style=&#34;color:blue&#34;&gt;L2&lt;/span&gt; defined by those directions.&lt;/p&gt;
+&lt;p&gt;Find their intersection &lt;span style=&#34;color:magenta&#34;&gt;P1&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-stage-1.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;Find the &lt;a href=&#34;https://en.wikipedia.org/wiki/Bisection#Angle_bisector&#34;target=&#34;_blank&#34;&gt;angle bisector&lt;/a&gt; &lt;span style=&#34;color:magenta&#34;&gt;L3&lt;/span&gt; between &lt;span style=&#34;color:red&#34;&gt;L1&lt;/span&gt; and &lt;span style=&#34;color:blue&#34;&gt;L2&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-stage-2.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;The right circle is tangent to both &lt;span style=&#34;color:red&#34;&gt;L1&lt;/span&gt; and &lt;span style=&#34;color:blue&#34;&gt;L2&lt;/span&gt;, so its center must lie somewhere on &lt;span style=&#34;color:magenta&#34;&gt;L3&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;The right circle must be tangent to &lt;span style=&#34;color:blue&#34;&gt;L2&lt;/span&gt; at the top vertex , so its center must lie on the line extending perpendicularly from $$\color{blue}(0, 1)$$, &lt;span style=&#34;color:green&#34;&gt;L4&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;The center must then lie at the intersection of &lt;span style=&#34;color:magenta&#34;&gt;L3&lt;/span&gt; and &lt;span style=&#34;color:green&#34;&gt;L4&lt;/span&gt;, &lt;span style=&#34;color:black&#34;&gt;P2&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-stage-3.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;The radius is the distance between &lt;span style=&#34;color:black&#34;&gt;P2&lt;/span&gt; and $$\color{blue}(0, 1)$$, so now we know where the circle is, as well as the angle around the circle at which the arc stops at the top.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-stage-4.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;We also need to know the angle around the circle at which the arc stops at the bottom. This corresponds to the line &lt;span style=&#34;color:cyan&#34;&gt;L5&lt;/span&gt; along the radius that intersects with &lt;span style=&#34;color:red&#34;&gt;L1&lt;/span&gt; at the tangent point, &lt;span style=&#34;color:cyan&#34;&gt;P3&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-stage-5.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;The other side of the heart is just a mirror image.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-stage-6.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;Then we just need to construct the path that follows these objects:&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-stage-7.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;And then remove all the math:&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-final.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;h2 id=&#34;implementation&#34;&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;I had a python library containing an assortment of geometry utility functions. I don&amp;rsquo;t recall using it for ruler-and-compass-style constructions previously, but it turned out to work pretty well for this. It&amp;rsquo;s not what I would normally seek in an analytical solution, with the final variables written in closed form relative to the input parameters. But every intermediate step is closed-form, so it could be simplified to that, if I were a mathsochist.&lt;/p&gt;
+&lt;p&gt;Concisely:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;circle_construction_heart&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;alpha_degrees&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;beta_degrees&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;alpha_degrees&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;180&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# angle from x-axis to bottom direction&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;beta_degrees&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;180&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# angle from x-axis to top direction&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# intermediate objects&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;L1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;angle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;# line through bottom vertex&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;L2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;angle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;# line through top vertex&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;P1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;L1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;intersect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;L2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;                  &lt;span class=&#34;c1&#34;&gt;# auxiliary point&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;                            &lt;span class=&#34;c1&#34;&gt;# direction angle of angle bisector&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;L3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;P1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;angle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;              &lt;span class=&#34;c1&#34;&gt;# angle bisector&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;L4&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;angle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# upper radius line&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;P2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;L3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;intersect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;L4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;                  &lt;span class=&#34;c1&#34;&gt;# circle center&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sqrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;P2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;P2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# circle radius&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;L5&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;P2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;angle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;# lower radius line&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;P3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;P5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;intersect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;P1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;                  &lt;span class=&#34;c1&#34;&gt;# bottom circle tangent point&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# arc paths&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;phi0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;phi1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;arc_r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;P2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;P2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linspace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;phi0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;phi1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;phi2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;phi3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;arc_l&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;P2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;P2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linspace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;phi2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;phi3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hstack&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;arc_r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;arc_l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:],&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# deduplicate the top vertex point&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A few notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Line&lt;/code&gt; is doing most of the work here, but the &lt;code&gt;intersect&lt;/code&gt; method is quite simple.&lt;/li&gt;
+&lt;li&gt;I like to use complex numbers to draw shapes. It is a concise way to define 2D points and curves, including circular arcs, which are just complex exponentials with offset and scale. &lt;code&gt;Line&lt;/code&gt; just uses numpy arrays, so translating those to complex numbers is a tiny bit awkward.&lt;/li&gt;
+&lt;li&gt;This excludes the alpha=beta case, but that&amp;rsquo;s simpler.&lt;/li&gt;
+&lt;li&gt;I love descriptive variable names in code. Just not in this case.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;some-parameter-variations&#34;&gt;Some parameter variations&lt;/h2&gt;
+&lt;p&gt;What&amp;rsquo;s the point of all this? No point. I just like creating math problems to solve.&lt;/p&gt;
+&lt;p&gt;It does allow me to make fine adjustments to the shape, and overlay them for comparison.&lt;/p&gt;
+&lt;p&gt;Same angle on top and bottom vertices:
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-demo1.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;Supplementary angles:
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-demo2.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;Square bottom, varied angles on top:
+&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
+/heart-curve/heart-demo3.png&#34;
+        alt/&gt;&lt;/p&gt;
+&lt;p&gt;Having perfect knowledge of these &amp;ldquo;control points&amp;rdquo; also enables other things, like defining a constant-distance offset curve. This was the original motivation for revisiting this idea, for cutting out heart outlines on a laser cutter. This solution may have been overkill, oops.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Hypercorrection</title>
@@ -16,7 +142,7 @@
       <pubDate>Fri, 09 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>http://alanbernstein.github.io/posts/hypercorrection/</guid>
-      <description>&lt;p&gt;I don&amp;rsquo;t like to be &amp;ldquo;that guy&amp;rdquo;, correcting meaningless mistakes of grammar/usage/pronunciation in conversation, because for whatever reason it&amp;rsquo;s considered rude or thoughtless. But if the mistake you&amp;rsquo;re making is &lt;a href=&#34;wikipedia&#34;&gt;hypercorrection&lt;/a&gt;, pointing that out must be&amp;hellip; hypocorrection? Which, by extrapolation, must then be polite and thoughtful.&lt;/p&gt;
+      <description>&lt;p&gt;I don&amp;rsquo;t like to be &amp;ldquo;that guy&amp;rdquo;, correcting meaningless mistakes of grammar/usage/pronunciation in conversation, because for whatever reason it&amp;rsquo;s considered rude or thoughtless. But if the mistake you&amp;rsquo;re making is &lt;a href=&#34;wikipedia&#34;&gt;hypercorrection&lt;/a&gt;, pointing that out must be&amp;hellip; hypocorrection? Which, by extrapolation, must then be polite and thoughtful (/s).&lt;/p&gt;
 &lt;p&gt;Despite my belief that prescriptivism in language is useless, it still feels grating to my ears when I hear incorrect usage. I don&amp;rsquo;t care about being right, or winning an argument about it, I just care about the truth being known. So, I don&amp;rsquo;t bring it up in person. But that doesn&amp;rsquo;t mean I won&amp;rsquo;t write about it.&lt;/p&gt;
 &lt;p&gt;Around 2012 I started noticing people pronouncing the word &lt;em&gt;processes&lt;/em&gt; as &amp;ldquo;processEEZ&amp;rdquo; instead of &amp;ldquo;processIZ&amp;rdquo;. As far as I am aware, there is no rule of English pronunciation that says to do this. I think what happened is that someone misremembered the rule for pluralization of -x words, and started applying it all over the place like a crazy person.&lt;/p&gt;
 &lt;p&gt;To be specific:&lt;/p&gt;
@@ -29,7 +155,7 @@
 &lt;p&gt;Clearly, not even all &amp;ldquo;-x&amp;rdquo; words use the &amp;ldquo;ces&amp;rdquo; spelling and &amp;ldquo;ih-sees&amp;rdquo; pronunciation. So, I found it pretty confusing when I started hearing words that don&amp;rsquo;t even end in &amp;ldquo;x&amp;rdquo; being pluralized this way as well. This appears to be a perfect example of hypercorrection to me.&lt;/p&gt;
 &lt;p&gt;If that&amp;rsquo;s not convincing enough, consider these other examples, none of which are usually pluralized with the third rule.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Words ending in &amp;ldquo;ss&amp;rdquo;: embarrass, mass, cross&lt;/li&gt;
+&lt;li&gt;Words ending in &amp;ldquo;ss&amp;rdquo;: cross, mass, truss&lt;/li&gt;
 &lt;li&gt;Words ending in &amp;ldquo;ess&amp;rdquo;: congress, dress, press, goddess, mattress&lt;/li&gt;
 &lt;li&gt;Words ending in &amp;ldquo;cess&amp;rdquo;: success, excess, access, recess, princess&lt;/li&gt;
 &lt;/ul&gt;
@@ -40,7 +166,7 @@
     <item>
       <title>Upgrading my bike accessories</title>
       <link>http://alanbernstein.github.io/posts/bike-microoptimization/</link>
-      <pubDate>Tue, 02 Mar 2021 00:00:00 -0600</pubDate>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>http://alanbernstein.github.io/posts/bike-microoptimization/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve always been fond of physical modular systems, but lately I&amp;rsquo;ve become a little obsessed with customizing my stuff with modular attachments. My bike has seen the most of this, both in terms of the number of projects, and the amount of effort put into them.&lt;/p&gt;
@@ -70,7 +196,7 @@
 &lt;li&gt;Permanently-mounted, minimal, DIY rear fender (TODO photo)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.rei.com/product/718391/sks-beavertail-fenders&#34;target=&#34;_blank&#34;&gt;Removable front fender&lt;/a&gt;. I was planning to design and build my own until I found this, which took a surprising amount of searching. There are many variations on the removable bike fender, but this is the only one I know of that provides full protection, and has a sturdy mount.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Had to design and print a tool: &lt;a href=&#34;https://www.thingiverse.com/thing:4831058&#34;&gt;https://www.thingiverse.com/thing:4831058&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Had to design and print a tool: &lt;a href=&#34;https://www.thingiverse.com/thing:4831058&#34;target=&#34;_blank&#34;&gt;https://www.thingiverse.com/thing:4831058&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
 /bike-microoptimization/IMG_5258.25&#34;
         alt=&#34;Overview&#34;/&gt;&lt;/p&gt;
@@ -214,7 +340,7 @@ metalwork pics
 &lt;p&gt;Last-digit counterexample (incumbent votes): If the data spans just a single, &lt;strong&gt;low&lt;/strong&gt;, order of magnitude, e.g. [10, 100), then the last two digits are just &lt;em&gt;the digits&lt;/em&gt;, so the last-digits distribution just reflects the data distribution itself. The last-digit test is not &lt;em&gt;violated&lt;/em&gt;, it is rather &lt;em&gt;not applicable&lt;/em&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;There&amp;rsquo;s a pleasing sort of duality here, and illustrating each of these with the two political parties&#39; vote counts is pretty cute.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s a pleasing sort of duality here, and illustrating each of these with the two political parties&amp;rsquo; vote counts is pretty cute.&lt;/p&gt;
 &lt;h2 id=&#34;another-counterpart&#34;&gt;Another counterpart&lt;/h2&gt;
 &lt;p&gt;Although these are interesting lines of thought, they prompted another question, the real motivation for writing this: is there &lt;em&gt;another&lt;/em&gt; counterpart to Benford&amp;rsquo;s Law, which might be equally surprising to a culture that thinks in the logarithmic scale by default? Of course, human sensory perception is logarithmic, as is our natural perception of integers. But early education beats that out of us, and our culture generally encourages us to consider the linear scale as the default way of thinking about numbers - the Way Numbers Really Are.&lt;/p&gt;
 &lt;p&gt;If, instead, we were trained from a young age to think about the logarithmic scale as the default, then what sort of distribution would lead to a similarly surprising result, and what would that result be?&lt;/p&gt;
@@ -275,7 +401,7 @@ metalwork pics
 &lt;p&gt;Of course, the number of digits is a crude approximation of the magnitude (regardless of the choice of base), whereas the first digit is more reasonably described as a &amp;ldquo;random&amp;rdquo; artifact of the representation. I&amp;rsquo;ll concede that the number of digits is not &lt;em&gt;just&lt;/em&gt; an artifact, and therefore Drofben&amp;rsquo;s Law is more obvious &amp;ndash; &lt;em&gt;if&lt;/em&gt; you think about numbers primarily in terms of their non-fractional digits.&lt;/p&gt;
 &lt;div class=&#34;admonition note&#34; style=&#39;border-left:4px solid #3c5f8d; padding-left:2em; font-size:16px; margin:2em 0&#39;&gt;
     &lt;div class=&#34;title&#34;&gt;Tangent&lt;/div&gt;
-    &lt;div class=&#34;content&#34;&gt;I&amp;rsquo;m a former mathlete, I love recreational math problems/puzzles. These sometimes concern properties of the base-10 representation of numbers (Project Euler often uses the &lt;a href=&#34;https://projecteuler.net/problem=20&#34;&gt;digit sum&lt;/a&gt;, etc., similarly, the Putnam exam usually includes a problem where the current year is used as an &lt;a href=&#34;https://kskedlaya.org/putnam-archive/2019.pdf&#34;&gt;upper limit&lt;/a&gt; or the like), and I&amp;rsquo;ve always thought of these as sort of &amp;ldquo;impure&amp;rdquo; problems which aren&amp;rsquo;t as deeply interesting. On the other hand, there is some deep math involved in &lt;a href=&#34;https://en.wikipedia.org/wiki/Goodstein%27s_theorem&#34;&gt;Goodstein sequences&lt;/a&gt;, based on fiddling around with hereditary base-N notation. Although, it comes specifically from &lt;em&gt;not&lt;/em&gt; constraining N.&lt;/div&gt;
+    &lt;div class=&#34;content&#34;&gt;I&amp;rsquo;m a former mathlete, I love recreational math problems/puzzles. These sometimes concern properties of the base-10 representation of numbers (Project Euler often uses the &lt;a href=&#34;https://projecteuler.net/problem=20&#34;target=&#34;_blank&#34;&gt;digit sum&lt;/a&gt;, etc., similarly, the Putnam exam usually includes a problem where the current year is used as an &lt;a href=&#34;https://kskedlaya.org/putnam-archive/2019.pdf&#34;target=&#34;_blank&#34;&gt;upper limit&lt;/a&gt; or the like), and I&amp;rsquo;ve always thought of these as sort of &amp;ldquo;impure&amp;rdquo; problems which aren&amp;rsquo;t as deeply interesting. On the other hand, there is some deep math involved in &lt;a href=&#34;https://en.wikipedia.org/wiki/Goodstein%27s_theorem&#34;target=&#34;_blank&#34;&gt;Goodstein sequences&lt;/a&gt;, based on fiddling around with hereditary base-N notation. Although, it comes specifically from &lt;em&gt;not&lt;/em&gt; constraining N.&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&#34;base-effects&#34;&gt;Base effects&lt;/h3&gt;
@@ -307,15 +433,9 @@ v1.2, in active use.&lt;/p&gt;
 &lt;p&gt;
 TODO:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;attach more nylon webbing, for attaching other accessories to the side of the insert&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;sew new version with flaps that cover the frame pockets&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;record a video of the quick-release action&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;attach more nylon webbing, for attaching other accessories to the side of the insert&lt;/li&gt;
+&lt;li&gt;sew new version with flaps that cover the frame pockets&lt;/li&gt;
+&lt;li&gt;record a video of the quick-release action&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
 &lt;img src=&#34;https://alanbernstein.net/blog-static/img
@@ -371,12 +491,8 @@ v1: Ripstop nylon, first minimally viable version (2020/02/25)
 &lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;Having a decent idea what the pattern should be, it was now feasible to laser cut it. I cut these out:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Nylon: 2x base, 2x tall, .5&amp;#34; seam margin&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Canvas: 2x base, 2x tall, 1&amp;#34; seam margin&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Nylon: 2x base, 2x tall, .5&amp;#34; seam margin&lt;/li&gt;
+&lt;li&gt;Canvas: 2x base, 2x tall, 1&amp;#34; seam margin&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I chose to start with an all-nylon bag. I realized later I might have used canvas for the outside and nylon for the inside. All-nylon was a good choice to start with though.
 I sewed the nylon pieces together, knowing that it would be easier to sew the other bits on first, but not knowing exactly where to put them. The fabric was thin enough that I could manipulate it enough to sew things on later. &lt;/p&gt;
@@ -401,24 +517,12 @@ I was proud of myself for documenting my learning process with the first bag, bu
 &lt;p&gt;
 Lessons learned:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Began to understand how to think about designing the inside-out object.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When my mental model of the inside-out object fails, I can pin fabric together and turn it inside out to test.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When sewing around a corner, and you need to raise the foot to reposition the work piece, you can rotate it in &lt;strong&gt;either&lt;/strong&gt; direction - it doesn&amp;#39;t have to follow the direction of the seam.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;If I try the thin strip idea again in the future, I will cut it maybe four inches longer than needed, THEN sew it, then trim excess. That will fix half of the alignment problem, but still need to be sure that the two side pieces are lined up properly. It might be easier to use several smaller thin strips, but that would also be uglier.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When cutting the pattern, following the curved corners isn&amp;#39;t important: cut a polygonal hull, sew whatever seam you want, then trim. The seam doesn&amp;#39;t even need to be curved, because the bag will take on an organic shape anyway.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The four main parts are attached with three seams, and I put the third one in the wrong place, so the first two were unnecessarily exposed. It occurred to me that I could have just used a single seam, but having multiple seemed like a good idea anyway.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Began to understand how to think about designing the inside-out object.&lt;/li&gt;
+&lt;li&gt;When my mental model of the inside-out object fails, I can pin fabric together and turn it inside out to test.&lt;/li&gt;
+&lt;li&gt;When sewing around a corner, and you need to raise the foot to reposition the work piece, you can rotate it in &lt;strong&gt;either&lt;/strong&gt; direction - it doesn&amp;#39;t have to follow the direction of the seam.&lt;/li&gt;
+&lt;li&gt;If I try the thin strip idea again in the future, I will cut it maybe four inches longer than needed, THEN sew it, then trim excess. That will fix half of the alignment problem, but still need to be sure that the two side pieces are lined up properly. It might be easier to use several smaller thin strips, but that would also be uglier.&lt;/li&gt;
+&lt;li&gt;When cutting the pattern, following the curved corners isn&amp;#39;t important: cut a polygonal hull, sew whatever seam you want, then trim. The seam doesn&amp;#39;t even need to be curved, because the bag will take on an organic shape anyway.&lt;/li&gt;
+&lt;li&gt;The four main parts are attached with three seams, and I put the third one in the wrong place, so the first two were unnecessarily exposed. It occurred to me that I could have just used a single seam, but having multiple seemed like a good idea anyway.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -470,15 +574,9 @@ It goes inside this popular Ortlieb pannier. I&amp;#39;m avoiding any permanent 
 &lt;p&gt;
 My three prototypes: &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Orange: random scrap fabric, to experiment with the basic pattern, not really usable &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Blue: random ripstop nylon (specs unknown, but it&amp;#39;s .1mm thick). Includes a sewn-on nylon strap to hold the lock.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Yellow: random canvas (.6mm thick). Includes a &amp;#34;through-the-frame&amp;#34; removable nylon strap+buckle to hold the lock.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Orange: random scrap fabric, to experiment with the basic pattern, not really usable &lt;/li&gt;
+&lt;li&gt;Blue: random ripstop nylon (specs unknown, but it&amp;#39;s .1mm thick). Includes a sewn-on nylon strap to hold the lock.&lt;/li&gt;
+&lt;li&gt;Yellow: random canvas (.6mm thick). Includes a &amp;#34;through-the-frame&amp;#34; removable nylon strap+buckle to hold the lock.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://alanbernstein.net/blog-static/img
 /ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; alt=&#34;https://alanbernstein.net/blog-static/img
@@ -584,18 +682,10 @@ However, I have an unreasonable propensity for unnecessary accuracy. I removed t
 &lt;p&gt;
 This is a color-coded illustration of the pattern files I used. &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Red: plastic insert&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Black: mounting hole cutouts&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Blue: &amp;#34;base&amp;#34; fabric pattern&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Green: &amp;#34;tall&amp;#34; fabric pattern, including the flap that covers the mini-pocket for the plastic insert. &lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Red: plastic insert&lt;/li&gt;
+&lt;li&gt;Black: mounting hole cutouts&lt;/li&gt;
+&lt;li&gt;Blue: &amp;#34;base&amp;#34; fabric pattern&lt;/li&gt;
+&lt;li&gt;Green: &amp;#34;tall&amp;#34; fabric pattern, including the flap that covers the mini-pocket for the plastic insert. &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I sewed these two fabric pieces together, repeated with another two, then sewed those two pairs together, then turned inside out. Adding velcro, slits, and hems was done at the appropriate steps.&lt;/p&gt;
 &lt;p&gt;
@@ -619,38 +709,22 @@ So, I thought an organizer insert, designed specifically for this bag, and speci
 &lt;p&gt;
 At a minimum:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;A laptop pocket, closest to the &amp;#34;bike-ward&amp;#34; side of the interior, just because it&amp;#39;s broad and flat&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A place to hang my heavy U-lock&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Some kind of structural element to maintain a flat shape, and support the weight of the lock&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;A laptop pocket, closest to the &amp;#34;bike-ward&amp;#34; side of the interior, just because it&amp;#39;s broad and flat&lt;/li&gt;
+&lt;li&gt;A place to hang my heavy U-lock&lt;/li&gt;
+&lt;li&gt;Some kind of structural element to maintain a flat shape, and support the weight of the lock&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Micro-optimizing? Sure, but I just like making things.&lt;/p&gt;
 &lt;p&gt;
 Some other nice-to-have features:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;A quick-release mount to attach to the interior of the Ortlieb bag&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Other, smaller, pockets or mounting points for other things, maybe wallet, keys, other bike gear&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;A quick-release mount to attach to the interior of the Ortlieb bag&lt;/li&gt;
+&lt;li&gt;Other, smaller, pockets or mounting points for other things, maybe wallet, keys, other bike gear&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And, looking to the future, maybe other bags that:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Compartmentalize and fill out the interior space of the Ortlieb bag&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Fold small and flat for storage in case I need the full volume of the bag&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Attach to each other in some clever way.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Compartmentalize and fill out the interior space of the Ortlieb bag&lt;/li&gt;
+&lt;li&gt;Fold small and flat for storage in case I need the full volume of the bag&lt;/li&gt;
+&lt;li&gt;Attach to each other in some clever way.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Overdesigning is fun; making a solid bag with places for the laptop and lock is my main goal right now.&lt;/p&gt;
 &lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
@@ -675,12 +749,8 @@ v1: ripstop nylon, first minimally viable version (2020/02/25)
 &lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;Having a decent idea what the pattern should be, it was now feasible to laser cut it. I cut these out:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Nylon: 2x base, 2x tall, .5&amp;#34; seam margin&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Canvas: 2x base, 2x tall, 1&amp;#34; seam margin&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Nylon: 2x base, 2x tall, .5&amp;#34; seam margin&lt;/li&gt;
+&lt;li&gt;Canvas: 2x base, 2x tall, 1&amp;#34; seam margin&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I chose to start with an all-nylon bag. I realized later I might have used canvas for the outside and nylon for the inside. All-nylon was a good choice to start with though.&lt;/p&gt;
 &lt;p&gt;
@@ -688,30 +758,14 @@ I sewed the nylon pieces together, knowing that it would be easier to sew the ot
 &lt;p&gt;
 So here&amp;#39;s what I did:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Sew base A to tall A to make pocket A&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Sew base B to tall B to make pocket B&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Sew pocket A to pocket B&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Insert plastic pieces into pockets&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Pin velcro to both sides of each pocket (to ensure tight fit)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Remove inserts and sew on velcro&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Find locations to attach lock strip, pin webbing in place&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Sew on lock strip&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Sew base A to tall A to make pocket A&lt;/li&gt;
+&lt;li&gt;Sew base B to tall B to make pocket B&lt;/li&gt;
+&lt;li&gt;Sew pocket A to pocket B&lt;/li&gt;
+&lt;li&gt;Insert plastic pieces into pockets&lt;/li&gt;
+&lt;li&gt;Pin velcro to both sides of each pocket (to ensure tight fit)&lt;/li&gt;
+&lt;li&gt;Remove inserts and sew on velcro&lt;/li&gt;
+&lt;li&gt;Find locations to attach lock strip, pin webbing in place&lt;/li&gt;
+&lt;li&gt;Sew on lock strip&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Whereas ideally I would have done step three last.&lt;/p&gt;
 &lt;p&gt;
@@ -734,24 +788,12 @@ I was proud of myself for documenting my learning process with the first bag, bu
 &lt;p&gt;
 Lessons learned:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Began to understand how to think about designing the inside-out object.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When my mental model of the inside-out object fails, I can pin fabric together and turn it inside out to test.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When sewing around a corner, and you need to raise the foot to reposition the work piece, you can rotate it in &lt;strong&gt;either&lt;/strong&gt; direction - it doesn&amp;#39;t have to follow the direction of the seam.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;If I try the thin strip idea again in the future, I will cut it maybe four inches longer than needed, THEN sew it, then trim excess. That will fix half of the alignment problem, but still need to be sure that the two side pieces are lined up properly. It might be easier to use several smaller thin strips, but that would also be uglier.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When cutting the pattern, following the curved corners isn&amp;#39;t important: cut a polygonal hull, sew whatever seam you want, then trim. The seam doesn&amp;#39;t even need to be curved, because the bag will take on an organic shape anyway.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The four main parts are attached with three seams, and I put the third one in the wrong place, so the first two were unnecessarily exposed. It occurred to me that I could have just used a single seam, but having multiple seemed like a good idea anyway.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Began to understand how to think about designing the inside-out object.&lt;/li&gt;
+&lt;li&gt;When my mental model of the inside-out object fails, I can pin fabric together and turn it inside out to test.&lt;/li&gt;
+&lt;li&gt;When sewing around a corner, and you need to raise the foot to reposition the work piece, you can rotate it in &lt;strong&gt;either&lt;/strong&gt; direction - it doesn&amp;#39;t have to follow the direction of the seam.&lt;/li&gt;
+&lt;li&gt;If I try the thin strip idea again in the future, I will cut it maybe four inches longer than needed, THEN sew it, then trim excess. That will fix half of the alignment problem, but still need to be sure that the two side pieces are lined up properly. It might be easier to use several smaller thin strips, but that would also be uglier.&lt;/li&gt;
+&lt;li&gt;When cutting the pattern, following the curved corners isn&amp;#39;t important: cut a polygonal hull, sew whatever seam you want, then trim. The seam doesn&amp;#39;t even need to be curved, because the bag will take on an organic shape anyway.&lt;/li&gt;
+&lt;li&gt;The four main parts are attached with three seams, and I put the third one in the wrong place, so the first two were unnecessarily exposed. It occurred to me that I could have just used a single seam, but having multiple seemed like a good idea anyway.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -788,15 +830,9 @@ It goes inside this popular Ortlieb pannier. I&amp;#39;m avoiding any permanent 
 &lt;p&gt;
 My three prototypes: &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Orange: random scrap fabric, to experiment with the basic pattern, not really usable &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Blue: random ripstop nylon (specs unknown, but it&amp;#39;s .1mm thick). Includes a sewn-on nylon strap to hold the lock.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Yellow: random canvas (.6mm thick). Includes a &amp;#34;through-the-frame&amp;#34; removable nylon strap+buckle to hold the lock.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Orange: random scrap fabric, to experiment with the basic pattern, not really usable &lt;/li&gt;
+&lt;li&gt;Blue: random ripstop nylon (specs unknown, but it&amp;#39;s .1mm thick). Includes a sewn-on nylon strap to hold the lock.&lt;/li&gt;
+&lt;li&gt;Yellow: random canvas (.6mm thick). Includes a &amp;#34;through-the-frame&amp;#34; removable nylon strap+buckle to hold the lock.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;http://alanbernstein.github.io/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; alt=&#34;/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; title=&#34;/img/ortlieb-organizer/2020-05-09 19.00.00.50.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
@@ -863,18 +899,10 @@ However, I have an unreasonable propensity for unnecessary accuracy. I removed t
 &lt;p&gt;
 This is a color-coded illustration of the pattern files I used. &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&amp;lt;span style=&amp;#34;color:red&amp;#34;&amp;gt;Red&amp;lt;/style&amp;gt;: plastic insert&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Black: mounting hole cutouts&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Blue: &amp;#34;base&amp;#34; fabric pattern&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Green: &amp;#34;tall&amp;#34; fabric pattern, including the flap that covers the mini-pocket for the plastic insert. &lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&amp;lt;span style=&amp;#34;color:red&amp;#34;&amp;gt;Red&amp;lt;/style&amp;gt;: plastic insert&lt;/li&gt;
+&lt;li&gt;Black: mounting hole cutouts&lt;/li&gt;
+&lt;li&gt;Blue: &amp;#34;base&amp;#34; fabric pattern&lt;/li&gt;
+&lt;li&gt;Green: &amp;#34;tall&amp;#34; fabric pattern, including the flap that covers the mini-pocket for the plastic insert. &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I sewed these two fabric pieces together, repeated with another two, then sewed those two pairs together, then turned inside out. Adding velcro, slits, and hems was done at the appropriate steps.&lt;/p&gt;
 &lt;p&gt;
@@ -1104,7 +1132,7 @@ The seam margin is .5&amp;#34; in this image, which is what I used for the orang
 &lt;p&gt;My previous experience with bike touring made me worry about my knees. I often make smoothies for breakfast, and I use whey protein powder. A few months before the trip, I switched to collagen, in the hopes that it would strengthen my joints. I don&amp;rsquo;t know if there&amp;rsquo;s any science to suggest this would work, and I had no experimental control to evaluate the difference. That said, my knees (and other joints) had absolutely no trouble on the trip.&lt;/p&gt;
 &lt;p&gt;Some people recommend a level of mental preparation that I felt was unnecessary. One suggestion is a mantra. I didn&amp;rsquo;t have one, but if I had, it would have been &amp;ldquo;time is an illusion&amp;rdquo;.&lt;/p&gt;
 &lt;h2 id=&#34;documents-etc&#34;&gt;Documents, etc&lt;/h2&gt;
-&lt;p&gt;I brought the obvious stuff: passport, flight info, insurance info, driver&amp;rsquo;s license, credit card, debit card. Also, a few pages of info from Kandoo, and prescription info sheets. Other than that, and a small notebook, I tried to minimize paper. Instead I loaded a bunch of info onto my phone. Manuals, all the documents from Kandoo and my insurance, maps of the mountain, a handful of wikipedia page PDFs (like &lt;a href=&#34;https://en.wikipedia.org/wiki/Mount_Kilimanjaro&#34;target=&#34;_blank&#34;&gt;this one&lt;/a&gt;, which I read in full, one sleepless night), GPS tracks from my own hikes, and from others&#39; Kili experiences.&lt;/p&gt;
+&lt;p&gt;I brought the obvious stuff: passport, flight info, insurance info, driver&amp;rsquo;s license, credit card, debit card. Also, a few pages of info from Kandoo, and prescription info sheets. Other than that, and a small notebook, I tried to minimize paper. Instead I loaded a bunch of info onto my phone. Manuals, all the documents from Kandoo and my insurance, maps of the mountain, a handful of wikipedia page PDFs (like &lt;a href=&#34;https://en.wikipedia.org/wiki/Mount_Kilimanjaro&#34;target=&#34;_blank&#34;&gt;this one&lt;/a&gt;, which I read in full, one sleepless night), GPS tracks from my own hikes, and from others&amp;rsquo; Kili experiences.&lt;/p&gt;
 &lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
 /tanzania/2018-10-07-09.06.10-notebook.jpg&#34;
         alt/&gt;&lt;/p&gt;
@@ -1284,9 +1312,9 @@ The seam margin is .5&amp;#34; in this image, which is what I used for the orang
 &lt;p&gt;&lt;video autoplay muted loop width=700px src=&#34;https://alanbernstein.net/blog-static/img
 /tanzania/kili-flyover-1.webm&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Our hike route. The rainforest ring zone is clearly visible in satellite photos&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;After the bus arrived, we sat around for an hour or so, waiting for permits, checking our packs, eating the boxed lunch we were given, despite having eaten breakfast just a few hours previously. We filled out the first of our registration forms; the entrance gate and every camp had to record our info, including name, nationality and occupation. Filling out my own info, I caught a glimpse of some of the others&#39; in my group. We hung out in a big pavilion by the gate, along with three or four other groups. Finally, after months of preparation, and hours of travel, we were ready to start, so we did. If the beginning of the trek felt anticlimactic, the summit climb made up for it, many times over.&lt;/p&gt;
+&lt;p&gt;After the bus arrived, we sat around for an hour or so, waiting for permits, checking our packs, eating the boxed lunch we were given, despite having eaten breakfast just a few hours previously. We filled out the first of our registration forms; the entrance gate and every camp had to record our info, including name, nationality and occupation. Filling out my own info, I caught a glimpse of some of the others&amp;rsquo; in my group. We hung out in a big pavilion by the gate, along with three or four other groups. Finally, after months of preparation, and hours of travel, we were ready to start, so we did. If the beginning of the trek felt anticlimactic, the summit climb made up for it, many times over.&lt;/p&gt;
 &lt;p&gt;Next, we walked, a lot.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ll just be honest - the hiking part was easy. Being fit helps, I&amp;rsquo;m sure. Knowing what to expect from high altitude was great. All the training I did was worth it. That said, the days of the trek were [../tough-mudder#obstacles](no challenge). Summit night, however, was the most physically taxing activity I have ever experienced. We&amp;rsquo;ll get to that soon enough.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll just be honest - the hiking part was easy. Being fit helps, I&amp;rsquo;m sure. Knowing what to expect from high altitude was great. All the training I did was worth it. That said, the days of the trek were &lt;a href=&#34;../tough-mudder&#34;&gt;no challenge&lt;/a&gt;. Summit night, however, was the most physically taxing activity I have ever experienced. We&amp;rsquo;ll get to that soon enough.&lt;/p&gt;
 &lt;p&gt;It was early on the first day that I noticed Joanne carrying an e-cigarette. She was the only one of the nine hikers that didn&amp;rsquo;t make it to at least Stella Point.&lt;/p&gt;
 &lt;div id=&#34;034d8252-7cd7-4667-a4d0-05d41849d087&#34; style=&#34;height: 100%; width: 100%;&#34; class=&#34;plotly-graph-div&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;text/javascript&#34; src=&#34;http://alanbernstein.net/blog-static/img/tanzania/kili-tracks.js&#34;&gt;&lt;/script&gt;
@@ -1298,11 +1326,11 @@ The seam margin is .5&amp;#34; in this image, which is what I used for the orang
 /tanzania/IMG_6677-porter-carry.JPG&#34;
         alt/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Superhuman&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;There is a lot about the porters&#39; responsibilities that I didn&amp;rsquo;t quite grasp, before seeing them do it all on the mountain. Throughout the hike, we&amp;rsquo;d be passed by porters carrying an absurd amount of gear. Most commonly, they would have one backpack, 50-60 liters or so, plus another, bigger load, balanced on top of their heads, or carried on top of their backpack and shoulders. And their job doesn&amp;rsquo;t end with carrying it. On a normal day, they would wait for us to leave camp, take everything down, carry it all to the next camp &lt;em&gt;faster&lt;/em&gt; than we could get there with our light loads, then set it all up before we arrived. Maybe they&amp;rsquo;d have dinner cooking already. Oh, and many of them wore whatever clothes and shoes they could manage; no specialty hiking gear, no fancy fabrics. I noticed one porter wearing old tennis shoes, with one sole half detached and flapping around. In the rain.&lt;/p&gt;
+&lt;p&gt;There is a lot about the porters&amp;rsquo; responsibilities that I didn&amp;rsquo;t quite grasp, before seeing them do it all on the mountain. Throughout the hike, we&amp;rsquo;d be passed by porters carrying an absurd amount of gear. Most commonly, they would have one backpack, 50-60 liters or so, plus another, bigger load, balanced on top of their heads, or carried on top of their backpack and shoulders. And their job doesn&amp;rsquo;t end with carrying it. On a normal day, they would wait for us to leave camp, take everything down, carry it all to the next camp &lt;em&gt;faster&lt;/em&gt; than we could get there with our light loads, then set it all up before we arrived. Maybe they&amp;rsquo;d have dinner cooking already. Oh, and many of them wore whatever clothes and shoes they could manage; no specialty hiking gear, no fancy fabrics. I noticed one porter wearing old tennis shoes, with one sole half detached and flapping around. In the rain.&lt;/p&gt;
 &lt;p&gt;Two other things I didn&amp;rsquo;t appreciate until I saw them myself: the amount of people, and the amount of trash. There was never a time when we were really alone on the trail, not as individuals, nor as a group. I think I heard that something like 15000 tourists climb the mountain per year. Considering seasonality, there might have been 100 hikers in our cohort, which means maybe 10 groups of 40 people each. All of those people hiking the same route, staying at the same camps, leaving at the same time every morning. Plus other groups on routes that overlapped ours. For long stretches of the day, I was just one person in a long chain of hikers and porters; sometimes I couldn&amp;rsquo;t even see the beginning or the end. Even after separating a bit, we would frequently pass other groups, or be passed by one or two porters.&lt;/p&gt;
 &lt;p&gt;Porters were like the cars to the pedestrian hikers. On the first day, we put some effort into figuring out the trail etiquette. &amp;ldquo;Porters on your left!&amp;rdquo; Andrea would say. Because nobody seemed to be following the &amp;ldquo;pass on the left&amp;rdquo; standard, I started to think the &amp;ldquo;on your left&amp;rdquo; part wasn&amp;rsquo;t helpful, so I&amp;rsquo;d just say &amp;ldquo;three porters behind!&amp;rdquo;. Eventually, I realized the porters often don&amp;rsquo;t care to wait for the hikers to figure out they&amp;rsquo;re being passed, so they just take whatever route they can find that gets them past the slowpokes. If it worked for them, it was fine for me. The only issue was the occasional porter carrying the long, spiky poles for the big tents, which stick out dangerously far, at face level, and almost snagged people a few times.&lt;/p&gt;
 &lt;p&gt;Then, there&amp;rsquo;s the trash. Kandoo was very clear about their leave-no-trace philosophy, which is a great thing to say, but clearly not followed broadly enough. I read that human waste became a big problem, prompting better toilet solutions. Still, toilets are only available at camp, so there is plenty of waste and toilet paper strewn about the trail. That stuff is bad enough, but there is even more litter. Sometimes there would be long stretches where I couldn&amp;rsquo;t go one minute without seeing a bit of trash. I asked a guide about this, and he guessed that porters might be responsible. I don&amp;rsquo;t know what&amp;rsquo;s a more depressing thought, the litter being from tourists, or from the locals who take their livelihood from the mountain. At home, I recently started carrying a trash bag when I hike to collect litter, but it wasn&amp;rsquo;t feasible on the mountain. On day 3, I realized that one of our guides carried a small trash bag, so I started collecting some. When Kisima carried it, he&amp;rsquo;d say &amp;ldquo;Thank you for cleaning up my office!&amp;rdquo; when I put some in.&lt;/p&gt;
-&lt;p&gt;Most of the introductions were done, so this was our first opportunity to temporarily pair off and start getting to know the others in our group. It was around this time that I remembered seeing Tommy&amp;rsquo;s occupation on a registration form - physician - and asked him about it. I think Donna said &amp;ldquo;oh, he&amp;rsquo;ll have some questions for you then&amp;rdquo;. I said no, I didn&amp;rsquo;t want to burden him on his vacation, but he brushed that off. I learned that KJ, the group&amp;rsquo;s other photographer, is from India and living in the UK. Natalie was in Tanzania for the hike, then staying for three months afterward to teach English and health at a girls&#39; school. The three British girls were from Liverpool. At some point football came up, so the conversation went in one of my ears and out the other, regardless of which kind of football it was.&lt;/p&gt;
+&lt;p&gt;Most of the introductions were done, so this was our first opportunity to temporarily pair off and start getting to know the others in our group. It was around this time that I remembered seeing Tommy&amp;rsquo;s occupation on a registration form - physician - and asked him about it. I think Donna said &amp;ldquo;oh, he&amp;rsquo;ll have some questions for you then&amp;rdquo;. I said no, I didn&amp;rsquo;t want to burden him on his vacation, but he brushed that off. I learned that KJ, the group&amp;rsquo;s other photographer, is from India and living in the UK. Natalie was in Tanzania for the hike, then staying for three months afterward to teach English and health at a girls&amp;rsquo; school. The three British girls were from Liverpool. At some point football came up, so the conversation went in one of my ears and out the other, regardless of which kind of football it was.&lt;/p&gt;
 &lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
 /tanzania/IMG_6847-camp.JPG&#34;
         alt/&gt;&lt;/p&gt;
@@ -1320,7 +1348,7 @@ The seam margin is .5&amp;#34; in this image, which is what I used for the orang
         alt/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Curry dinner on day 2&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Camp food was another part of the experience that I knew nothing about before the trip. The chef had an elaborate setup for preparing and serving meals, and the dinners were beyond anything I expected. On the first night, we were served salad, soup, potatoes and fish curry. Our chef introduced himself - as Mr. Delicious, I&amp;rsquo;m told, though I don&amp;rsquo;t recall that - with our first real meal. Like any chef I suppose, we mostly interacted with him during meals. He would come in during dinner, ask how the food was, tell us we weren&amp;rsquo;t eating enough, and threaten to feed us more. We had meat at every meal, and didn&amp;rsquo;t think too hard about how that happened. Or about how well the dishes were cleaned. They made the mistake of serving KJ, who is vegan-ish, a plate of fish, so his entree was tabasco rice that night. He had to explain his dietary restrictions in more depth, and they were fine after that. He had a stash of protein shakes, knowing that this situation was likely. Funny, he seemed to pack lighter than the rest of us, despite carrying a bunch of his own food.&lt;/p&gt;
-&lt;p&gt;Around dinner and breakfast most days, we&amp;rsquo;d have our health check. Richard would go around the table, ask each of us in turn about headache, dizziness, appetite, and then put a little device on our finger to check our pulse and blood oxygen level. If symptoms were bad enough, pulse high enough, or oxygen low enough, we would have a problem. Fortunately, nobody got AMS too bad. Tommy joked about violating health privacy laws, since everyone would just sit and watch everyone elses&#39; health checks.&lt;/p&gt;
+&lt;p&gt;Around dinner and breakfast most days, we&amp;rsquo;d have our health check. Richard would go around the table, ask each of us in turn about headache, dizziness, appetite, and then put a little device on our finger to check our pulse and blood oxygen level. If symptoms were bad enough, pulse high enough, or oxygen low enough, we would have a problem. Fortunately, nobody got AMS too bad. Tommy joked about violating health privacy laws, since everyone would just sit and watch everyone elses&amp;rsquo; health checks.&lt;/p&gt;
 &lt;p&gt;As expected, I didn&amp;rsquo;t have much trouble with my appetite, or with drinking enough water. The guides encouraged us to drink five liters of water every day, and I had trained myself to do that with no trouble. I think three or four of us were able to eat and drink as much as we needed, but some of us barely felt like eating or drinking at all.&lt;/p&gt;
 &lt;p&gt;Why not bring breathing equipment, you might ask? I guess there&amp;rsquo;s something called the &amp;ldquo;death zone&amp;rdquo; above about 26000 feet, and I don&amp;rsquo;t know if that&amp;rsquo;s the conventional limit, or people just do any climbs they can manage, or what. It&amp;rsquo;s probably prohibitively expensive. It&amp;rsquo;s possible to buy disposable canned oxygen, though I&amp;rsquo;m not sure if they really work. Supposedly, if a guide catches you using one of these on the hike, they have to take you down immediately.&lt;/p&gt;
 &lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
@@ -1359,7 +1387,7 @@ The seam margin is .5&amp;#34; in this image, which is what I used for the orang
 /tanzania/IMG_6964-lava-tower.JPG&#34;
         alt/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;The lava tower itself&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;When the lava tower itself came into view, I asked Kisima if we could climb it, and he said maybe we could. It seemed feasible; I thought we had more acclimatization hikes planned, and this would be an easy way to get another hundred meters or so. At camp, I asked again, Kisima told me to ask lead guide Richard, and he laughed at me. I think he said it used to be OK to climb, but it was no longer allowed. Kisima was havin&#39; a laugh.&lt;/p&gt;
+&lt;p&gt;When the lava tower itself came into view, I asked Kisima if we could climb it, and he said maybe we could. It seemed feasible; I thought we had more acclimatization hikes planned, and this would be an easy way to get another hundred meters or so. At camp, I asked again, Kisima told me to ask lead guide Richard, and he laughed at me. I think he said it used to be OK to climb, but it was no longer allowed. Kisima was havin&amp;rsquo; a laugh.&lt;/p&gt;
 &lt;p&gt;At camp, hot water was available for washing up. So far, I was committed to the camp life, only washing with wet wipes and sanitizer. I also have a general aversion to being personally served by people (like pedicures, just weird), so having a guy prepare hot water for me, hold a soap bottle for me, etc, felt wrong. After the hike of day 3, I got over all that. I stole someone else&amp;rsquo;s idea, and used the basin for a foot bath - another general first for me, actually. Afterward, I would use the hot water for my hands and face a few times.&lt;/p&gt;
 &lt;p&gt;By day 3 or 4, we had developed something of a routine, in terms of pace and grouping. Prior to the trip, my impression was that we would stay together as one group, moving at the pace of the slowest hiker. I had also read that some operators would allow splitting up into two smaller groups, faster and slower, though I was told that Kandoo doesn&amp;rsquo;t do this. Maybe that&amp;rsquo;s their official policy, but we really didn&amp;rsquo;t follow it. On the normal hiking days, we would pslit up into two or three groups, or even just fan out along the trail, as long as we were all between the front and rear guides. Some of us tended to the front, others to the back. I moved around sort of at random, talking with one group then moving forward or backward to hang with different people.&lt;/p&gt;
 &lt;p&gt;Earlier in the day, I saw a guide carrying Joanne&amp;rsquo;s hydration bladder next to her so she could drink from it. Somehow it got a tiny puncture, so they piled some duct tape on it and had the guide carry it, the only apparent solution. I decided I should fix it, and eventually realized that my waterproof fabric tape might do the trick. That evening, I took my repair kit out and got to work. The hole was just next to the plastic ring that the lid screws into, very hard to reach, but at least close to the top. I had to cut some specific shapes to get the tape in there, but I figured it out, and as far as I know the fix worked for the rest of the trip. It was sometime around then that I found out Tommy&amp;rsquo;s bladder AND nalgene both broke on the first day, and he threw them out, unfortunately.&lt;/p&gt;
@@ -1428,7 +1456,7 @@ The seam margin is .5&amp;#34; in this image, which is what I used for the orang
 /tanzania/IMG_7489-certificate.JPG&#34;
         alt/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Incontrovertible proof that I made it&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Soon after returning to Stella Maris, we headed to the bar to receive our certificates. It was a fitting way to conclude the experience; a nice certificate, a cozy but semi-official ceremony, and one last photo op. Maybe a bit overdone, as the locals seemed to expect us to value the certificates more than we did. Tommy left his behind, and someone at the hotel freaked out, expecting him to come back to pick it up. Natalie stayed for the ceremony, and then left for her next obligation, teaching at a girls&#39; school in Moshi. She had delayed a taxi a few hours to join the ceremony, so when it ended she had to get out of there quickly.&lt;/p&gt;
+&lt;p&gt;Soon after returning to Stella Maris, we headed to the bar to receive our certificates. It was a fitting way to conclude the experience; a nice certificate, a cozy but semi-official ceremony, and one last photo op. Maybe a bit overdone, as the locals seemed to expect us to value the certificates more than we did. Tommy left his behind, and someone at the hotel freaked out, expecting him to come back to pick it up. Natalie stayed for the ceremony, and then left for her next obligation, teaching at a girls&amp;rsquo; school in Moshi. She had delayed a taxi a few hours to join the ceremony, so when it ended she had to get out of there quickly.&lt;/p&gt;
 &lt;p&gt;Totally done with the trek, I had a chance to shower. I knew the shower was done because I got all the way through the one bar of soap I had with me. Taking that shower was fantastic, despite being one of the worst physical shower setups I&amp;rsquo;ve ever used. Tommy decided to go into town to get a shave and a haircut, but I declined his offer to join; I suppose I wanted to be a mountain man for a few more days. I repacked, and finished writing the postcard I had bought earlier (I may have taken some inspiration from Andrea&amp;rsquo;s). I had a little laundry to do, as well as a handful of things I wanted to donate to the porters. I brought the laundry and donations to the front desk, filled out a laundry list, and left, assured that my clothes would be dropped off at my door by 6am the next day. Back in my room, I found one more thing to donate, and took that down to the desk. When I showed it to the guy, he gestured toward the door and said &amp;ldquo;just put it there with the others&amp;rdquo;. I looked at the door - the main entrance of the hotel - pulled it away from the wall a bit, and saw all of my laundry - some of my best clothes - AND the donations sitting together in a pile. I decided to trust the system, dropped the other donation, and walked away. Andrea found out about this and said &amp;ldquo;your clothes are gone&amp;rdquo;. That scared me, but sure enough, at 6am the next morning, I had them all back, delivered to my room. Hakuna matata.&lt;/p&gt;
 &lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
 /tanzania/IMG_7514-shower-270.JPG&#34;
@@ -1841,7 +1869,7 @@ hands+feet
 /tanzania/2018-09-26-07.33.27-uhuru.jpg&#34;
         alt/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;If I look dead, it&amp;rsquo;s because I was&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;So, after just a few minutes, we started to head back down. Thankfully, the descent was an order of magnitude easier. Not &lt;em&gt;easy&lt;/em&gt;, of course, but it was 2.5 hours of gravity-assisted scree running, versus 7.5 hours of shuffling in the dark. Descending on the scree might have been fun, if I had been more cogent. Actually, I was just desperate for a nap. With the group divided in two on the hardest part of the hike, the guides had brought in a porter, Emmanuel, to act as a fifth guide (two guides for six hikers is risky - when someone turns back on the summit, it can be serious, so a guide goes down with them), and he stayed with my group. The group grew less coherent as the descent went on, some of us going at our own pace. At one point, seeing how sloppy my steps were, Emmanuel asked to carry my pack. I think three of the hikers&#39; packs were being carried by guides at that point (maybe two by Emmanuel), but I declined, just generally paranoid about losing control of my pack while traveling. Of course, he wasn&amp;rsquo;t going to steal anything, but he did drop it on the dusty ground, covering my bite valve with dirt, and screwing up the magnetic clasp. Plus, he had all my water. At the time, this upset me, perhaps irrationally so, and I was probably a bit rude to him. I apologized later, and I figure he understood the situation.&lt;/p&gt;
+&lt;p&gt;So, after just a few minutes, we started to head back down. Thankfully, the descent was an order of magnitude easier. Not &lt;em&gt;easy&lt;/em&gt;, of course, but it was 2.5 hours of gravity-assisted scree running, versus 7.5 hours of shuffling in the dark. Descending on the scree might have been fun, if I had been more cogent. Actually, I was just desperate for a nap. With the group divided in two on the hardest part of the hike, the guides had brought in a porter, Emmanuel, to act as a fifth guide (two guides for six hikers is risky - when someone turns back on the summit, it can be serious, so a guide goes down with them), and he stayed with my group. The group grew less coherent as the descent went on, some of us going at our own pace. At one point, seeing how sloppy my steps were, Emmanuel asked to carry my pack. I think three of the hikers&amp;rsquo; packs were being carried by guides at that point (maybe two by Emmanuel), but I declined, just generally paranoid about losing control of my pack while traveling. Of course, he wasn&amp;rsquo;t going to steal anything, but he did drop it on the dusty ground, covering my bite valve with dirt, and screwing up the magnetic clasp. Plus, he had all my water. At the time, this upset me, perhaps irrationally so, and I was probably a bit rude to him. I apologized later, and I figure he understood the situation.&lt;/p&gt;
 &lt;p&gt;With 2000+ feet left to descend, I decided I was done waiting for the others. I needed sleep, as soon as possible and for as long as possible. With some of the group still lagging behind, I figured I could stretch our one hour allocated for naps into two, maybe more. &amp;ldquo;No breaks. I need to get down and go to sleep.&amp;rdquo; I said to Emmanuel when he called to me to slow down. I had to wait a few minutes for Richard to catch up to Emmanuel, who cleared him to descend with me. I went down on the scree as fast as I could - not running, for fear of poor coordination with all the exhaustion and hunger - but fast. I had to weave to force myself not to gain too much speed. My $10 rain pants turned out to be a problem, as the slick drawstring wouldn&amp;rsquo;t stay knotted. My third layer of pants kept falling down, and it was all I could do to yank them back up every few minutes. In my mind, stopping to pull them all the way up and secure them just wasn&amp;rsquo;t worth the time. Almost at the bottom, Emmanuel stopped me and pulled them up. I felt like an idiot, but didn&amp;rsquo;t care. One of the guides saved me again here, recovering my lens cap after I lost it without knowing. I only realized it had happened when my lens filter somehow unscrewed itself and fell off onto the dusty ground. That was the one negative of the capture clip.&lt;/p&gt;
 &lt;p&gt;Joanne sat at the edge of camp, waiting to greet us. I tried to say hi, but I was probably too out of it to speak properly. As we descended through Barafu camp in the daylight, it became apparent that our group was set up close to the bottom of the camp. Ascending in the dark, all I had seen was the rocks and boots right in front of me, so I had no idea how far we walked through the rest of camp. When my tent was in sight, I headed straight for it, only to be stopped by a porter who insisted on shaking my hand to congratulate me. Another ten porters followed him. Our waiter shoved a big pitcher of juice in my face and said I should drink some. I declined, he insisted, I drank a mug full. I was surprised at how cold it was, so I had another. Then, I crawled into my tent, stripped off as many layers of clothes as I could manage, and passed out. It was 10:30am or so, the intermittent cloud cover dwindling as the day progressed. It was too hot for it, but I managed about two hours of sleep anyway.&lt;/p&gt;
 &lt;p&gt;When I woke up, everyone else was back, failing at sleeping, or hanging out in the mess tent. I don&amp;rsquo;t think anybody substantially disagreed with my sentiments about the climb; everyone was worn out. Some of the girls talked about boycotting the rest of the day&amp;rsquo;s hike. I didn&amp;rsquo;t believe that was a possibility, but rumors of a shorter descent hike started swirling. We discussed the summit, how stupid the schedule was, how badly we all felt. Donna asked what I thought, maybe half expecting me to say it was easy. I told her it was awful, and she looked relieved. Before the trip, Donna wasn&amp;rsquo;t confident she&amp;rsquo;d make it to the summit, but she went all the way. After that, she hired two porters to support her the rest of the way down, descending being much harder on her knees.&lt;/p&gt;
@@ -1851,189 +1879,6 @@ hands+feet
 &lt;p&gt;&lt;em&gt;Note the motorbike tires and full suspension&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;On the descent from Barafu camp, we saw some stretchers scattered beside the trail, reminding us that it could have been worse. We discussed our shared misery, and joked about the impossible proposition of ever summiting Kilimanjaro again. One of the guides told us about another trek option: summiting in one day, but at the cost of a six-day trek. We didn&amp;rsquo;t discuss it much, but anyone paying attention would have noticed a glint in my eye&amp;hellip;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;../tanzania-2#descent&#34;&gt;Back to part 2 - the hike&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Tanzania 4: Safari</title>
-      <link>http://alanbernstein.github.io/posts/tanzania-4/</link>
-      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://alanbernstein.github.io/posts/tanzania-4/</guid>
-      <description>&lt;p&gt;I climbed a mountain with &lt;a href=&#34;http://andrearobertson.com/&#34;target=&#34;_blank&#34;&gt;Andrea&lt;/a&gt; and Donna. Then we went to a really nice zoo.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;This is a very long blog post, split into five parts. If you aren&amp;rsquo;t sure how far you&amp;rsquo;ll get, read parts 3 and 4, then 2, then maybe 1. Part 5 is mostly for me.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../tanzania-1&#34;&gt;1: prep&lt;/a&gt; - &lt;a href=&#34;../tanzania-2&#34;&gt;2: hike&lt;/a&gt; - &lt;a href=&#34;../tanzania-3&#34;&gt;3: summit&lt;/a&gt; - 4: safari - &lt;a href=&#34;../tanzania-5&#34;&gt;5: post-mortem&lt;/a&gt; - &lt;a href=&#34;https://alanbernstein.net/trips/kili&#34;target=&#34;_blank&#34;&gt;slide show (upcoming)&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;!-- TODO Slide show anchor link --&gt;
-&lt;h1 id=&#34;hitting-the-road&#34;&gt;Hitting the road&lt;/h1&gt;
-&lt;p&gt;After the seven-day mountain trek, the idea of staying in a relaxing country lodge and doing all of our traveling by car sounded great. We weren&amp;rsquo;t out of the woods yet though. During our hike debriefing we were given a tiny bit of vague information about the safari: leaving at 7am tomorrow, don&amp;rsquo;t wear blue or black because of the tsetse flies (surprise!), and &amp;ldquo;pack light&amp;rdquo;. So, still decompressing from the hike, and not knowing quite what to expect, we had to figure out how to repack everything. I had to decide how to distribute all my junk between my duffel (might be stowed somewhere else, with no access), my day pack (might be stuffed in the back of the jeep), and one small bag (can carry all day if I want). Not a big deal, especially with known, mild weather, but still a bit hectic.&lt;/p&gt;
-&lt;p&gt;As it turned out, the &amp;ldquo;Bougainvillea Country Lodge&amp;rdquo; was essentially just a nice hotel off the main road, and we had access to all our things as soon as we checked in. I had tried to translate &amp;ldquo;bougainvillea&amp;rdquo;, thinking it was a term for a specific style of remote lodging (something like the &amp;ldquo;Bedouin camp&amp;rdquo; I stayed at in Israel). Actually, it&amp;rsquo;s just a business name, one of hundreds of safari hotels in the area probably.&lt;/p&gt;
-&lt;p&gt;I woke up at 6, happy to find that all my laundry made it back to my room, and brought all my stuff down to the lobby. For the eight tourists, we had two jeeps, so we had to decide how to split up into two groups. My first thought was that the two cameras, mine and KJ&amp;rsquo;s, should be separated. With the two groups of three, the obvious split was me, Andrea, Donna and Tommy in one jeep, and KJ, Joanne, Joanne, and Chen in the other. We went with this, and later realized we had split the groups as American/British, and also (almost) introvert/extrovert. As we waited in the lobby, Andrea took out her camera, and then I understood why she left it behind during the hike. She brought one of the biggest telephoto lenses that Canon makes; not the best choice of focal length for a mountain hike, and just too big - it&amp;rsquo;s heavier and bulkier than all three of the lenses I brought put together (literally).&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8554-jeep-exterior.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Our two safari trucks&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Porters took our duffel bags and daypacks, and loaded them into the trunks of the trucks, at random as far as I could tell. We all piled in, and got on our way. I didn&amp;rsquo;t have a specific picture in my mind of what a safari truck should look like, but I&amp;rsquo;m pretty sure these would have lived up to any expectations. It&amp;rsquo;s a big landrover-looking thing with three rows of passenger seating, a luggage cage in back, two spare tires, and a convertible roof. The inside of the truck was surprisingly similar to the inside of the buildings, in a way. Textured faux stucco walls, what looked like after-market electrical boxes and conduit running around the interior, a couple of full-size electrical outlets set into the wall at knee level. The seats were old and grungy, the arm rests didn&amp;rsquo;t stay in place, and I snagged my pants on a sharp bit of metal sticking out of something. Looking closely at the driver&amp;rsquo;s seat, I noticed two gas gauges on the dashboard, and two gear shifts. I asked about these; there&amp;rsquo;s a second fuel tank because the engine runs on multiple fuels, and the second shifter is for an extreme gear, useful for stuck tires or steep climbs.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8647-jeep-interior.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Truck with the roof up&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Earlier, KJ had asked one of the guys if we could make a stop at a native village - it seemed like something he&amp;rsquo;d read about or had recommended, but didn&amp;rsquo;t know much about. The drivers sort of jumped at the opportunity, and the reason became clear soon enough.&lt;/p&gt;
-&lt;p&gt;We left the hotel about 7:30, and lost track of the other truck pretty quickly. There was plenty to distract us, between the anticipation of the safari, the sights of the town, and a flood of information from our driver. Joseph started the day very talkatively, which I appreciated; one great reason for travel is to meet and learn from people I otherwise might not. After an hour of driving and hearing his life story, still waiting for specific information about what we would be doing for the next three days, it became exhausting.&lt;/p&gt;
-&lt;p&gt;In light rain, we drove down the main road through town for 30 minutes or an hour before getting to an area that looked more rural. A few things stood out to me - lots of motorbikes, some with multiple people, some with attached umbrellas. Lots of vans with weird decals that sort of reminded me of &lt;a href=&#34;https://sense8.wikia.com/wiki/Van_Damn&#34;target=&#34;_blank&#34;&gt;Van Damn&lt;/a&gt; (actually &lt;a href=&#34;https://en.wikipedia.org/wiki/Dala_dala&#34;target=&#34;_blank&#34;&gt;dala dala&lt;/a&gt; I suppose). A big drainage canal right next to the main road. There were some herds of cattle or goats, which got bigger and more frequent the further we went. At one point we saw a group of young men with some sort of traditional apparel, and faces painted black and white, standing on the side of the road. How interesting, we thought. Someone in our truck pointed out that they were essentially a billboard, advertising the &amp;ldquo;native village&amp;rdquo; experience that we would see shortly.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_7545-cattle-crossing.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Herd crossing&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;This whole time, Joseph was telling us quite a story. Safari driving is his side job, during the tourist season. The rest of the year, he works as an anti-poaching park ranger. Apparently, there is a poaching season, opposite tourist season, and they are not a big problem outside of that time. It had never occurred to me, but I suppose it makes sense; poachers want to hide, tourists want clear and comfortable weather for their safaris. He shared quite a bit about that experience.&lt;/p&gt;
-&lt;p&gt;Poaching is a pervasive thing, and the picture of the whole situation that I got from Joseph has some obvious parallels to organized crime in the US. It seems to be deeply connected to corruption, entrenched ways of life, and the economy. Many animals, people and groups are part of the poaching ecosystem. Ivory and rhino horns are maybe the worst of it, demand for the materials driving the hunting of endangered species by professionals. Perhaps more understandable are the local people just trying to feed their village with whatever animals and methods make sense. There&amp;rsquo;s a market aspect as well; some bushmen may not participate in poaching directly, but are happy to trade with poachers for meat. Joseph said this is how poachers get their hands on poison arrows, the scariest thing to face as an anti-poaching ranger.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8776-joseph.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Our safari driver and guide, Joseph&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Joseph grew up in a village that depended on poaching. It&amp;rsquo;s a normal way to acquire food, and status. When his father was caught after killing a leopard, he was given an ultimatum: go to prison for some lengthy period, or sacrifice a son to be trained as an anti-poacher. The choice becomes obvious, when the son is only one of several family members, and there is no one else to provide for the rest of them. This punishment struck me as cruel, but effective and poetic. It&amp;rsquo;s also absolute; after the decision was made, the village rejected Joseph entirely. He lost his home, his family, his friends, his fiancee. He resented it for a long time, but somehow his education opened his eyes to how destructive poaching is; he feels that he is in the right place now, and is happily married with a child.&lt;/p&gt;
-&lt;p&gt;This was the short version; he fed us the details non-stop while we listened incredulously. When we finally had a break, Donna turned to us almost in tears and said it was too much, she couldn&amp;rsquo;t handle hearing this tragic life story any more. We were surprised to have stopped driving; it seemed like we&amp;rsquo;d been on the road too long already, and we still hadn&amp;rsquo;t made it anywhere. Somehow we had passed the other truck, and we&amp;rsquo;d been driving slowly so they could catch up. We were all hungry by this point, so we asked for our boxed lunches, and ate awkwardly with flimsy plasticware as we continued driving. At some point in the early morning, we stopped at another hotel, where we sat around and talked about the safari briefly, then left with the same trucks and the same drivers. In retrospect, maybe we were waiting for the rain to subside.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_7621-maasai-fire.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Firestarter&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Around 11am we arrived at the &lt;a href=&#34;https://en.wikipedia.org/wiki/Maasai_people&#34;target=&#34;_blank&#34;&gt;Maasai&lt;/a&gt; village. We pulled in to a parking lot just off the highway, and a group of boys wearing bright plaid shawls swarmed to greet us. I took the opportunity to rummage through my bag for whatever, and the rest of the group went off to start the tour. I didn&amp;rsquo;t hear the first couple minutes of greeting or explanation, though I doubt I missed much. The tribe started a sort of singing and dancing ceremony, and tried to pull some of us into it. I think I refused first, then KJ tried to refuse but gave in, maybe feeling responsible for our being there. He had to dance in a circle with a shawl and a pole, and he felt super awkward about it.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_7574-maasai-dance-kj.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;KJ the dancer&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Next they circled up and started another ceremony, which I can only describe as a standing high jump contest. Fortunately they didn&amp;rsquo;t push us into this event, but they did grab a couple more of us to stand around and look pretty. Next up was a demonstration of their firemaking system, spinning a stick in a wooden base by hand, and using it to light some straw kindling. After that, we were each given a tour of a small hut, made from mud, dung, sticks, and grass. I laid down on the cowhide bed that took up most of the floor, and my guy kinda insisted on using my phone to take a photo of me there. We stopped at the kindergarten where a room full of tiny cute children sang a song for us. This was one of a few times I wanted to take a photo, but felt odd doing it. Finally, they herded us into their gift shop, a big clearing ringed with tables full of souvenirs that I had no interest in. I did, however, have too many Tanzanian shillings in my pocket, so I bought a couple of things. When I started looking like I&amp;rsquo;d buy something, they surrounded me like prey.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_7602-maasai-donna.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Donna, standing around looking pretty&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Andrea quietly said to me &amp;ldquo;First we went to the people zoo, now we go to the animal zoo&amp;hellip;&amp;rdquo;. I nodded in agreement at the sentiment that the whole experience was offputting. I remarked about how uncomfortable I had felt taking photos at the village, or sticking my camera out of the safari truck while driving through town. I don&amp;rsquo;t feel too bad about it; we paid $50 per vehicle for a 30-minute tour, ending with an overpriced gift shop. If they&amp;rsquo;re comfortable with the exchange, I don&amp;rsquo;t know why we shouldn&amp;rsquo;t be. Regardless, I wouldn&amp;rsquo;t exactly recommend it.&lt;/p&gt;
-&lt;h1 id=&#34;day-1-lake-manyara&#34;&gt;Day 1: Lake Manyara&lt;/h1&gt;
-&lt;p&gt;Alright, on to the good part: the animals. I took about 1200 photos over the course of the three-day safari, and I&amp;rsquo;ve pared that down to the top 100 or so. You can see all of those in the (upcoming) slide show, I&amp;rsquo;ll just include a handful of the best ones in this post.&lt;/p&gt;
-&lt;!-- TODO slide show#anchor link to day 1 --&gt;
-&lt;p&gt;After a bewildering morning, we arrived at the entrance to Lake Manyara National Park around noon, waited a few minutes for paperwork or something, and finally got started on the animal-viewing part of the day. Although we didn&amp;rsquo;t see the tree-climbing lions that live in this park, we did see plenty of animals. Not knowing what to expect of the safari, I was pleasantly surprised at how much there was to look at. Rather than an exercise in spotting camouflaged critters hiding in the distance, we saw animals everywhere, in large numbers. Of course there were some that were further away or harder to spot, but our driver/guide was incredibly good at this. I suppose when you spend half the year tracking poachers, skills like that are key. Drivers also communicate via radio, and they are happy to alert each other to upcoming animal sights. Even knowing that, his abilities were impressive. Mostly, the sightings were so, so close, so well-timed, that we had to joke about the animals being delivered to our route on schedule.&lt;/p&gt;
-&lt;p&gt;So, what did we see at Manyara? Baboons, mostly. Also elephants, giraffes, hippos, and lots of birds, but there were so many baboons. We saw them in small groups and in big troops, we saw them sitting around doing nothing, fighting with each other, drinking from a stream, and, yes, even mating. We probably saw a thousand baboons, in dozens of different groups, over the course of the drive.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_7811-baboons-and-more.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Baboons, eagle, water buffalo?&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;We saw plenty at Manyara, and I got photos of lots of different animals. From my childhood training in Amazon Trail, I know the goal is to get one good photo of each species, and then identify each one, but I&amp;rsquo;m not all the way there yet. The safari section of the slide show has 1) all the interesting action shots, and 2) all the different species I got. I&amp;rsquo;ve tried to identify some of the ones that aren&amp;rsquo;t obvious, but I don&amp;rsquo;t have the patience to figure out all of it. Especially the birds, the few I managed to identify after the fact were painstaking, and I&amp;rsquo;m not sure how to go about the rest effectively.&lt;/p&gt;
-&lt;p&gt;Here&amp;rsquo;s a list of some of the mammals we saw on day 1: elephant, giraffe, hippo, zebra, baboon, vervet monkey (blue balls), dik-dik, a variety of antelope, wildebeest, warthog. Birds include: eagle, egret, grey-crowned crane, pelican, stork, ibis, but there were dozens of bird species here, more than the next two parks.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8040-fancy-giraffe.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Fancy giraffe&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The first day of the safari was fun, and it was good to get a feel for what the trips for the next few days would be like. For example, we learned that it was super dusty all the time, and breathing sucks if you haven&amp;rsquo;t been covering your nose. We were all glad that it was over after a few hours, especially Tommy who had spent half the drive sleeping in the back seat. We left the park and headed for the place we&amp;rsquo;d be sleeping for the next two nights.&lt;/p&gt;
-&lt;h1 id=&#34;bougainvillea-country-lodge&#34;&gt;Bougainvillea Country Lodge&lt;/h1&gt;
-&lt;p&gt;Stella Maris was fine - a place to sleep and eat while preparing for the trek - but nothing special. Bougainvillea was picturesque and full of amenities, just the kind of place you&amp;rsquo;d expect to stay for a relaxing vacation, or a spa day. Roomy cottages surrounded a lush central courtyard, full of a variety of exotic-looking plants, and a pool in the middle. It was an oasis of green in an otherwise brown world. Many of the buildings we had seen, including both previous hotels, looked like they were built by amateurs, or updated and patched so much that nothing quite fit anymore. There&amp;rsquo;s nothing wrong with this, of course. It just meant that Bougainvillea stood out as well-built and well-maintained.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8543-lodge-pool.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Our pool and garden&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m not too into spa stuff, but there was a whole suite of services available; I think I was the only one of our group who didn&amp;rsquo;t get a massage that first day. Trying to schedule all seven of the massages as soon as possible was a challenge, watching them sort that out was amusing. I don&amp;rsquo;t recall what the other options were, but I&amp;rsquo;m sure Tommy does, he ditched the second day and probably ordered one of everything on the spa menu back at the lodge.&lt;/p&gt;
-&lt;p&gt;If the physical structures at the place stood out as more professionally built, the service stood out as&amp;hellip; a bit off, I suppose. It felt like the waitstaff had been trained on how to be attentive to guests in a way that westerners would appreciate, but they did it by watching an old film, and then practicing on mannequins. Early on, one guy started a conversation with me. He remembered my name from that, and throughout our stay, he would make a point of addressing me by name, for no reason. This might sound petty, but just imagine having your train of thought randomly interrupted with &amp;ldquo;Hi Alan! What&amp;rsquo;s up?&amp;rdquo; while you&amp;rsquo;re just hanging out, relaxing or eating dinner. I appreciated the effort, but the execution was lacking.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8546-lodge-drinks.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Just chillin&#39;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Dinner was very nice. I got a peek at the menu earlier in the day, tried to decide what to order. When we all sat down to eat, I realized it was essentially a prix fixe meal, but served in a way I&amp;rsquo;ve never seen before. They didn&amp;rsquo;t bring out plates for each of us, and they didn&amp;rsquo;t have a buffet set up. They did a weird hybrid of those two styles, where servers would each bring out two big serving bowls of two different dishes, one in each hand, and hold them precariously near your plate (but not over it) while you serve yourself. It seemed inefficient and messy, but it didn&amp;rsquo;t stop me from enjoying the food.&lt;/p&gt;
-&lt;p&gt;I remembered our airport shuttle driver telling us about something called banana beer. I asked his favorite type, and he gave me a brand - mgembe or something - so I asked for this at the hotel bar. The bartender just laughed, and said they didn&amp;rsquo;t have it there. &amp;ldquo;You have to go out there&amp;rdquo; he said, and nodded toward the main road. Not suitable for my delicate western palate, I guess. I ordered the cocktail special instead, and it was basically juice.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8076-lodge-dinner.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Dinner at our reserved table&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;When I woke up early after the first night, I found some reason to wander around outside. Coming back into the room, I noticed bees, all over the door, and the wall next to it. Some of them clumped together, none of them moving. Sleeping, I guess? It freaked me out a little, but I got over it, and they didn&amp;rsquo;t flinch when I opened the door.&lt;/p&gt;
-&lt;p&gt;The second evening, as we sat in the courtyard, one of the waitstaff came over and started talking to Tommy, making a blunt segue into a request for money. I don&amp;rsquo;t recall the details, something about tuition I&amp;rsquo;m sure. I watched for a full five minutes or so as Tommy listened, and turned him down more politely. He offered to do some research and connect the guy with some local charities, and then struggled to figure out how to successfully trade contact info. I got the impression that the guy was breaking a rule, and maybe he trusted Tommy to be cool about it, after spending some time together earlier in the day. Again, a bit odd, but gotta respect the hustle.&lt;/p&gt;
-&lt;h1 id=&#34;day-2-ngorongoro-crater&#34;&gt;Day 2: Ngorongoro crater&lt;/h1&gt;
-&lt;!-- TODO slide show anchor link --&gt;
-&lt;p&gt;&lt;video autoplay muted loop width=700px src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/crater-flyover.webm&#34;&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;100 square miles, 2000 ft deep&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/2018-09-29-15.16.04-crater-pano.jpg&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;The whole crater from the rim&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Ngorongoro was clearly the best park of the three we visited. The animals and the action of course, but also the geology. Ngorongoro crater is &amp;ldquo;the world&amp;rsquo;s largest inactive, intact and unfilled volcanic caldera&amp;rdquo;, and I had no idea I&amp;rsquo;d be able to appreciate that so well in person. Approaching the crater puts you on a ridge for a few minutes, until you reach the turn down into the crater. This part isn&amp;rsquo;t so different from driving down a switchback-heavy mountain road, especially in the morning with fog limiting the visibility. At the crater floor, we got under the fog, and started to see the walls.&lt;/p&gt;
-&lt;p&gt;&lt;video autoplay muted loop width=700px src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/MVI_8535-crater.webm&#34;&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Driving around on the crater rim&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Later on, winding around the roads inside the crater, we would approach the walls, which look like vertical walls of forest. The crater isn&amp;rsquo;t quite a circle, but near enough that the walls were visible in every direction when the fog lifted. Ascending to the rim when we left was my favorite part of the drive. With the fog gone, and slowly climbing, I could see the entire crater for a few minutes. I stood up in the convertible roof the whole way up. It&amp;rsquo;s incredible, and I&amp;rsquo;ll never capture in words what it feels like to see this thing in person.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8505-crater-rim-270.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;My best photo showing the rim wall&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;There were so many animals inside the crater, thousands of individuals among dozens of herds and flocks, of many different species. Some of them put on a great show for us. I figured the most interesting thing we might see would be a lion kill. We didn&amp;rsquo;t quite get that, but we saw the next act. We spotted lions a few times throughout the day, and then Donna pointed out what she thought was a tiger at first glance. A second later, it came into clearer view, and we all realized it was a zebra - black stripes against bloodied white - dead on the ground. Two lions sat around nearby, watching their kill. Just one in a long line of trucks, we stopped to watch, luckily with a great vantage point.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8320-lions-zebra.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Guarding the kill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;We couldn&amp;rsquo;t have driven through the line of stopped trucks if we&amp;rsquo;d wanted, which was fine because there was &lt;em&gt;drama&lt;/em&gt; unfolding right in front of us. We stayed there for an hour, and I took about 200 photos of this sequence of events. The lions are the only hunters common to the crater floor (I think), so presumably it&amp;rsquo;s their kill. They&amp;rsquo;re not the only meat-eaters though, so they need to protect it. The most obvious contender was the pair of jackals, sneakily spiraling in on the carcass. Actually, it turned out to be a pack of at least six jackals, which we realized as we slowly spotted them watching from a distance. On the other side of the road was a hyena, not as quick as the jackals, taking his time. And there are always eyes watching from high above.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8337-lion-chasing.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Big guy has had enough&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The stage is set, the players are ready, what&amp;rsquo;s next? First, the jackals test the lions&#39; limits, darting in and looking for an opening. One of them makes it to the zebra, and starts picking at it, face down for only a fraction of a second before bringing his eyes back up to scan for the threat of the lions - seems like a tough way to eat. He gets a few bites like this before the female gets annoyed and charges the carcass. The jackal backs off a bit, the male lion comes in, and the jackal gets back to circling. They test each other a bit more, and the pack strategy wins as one jackal manages to rip off a big hunk of meat and runs away with it. Two jackals start pulling on this piece from opposite sides, fighting each other or working together to shred it, and then they pull back, satisfied with their prize.&lt;/p&gt;
-&lt;p&gt;&lt;video autoplay muted loop width=700px src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/MVI_8280-jackal.webm&#34;&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;How to eat like a scavenger&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The lions start picking at the carcass, and the male does something stupid, prompting the female to roar and paw at him, like she&amp;rsquo;s telling him to get out of her way so she can eat in peace. Meanwhile, the jackals&#39; chunk of meat is drawing attention, as it&amp;rsquo;s now far enough from the lions to be safe for a vulture to swoop down and steal a piece for herself. The hyena is still biding his time. Three levels of scavenging strategy, demonstrated in live action for us.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8355-jackals-fighting.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Working together?&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I had to switch to present tense there, it just feels better for the play-by-play of the circle of life. After all this, the male lion headed for the section of road we were parked on. Not that the action was far away, but he came straight to the road, and laid down on the ground right in between two trucks, five feet away from those passengers, and maybe 50 feet from us. He hung out there for a bit, trapping both of those adjacent trucks, and everyone got some closeup photos.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8427-lion-road.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Why did the lion cross the road?&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;This episode was clearly the high point of the safari. We also saw dozens of other animals, but a list of species feels underwhelming, comparatively. For the sake of posterity, here goes: we saw other lion packs laying around, antelope, buffalo, zebra, elephants, wildebeest, a handful of hyenas, hippos with little white birds on them, guineas, kori bustard, lots more birds I can&amp;rsquo;t identify. We were surprised to see flamingos, and surprised to see just how big an ostrich is. Also surprised at just how ugly a warthog is. We did see one rhino, a gray lump laying on the ground so far away that I basically had to take Joseph&amp;rsquo;s word for it.&lt;/p&gt;
-&lt;p&gt;We saw lots of elephants, at least a few every day. It was at Ngorongoro that I got some close-up views of them eating acacia trees. That name sounded familiar, but I didn&amp;rsquo;t know anything about the trees. The branches are covered in 2-3 inch thorns, and elephants just wrap their trunk around a branch, rip it off, and stuff it in their mouth, thorns and all. This was astounding to me. Later, I learned there&amp;rsquo;s an interesting &lt;a href=&#34;https://indianapublicmedia.org/amomentofscience/acacias-ants-elephants/&#34;target=&#34;_blank&#34;&gt;relationship&lt;/a&gt; between acacia, ants that live in the thorns, and herbivores that eat the trees.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8615-elephant-acacia.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Yummy thorns&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I think it was some time during day 2 that I started noticing Joseph&amp;rsquo;s behavior more. He drives, he spots animals, and he tells passengers about the environment and the animals, so he has plenty to do. But when he sees something good and stops for it, he has an unpredictable amount of time to kill, waiting until the passengers are bored. Joseph would just sit still in the driver&amp;rsquo;s seat, staring down at his lap. I couldn&amp;rsquo;t help feeling bad for him. On the other hand, it seems like a decent gig, at least for a driving job. As for us tourists, the main downside was the continued exposure to dust, making breathing less and less fun as the day went on.&lt;/p&gt;
-&lt;h1 id=&#34;day-3-tarangire&#34;&gt;Day 3: Tarangire&lt;/h1&gt;
-&lt;!-- TODO slide show anchor link --&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/tarangire-track.png&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Our track from day 3, not quite as interesting as the crater&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;On day 3, we brought all our bags when we left in the morning, as we&amp;rsquo;d be driving straight to the airport afterward. We said goodbye to the lodge, and headed for Tarangire National park, an expanse of river valley and swamp. As fun as the safari was, sitting in the jeep all day was a bit tiring, so I followed Andrea&amp;rsquo;s lead and got a red bull from the park cafe, to drink later in the day. The order we visited these parks was perfect; the shortest and least interesting (but not bad!) first, sort of a half rest day, the best and longest second, and the middle one last. It&amp;rsquo;s too bad the logistics prevented Tommy from sitting out on day 1 instead of day 2, but he still got to see some good stuff.&lt;/p&gt;
-&lt;p&gt;Again, we had some mystery time to kill, so I wandered around, and found some decorative animal bones, including an enormous elephant skull. Even knowing how big the animal is, it&amp;rsquo;s still astounding to see one of their skulls up close. We also realized that it&amp;rsquo;s the shape of the skull that makes an elephant look like it&amp;rsquo;s smiling all the time. I found some sort of observation tower, built around a baobab tree, and climbed to the top. There was nothing but scrubland as far I could see. Compared to the previous parks, it was a very dry place. Have I mentioned how dusty it was? It was super dusty at Tarangire. By day 3, my breathing was seriously starting to suffer; I ended up wearing a full face cover most of the day.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8576-watering-hole.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Watering hole&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;After a few minutes, we got started. Of course, the novelty of seeing these enormous herds of animals was beginning to wear off, so day 3 wasn&amp;rsquo;t quite as exciting. There were still some stand-out moments, of course. There were more watering-hole scenes in this park, often with a few different types of animals sharing the space peacefully. The most interesting flora of the day was the baobab tree, huge and alien. We would pass one every minute or so, and Joseph told us to watch for leopards; we didn&amp;rsquo;t spot any. He told us that baobabs produce large, weird fruits, which we also didn&amp;rsquo;t see. I liked Joseph&amp;rsquo;s accent; &amp;ldquo;baobab&amp;rdquo; and &amp;ldquo;leopard&amp;rdquo; stood out particularly. I would have said &amp;ldquo;bay-oh-bab&amp;rdquo;, he says &amp;ldquo;bao-bab&amp;rdquo;, pronouncing &amp;ldquo;bao&amp;rdquo; like the Chinese bun. His pronunciation of leopard isn&amp;rsquo;t easily representible in English, but it&amp;rsquo;s sort of like &amp;ldquo;Lay-yoh-pard&amp;rdquo;, but the first two syllables are combined into one.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_2004-donna-elephant.jpg&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Donna got this perfect photo of a mother and baby&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;We saw huge termite mounds all over the park, and later we noticed these odd, tall black rods, that looked like carefully constructed towers of dirt. When we asked Joseph and he told us they were just bare palm tree trunks, we felt silly. Circling around on some tangled roads, we spotted a group of 20-30 elephants. Trying to find a way to get closer, we drove down a bank toward some stagnant water. As we got closer, a plague of tsetse flies descended upon us. We had met some of these guys previously, and knew they were more annoying than dangerous. We&amp;rsquo;d all been bitten a few times, it&amp;rsquo;s a small, sharp pain, it goes away quickly, and it&amp;rsquo;s ultimately less irritating than a mosquito bite. When there are hundreds of them flying around inside your vehicle, it&amp;rsquo;s a different story. We all freaked out, I covered my face, Andrea and Donna started waving their hands around like crazy. Joseph did NOT intend for this to happen, so he turned around and sped out of there as quickly as possible.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8731-monkey-thief.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Monkey thief&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Lunch was entertaining, thanks to the monkeys that have learned from exposure to tourists. As we walked into our little lunch spot, we saw monkeys everywhere, and within minutes we heard someone yelling after they realized one had stolen some part of their lunch. The seating area was surrounded by monkeys, and they&amp;rsquo;re much quicker and more motivated than lazy humans. Fortunately we made it through lunch mostly unmolested.&lt;/p&gt;
-&lt;p&gt;As I headed back to the truck, I spotted a mother monkey with a baby clinging to her belly, and started taking photos. We slowly approached each other, until we were just a few feet apart. She stood still and posed for me, while I took a couple dozen photos. I had time to frame the shot, change lenses, fiddle with settings. This may have been the best excuse I&amp;rsquo;ve ever had to use the articulated screen on my camera, holding it out at arms length for an even closer shot, without getting unnervingly close to a wild animal in Africa. I doubt she would have done anything mean, it looked like she was working for tips.&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/IMG_8767-monkey-mama-270.JPG&#34;
-        alt/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Monkey mama&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Most of our time driving in the parks, our two trucks were loosely together, sometimes right next to us, sometimes way out of sight. This, I think, gave our drivers more chances to spot animals. This worked well on day 3, when the other truck found some lazy lions laying around under a tree, and called us over to see them. If we thought this was sort of mild compared to the previous day, the next sight more than made up for it. We stopped close to a dead wildebeest - maybe a kill, maybe not - surrounded by vultures. The smell was powerful and bad. Another example of the variety of animals we saw together, there were some ducks loitering nearby, and a marabou stork (AKA the &lt;a href=&#34;https://en.wikipedia.org/wiki/Marabou_stork&#34;target=&#34;_blank&#34;&gt;undertaker bird&lt;/a&gt;) stalked behind the scene like the boss checking how the work was coming along. After watching for a few minutes, the ladies&#39; delicate senses of smell compelled us to move along.&lt;/p&gt;
-&lt;p&gt;&lt;video autoplay muted loop width=700px src=&#34;https://alanbernstein.net/blog-static/img
-/tanzania/MVI_8818-driving.webm&#34;&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Cruisin&#39;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../tanzania-2#problems&#34;&gt;Back to part 2 - the hike&lt;/a&gt;&lt;/p&gt;
-&lt;!--
-https://commons.wikimedia.org/wiki/Category:Birds_of_Lake_Manyara_National_Park
-http://www.exoticbirding.com/tanzania/manyara/checklist.html
-- golden crested crane
-- stork
-- ibis
-- antelope is a &#34;wastebasket taxon&#34;
---&gt;</description>
     </item>
     
   </channel>
