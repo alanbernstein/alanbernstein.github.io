@@ -25,6 +25,97 @@
     <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">Micro-optimist</span></a></span>
         <span class="header right-side"></span></div><div class="site slogan"><span class="title">Overthinking the small things</span></div></section><section id="content"><div class="article-container"><section class="article header">
     <h1 class="article title">Ruler and compass construction of a heart</h1><p class="article date">2023-02-14</p></section><article class="article markdown-body"><p>My take on the parametric heart shape concept.</p>
+<div class="menubar" id="menubar" style="margin: 0 auto;">
+<span class="slider-container">
+<span class="slider-name">A</span>:
+<span id="a-label" class="slider-label">90</span>
+<input type="range" min="0" max="180" step="1" value="90" class="slider" id="a-slider" onchange="updateSliders('a');" autocomplete='off'>
+</span>
+<span class="slider-container">
+<span class="slider-name">B</span>:
+<span id="b-label" class="slider-label">90</span>
+<input type="range" min="0" max="180" step="1" value="90" class="slider" id="b-slider" onchange="updateSliders('b');" autocomplete='off'>
+</span>
+</div>
+<p><canvas id="c1" width=640 height=480></canvas></p>
+<script id="canvas-animator" type="text/javascript">
+      // TODO: move this to js folder
+     let canvas = document.getElementById("c1")
+     let ctx = canvas.getContext("2d")
+
+     menubar = document.getElementById("menubar");
+     slider_a = document.getElementById("a-slider");
+     slider_b = document.getElementById("b-slider");
+     label_a = document.getElementById("a-label");
+     label_b = document.getElementById("b-label");
+
+     function updateSliders(idx) {
+	   label_a.innerHTML = slider_a.value;
+       label_b.innerHTML = slider_b.value;
+     }
+
+     function draw()
+     {
+         canvas.width = canvas.width;
+         //canvas.height = window.innerHeight - 100;
+	       menubar.style.width = canvas.width;
+
+         tx = canvas.width/2;
+         ty = canvas.height-100;
+         s = canvas.width/2;
+         
+         console.log(slider_a.value, slider_b.value);
+
+         path = heart(parseInt(slider_a.value), parseInt(slider_b.value));
+
+         ctx.beginPath();
+         ctx.moveTo(tx+s*path[0][0], ty-s*path[0][1]);
+	       for(n=1; n<path.length; n++) {
+             ctx.lineTo(tx+s*path[n][0], ty-s*path[n][1]);
+	       }
+               ctx.fillStyle = '#ff0000';
+
+         ctx.fill();
+         ctx.closePath();
+
+         requestAnimationFrame(draw)
+     }
+
+     function heart(a, b) {
+         a2 = a*Math.PI/180/2;
+         b2 = b*Math.PI/180/2;
+
+         r = 1/((Math.cos(b2)+Math.cos(a2))/Math.tan(a2) + Math.sin(b2)+Math.sin(a2))
+         w = r * (Math.cos(b2) + Math.cos(a2))
+         h = w / Math.tan(a2)
+         cx = w - r*Math.cos(a2)
+         cy = h + r*Math.sin(a2)
+
+	       path = [[0, 0]];
+
+	       N = 32;
+	       t = -a2;
+	       dt = (Math.PI-b2+a2)/N;
+	       for(n=0; n<N; n++) {
+	           t += dt;
+	           path.push([cx + r*Math.cos(t), cy + r*Math.sin(t)])
+	       }
+
+	       t = b2;
+	       dt = (Math.PI+a2-b2)/N;
+	       for(n=0; n<N; n++) {
+	           t += dt;
+	           path.push([-cx + r*Math.cos(t), cy + r*Math.sin(t)])
+	       }
+
+	       path.push([0, 0]);
+	       return path;
+     }
+
+     draw();
+
+
+</script>
 <!-- more -->
 <p>There are many ways to use math to define a <a href="https://mathworld.wolfram.com/HeartCurve.html"target="_blank">heart curve</a>. The second one on that page, a sextic algebraic equation, $$(x^2+y^2-1)^3 + x^2y^3 = 0$$, strikes me as one of the most elegant, but it&rsquo;s not very&hellip; adjustable.</p>
 <p>Rather than using a single polar/parametric/algebraic equation to define a curve, I imagined a different approach: a heart shape composed only of two circular arcs and two straight line segments. I designed something like this years ago. It sort of worked, but the parameterization was awkward, in terms of both interpretability, and anchoring points for comparisons.</p>
@@ -37,7 +128,7 @@
 /heart-curve/heart-notebook-23.jpg"
         alt/></p>
 <p>Next, I had to take those input parameters, and transform them into some intermediate variables that I could use to draw the arcs and line segments. For geometry problems like this, I tend to define geometric objects in algebraic terms (but not geometric algebraic! though that is on my todo list). Then, I&rsquo;ll find analytic solutions for key parameters, like circle centers or line endpoints. So this is what my first few attempts looked like.</p>
-<p>Long story short, those ideas led to overly-complicated formulas. I could have brute forced my way through them, but that felt wrong. I considered using a <a href="https://en.wikipedia.org/wiki/Digital_differential_analyzer_%28graphics_algorithm%29"target="_blank">DDA algorithm</a>, but that seemed worse. Instead, I tried a couple of geometric construction approaches.</p>
+<p>Long story short, those ideas led to overly-complicated formulas. I could have brute forced my way through them, but that felt wrong. I considered using a <a href="https://en.wikipedia.org/wiki/Digital_differential_analyzer_%28graphics_algorithm%29"target="_blank">DDA algorithm</a>, but that seemed worse. Instead, I tried a couple of <a href="https://en.wikipedia.org/wiki/Straightedge_and_compass_construction"target="_blank">geometric construction</a> approaches.</p>
 <p><img  src="https://alanbernstein.net/blog-static/img
 /heart-curve/heart-notebook-1.jpg"
         alt/></p>
@@ -101,7 +192,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">P2</span> <span class="o">=</span> <span class="n">L3</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">L4</span><span class="p">)</span>                  <span class="c1"># circle center</span>
 </span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">P2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">P2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># circle radius</span>
 </span></span><span class="line"><span class="cl">    <span class="n">L5</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">p1</span><span class="o">=</span><span class="n">P2</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>      <span class="c1"># lower radius line</span>
-</span></span><span class="line"><span class="cl">    <span class="n">P3</span> <span class="o">=</span> <span class="n">P5</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">P1</span><span class="p">)</span>                  <span class="c1"># bottom circle tangent point</span>
+</span></span><span class="line"><span class="cl">    <span class="n">P3</span> <span class="o">=</span> <span class="n">L5</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">P1</span><span class="p">)</span>                  <span class="c1"># bottom circle tangent point</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># arc paths</span>
 </span></span><span class="line"><span class="cl">    <span class="n">phi0</span> <span class="o">=</span> <span class="n">a</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
@@ -120,13 +211,13 @@
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">path</span>
 </span></span></code></pre></div><p>A few notes:</p>
 <ul>
-<li><code>Line</code> is doing most of the work here, but the <code>intersect</code> method is quite simple.</li>
+<li><a href="https://github.com/alanbernstein/geometry/blob/master/line.py"target="_blank"><code>Line</code></a> is doing most of the work here, but the <code>intersect</code> method is quite simple.</li>
 <li>I like to use complex numbers to draw shapes. It is a concise way to define 2D points and curves, including circular arcs, which are just complex exponentials with offset and scale. <code>Line</code> just uses numpy arrays, so translating those to complex numbers is a tiny bit awkward.</li>
 <li>This excludes the alpha=beta case, but that&rsquo;s simpler.</li>
 <li>I love descriptive variable names in code. Just not in this case.</li>
 </ul>
 <h2 id="some-parameter-variations">Some parameter variations</h2>
-<p>What&rsquo;s the point of all this? No point. I just like creating math problems to solve.</p>
+<p>What&rsquo;s the point of all this? No point. I just like creating toy math problems to solve.</p>
 <p>It does allow me to make fine adjustments to the shape, and overlay them for comparison.</p>
 <p>Same angle on top and bottom vertices:
 <img  src="https://alanbernstein.net/blog-static/img
@@ -141,6 +232,44 @@
 /heart-curve/heart-demo3.png"
         alt/></p>
 <p>Having perfect knowledge of these &ldquo;control points&rdquo; also enables other things, like defining a constant-distance offset curve. This was the original motivation for revisiting this idea, for cutting out heart outlines on a laser cutter. This solution may have been overkill, oops.</p>
+<h2 id="addendum">Addendum</h2>
+<p>Shortly after writing the above, I figured out the analytical solution. This is cool, because it means I can implement it in any other language with just trig functions. I&rsquo;m still glad I figured out the geometric construction, because it&rsquo;s quite elegant, the diagrams are pretty, the process is more accessible, and it was a great opportunity to try out using <a href="https://betterexplained.com/articles/colorized-math-equations/"target="_blank">color</a> to enhance a math explanation.</p>
+<p>Anyway, it turns out I can just do this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">analytical_heart</span><span class="p">(</span><span class="n">alpha_degrees</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">beta_degrees</span><span class="o">=</span><span class="mi">84</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a2</span> <span class="o">=</span> <span class="n">alpha_degrees</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b2</span> <span class="o">=</span> <span class="n">beta_degrees</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a2</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a2</span><span class="p">))</span>  <span class="c1"># radius</span>
+</span></span><span class="line"><span class="cl">    <span class="n">w</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span> <span class="o">=</span> <span class="n">w</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cr</span> <span class="o">=</span> <span class="n">w</span><span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a2</span><span class="p">))</span>   <span class="c1"># center of right circle</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cl</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>                             <span class="c1"># center of left circle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ar</span> <span class="o">=</span> <span class="n">cr</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">a2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">-</span><span class="n">b2</span><span class="p">,</span> <span class="mi">32</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">al</span> <span class="o">=</span> <span class="n">cl</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">b2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">+</span><span class="n">a2</span><span class="p">,</span> <span class="mi">32</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ar</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">al</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">path</span>
+</span></span></code></pre></div><p>This even seems to work for the $$\alpha = \beta$$ case without branching.</p>
+<p>I got this by figuring out a simple system of three equations to solve:</p>
+<ul>
+<li>$$1 = h + r (\sin(\alpha/2) + \sin(\beta/2))$$</li>
+<li>$$w = r (\cos(\alpha/2) + \cos(\beta/2))$$</li>
+<li>$$ w = \tan(\alpha/2)$$</li>
+</ul>
+<p>Need to include the diagram, but in short:</p>
+<ul>
+<li>diagram consists of three axis-aligned right triangles with all known angles (plus two more non-axis-aligned)</li>
+<li>r is the circle radius</li>
+<li>(w, h) is the coordinates of the bottom endpoint of the right circle</li>
+<li>this is just a linear system with trig functions in the constants, easy to solve</li>
+</ul>
+<!-- TODO: include the diagram -->
 </article><section class="article labels"><a class="tag" href=/tags/math/>math</a><a class="tag" href=/tags/geometry/>geometry</a><a class="tag" href=/tags/graphics/>graphics</a><a class="tag" href=/tags/python/>python</a></section>
 </div>
 <div class="article bottom"><section class="article navigation"><p><a class="link" href="/posts/hypercorrection/"><span class="iconfont icon-article"></span>Hypercorrection</a></p></section></div></section><section id="footer"><div class="footer-wrap">
